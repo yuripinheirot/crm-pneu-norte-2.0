@@ -53,7 +53,7 @@
     <Compile Include="presentation\forms\main\Main.form.Designer.cs">
       <DependentUpon>Main.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="model\protocols\NewAnswer.protocol.cs" />
+    <Compile Include="domain\model\Answer.model.cs" />
     <Compile Include="presentation\forms\main\Methods.utils.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSale.form.cs">
       <SubType>Form</SubType>
@@ -75,7 +75,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="model\usecases\IAddCrm.usecase.cs" />
+    <Compile Include="domain\usecases\IAddCrm.usecase.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

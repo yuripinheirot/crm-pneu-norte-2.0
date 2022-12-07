@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace project.model.protocols
+namespace project.domain.model
 {
-    internal class NewAnswer
+    internal class Answer
     {
         public int id { get; set; }
         public int idQuestion { get; set; }

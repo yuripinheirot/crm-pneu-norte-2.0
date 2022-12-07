@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using project.model.protocols;
+using project.domain.model;
 
-namespace project.model.usecases
+namespace project.domain.usecases
 {
 	interface IAddCrm
 	{
-		void addCrm(NewAnswer[] answers);		
+		void addCrm(Answer[] answers);		
 	}
 }
