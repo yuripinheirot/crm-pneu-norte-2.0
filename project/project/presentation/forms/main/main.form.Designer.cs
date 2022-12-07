@@ -36,7 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxSaleType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.gpxServicos = new System.Windows.Forms.GroupBox();
+            this.gpxOrder = new System.Windows.Forms.GroupBox();
             this.btnSrvPergunta5 = new System.Windows.Forms.Button();
             this.btnSrvPergunta4 = new System.Windows.Forms.Button();
             this.btnSrvPergunta3 = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@
             this.analiseDeRespostasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbxCompany = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.gpxServicos.SuspendLayout();
+            this.gpxOrder.SuspendLayout();
             this.gpxSales.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,7 @@
             this.btnSair.TabIndex = 11;
             this.btnSair.Text = "Sai&r";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnSalvar
             // 
@@ -160,31 +161,31 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Tipo pedido";
             // 
-            // gpxServicos
+            // gpxOrder
             // 
-            this.gpxServicos.Controls.Add(this.btnSrvPergunta5);
-            this.gpxServicos.Controls.Add(this.btnSrvPergunta4);
-            this.gpxServicos.Controls.Add(this.btnSrvPergunta3);
-            this.gpxServicos.Controls.Add(this.btnSrvPergunta2);
-            this.gpxServicos.Controls.Add(this.btnSrvPergunta1);
-            this.gpxServicos.Controls.Add(this.cbxSrvPergunta4);
-            this.gpxServicos.Controls.Add(this.cbxSrvPergunta2);
-            this.gpxServicos.Controls.Add(this.cbxSrvPergunta5);
-            this.gpxServicos.Controls.Add(this.cbxSrvPergunta3);
-            this.gpxServicos.Controls.Add(this.cbxSrvPergunta1);
-            this.gpxServicos.Controls.Add(this.label7);
-            this.gpxServicos.Controls.Add(this.label5);
-            this.gpxServicos.Controls.Add(this.label8);
-            this.gpxServicos.Controls.Add(this.label6);
-            this.gpxServicos.Controls.Add(this.label4);
-            this.gpxServicos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpxServicos.Location = new System.Drawing.Point(16, 82);
-            this.gpxServicos.Name = "gpxServicos";
-            this.gpxServicos.Size = new System.Drawing.Size(813, 431);
-            this.gpxServicos.TabIndex = 4;
-            this.gpxServicos.TabStop = false;
-            this.gpxServicos.Text = "Perguntas";
-            this.gpxServicos.Visible = false;
+            this.gpxOrder.Controls.Add(this.btnSrvPergunta5);
+            this.gpxOrder.Controls.Add(this.btnSrvPergunta4);
+            this.gpxOrder.Controls.Add(this.btnSrvPergunta3);
+            this.gpxOrder.Controls.Add(this.btnSrvPergunta2);
+            this.gpxOrder.Controls.Add(this.btnSrvPergunta1);
+            this.gpxOrder.Controls.Add(this.cbxSrvPergunta4);
+            this.gpxOrder.Controls.Add(this.cbxSrvPergunta2);
+            this.gpxOrder.Controls.Add(this.cbxSrvPergunta5);
+            this.gpxOrder.Controls.Add(this.cbxSrvPergunta3);
+            this.gpxOrder.Controls.Add(this.cbxSrvPergunta1);
+            this.gpxOrder.Controls.Add(this.label7);
+            this.gpxOrder.Controls.Add(this.label5);
+            this.gpxOrder.Controls.Add(this.label8);
+            this.gpxOrder.Controls.Add(this.label6);
+            this.gpxOrder.Controls.Add(this.label4);
+            this.gpxOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpxOrder.Location = new System.Drawing.Point(16, 82);
+            this.gpxOrder.Name = "gpxOrder";
+            this.gpxOrder.Size = new System.Drawing.Size(813, 431);
+            this.gpxOrder.TabIndex = 4;
+            this.gpxOrder.TabStop = false;
+            this.gpxOrder.Text = "Perguntas";
+            this.gpxOrder.Visible = false;
             // 
             // btnSrvPergunta5
             // 
@@ -383,7 +384,6 @@
             this.gpxSales.TabIndex = 4;
             this.gpxSales.TabStop = false;
             this.gpxSales.Text = "Perguntas";
-            this.gpxSales.Visible = false;
             // 
             // btnObservationSaleQuestion9
             // 
@@ -606,7 +606,7 @@
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gpxSales);
-            this.Controls.Add(this.gpxServicos);
+            this.Controls.Add(this.gpxOrder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -615,8 +615,8 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CRM PneuNorte";
-            this.gpxServicos.ResumeLayout(false);
-            this.gpxServicos.PerformLayout();
+            this.gpxOrder.ResumeLayout(false);
+            this.gpxOrder.PerformLayout();
             this.gpxSales.ResumeLayout(false);
             this.gpxSales.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -633,7 +633,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox gpxServicos;
+        private System.Windows.Forms.GroupBox gpxOrder;
         private System.Windows.Forms.ComboBox cbxSrvPergunta4;
         private System.Windows.Forms.ComboBox cbxSrvPergunta2;
         private System.Windows.Forms.ComboBox cbxSrvPergunta5;

@@ -11,14 +11,9 @@ using project.model.usecases;
 
 namespace project.presentation.forms.main
 {
-    public partial class Main : Form, IAddCrm
+    public partial class Main : Form
     {
-        public void AddCrm()
-        {
-
-        }
-
-
+        Methods methods = new Methods();
         public Main()
         {
             InitializeComponent();
@@ -26,7 +21,12 @@ namespace project.presentation.forms.main
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            
+            methods.getAnswersFromForm();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
