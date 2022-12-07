@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="business\AddCrm\AddCrm.business.cs" />
     <Compile Include="presentation\forms\main\Main.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +54,7 @@
       <DependentUpon>Main.form.cs</DependentUpon>
     </Compile>
     <Compile Include="model\protocols\NewAnswer.protocol.cs" />
+    <Compile Include="presentation\forms\main\Methods.utils.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSale.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,7 +90,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="business\NewFolder1\" />
     <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
