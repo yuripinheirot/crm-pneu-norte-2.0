@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using project.model.usecases;
 
 namespace project.presentation.forms.main
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
-        Methods methods = new Methods();
-        public Main()
+        MainFunctions methods = new MainFunctions();
+        public MainForm()
         {
             InitializeComponent();
         }

@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="business\AddCrm\AddCrm.business.cs" />
+    <Compile Include="domain\model\Question.model.cs" />
+    <Compile Include="specs\mocks\Questions.mock.cs" />
     <Compile Include="presentation\forms\main\Main.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,7 +56,7 @@
       <DependentUpon>Main.form.cs</DependentUpon>
     </Compile>
     <Compile Include="domain\model\Answer.model.cs" />
-    <Compile Include="presentation\forms\main\Methods.utils.cs" />
+    <Compile Include="presentation\forms\main\MainFunctions.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSale.form.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using project.model.protocols;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.main
 {
-    internal class Methods
+    internal class MainFunctions
     {
         GroupBox getActiveGroupBox()
         {
