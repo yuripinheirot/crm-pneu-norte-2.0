@@ -7,7 +7,7 @@ using project.domain.model;
 
 namespace project.specs.mocks
 {
-    internal class Questions
+    internal class QuestionsMock
     {
         public static List<Question> questionsMock = new List<Question>()
         {
