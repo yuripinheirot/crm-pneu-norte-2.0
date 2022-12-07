@@ -9,6 +9,6 @@ namespace project.model.usecases
 {
 	interface IAddCrm
 	{
-		void AddCrm(NewAnswer[] answers);		
+		void addCrm(NewAnswer[] answers);		
 	}
 }
