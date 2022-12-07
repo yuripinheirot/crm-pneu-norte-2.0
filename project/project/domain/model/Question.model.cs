@@ -12,5 +12,6 @@ namespace project.domain.model
         public string description { get; set; }
         public string module { get; set; }
         public bool active { get; set; } = true;
+        public List<string> answers { get; set; }
     }
 }
