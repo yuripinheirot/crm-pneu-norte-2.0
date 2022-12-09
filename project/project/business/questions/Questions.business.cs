@@ -20,7 +20,7 @@ namespace project.business.questions
 
         public List<Question> getQuestions()
         {
-            return questionsData.getQuestions();
+            return questionsData.getQuestions().Where(q => q.active == true).ToList();
         }
     }
 }
