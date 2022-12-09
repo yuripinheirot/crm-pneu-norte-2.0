@@ -22,6 +22,11 @@ namespace project.presentation.forms.main
 
         }
 
+        void addBlankAnswerOnQuestion(Question question)
+        {
+            question.answers.Insert(0, "");
+        }
+
         public void renderQuestions(FlowLayoutPanel flpQuestions, string module)
         {
 
@@ -30,8 +35,7 @@ namespace project.presentation.forms.main
 
             foreach (var question in questions)
             {
-                //add blank answer
-                question.answers.Insert(0, "");
+                addBlankAnswerOnQuestion(question);
 
                 Control[] questionRendered = new Control[2]
                 {
@@ -39,7 +43,7 @@ namespace project.presentation.forms.main
                         {
                             Text = question.description,
                             Width = widthControls,
-                            Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)))
+                            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0)
                         },
                         new ComboBox()
                         {
