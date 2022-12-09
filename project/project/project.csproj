@@ -61,7 +61,7 @@
       <DependentUpon>Main.form.cs</DependentUpon>
     </Compile>
     <Compile Include="domain\model\Answer.model.cs" />
-    <Compile Include="presentation\forms\main\MainFunctions.cs" />
+    <Compile Include="presentation\forms\main\Main.functions.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSale.form.cs">
       <SubType>Form</SubType>
     </Compile>
