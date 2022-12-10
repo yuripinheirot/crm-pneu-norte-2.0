@@ -1,4 +1,5 @@
 ﻿using project.domain.model;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,27 +14,33 @@ namespace project.presentation.forms.main
 {
     public partial class MainForm : Form
     {
-        MainFunctions functions = new MainFunctions();
-
+        readonly MainFunctions functions = new MainFunctions();
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                functions.saveCrm(this);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            string module = tbxModule.Text == "SERVIÇOS" ? "order" : "sale";
-            functions.renderQuestions(flpQuestions, module);
+            string module = TbxModule.Text == "SERVIÇOS" ? "order" : "sale";
+            functions.renderQuestions(FlpQuestions, module);
         }
     }
 }

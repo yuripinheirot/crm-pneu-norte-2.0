@@ -46,13 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="business\AddCrm\AddCrm.business.cs" />
+    <Compile Include="business\answers\Answers.business.cs" />
     <Compile Include="business\questions\Questions.business.cs" />
+    <Compile Include="data\answers\Answers.data.cs" />
     <Compile Include="data\questions\Questions.data.cs" />
     <Compile Include="domain\model\Question.model.cs" />
     <Compile Include="domain\usecases\IGetQuestions.usecase.cs" />
+    <Compile Include="infra\db\mock\repository\Answers.repository.cs" />
     <Compile Include="infra\db\mock\repository\Questions.repository.cs" />
+    <Compile Include="main\factories\answers\Answers.factory.cs" />
     <Compile Include="main\factories\questions\Questions.factory.cs" />
+    <Compile Include="presentation\protocols\AnswerDTO.protocol.cs" />
+    <Compile Include="specs\mocks\Answers.mock.cs" />
     <Compile Include="specs\mocks\Questions.mock.cs" />
     <Compile Include="presentation\forms\main\Main.form.cs">
       <SubType>Form</SubType>

@@ -12,7 +12,7 @@ namespace project.main.factories.questions
             new QuestionsData(questionsRepository);
 
 
-        public static QuestionsBusiness questions =
+        public static QuestionsBusiness handle =
             new QuestionsBusiness(questionsData);
     }
 }

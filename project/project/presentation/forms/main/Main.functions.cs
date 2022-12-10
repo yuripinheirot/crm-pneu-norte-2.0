@@ -1,5 +1,7 @@
 ﻿using project.domain.model;
+using project.main.factories.answers;
 using project.main.factories.questions;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,17 +14,44 @@ namespace project.presentation.forms.main
 {
     internal class MainFunctions
     {
-        public List<Question> getQuestions(string module)
+        private List<AnswerDTO> getAnswersFromForm(MainForm mainForm)
         {
-            return QuestionsFactory.questions.getQuestions().Where(p => p.module == module).ToList();
+            List<AnswerDTO> answersList = new List<AnswerDTO>();
+            FlowLayoutPanel flpQuestions = (FlowLayoutPanel)mainForm.Controls.Find("flpQuestions", true)[0];
+            string idSale = mainForm.TbxIdSale.Text;
+            string idClient = mainForm.TbxClientName.Text.Split('-')[0];
+            string status = "pending";
+            string idCompany = mainForm.TbxCompany.Text;
+
+
+            foreach (Control control in flpQuestions.Controls)
+            {
+                if (control is ComboBox)
+                {
+                    ComboBox currentComboBox = (ComboBox)control;
+                    answersList.Add(new AnswerDTO()
+                    {
+                        idQuestion = currentComboBox.Tag.ToString(),
+                        idSale = idSale,
+                        idClient = idClient,
+                        status = status,
+                        answer = currentComboBox.SelectedValue.ToString(),
+                        observation = "",
+                        updatedAt = DateTime.Now,
+                        idCompany = idCompany
+                    });
+                }
+            }
+
+            return answersList;
         }
 
-        public void getAnswersFromForm()
+        private List<Question> getQuestions(string module)
         {
-
+            return QuestionsFactory.handle.getQuestions().Where(p => p.module == module).ToList();
         }
 
-        void addBlankAnswerOnQuestion(Question question)
+        private void addBlankAnswerOnQuestion(Question question)
         {
             question.answers.Insert(0, "");
         }
@@ -59,6 +88,12 @@ namespace project.presentation.forms.main
                 flpQuestions.Controls.AddRange(questionRendered);
             }
 
+        }
+
+        public void saveCrm(MainForm mainForm)
+        {
+            var answers = getAnswersFromForm(mainForm);
+            AnswersFactory.handle.addCrm(answers);
         }
     }
 }

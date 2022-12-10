@@ -13,7 +13,7 @@ namespace project.specs.mocks
         {
             new Question()
             {
-                id = 1,
+                id = "1",
                 active = true,
                 description = "First question order",
                 module = "order",
@@ -21,7 +21,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 2,
+                id = "2",
                 active = false,
                 description = "Second question order deactivated",
                 module = "order",
@@ -29,7 +29,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 3,
+                id = "3",
                 active = true,
                 description = "Third question order",
                 module = "order",
@@ -37,7 +37,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 4,
+                id = "4",
                 active = true,
                 description = "Fourth question order",
                 module = "order",
@@ -45,7 +45,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 5,
+                id = "5",
                 active = true,
                 description = "Fifth question order",
                 module = "order",
@@ -53,7 +53,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 6,
+                id = "6",
                 active = false,
                 description = "6 question sale deactivated",
                 module = "sale",
@@ -61,7 +61,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 7,
+                id = "7",
                 active = true,
                 description = "7 question sale",
                 module = "sale",
@@ -69,7 +69,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 8,
+                id = "8",
                 active = true,
                 description = "8 question sale",
                 module = "sale",
@@ -77,7 +77,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 9,
+                id = "9",
                 active = true,
                 description = "9 question sale",
                 module = "sale",
@@ -85,7 +85,7 @@ namespace project.specs.mocks
             },
             new Question()
             {
-                id = 10,
+                id = "10",
                 active = true,
                 description = "10 question sale",
                 module = "sale",

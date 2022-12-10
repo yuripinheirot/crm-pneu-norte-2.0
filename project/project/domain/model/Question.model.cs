@@ -8,7 +8,7 @@ namespace project.domain.model
 {
     internal class Question
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string description { get; set; }
         public string module { get; set; }
         public bool active { get; set; } = true;
