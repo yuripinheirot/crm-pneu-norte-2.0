@@ -15,6 +15,10 @@ namespace project.presentation.forms.searchSale
     {
         SearchSalesFunctions functions = new SearchSalesFunctions();
         MainForm mainForm;
+        void updateDataSource()
+        {
+            functions.renderSalesOnGrid(dgvPedidos, tbxDti.Value, tbxDtf.Value);
+        }
         public SearchSale(MainForm mainForm)
         {
             InitializeComponent();
@@ -23,7 +27,12 @@ namespace project.presentation.forms.searchSale
 
         private void SearchSale_Load(object sender, EventArgs e)
         {
-            functions.renderSalesOnGrid(dgvPedidos, new DateTime(2000, 1, 1), new DateTime(2050, 1, 1));
+            updateDataSource();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            updateDataSource();
         }
     }
 }

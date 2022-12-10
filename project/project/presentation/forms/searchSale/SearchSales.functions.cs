@@ -14,7 +14,7 @@ namespace project.presentation.forms.searchSale
 {
     internal class SearchSalesFunctions
     {
-        private List<Sale> translateSaleType(List<Sale> sales)
+        private List<Sale> translatePosSale(List<Sale> sales)
         {
             sales.ForEach(s =>
            {
@@ -33,7 +33,7 @@ namespace project.presentation.forms.searchSale
         public void renderSalesOnGrid(DataGridView grid, DateTime initial, DateTime final)
         {
             var sales = SalesFactory.handle.getSales(initial, final);
-            var salesWithTranslations = translateSaleType(sales);
+            var salesWithTranslations = translatePosSale(sales);
             var dataSource = GridUtils.ToDataTable(salesWithTranslations);
 
             grid.DataSource = dataSource;
