@@ -2,7 +2,7 @@
 using project.data.questions;
 using project.infra.db.mock.repository;
 
-namespace project.main.factories.questions
+namespace project.main.factories
 {
     internal class QuestionsFactory
     {

@@ -83,6 +83,7 @@
             this.TbxIdSale.TabIndex = 0;
             this.TbxIdSale.Text = "0000300";
             this.TbxIdSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TbxIdSale.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbxIdSale_KeyDown);
             // 
             // label1
             // 
@@ -149,7 +150,6 @@
             this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1121, 28);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";

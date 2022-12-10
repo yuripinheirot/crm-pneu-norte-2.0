@@ -1,4 +1,5 @@
 ﻿using project.domain.model;
+using project.presentation.forms.searchSale;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,15 @@ namespace project.presentation.forms.main
         {
             string module = TbxModule.Text == "SERVIÇOS" ? "order" : "sale";
             functions.renderQuestions(FlpQuestions, module);
+        }
+
+        private void TbxIdSale_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                SearchSale searchSale = new SearchSale(this);
+                searchSale.ShowDialog();
+            }
         }
     }
 }

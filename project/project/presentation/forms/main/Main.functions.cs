@@ -1,6 +1,5 @@
 ﻿using project.domain.model;
-using project.main.factories.answers;
-using project.main.factories.questions;
+using project.main.factories;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;

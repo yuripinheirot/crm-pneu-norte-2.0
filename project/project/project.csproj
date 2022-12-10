@@ -48,15 +48,23 @@
   <ItemGroup>
     <Compile Include="business\answers\Answers.business.cs" />
     <Compile Include="business\questions\Questions.business.cs" />
+    <Compile Include="business\sales\Sales.business.cs" />
     <Compile Include="data\answers\Answers.data.cs" />
     <Compile Include="data\questions\Questions.data.cs" />
+    <Compile Include="data\sales\Sales.data.cs" />
     <Compile Include="domain\model\Question.model.cs" />
+    <Compile Include="domain\model\Sale.model.cs" />
     <Compile Include="domain\usecases\IGetQuestions.usecase.cs" />
+    <Compile Include="domain\usecases\IGetSales.cs" />
     <Compile Include="infra\db\mock\repository\Answers.repository.cs" />
     <Compile Include="infra\db\mock\repository\Questions.repository.cs" />
-    <Compile Include="main\factories\answers\Answers.factory.cs" />
-    <Compile Include="main\factories\questions\Questions.factory.cs" />
+    <Compile Include="infra\db\mock\repository\Sales.repository.cs" />
+    <Compile Include="main\factories\Sales.factory.cs" />
+    <Compile Include="main\factories\Answers.factory.cs" />
+    <Compile Include="main\factories\Questions.factory.cs" />
+    <Compile Include="presentation\forms\searchSale\SearchSales.functions.cs" />
     <Compile Include="presentation\protocols\AnswerDTO.protocol.cs" />
+    <Compile Include="presentation\utils\Grid.utils.cs" />
     <Compile Include="specs\mocks\Answers.mock.cs" />
     <Compile Include="specs\mocks\Questions.mock.cs" />
     <Compile Include="presentation\forms\main\Main.form.cs">
@@ -75,8 +83,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="specs\mocks\Sales.mock.cs" />
     <EmbeddedResource Include="presentation\forms\main\Main.form.resx">
       <DependentUpon>Main.form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="presentation\forms\searchSale\SearchSale.form.resx">
+      <DependentUpon>SearchSale.form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
