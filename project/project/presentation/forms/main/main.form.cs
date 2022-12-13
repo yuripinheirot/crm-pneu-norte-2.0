@@ -48,7 +48,7 @@ namespace project.presentation.forms.main
         {
             if (e.KeyCode == Keys.F2)
             {
-                SearchSale searchSale = new SearchSale(this);
+                SearchSaleForm searchSale = new SearchSaleForm(this);
                 searchSale.ShowDialog();
             }
         }

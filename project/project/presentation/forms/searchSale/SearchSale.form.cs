@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace project.presentation.forms.searchSale
 {
-    public partial class SearchSale : Form
+    public partial class SearchSaleForm : Form
     {
         SearchSalesFunctions functions = new SearchSalesFunctions();
         MainForm mainForm;
@@ -26,7 +26,7 @@ namespace project.presentation.forms.searchSale
                 MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public SearchSale(MainForm mainForm)
+        public SearchSaleForm(MainForm mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;

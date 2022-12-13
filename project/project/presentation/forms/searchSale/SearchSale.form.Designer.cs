@@ -1,6 +1,6 @@
 ﻿namespace project.presentation.forms.searchSale
 {
-    partial class SearchSale
+    partial class SearchSaleForm
     {
         /// <summary>
         /// Required designer variable.
