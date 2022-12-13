@@ -11,9 +11,19 @@ namespace project.infra.db.mock.repository
 {
     internal class SalesRepository : IGetSales
     {
-        public List<Sale> getSales(DateTime initial, DateTime final)
+        public List<Sale> getSales(DateTime initial, DateTime final, string module)
         {
-            return SalesMock.sales.Where(sale => sale.dateSale >= initial && sale.dateSale <= final).ToList();
+            return SalesMock.sales.Where(sale =>
+            {
+                if (string.IsNullOrWhiteSpace(module))
+                {
+                    return sale.dateSale >= initial && sale.dateSale <= final;
+                }
+                else
+                {
+                    return sale.posSale == module;
+                }
+            }).ToList();
         }
     }
 }

@@ -17,12 +17,12 @@ namespace project.data.sales
         {
             this.salesRepository = salesRepository;
         }
-        public List<Sale> getSales(DateTime initial, DateTime final)
+        public List<Sale> getSales(DateTime initial, DateTime final, string module)
         {
             DateTime initialZero = new DateTime(initial.Year, initial.Month, initial.Day, 0, 0, 0);
             DateTime finalZero = new DateTime(final.Year, final.Month, final.Day, 0, 0, 0);
 
-            return salesRepository.getSales(initialZero, finalZero);
+            return salesRepository.getSales(initialZero, finalZero, module);
         }
     }
 }

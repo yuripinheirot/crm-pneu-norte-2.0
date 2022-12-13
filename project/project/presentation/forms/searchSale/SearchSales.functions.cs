@@ -14,27 +14,25 @@ namespace project.presentation.forms.searchSale
 {
     internal class SearchSalesFunctions
     {
-        private List<Sale> translatePosSale(List<Sale> sales)
+        private void convertNamePosSale(DataTable sales)
         {
-            sales.ForEach(s =>
-           {
-               if (s.posSale == "order")
-               {
-                   s.posSale = "SERVIÇO";
-               }
-               else
-               {
-                   s.posSale = "VENDAS";
-               }
-           });
-
-            return sales;
+            foreach (DataRow row in sales.Rows)
+            {
+                if (row["posSale"].ToString() == "order")
+                {
+                    row["posSale"] = "SERVIÇOS";
+                }
+                else if (row["posSale"].ToString() == "sale")
+                {
+                    row["posSale"] = "VENDAS";
+                }
+            }
         }
-        public void renderSalesOnGrid(DataGridView grid, DateTime initial, DateTime final)
+        public void renderSalesOnGrid(DataGridView grid, DateTime initial, DateTime final, string module)
         {
-            var sales = SalesFactory.handle.getSales(initial, final);
-            var salesWithTranslations = translatePosSale(sales);
-            var dataSource = GridUtils.ToDataTable(salesWithTranslations);
+            var sales = SalesFactory.handle.getSales(initial, final, module);
+            var dataSource = GridUtils.ToDataTable(sales);
+            convertNamePosSale(dataSource);
 
             grid.DataSource = dataSource;
         }

@@ -16,9 +16,10 @@ namespace project.business.sales
         {
             this.salesData = salesData;
         }
-        public List<Sale> getSales(DateTime initial, DateTime final)
+        public List<Sale> getSales(DateTime initial, DateTime final, string module)
         {
-            return salesData.getSales(initial,final);
+            string moduleSerialized = String.IsNullOrWhiteSpace(module) ? "" : module == "VENDAS" ? "sale" : "order";
+            return salesData.getSales(initial, final, moduleSerialized);
         }
     }
 }

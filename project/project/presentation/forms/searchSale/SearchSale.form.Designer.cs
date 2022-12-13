@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +40,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
+            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.liquidValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbxTypeCrm = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,13 +55,6 @@
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.tbxEmpresa = new System.Windows.Forms.TextBox();
-            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.liquidValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,10 +62,9 @@
             // 
             this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.Location = new System.Drawing.Point(1233, 533);
-            this.btnQuit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuit.Location = new System.Drawing.Point(925, 433);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(111, 37);
+            this.btnQuit.Size = new System.Drawing.Size(83, 30);
             this.btnQuit.TabIndex = 9;
             this.btnQuit.Text = "Sai&r";
             this.btnQuit.UseVisualStyleBackColor = true;
@@ -73,10 +72,9 @@
             // btnInsert
             // 
             this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(1115, 533);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInsert.Location = new System.Drawing.Point(836, 433);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(111, 37);
+            this.btnInsert.Size = new System.Drawing.Size(83, 30);
             this.btnInsert.TabIndex = 8;
             this.btnInsert.Text = "&Inserir";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -85,32 +83,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(89, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 25);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cliente";
             // 
             // tbxClientId
             // 
             this.tbxClientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxClientId.Location = new System.Drawing.Point(123, 38);
-            this.tbxClientId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxClientId.Location = new System.Drawing.Point(92, 31);
             this.tbxClientId.MaxLength = 5;
             this.tbxClientId.Name = "tbxClientId";
-            this.tbxClientId.Size = new System.Drawing.Size(84, 30);
+            this.tbxClientId.Size = new System.Drawing.Size(64, 26);
             this.tbxClientId.TabIndex = 1;
             this.tbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbxClientName
             // 
             this.tbxClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxClientName.Location = new System.Drawing.Point(216, 38);
-            this.tbxClientName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxClientName.Location = new System.Drawing.Point(162, 31);
             this.tbxClientName.Name = "tbxClientName";
             this.tbxClientName.ReadOnly = true;
-            this.tbxClientName.Size = new System.Drawing.Size(419, 30);
+            this.tbxClientName.Size = new System.Drawing.Size(315, 26);
             this.tbxClientName.TabIndex = 2;
             this.tbxClientName.TabStop = false;
             // 
@@ -118,10 +113,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(639, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(479, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 25);
+            this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Data inicial";
             // 
@@ -129,10 +123,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(804, 11);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(603, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 25);
+            this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Data final";
             // 
@@ -142,14 +135,14 @@
             this.dgvPedidos.AllowUserToDeleteRows = false;
             this.dgvPedidos.AllowUserToOrderColumns = true;
             this.dgvPedidos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idCompany,
@@ -159,115 +152,23 @@
             this.dateSale,
             this.clientCpfCnpj,
             this.posSale});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvPedidos.Location = new System.Drawing.Point(21, 103);
-            this.dgvPedidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPedidos.Location = new System.Drawing.Point(16, 84);
             this.dgvPedidos.MultiSelect = false;
             this.dgvPedidos.Name = "dgvPedidos";
             this.dgvPedidos.ReadOnly = true;
             this.dgvPedidos.RowHeadersWidth = 24;
             this.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidos.Size = new System.Drawing.Size(1323, 400);
+            this.dgvPedidos.Size = new System.Drawing.Size(992, 325);
             this.dgvPedidos.StandardTab = true;
             this.dgvPedidos.TabIndex = 7;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(1212, 38);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(132, 34);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "&Pesquisar";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // cbxTypeCrm
-            // 
-            this.cbxTypeCrm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTypeCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTypeCrm.FormattingEnabled = true;
-            this.cbxTypeCrm.Items.AddRange(new object[] {
-            " ",
-            "SERVIÇOS",
-            "VENDAS"});
-            this.cbxTypeCrm.Location = new System.Drawing.Point(975, 38);
-            this.cbxTypeCrm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cbxTypeCrm.Name = "cbxTypeCrm";
-            this.cbxTypeCrm.Size = new System.Drawing.Size(228, 30);
-            this.cbxTypeCrm.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(969, 11);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Pós venda";
-            // 
-            // lblNumeroPedidos
-            // 
-            this.lblNumeroPedidos.AutoSize = true;
-            this.lblNumeroPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroPedidos.Location = new System.Drawing.Point(16, 75);
-            this.lblNumeroPedidos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNumeroPedidos.Name = "lblNumeroPedidos";
-            this.lblNumeroPedidos.Size = new System.Drawing.Size(218, 25);
-            this.lblNumeroPedidos.TabIndex = 1;
-            this.lblNumeroPedidos.Text = "Pedidos encontrados: 0";
-            // 
-            // tbxDti
-            // 
-            this.tbxDti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDti.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tbxDti.Location = new System.Drawing.Point(644, 38);
-            this.tbxDti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbxDti.Name = "tbxDti";
-            this.tbxDti.Size = new System.Drawing.Size(156, 30);
-            this.tbxDti.TabIndex = 3;
-            // 
-            // tbxDtf
-            // 
-            this.tbxDtf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDtf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tbxDtf.Location = new System.Drawing.Point(809, 38);
-            this.tbxDtf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbxDtf.Name = "tbxDtf";
-            this.tbxDtf.Size = new System.Drawing.Size(156, 30);
-            this.tbxDtf.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 10);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Empresa";
-            // 
-            // tbxEmpresa
-            // 
-            this.tbxEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmpresa.Location = new System.Drawing.Point(21, 38);
-            this.tbxEmpresa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbxEmpresa.MaxLength = 2;
-            this.tbxEmpresa.Name = "tbxEmpresa";
-            this.tbxEmpresa.Size = new System.Drawing.Size(92, 30);
-            this.tbxEmpresa.TabIndex = 0;
-            this.tbxEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // idCompany
             // 
@@ -290,8 +191,8 @@
             // client
             // 
             this.client.DataPropertyName = "client";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.client.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.client.DefaultCellStyle = dataGridViewCellStyle2;
             this.client.HeaderText = "CLIENTE";
             this.client.MinimumWidth = 6;
             this.client.Name = "client";
@@ -301,8 +202,8 @@
             // liquidValue
             // 
             this.liquidValue.DataPropertyName = "liquidValue";
-            dataGridViewCellStyle7.Format = "N2";
-            this.liquidValue.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Format = "N2";
+            this.liquidValue.DefaultCellStyle = dataGridViewCellStyle3;
             this.liquidValue.HeaderText = "VALOR LIQ.";
             this.liquidValue.MinimumWidth = 6;
             this.liquidValue.Name = "liquidValue";
@@ -336,14 +237,99 @@
             this.posSale.ReadOnly = true;
             this.posSale.Width = 125;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(909, 31);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(99, 28);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "&Pesquisar";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cbxTypeCrm
+            // 
+            this.cbxTypeCrm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTypeCrm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTypeCrm.FormattingEnabled = true;
+            this.cbxTypeCrm.Items.AddRange(new object[] {
+            " ",
+            "SERVIÇOS",
+            "VENDAS"});
+            this.cbxTypeCrm.Location = new System.Drawing.Point(731, 31);
+            this.cbxTypeCrm.Name = "cbxTypeCrm";
+            this.cbxTypeCrm.Size = new System.Drawing.Size(172, 26);
+            this.cbxTypeCrm.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(727, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Pós venda";
+            // 
+            // lblNumeroPedidos
+            // 
+            this.lblNumeroPedidos.AutoSize = true;
+            this.lblNumeroPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroPedidos.Location = new System.Drawing.Point(12, 61);
+            this.lblNumeroPedidos.Name = "lblNumeroPedidos";
+            this.lblNumeroPedidos.Size = new System.Drawing.Size(176, 20);
+            this.lblNumeroPedidos.TabIndex = 1;
+            this.lblNumeroPedidos.Text = "Pedidos encontrados: 0";
+            // 
+            // tbxDti
+            // 
+            this.tbxDti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDti.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.tbxDti.Location = new System.Drawing.Point(483, 31);
+            this.tbxDti.Name = "tbxDti";
+            this.tbxDti.Size = new System.Drawing.Size(118, 26);
+            this.tbxDti.TabIndex = 3;
+            this.tbxDti.Value = new System.DateTime(2020, 12, 12, 19, 16, 0, 0);
+            // 
+            // tbxDtf
+            // 
+            this.tbxDtf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxDtf.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.tbxDtf.Location = new System.Drawing.Point(607, 31);
+            this.tbxDtf.Name = "tbxDtf";
+            this.tbxDtf.Size = new System.Drawing.Size(118, 26);
+            this.tbxDtf.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Empresa";
+            // 
+            // tbxEmpresa
+            // 
+            this.tbxEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmpresa.Location = new System.Drawing.Point(16, 31);
+            this.tbxEmpresa.MaxLength = 2;
+            this.tbxEmpresa.Name = "tbxEmpresa";
+            this.tbxEmpresa.Size = new System.Drawing.Size(70, 26);
+            this.tbxEmpresa.TabIndex = 0;
+            this.tbxEmpresa.Text = "02";
+            this.tbxEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // SearchSale
             // 
             this.AcceptButton = this.btnInsert;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.CancelButton = this.btnQuit;
-            this.ClientSize = new System.Drawing.Size(1373, 583);
+            this.ClientSize = new System.Drawing.Size(1030, 474);
             this.Controls.Add(this.tbxDtf);
             this.Controls.Add(this.tbxDti);
             this.Controls.Add(this.cbxTypeCrm);
@@ -362,7 +348,6 @@
             this.Controls.Add(this.btnQuit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "SearchSale";
             this.ShowIcon = false;

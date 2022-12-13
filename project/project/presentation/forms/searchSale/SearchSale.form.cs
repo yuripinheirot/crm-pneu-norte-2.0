@@ -15,9 +15,16 @@ namespace project.presentation.forms.searchSale
     {
         SearchSalesFunctions functions = new SearchSalesFunctions();
         MainForm mainForm;
-        void updateDataSource()
+        void loadGrid()
         {
-            functions.renderSalesOnGrid(dgvPedidos, tbxDti.Value, tbxDtf.Value);
+            try
+            {
+                functions.renderSalesOnGrid(dgvPedidos, tbxDti.Value, tbxDtf.Value, cbxTypeCrm.Text);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         public SearchSale(MainForm mainForm)
         {
@@ -27,12 +34,12 @@ namespace project.presentation.forms.searchSale
 
         private void SearchSale_Load(object sender, EventArgs e)
         {
-            updateDataSource();
+            loadGrid();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            updateDataSource();
+            loadGrid();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace project.domain.usecases
 {
     internal interface IGetSales
     {
-        List<Sale> getSales(DateTime initial, DateTime final);
+        List<Sale> getSales(DateTime initial, DateTime final, string module);
     }
 }
