@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.presentation.forms.searchSale;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace project.presentation.forms.searchClient
 {
     public partial class SearchClientForm : Form
     {
+        SearchSaleForm searchSaleForm;
         SearchClientFunctions functions = new SearchClientFunctions();
 
         void loadGrid()
@@ -25,9 +27,10 @@ namespace project.presentation.forms.searchClient
                 MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public SearchClientForm(searchSale.SearchSaleForm searchSaleForm)
+        public SearchClientForm(SearchSaleForm searchSaleForm)
         {
             InitializeComponent();
+            this.searchSaleForm = searchSaleForm;
         }
 
         private void SearchClientForm_Load(object sender, EventArgs e)
@@ -39,6 +42,17 @@ namespace project.presentation.forms.searchClient
         private void tbxValueFilter_TextChanged(object sender, EventArgs e)
         {
             loadGrid();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (dgvClients.RowCount > 0)
+            {
+                searchSaleForm.tbxClientId.Text = dgvClients.CurrentRow.Cells["id"].Value.ToString();
+                searchSaleForm.tbxClientName.Text = dgvClients.CurrentRow.Cells["name"].Value.ToString();
+
+                Close();
+            }
         }
     }
 }
