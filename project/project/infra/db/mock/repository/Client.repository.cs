@@ -10,8 +10,13 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class ClientDbMockRepository : IGetClients
+    internal class ClientDbMockRepository : IGetClients, IGetClient
     {
+        public ClientModel getClient(string id)
+        {
+            return ClientMock.clients.Where(client => client.id == id).FirstOrDefault();
+        }
+
         public List<ClientModel> getClients(string fieldFilter, string valueFilter)
         {
             return ClientMock.clients.Where(client => client.acessByProp(fieldFilter).ToString().Contains(valueFilter)).ToList();

@@ -36,5 +36,10 @@ namespace project.presentation.forms.searchSale
 
             grid.DataSource = dataSource;
         }
+
+        public ClientModel getClient(string id )
+        {
+            return ClientFactory.handle.getClient(id);
+        }
     }
 }

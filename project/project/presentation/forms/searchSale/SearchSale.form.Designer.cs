@@ -99,6 +99,7 @@
             this.tbxClientId.TabIndex = 1;
             this.tbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxClientId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxClientId_KeyDown);
+            this.tbxClientId.Leave += new System.EventHandler(this.tbxClientId_Leave);
             // 
             // tbxClientName
             // 

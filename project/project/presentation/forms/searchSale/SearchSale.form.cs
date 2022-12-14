@@ -51,5 +51,20 @@ namespace project.presentation.forms.searchSale
                 clientForm.ShowDialog();
             }
         }
+
+        private void tbxClientId_Leave(object sender, EventArgs e)
+        {
+            tbxClientId.Text = tbxClientId.Text.PadLeft(5, '0');
+            var client = functions.getClient(tbxClientId.Text);
+
+            if (client == null)
+            {
+                tbxClientId.Text = tbxClientName.Text = null;
+                MessageBox.Show("Cliente não encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            tbxClientName.Text = client.name;
+        }
     }
 }

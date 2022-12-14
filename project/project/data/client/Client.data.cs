@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace project.data.client
 {
-    internal class ClientData : IGetClients
+    internal class ClientData : IGetClients, IGetClient
     {
         ClientDbMockRepository clientRepository;
 
         public ClientData(ClientDbMockRepository clientRepository)
         {
             this.clientRepository = clientRepository;
+        }
+
+        public ClientModel getClient(string id)
+        {
+            return clientRepository.getClient(id);
         }
 
         public List<ClientModel> getClients(string fieldFilter, string valueFilter)
