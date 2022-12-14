@@ -57,6 +57,7 @@
     <Compile Include="domain\model\Client.model.cs" />
     <Compile Include="domain\model\Question.model.cs" />
     <Compile Include="domain\model\Sale.model.cs" />
+    <Compile Include="domain\usecases\IGetClient.cs" />
     <Compile Include="domain\usecases\IGetClients.cs" />
     <Compile Include="domain\usecases\IGetQuestions.usecase.cs" />
     <Compile Include="domain\usecases\IGetSales.cs" />

@@ -9,9 +9,9 @@ namespace project.specs.mocks
 {
     internal class SalesMock
     {
-        public static List<Sale> sales = new List<Sale>()
+        public static List<SaleModel> sales = new List<SaleModel>()
         {
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000300",
@@ -21,7 +21,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "order"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000301",
@@ -31,7 +31,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "order"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000302",
@@ -41,7 +41,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "order"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000303",
@@ -51,7 +51,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "order"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000304",
@@ -61,7 +61,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "sale"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000305",
@@ -71,7 +71,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "sale"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000306",
@@ -81,7 +81,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "sale"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000307",
@@ -91,7 +91,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "sale"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000308",
@@ -101,7 +101,7 @@ namespace project.specs.mocks
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "sale"
             },
-            new Sale()
+            new SaleModel()
             {
                 idCompany = "01",
                 idSale = "0000309",

@@ -19,14 +19,14 @@ namespace project.data.answers
             this.answersRepository = answersRepository;
         }
 
-        private List<Answer> convertAnswerDTOinAnswer(List<AnswerDTO> answersDTO)
+        private List<AnswerModel> convertAnswerDTOinAnswer(List<AnswerDTO> answersDTO)
         {
-            List<Answer> answers = new List<Answer>();
+            List<AnswerModel> answers = new List<AnswerModel>();
             Guid newId = Guid.NewGuid();
 
             foreach (AnswerDTO a in answersDTO)
             {
-                answers.Add(new Answer()
+                answers.Add(new AnswerModel()
                 {
                     id = newId.ToString(),
                     idQuestion = a.idQuestion,

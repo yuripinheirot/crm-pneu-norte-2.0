@@ -45,12 +45,12 @@ namespace project.presentation.forms.main
             return answersList;
         }
 
-        private List<Question> getQuestions(string module)
+        private List<QuestionModel> getQuestions(string module)
         {
             return QuestionsFactory.handle.getQuestions().Where(p => p.module == module).ToList();
         }
 
-        private void addBlankAnswerOnQuestion(Question question)
+        private void addBlankAnswerOnQuestion(QuestionModel question)
         {
             question.answers.Insert(0, "");
         }

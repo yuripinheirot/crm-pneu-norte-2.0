@@ -11,7 +11,7 @@ namespace project.infra.db.mock.repository
 {
     internal class QuestionsDbMockRepository : IGetQuestions
     {
-        public List<Question> getQuestions()
+        public List<QuestionModel> getQuestions()
         {
             return QuestionsMock.questionsMock;
         }

@@ -11,7 +11,7 @@ namespace project.infra.db.mock.repository
 {
     internal class SalesRepository : IGetSales
     {
-        public List<Sale> getSales(DateTime initial, DateTime final, string module)
+        public List<SaleModel> getSales(DateTime initial, DateTime final, string module)
         {
             return SalesMock.sales.Where(sale =>
             {

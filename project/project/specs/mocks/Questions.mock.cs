@@ -9,9 +9,9 @@ namespace project.specs.mocks
 {
     internal class QuestionsMock
     {
-        public static List<Question> questionsMock = new List<Question>()
+        public static List<QuestionModel> questionsMock = new List<QuestionModel>()
         {
-            new Question()
+            new QuestionModel()
             {
                 id = "1",
                 active = true,
@@ -19,7 +19,7 @@ namespace project.specs.mocks
                 module = "order",
                 answers = new List<string> { "1", "2", "3" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "2",
                 active = false,
@@ -27,7 +27,7 @@ namespace project.specs.mocks
                 module = "order",
                 answers = new List<string> { "a", "b", "c" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "3",
                 active = true,
@@ -35,7 +35,7 @@ namespace project.specs.mocks
                 module = "order",
                 answers = new List<string> { "yes", "no", "maybe" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "4",
                 active = true,
@@ -43,7 +43,7 @@ namespace project.specs.mocks
                 module = "order",
                 answers = new List<string> { "3", "4", "5" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "5",
                 active = true,
@@ -51,7 +51,7 @@ namespace project.specs.mocks
                 module = "order",
                 answers = new List<string> { "foo", "bar", "gzz" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "6",
                 active = false,
@@ -59,7 +59,7 @@ namespace project.specs.mocks
                 module = "sale",
                 answers = new List<string> { "chicken", "horse", "cow" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "7",
                 active = true,
@@ -67,7 +67,7 @@ namespace project.specs.mocks
                 module = "sale",
                 answers = new List<string> { "metallica", "iron maiden", "led zeppelin" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "8",
                 active = true,
@@ -75,7 +75,7 @@ namespace project.specs.mocks
                 module = "sale",
                 answers = new List<string> { "javascript", "java", "c#" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "9",
                 active = true,
@@ -83,7 +83,7 @@ namespace project.specs.mocks
                 module = "sale",
                 answers = new List<string> { "jazz", "rock", "funk" }
             },
-            new Question()
+            new QuestionModel()
             {
                 id = "10",
                 active = true,

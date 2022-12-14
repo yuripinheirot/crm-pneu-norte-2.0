@@ -9,6 +9,6 @@ namespace project.specs.mocks
 {
     internal class AnswersMock
     {
-        public static List<Answer> answers = new List<Answer>();
+        public static List<AnswerModel> answers = new List<AnswerModel>();
     }
 }

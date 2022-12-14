@@ -11,7 +11,7 @@ namespace project.infra.db.mock.repository
 {
     internal class AnswersRepository : IAddCrm
     {
-        public void addCrm(List<Answer> answers)
+        public void addCrm(List<AnswerModel> answers)
         {
             AnswersMock.answers.AddRange(answers);
         }

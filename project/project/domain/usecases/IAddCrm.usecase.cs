@@ -10,7 +10,7 @@ namespace project.domain.usecases
 {
 	interface IAddCrm
 	{
-		void addCrm(List<Answer> answers);		
+		void addCrm(List<AnswerModel> answers);		
 			
 	}	
 	interface IAddCrmDTO

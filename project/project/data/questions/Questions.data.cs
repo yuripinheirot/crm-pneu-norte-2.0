@@ -17,7 +17,7 @@ namespace project.data.questions
             this.questionRepository = questionRepository;
         }
 
-        public List<Question> getQuestions()
+        public List<QuestionModel> getQuestions()
         {
             return questionRepository.getQuestions();
         }

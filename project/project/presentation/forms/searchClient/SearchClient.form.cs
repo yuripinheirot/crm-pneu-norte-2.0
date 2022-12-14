@@ -54,5 +54,31 @@ namespace project.presentation.forms.searchClient
                 Close();
             }
         }
+
+        private void SearchClientForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (dgvClients.Focused == false)
+            {
+                try
+                {
+                    if (dgvClients.Focused == false)
+                    {
+                        if (e.KeyCode == Keys.Up)
+                        {
+                            int i = dgvClients.CurrentRow.Index - 1;
+                            dgvClients.CurrentCell = dgvClients.Rows[i].Cells[0];
+                        }
+                        else if (e.KeyCode == Keys.Down)
+                        {
+                            int i = dgvClients.CurrentRow.Index + 1;
+                            dgvClients.CurrentCell = dgvClients.Rows[i].Cells[0];
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
     }
 }

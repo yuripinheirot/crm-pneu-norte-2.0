@@ -18,7 +18,7 @@ namespace project.business.questions
         }
 
 
-        public List<Question> getQuestions()
+        public List<QuestionModel> getQuestions()
         {
             return questionsData.getQuestions().Where(q => q.active == true).ToList();
         }

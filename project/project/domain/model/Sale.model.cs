@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.domain.model
 {
-    internal class Sale
+    internal class SaleModel
     {
         public string idCompany { get; set; }
         public string idSale { get; set; }
