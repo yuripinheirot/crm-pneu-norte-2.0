@@ -17,19 +17,10 @@ namespace project.domain.model
 
         public object acessByProp(string propertyName)
         {
-            //get
-            //{
             Type myType = typeof(ClientModel);
             PropertyInfo myPropInfo = myType.GetProperty(propertyName);
-            return myPropInfo.GetValue(this, null);
-            //}
-            //set
-            //{
-            //    Type myType = typeof(ClientModel);
-            //    PropertyInfo myPropInfo = myType.GetProperty(propertyName);
-            //    myPropInfo.SetValue(this, value, null);
-            //}
 
+            return myPropInfo.GetValue(this, null);
         }
     }
 }
