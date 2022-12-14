@@ -1,4 +1,5 @@
 ﻿using project.presentation.forms.main;
+using project.presentation.forms.searchClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,15 @@ namespace project.presentation.forms.searchSale
         private void btnSearch_Click(object sender, EventArgs e)
         {
             loadGrid();
+        }
+
+        private void tbxClientId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                SearchClientForm clientForm = new SearchClientForm(this);
+                clientForm.ShowDialog();
+            }
         }
     }
 }

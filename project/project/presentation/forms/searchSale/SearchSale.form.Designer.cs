@@ -98,6 +98,7 @@
             this.tbxClientId.Size = new System.Drawing.Size(64, 26);
             this.tbxClientId.TabIndex = 1;
             this.tbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxClientId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxClientId_KeyDown);
             // 
             // tbxClientName
             // 
@@ -322,7 +323,7 @@
             this.tbxEmpresa.Text = "02";
             this.tbxEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // SearchSale
+            // SearchSaleForm
             // 
             this.AcceptButton = this.btnInsert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,7 +350,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "SearchSale";
+            this.Name = "SearchSaleForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
