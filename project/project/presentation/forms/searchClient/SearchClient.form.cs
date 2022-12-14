@@ -16,9 +16,9 @@ namespace project.presentation.forms.searchClient
 
         void loadGrid()
         {
-            functions.renderClientsOnGrid(dgvClients, cbxSearchBy.Text, tbxValueFilter.Text);
             try
             {
+                functions.renderClientsOnGrid(dgvClients, cbxSearchBy.Text, tbxValueFilter.Text);
             }
             catch (Exception error)
             {

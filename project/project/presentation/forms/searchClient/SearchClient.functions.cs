@@ -19,7 +19,7 @@ namespace project.presentation.forms.searchClient
                     return "name";
                 case "FANTASIA":
                     return "nameFantasy";
-                case "CPF / CNPJ":
+                case "CPF/CNPJ":
                     return "cpfCnpj";
                 case "FONE":
                     return "phone";
