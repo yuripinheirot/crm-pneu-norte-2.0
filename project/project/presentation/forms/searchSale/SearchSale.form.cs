@@ -30,7 +30,7 @@ namespace project.presentation.forms.searchSale
                     posSale = cbxTypeCrm.Text
                 };
 
-                functions.renderSalesOnGrid(dgvPedidos, filters);
+                functions.renderSalesOnGrid(dgvSales, filters);
             }
             catch (Exception error)
             {
@@ -81,12 +81,46 @@ namespace project.presentation.forms.searchSale
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            mainForm.TbxClientName.Text = dgvPedidos.CurrentRow.Cells["client"].Value.ToString();
-            mainForm.TbxCompany.Text = dgvPedidos.CurrentRow.Cells["idCompany"].Value.ToString();
-            mainForm.TbxModule.Text = dgvPedidos.CurrentRow.Cells["posSale"].Value.ToString();
-            mainForm.TbxIdSale.Text = dgvPedidos.CurrentRow.Cells["idSale"].Value.ToString();
+            mainForm.TbxClientName.Text = dgvSales.CurrentRow.Cells["client"].Value.ToString();
+            mainForm.TbxCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
+            mainForm.TbxModule.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
+            mainForm.TbxIdSale.Text = dgvSales.CurrentRow.Cells["idSale"].Value.ToString();
 
             Close();
+        }
+
+        private void dgvPedidos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnInsert_Click(sender, e);
+            }
+        }
+
+        private void SearchSaleForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (dgvSales.Focused == false || cbxTypeCrm.Focused == false)
+            {
+                try
+                {
+                    if (dgvSales.Focused == false)
+                    {
+                        if (e.KeyCode == Keys.Up)
+                        {
+                            int i = dgvSales.CurrentRow.Index - 1;
+                            dgvSales.CurrentCell = dgvSales.Rows[i].Cells[0];
+                        }
+                        else if (e.KeyCode == Keys.Down)
+                        {
+                            int i = dgvSales.CurrentRow.Index + 1;
+                            dgvSales.CurrentCell = dgvSales.Rows[i].Cells[0];
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            }
         }
     }
 }
