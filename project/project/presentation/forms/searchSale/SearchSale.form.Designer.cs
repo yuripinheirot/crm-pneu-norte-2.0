@@ -54,7 +54,7 @@
             this.tbxDti = new System.Windows.Forms.DateTimePicker();
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbxEmpresa = new System.Windows.Forms.TextBox();
+            this.tbxIdCompany = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -315,14 +315,14 @@
             // 
             // tbxEmpresa
             // 
-            this.tbxEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmpresa.Location = new System.Drawing.Point(16, 31);
-            this.tbxEmpresa.MaxLength = 2;
-            this.tbxEmpresa.Name = "tbxEmpresa";
-            this.tbxEmpresa.Size = new System.Drawing.Size(70, 26);
-            this.tbxEmpresa.TabIndex = 0;
-            this.tbxEmpresa.Text = "02";
-            this.tbxEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxIdCompany.Location = new System.Drawing.Point(16, 31);
+            this.tbxIdCompany.MaxLength = 2;
+            this.tbxIdCompany.Name = "tbxEmpresa";
+            this.tbxIdCompany.Size = new System.Drawing.Size(70, 26);
+            this.tbxIdCompany.TabIndex = 0;
+            this.tbxIdCompany.Text = "02";
+            this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SearchSaleForm
             // 
@@ -338,7 +338,7 @@
             this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.tbxClientName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbxEmpresa);
+            this.Controls.Add(this.tbxIdCompany);
             this.Controls.Add(this.tbxClientId);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
@@ -380,7 +380,7 @@
         private System.Windows.Forms.DateTimePicker tbxDti;
         private System.Windows.Forms.DateTimePicker tbxDtf;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox tbxEmpresa;
+        public System.Windows.Forms.TextBox tbxIdCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;

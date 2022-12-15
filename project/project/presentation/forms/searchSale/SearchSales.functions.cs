@@ -1,5 +1,6 @@
 ﻿using project.domain.model;
 using project.main.factories;
+using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
@@ -28,16 +29,16 @@ namespace project.presentation.forms.searchSale
                 }
             }
         }
-        public void renderSalesOnGrid(DataGridView grid, DateTime initial, DateTime final, string module)
+        public void renderSalesOnGrid(DataGridView grid, GetSalesDTO filters)
         {
-            var sales = SalesFactory.handle.getSales(initial, final, module);
+            var sales = SalesFactory.handle.getSales(filters);
             var dataSource = GridUtils.ToDataTable(sales);
             convertNamePosSale(dataSource);
 
             grid.DataSource = dataSource;
         }
 
-        public ClientModel getClient(string id )
+        public ClientModel getClient(string id)
         {
             return ClientFactory.handle.getClient(id);
         }

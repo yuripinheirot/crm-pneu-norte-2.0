@@ -1,5 +1,6 @@
 ﻿using project.domain.model;
 using project.domain.usecases;
+using project.presentation.protocols;
 using project.specs.mocks;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,15 @@ namespace project.infra.db.mock.repository
 {
     internal class SalesRepository : IGetSales
     {
-        public List<SaleModel> getSales(DateTime initial, DateTime final, string module)
+        public List<SaleModel> getSales(GetSalesDTO filters)
         {
             return SalesMock.sales.Where(sale =>
             {
-                if (string.IsNullOrWhiteSpace(module))
-                {
-                    return sale.dateSale >= initial && sale.dateSale <= final;
-                }
-                else
-                {
-                    return sale.posSale == module;
-                }
+                return (sale.dateSale >= filters.initialDate) &&
+                (sale.dateSale <= filters.finalDate) &&
+                (!string.IsNullOrWhiteSpace(filters.idClient) ? sale.client.Split('-')[0] == filters.idClient : true) &&
+                (!string.IsNullOrWhiteSpace(filters.posSale) ? sale.posSale == filters.posSale : true) &&
+                (!string.IsNullOrWhiteSpace(filters.idCompany) ? sale.idCompany == filters.idCompany : true);
             }).ToList();
         }
     }

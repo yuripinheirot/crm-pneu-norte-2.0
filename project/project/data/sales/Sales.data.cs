@@ -1,6 +1,7 @@
 ﻿using project.domain.model;
 using project.domain.usecases;
 using project.infra.db.mock.repository;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,12 @@ namespace project.data.sales
         {
             this.salesRepository = salesRepository;
         }
-        public List<SaleModel> getSales(DateTime initial, DateTime final, string module)
+        public List<SaleModel> getSales(GetSalesDTO filters)
         {
-            DateTime initialZero = new DateTime(initial.Year, initial.Month, initial.Day, 0, 0, 0);
-            DateTime finalZero = new DateTime(final.Year, final.Month, final.Day, 0, 0, 0);
+            filters.initialDate = new DateTime(filters.initialDate.Year, filters.initialDate.Month, filters.initialDate.Day, 0, 0, 0);
+            filters.finalDate = new DateTime(filters.finalDate.Year, filters.finalDate.Month, filters.finalDate.Day, 0, 0, 0);
 
-            return salesRepository.getSales(initialZero, finalZero, module);
+            return salesRepository.getSales(filters);
         }
     }
 }

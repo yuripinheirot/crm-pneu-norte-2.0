@@ -1,4 +1,5 @@
 ﻿using project.domain.model;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace project.domain.usecases
 {
     internal interface IGetSales
     {
-        List<SaleModel> getSales(DateTime initial, DateTime final, string module);
+        List<SaleModel> getSales(GetSalesDTO filters);
     }
 }

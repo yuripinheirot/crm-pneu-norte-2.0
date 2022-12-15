@@ -1,6 +1,7 @@
 ﻿using project.data.sales;
 using project.domain.model;
 using project.domain.usecases;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,10 @@ namespace project.business.sales
         {
             this.salesData = salesData;
         }
-        public List<SaleModel> getSales(DateTime initial, DateTime final, string module)
+        public List<SaleModel> getSales(GetSalesDTO filters)
         {
-            string moduleSerialized = String.IsNullOrWhiteSpace(module) ? "" : module == "VENDAS" ? "sale" : "order";
-            return salesData.getSales(initial, final, moduleSerialized);
+            filters.posSale = String.IsNullOrWhiteSpace(filters.posSale) ? "" : filters.posSale == "VENDAS" ? "sale" : "order";
+            return salesData.getSales(filters);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace project.specs.mocks
         {
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000300",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,1),
@@ -23,7 +23,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000301",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,1),
@@ -33,7 +33,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000302",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,2),
@@ -43,7 +43,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000303",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,2),
@@ -53,7 +53,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000304",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,3),
@@ -63,7 +63,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000305",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,5),
@@ -73,7 +73,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000306",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,6),
@@ -83,7 +83,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000307",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,11,1),
@@ -93,7 +93,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000308",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,9),
@@ -103,7 +103,7 @@ namespace project.specs.mocks
             },
             new SaleModel()
             {
-                idCompany = "01",
+                idCompany = "02",
                 idSale = "0000309",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,8),

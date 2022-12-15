@@ -1,5 +1,6 @@
 ﻿using project.presentation.forms.main;
 using project.presentation.forms.searchClient;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,16 @@ namespace project.presentation.forms.searchSale
         {
             try
             {
-                functions.renderSalesOnGrid(dgvPedidos, tbxDti.Value, tbxDtf.Value, cbxTypeCrm.Text);
+                GetSalesDTO filters = new GetSalesDTO()
+                {
+                    idCompany = tbxIdCompany.Text,
+                    idClient = tbxClientId.Text,
+                    initialDate = tbxDti.Value,
+                    finalDate = tbxDtf.Value,
+                    posSale = cbxTypeCrm.Text
+                };
+
+                functions.renderSalesOnGrid(dgvPedidos, filters);
             }
             catch (Exception error)
             {
