@@ -64,6 +64,8 @@ namespace project.presentation.forms.searchSale
 
         private void tbxClientId_Leave(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbxClientId.Text)) return;
+
             tbxClientId.Text = tbxClientId.Text.PadLeft(5, '0');
             var client = functions.getClient(tbxClientId.Text);
 
