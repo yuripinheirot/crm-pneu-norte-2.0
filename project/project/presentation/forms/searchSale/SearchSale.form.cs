@@ -78,5 +78,15 @@ namespace project.presentation.forms.searchSale
 
             tbxClientName.Text = client.name;
         }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            mainForm.TbxClientName.Text = dgvPedidos.CurrentRow.Cells["client"].Value.ToString();
+            mainForm.TbxCompany.Text = dgvPedidos.CurrentRow.Cells["idCompany"].Value.ToString();
+            mainForm.TbxModule.Text = dgvPedidos.CurrentRow.Cells["posSale"].Value.ToString();
+            mainForm.TbxIdSale.Text = dgvPedidos.CurrentRow.Cells["idSale"].Value.ToString();
+
+            Close();
+        }
     }
 }

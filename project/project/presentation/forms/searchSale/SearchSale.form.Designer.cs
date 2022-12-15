@@ -78,6 +78,7 @@
             this.btnInsert.TabIndex = 8;
             this.btnInsert.Text = "&Inserir";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // label1
             // 
@@ -313,12 +314,12 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Empresa";
             // 
-            // tbxEmpresa
+            // tbxIdCompany
             // 
             this.tbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxIdCompany.Location = new System.Drawing.Point(16, 31);
             this.tbxIdCompany.MaxLength = 2;
-            this.tbxIdCompany.Name = "tbxEmpresa";
+            this.tbxIdCompany.Name = "tbxIdCompany";
             this.tbxIdCompany.Size = new System.Drawing.Size(70, 26);
             this.tbxIdCompany.TabIndex = 0;
             this.tbxIdCompany.Text = "02";
