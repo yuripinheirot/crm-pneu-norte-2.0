@@ -69,6 +69,12 @@
     <Compile Include="main\factories\Sales.factory.cs" />
     <Compile Include="main\factories\Answers.factory.cs" />
     <Compile Include="main\factories\Questions.factory.cs" />
+    <Compile Include="presentation\forms\questionnaireAnalysis\questionnaireAnalysis.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\questionnaireAnalysis\questionnaireAnalysis.form.Designer.cs">
+      <DependentUpon>questionnaireAnalysis.form.cs</DependentUpon>
+    </Compile>
     <Compile Include="presentation\forms\searchClient\SearchClient.form.cs">
       <SubType>Form</SubType>
     </Compile>
