@@ -132,7 +132,7 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Data final";
             // 
-            // dgvPedidos
+            // dgvSales
             // 
             this.dgvSales.AllowUserToAddRows = false;
             this.dgvSales.AllowUserToDeleteRows = false;
@@ -165,7 +165,7 @@
             this.dgvSales.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvSales.Location = new System.Drawing.Point(16, 84);
             this.dgvSales.MultiSelect = false;
-            this.dgvSales.Name = "dgvPedidos";
+            this.dgvSales.Name = "dgvSales";
             this.dgvSales.ReadOnly = true;
             this.dgvSales.RowHeadersWidth = 24;
             this.dgvSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -288,13 +288,13 @@
             // 
             // tbxDti
             // 
+            this.tbxDti.Checked = false;
             this.tbxDti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDti.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tbxDti.Location = new System.Drawing.Point(483, 31);
             this.tbxDti.Name = "tbxDti";
             this.tbxDti.Size = new System.Drawing.Size(118, 26);
             this.tbxDti.TabIndex = 3;
-            this.tbxDti.Value = new System.DateTime(2020, 12, 12, 19, 16, 0, 0);
             // 
             // tbxDtf
             // 

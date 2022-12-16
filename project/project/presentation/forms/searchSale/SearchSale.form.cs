@@ -81,6 +81,7 @@ namespace project.presentation.forms.searchSale
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            if (dgvSales.RowCount == 0) return;
             mainForm.TbxClientName.Text = dgvSales.CurrentRow.Cells["client"].Value.ToString();
             mainForm.TbxCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
             mainForm.TbxModule.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
@@ -99,27 +100,24 @@ namespace project.presentation.forms.searchSale
 
         private void SearchSaleForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (dgvSales.Focused == false || cbxTypeCrm.Focused == false)
+            try
             {
-                try
+                if (dgvSales.RowCount > 0 && (dgvSales.Focused == false || cbxTypeCrm.Focused == false))
                 {
-                    if (dgvSales.Focused == false)
+                    if (e.KeyCode == Keys.Up)
                     {
-                        if (e.KeyCode == Keys.Up)
-                        {
-                            int i = dgvSales.CurrentRow.Index - 1;
-                            dgvSales.CurrentCell = dgvSales.Rows[i].Cells[0];
-                        }
-                        else if (e.KeyCode == Keys.Down)
-                        {
-                            int i = dgvSales.CurrentRow.Index + 1;
-                            dgvSales.CurrentCell = dgvSales.Rows[i].Cells[0];
-                        }
+                        int i = dgvSales.CurrentRow.Index - 1;
+                        dgvSales.CurrentCell = dgvSales.Rows[i].Cells[0];
+                    }
+                    else if (e.KeyCode == Keys.Down)
+                    {
+                        int i = dgvSales.CurrentRow.Index + 1;
+                        dgvSales.CurrentCell = dgvSales.Rows[i].Cells[0];
                     }
                 }
-                catch
-                {
-                }
+            }
+            catch
+            {
             }
         }
     }

@@ -52,11 +52,10 @@
             // 
             this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnClose.Location = new System.Drawing.Point(995, 654);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnClose.Location = new System.Drawing.Point(746, 531);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(111, 37);
-            this.BtnClose.TabIndex = 11;
+            this.BtnClose.Size = new System.Drawing.Size(83, 30);
+            this.BtnClose.TabIndex = 6;
             this.BtnClose.Text = "Sai&r";
             this.BtnClose.UseVisualStyleBackColor = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
@@ -64,11 +63,10 @@
             // BtnSave
             // 
             this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSave.Location = new System.Drawing.Point(876, 654);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnSave.Location = new System.Drawing.Point(657, 531);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(111, 37);
-            this.BtnSave.TabIndex = 10;
+            this.BtnSave.Size = new System.Drawing.Size(83, 30);
+            this.BtnSave.TabIndex = 5;
             this.BtnSave.Text = "&Salvar";
             this.BtnSave.UseVisualStyleBackColor = true;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
@@ -76,12 +74,10 @@
             // TbxIdSale
             // 
             this.TbxIdSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxIdSale.Location = new System.Drawing.Point(21, 62);
-            this.TbxIdSale.Margin = new System.Windows.Forms.Padding(4);
+            this.TbxIdSale.Location = new System.Drawing.Point(16, 50);
             this.TbxIdSale.Name = "TbxIdSale";
-            this.TbxIdSale.Size = new System.Drawing.Size(108, 30);
+            this.TbxIdSale.Size = new System.Drawing.Size(82, 26);
             this.TbxIdSale.TabIndex = 0;
-            this.TbxIdSale.Text = "0000300";
             this.TbxIdSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TbxIdSale.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbxIdSale_KeyDown);
             // 
@@ -89,56 +85,49 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 33);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 25);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Pedido";
             // 
             // TbxClientName
             // 
             this.TbxClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxClientName.Location = new System.Drawing.Point(256, 62);
-            this.TbxClientName.Margin = new System.Windows.Forms.Padding(4);
+            this.TbxClientName.Location = new System.Drawing.Point(192, 50);
             this.TbxClientName.Name = "TbxClientName";
             this.TbxClientName.ReadOnly = true;
-            this.TbxClientName.Size = new System.Drawing.Size(608, 30);
+            this.TbxClientName.Size = new System.Drawing.Size(457, 26);
             this.TbxClientName.TabIndex = 2;
             this.TbxClientName.TabStop = false;
-            this.TbxClientName.Text = "1-CLIENTE SEM NOME";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(251, 33);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(188, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 25);
+            this.label2.Size = new System.Drawing.Size(58, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Cliente";
             // 
             // TbxModule
             // 
             this.TbxModule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxModule.Location = new System.Drawing.Point(873, 62);
-            this.TbxModule.Margin = new System.Windows.Forms.Padding(4);
+            this.TbxModule.Location = new System.Drawing.Point(655, 50);
             this.TbxModule.Name = "TbxModule";
             this.TbxModule.ReadOnly = true;
-            this.TbxModule.Size = new System.Drawing.Size(231, 30);
+            this.TbxModule.Size = new System.Drawing.Size(174, 26);
             this.TbxModule.TabIndex = 3;
             this.TbxModule.TabStop = false;
-            this.TbxModule.Text = "SERVIÇOS";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(868, 33);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(651, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 25);
+            this.label3.Size = new System.Drawing.Size(91, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tipo pedido";
             // 
@@ -150,7 +139,8 @@
             this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1121, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(841, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,19 +150,19 @@
             this.perguntasNãoResolvidasToolStripMenuItem,
             this.cRMsNãoFeitosToolStripMenuItem});
             this.pesquisasToolStripMenuItem.Name = "pesquisasToolStripMenuItem";
-            this.pesquisasToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.pesquisasToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.pesquisasToolStripMenuItem.Text = "Pesquisas";
             // 
             // perguntasNãoResolvidasToolStripMenuItem
             // 
             this.perguntasNãoResolvidasToolStripMenuItem.Name = "perguntasNãoResolvidasToolStripMenuItem";
-            this.perguntasNãoResolvidasToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
+            this.perguntasNãoResolvidasToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.perguntasNãoResolvidasToolStripMenuItem.Text = "Questionários não resolvidos";
             // 
             // cRMsNãoFeitosToolStripMenuItem
             // 
             this.cRMsNãoFeitosToolStripMenuItem.Name = "cRMsNãoFeitosToolStripMenuItem";
-            this.cRMsNãoFeitosToolStripMenuItem.Size = new System.Drawing.Size(283, 26);
+            this.cRMsNãoFeitosToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cRMsNãoFeitosToolStripMenuItem.Text = "CRM\'s pendentes";
             // 
             // relatóriosToolStripMenuItem
@@ -180,54 +170,50 @@
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.analiseDeRespostasToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // analiseDeRespostasToolStripMenuItem
             // 
             this.analiseDeRespostasToolStripMenuItem.Name = "analiseDeRespostasToolStripMenuItem";
-            this.analiseDeRespostasToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.analiseDeRespostasToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.analiseDeRespostasToolStripMenuItem.Text = "Análise de questionário";
             // 
             // TbxCompany
             // 
             this.TbxCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxCompany.Location = new System.Drawing.Point(139, 62);
-            this.TbxCompany.Margin = new System.Windows.Forms.Padding(4);
+            this.TbxCompany.Location = new System.Drawing.Point(104, 50);
             this.TbxCompany.MaxLength = 2;
             this.TbxCompany.Name = "TbxCompany";
-            this.TbxCompany.Size = new System.Drawing.Size(108, 30);
+            this.TbxCompany.Size = new System.Drawing.Size(82, 26);
             this.TbxCompany.TabIndex = 1;
-            this.TbxCompany.Text = "01";
             this.TbxCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(133, 33);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(100, 27);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 25);
+            this.label11.Size = new System.Drawing.Size(73, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Empresa";
             // 
             // FlpQuestions
             // 
             this.FlpQuestions.AutoScroll = true;
-            this.FlpQuestions.Location = new System.Drawing.Point(21, 101);
-            this.FlpQuestions.Margin = new System.Windows.Forms.Padding(4);
+            this.FlpQuestions.Location = new System.Drawing.Point(16, 82);
             this.FlpQuestions.Name = "FlpQuestions";
-            this.FlpQuestions.Size = new System.Drawing.Size(1084, 526);
-            this.FlpQuestions.TabIndex = 12;
+            this.FlpQuestions.Size = new System.Drawing.Size(813, 427);
+            this.FlpQuestions.TabIndex = 4;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.CancelButton = this.BtnClose;
-            this.ClientSize = new System.Drawing.Size(1121, 705);
+            this.ClientSize = new System.Drawing.Size(841, 573);
             this.Controls.Add(this.FlpQuestions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -243,7 +229,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.ShowIcon = false;
