@@ -37,6 +37,14 @@ namespace project.presentation.forms.searchSale
                 MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        void formatClientId()
+        {
+            tbxClientId.Text = tbxClientId.Text.PadLeft(5, '0');
+        }
+        void cleanClientId()
+        {
+            tbxClientId.Text = tbxClientName.Text = null;
+        }
         public SearchSaleForm(MainForm mainForm)
         {
             InitializeComponent();
@@ -66,12 +74,12 @@ namespace project.presentation.forms.searchSale
         {
             if (string.IsNullOrWhiteSpace(tbxClientId.Text)) return;
 
-            tbxClientId.Text = tbxClientId.Text.PadLeft(5, '0');
+            formatClientId();
             var client = functions.getClient(tbxClientId.Text);
 
             if (client == null)
             {
-                tbxClientId.Text = tbxClientName.Text = null;
+                cleanClientId();
                 MessageBox.Show("Cliente não encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
