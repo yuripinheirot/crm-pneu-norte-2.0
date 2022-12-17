@@ -13,9 +13,9 @@ namespace project.presentation.forms.main
 {
     internal class MainFunctions
     {
-        private List<AnswerDTO> getAnswersFromForm(MainForm mainForm)
+        private List<PostAnswerDTO> getAnswersFromForm(MainForm mainForm)
         {
-            List<AnswerDTO> answersList = new List<AnswerDTO>();
+            List<PostAnswerDTO> answersList = new List<PostAnswerDTO>();
             FlowLayoutPanel flpQuestions = (FlowLayoutPanel)mainForm.Controls.Find("flpQuestions", true)[0];
             string idSale = mainForm.TbxIdSale.Text;
             string idClient = mainForm.TbxClientName.Text.Split('-')[0];
@@ -28,7 +28,7 @@ namespace project.presentation.forms.main
                 if (control is ComboBox)
                 {
                     ComboBox currentComboBox = (ComboBox)control;
-                    answersList.Add(new AnswerDTO()
+                    answersList.Add(new PostAnswerDTO()
                     {
                         idQuestion = currentComboBox.Tag.ToString(),
                         idSale = idSale,
@@ -47,7 +47,7 @@ namespace project.presentation.forms.main
 
         private List<QuestionModel> getQuestions(string module)
         {
-            return QuestionsFactory.handle.getQuestions().Where(p => p.module == module).ToList();
+            return QuestionsFactory.handle.getQuestions().Where(p => p.posSale == module).ToList();
         }
 
         private void addBlankAnswerOnQuestion(QuestionModel question)

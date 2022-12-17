@@ -1,4 +1,5 @@
 ﻿using project.domain.model;
+using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
 using project.presentation.protocols;
 using System;
@@ -51,6 +52,12 @@ namespace project.presentation.forms.main
                 SearchSaleForm searchSale = new SearchSaleForm(this);
                 searchSale.ShowDialog();
             }
+        }
+
+        private void analiseDeRespostasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuestionnaireAnalysisForm questionnaire = new QuestionnaireAnalysisForm();
+            questionnaire.ShowDialog();
         }
     }
 }

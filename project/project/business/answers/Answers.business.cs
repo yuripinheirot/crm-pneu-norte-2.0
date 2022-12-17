@@ -10,16 +10,16 @@ using project.presentation.protocols;
 
 namespace project.business.answers
 {
-    internal class AnswersBusiness : IAddCrmDTO
+    internal class AnswersBusiness : IPostCrm, IGetAnswers
     {
         AnswersData answersData;
         public AnswersBusiness(AnswersData answersData)
         {
             this.answersData = answersData;
         }
-        private void validateAnswers(List<AnswerDTO> answers)
+        private void validateAnswers(List<PostAnswerDTO> answers)
         {
-            foreach (AnswerDTO answer in answers)
+            foreach (PostAnswerDTO answer in answers)
             {
                 if (string.IsNullOrEmpty(answer.answer))
                 {
@@ -28,10 +28,15 @@ namespace project.business.answers
             }
         }
 
-        public void addCrm(List<AnswerDTO> answers)
+        public void addCrm(List<PostAnswerDTO> answers)
         {
             validateAnswers(answers);
             answersData.addCrm(answers);
+        }
+
+        public List<AnswerModel> getAnswers(GetAnswersDTO filters)
+        {
+            return answersData.getAnswers(filters);
         }
     }
 }

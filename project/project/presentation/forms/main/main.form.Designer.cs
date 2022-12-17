@@ -178,6 +178,7 @@
             this.analiseDeRespostasToolStripMenuItem.Name = "analiseDeRespostasToolStripMenuItem";
             this.analiseDeRespostasToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.analiseDeRespostasToolStripMenuItem.Text = "Análise de questionário";
+            this.analiseDeRespostasToolStripMenuItem.Click += new System.EventHandler(this.analiseDeRespostasToolStripMenuItem_Click);
             // 
             // TbxCompany
             // 

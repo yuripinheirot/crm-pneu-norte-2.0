@@ -11,7 +11,7 @@ using project.presentation.protocols;
 
 namespace project.data.answers
 {
-    internal class AnswersData : IAddCrmDTO
+    internal class AnswersData : IPostCrm, IGetAnswers
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -19,12 +19,12 @@ namespace project.data.answers
             this.answersRepository = answersRepository;
         }
 
-        private List<AnswerModel> convertAnswerDTOinAnswer(List<AnswerDTO> answersDTO)
+        private List<AnswerModel> convertAnswerDTOinAnswer(List<PostAnswerDTO> answersDTO)
         {
             List<AnswerModel> answers = new List<AnswerModel>();
             Guid newId = Guid.NewGuid();
 
-            foreach (AnswerDTO a in answersDTO)
+            foreach (PostAnswerDTO a in answersDTO)
             {
                 answers.Add(new AnswerModel()
                 {
@@ -37,6 +37,7 @@ namespace project.data.answers
                     observation = a.observation,
                     resolution = null,
                     updatedAt = DateTime.Now,
+                    createdAt = DateTime.Now,
                     idCompany = a.idCompany
                 });
             }
@@ -44,10 +45,17 @@ namespace project.data.answers
             return answers;
         }
 
-        public void addCrm(List<AnswerDTO> answersDTO)
+        public void addCrm(List<PostAnswerDTO> answersDTO)
         {
             var answers = convertAnswerDTOinAnswer(answersDTO);
             answersRepository.addCrm(answers);
+        }
+
+        public List<AnswerModel> getAnswers(GetAnswersDTO filters)
+        {
+            filters.initialDate = new DateTime(filters.initialDate.Year, filters.initialDate.Month, filters.initialDate.Day, 0, 0, 0);
+            filters.finalDate = new DateTime(filters.finalDate.Year, filters.finalDate.Month, filters.finalDate.Day, 23, 59, 59);
+            return answersRepository.getAnswers(filters);
         }
     }
 }

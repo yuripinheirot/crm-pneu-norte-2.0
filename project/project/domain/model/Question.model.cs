@@ -10,7 +10,7 @@ namespace project.domain.model
     {
         public string id { get; set; }
         public string description { get; set; }
-        public string module { get; set; }
+        public string posSale { get; set; }
         public bool active { get; set; } = true;
         public List<string> answers { get; set; }
     }

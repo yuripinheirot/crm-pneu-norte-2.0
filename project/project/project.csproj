@@ -57,10 +57,11 @@
     <Compile Include="domain\model\Client.model.cs" />
     <Compile Include="domain\model\Question.model.cs" />
     <Compile Include="domain\model\Sale.model.cs" />
-    <Compile Include="domain\usecases\IGetClient.cs" />
-    <Compile Include="domain\usecases\IGetClients.cs" />
+    <Compile Include="domain\usecases\IGetAnswers.usecases.cs" />
+    <Compile Include="domain\usecases\IGetClient.usecase.cs" />
+    <Compile Include="domain\usecases\IGetClients.usecase.cs" />
     <Compile Include="domain\usecases\IGetQuestions.usecase.cs" />
-    <Compile Include="domain\usecases\IGetSales.cs" />
+    <Compile Include="domain\usecases\IGetSales.usecase.cs" />
     <Compile Include="infra\db\mock\repository\Answers.repository.cs" />
     <Compile Include="infra\db\mock\repository\Client.repository.cs" />
     <Compile Include="infra\db\mock\repository\Questions.repository.cs" />
@@ -69,12 +70,13 @@
     <Compile Include="main\factories\Sales.factory.cs" />
     <Compile Include="main\factories\Answers.factory.cs" />
     <Compile Include="main\factories\Questions.factory.cs" />
-    <Compile Include="presentation\forms\questionnaireAnalysis\questionnaireAnalysis.form.cs">
+    <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="presentation\forms\questionnaireAnalysis\questionnaireAnalysis.form.Designer.cs">
-      <DependentUpon>questionnaireAnalysis.form.cs</DependentUpon>
+    <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.Designer.cs">
+      <DependentUpon>QuestionnaireAnalysis.form.cs</DependentUpon>
     </Compile>
+    <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.functions.cs" />
     <Compile Include="presentation\forms\searchClient\SearchClient.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,8 +85,9 @@
     </Compile>
     <Compile Include="presentation\forms\searchClient\SearchClient.functions.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSales.functions.cs" />
-    <Compile Include="presentation\protocols\AnswerDTO.protocol.cs" />
-    <Compile Include="presentation\protocols\GetSalesDTO.cs" />
+    <Compile Include="presentation\protocols\GetAnswersDTO.protocol.cs" />
+    <Compile Include="presentation\protocols\PostAnswerDTO.protocol.cs" />
+    <Compile Include="presentation\protocols\GetSalesDTO.protocol.cs" />
     <Compile Include="presentation\utils\Grid.utils.cs" />
     <Compile Include="specs\mocks\Answers.mock.cs" />
     <Compile Include="specs\mocks\Client.mock.cs" />
@@ -109,6 +112,9 @@
     <EmbeddedResource Include="presentation\forms\main\Main.form.resx">
       <DependentUpon>Main.form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.resx">
+      <DependentUpon>QuestionnaireAnalysis.form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\searchClient\SearchClient.form.resx">
       <DependentUpon>SearchClient.form.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,7 +130,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="domain\usecases\IAddCrm.usecase.cs" />
+    <Compile Include="domain\usecases\IPostCrm.usecase.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

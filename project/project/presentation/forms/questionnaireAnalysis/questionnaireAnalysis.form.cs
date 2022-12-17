@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.presentation.protocols;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,35 @@ using System.Windows.Forms;
 
 namespace project.presentation.forms.questionnaireAnalysis
 {
-    public partial class questionnaireAnalysisForm : Form
+    public partial class QuestionnaireAnalysisForm : Form
     {
-        public questionnaireAnalysisForm()
+        QuestionnaireAnalysisFunctions functions = new QuestionnaireAnalysisFunctions();
+        public QuestionnaireAnalysisForm()
         {
             InitializeComponent();
+        }
+
+        private void QuestionnaireAnalysisForm_Load(object sender, EventArgs e)
+        {
+            cbxPosSale.SelectedIndex = 0;
+            functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
+        }
+
+        private void cbxPosSale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var filters = new GetAnswersDTO()
+            {
+                idQuestion = cbxQuestions.Text.Split('-')[0],
+                finalDate = tbxDtf.Value,
+                initialDate = tbxDti.Value
+            };
+
+            functions.loadAnswersOnDataGrid(dgvAnswers, filters);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.protocols
 {
-    internal class AnswerDTO
+    internal class PostAnswerDTO
     {
         public string idQuestion { get; set; }
         public string idSale { get; set; }
