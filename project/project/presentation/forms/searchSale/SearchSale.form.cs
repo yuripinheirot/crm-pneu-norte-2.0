@@ -93,7 +93,7 @@ namespace project.presentation.forms.searchSale
             mainForm.TbxClientName.Text = dgvSales.CurrentRow.Cells["client"].Value.ToString();
             mainForm.TbxCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
             mainForm.TbxModule.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
-            mainForm.TbxIdSale.Text = dgvSales.CurrentRow.Cells["idSale"].Value.ToString();
+            mainForm.TbxIdSale.Text = dgvSales.CurrentRow.Cells["id"].Value.ToString();
 
             Close();
         }

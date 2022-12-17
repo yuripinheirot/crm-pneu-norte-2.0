@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="presentation\forms\searchClient\SearchClient.functions.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSales.functions.cs" />
+    <Compile Include="presentation\protocols\AnalysisByQuestion.protocol.cs" />
     <Compile Include="presentation\protocols\GetAnswersDTO.protocol.cs" />
     <Compile Include="presentation\protocols\PostAnswerDTO.protocol.cs" />
     <Compile Include="presentation\protocols\GetSalesDTO.protocol.cs" />

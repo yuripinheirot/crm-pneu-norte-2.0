@@ -50,13 +50,21 @@ namespace project.presentation.forms.questionnaireAnalysis
         {
             var answers = AnswersFactory.handle.getAnswers(filters)
                 .GroupBy(answer => answer.answer)
-                .Select(answer => new 
+                .Select(answer => new
                 {
                     answer = answer.Key,
                     count = answer.Select(p => p.answer).Distinct().Count(),
                 })
                 .ToList();
             var dataSource = GridUtils.ToDataTable(answers);
+
+            dgv.DataSource = dataSource;
+        }
+
+        public void loadClientsByAnswerOnDataGrid(DataGridView dgv, string idQuestion, string answer)
+        {
+            var clients = ClientFactory.handle.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer);
+            var dataSource = GridUtils.ToDataTable(clients);
 
             dgv.DataSource = dataSource;
         }

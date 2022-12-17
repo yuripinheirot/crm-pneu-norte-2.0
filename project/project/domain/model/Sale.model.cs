@@ -8,8 +8,8 @@ namespace project.domain.model
 {
     internal class SaleModel
     {
+        public string id { get; set; }
         public string idCompany { get; set; }
-        public string idSale { get; set; }
         public decimal liquidValue { get; set; }
         public DateTime dateSale { get; set; }
         public string client { get; set; }

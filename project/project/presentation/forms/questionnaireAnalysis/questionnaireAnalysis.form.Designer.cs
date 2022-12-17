@@ -39,12 +39,7 @@
             this.cbxQuestions = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAnswers = new System.Windows.Forms.DataGridView();
-            this.dgvAnalise = new System.Windows.Forms.DataGridView();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FANTASIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PEDIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBSERVACOES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAnalysis = new System.Windows.Forms.DataGridView();
             this.analysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,8 +50,13 @@
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
             this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientNameFantasy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnalise)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnalysis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,13 +150,14 @@
             this.dgvAnswers.Size = new System.Drawing.Size(835, 153);
             this.dgvAnswers.StandardTab = true;
             this.dgvAnswers.TabIndex = 5;
+            this.dgvAnswers.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnswers_CellEnter);
             // 
-            // dgvAnalise
+            // dgvAnalysis
             // 
-            this.dgvAnalise.AllowUserToAddRows = false;
-            this.dgvAnalise.AllowUserToDeleteRows = false;
-            this.dgvAnalise.AllowUserToOrderColumns = true;
-            this.dgvAnalise.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvAnalysis.AllowUserToAddRows = false;
+            this.dgvAnalysis.AllowUserToDeleteRows = false;
+            this.dgvAnalysis.AllowUserToOrderColumns = true;
+            this.dgvAnalysis.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -164,14 +165,14 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAnalise.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAnalise.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAnalise.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CODIGO,
-            this.NOME,
-            this.FANTASIA,
-            this.PEDIDO,
-            this.OBSERVACOES});
+            this.dgvAnalysis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAnalysis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnalysis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idClient,
+            this.clientName,
+            this.clientNameFantasy,
+            this.idSale,
+            this.observation});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,56 +180,16 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAnalise.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAnalise.Location = new System.Drawing.Point(16, 333);
-            this.dgvAnalise.MultiSelect = false;
-            this.dgvAnalise.Name = "dgvAnalise";
-            this.dgvAnalise.ReadOnly = true;
-            this.dgvAnalise.RowHeadersWidth = 24;
-            this.dgvAnalise.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAnalise.Size = new System.Drawing.Size(835, 186);
-            this.dgvAnalise.StandardTab = true;
-            this.dgvAnalise.TabIndex = 6;
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.DataPropertyName = "CLIENTE";
-            this.CODIGO.HeaderText = "CLIENTE";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            this.CODIGO.Width = 60;
-            // 
-            // NOME
-            // 
-            this.NOME.DataPropertyName = "NOME";
-            this.NOME.HeaderText = "RAZÃO";
-            this.NOME.Name = "NOME";
-            this.NOME.ReadOnly = true;
-            this.NOME.Width = 250;
-            // 
-            // FANTASIA
-            // 
-            this.FANTASIA.DataPropertyName = "FANTASIA";
-            this.FANTASIA.HeaderText = "FANTASIA";
-            this.FANTASIA.Name = "FANTASIA";
-            this.FANTASIA.ReadOnly = true;
-            this.FANTASIA.Width = 250;
-            // 
-            // PEDIDO
-            // 
-            this.PEDIDO.DataPropertyName = "PEDIDO";
-            this.PEDIDO.HeaderText = "PEDIDO";
-            this.PEDIDO.Name = "PEDIDO";
-            this.PEDIDO.ReadOnly = true;
-            this.PEDIDO.Width = 80;
-            // 
-            // OBSERVACOES
-            // 
-            this.OBSERVACOES.DataPropertyName = "observacoes";
-            this.OBSERVACOES.HeaderText = "OBSERVAÇÕES";
-            this.OBSERVACOES.Name = "OBSERVACOES";
-            this.OBSERVACOES.ReadOnly = true;
-            this.OBSERVACOES.Width = 400;
+            this.dgvAnalysis.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAnalysis.Location = new System.Drawing.Point(16, 333);
+            this.dgvAnalysis.MultiSelect = false;
+            this.dgvAnalysis.Name = "dgvAnalysis";
+            this.dgvAnalysis.ReadOnly = true;
+            this.dgvAnalysis.RowHeadersWidth = 24;
+            this.dgvAnalysis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAnalysis.Size = new System.Drawing.Size(835, 186);
+            this.dgvAnalysis.StandardTab = true;
+            this.dgvAnalysis.TabIndex = 6;
             // 
             // label3
             // 
@@ -315,6 +276,46 @@
             this.count.ReadOnly = true;
             this.count.Width = 60;
             // 
+            // idClient
+            // 
+            this.idClient.DataPropertyName = "idClient";
+            this.idClient.HeaderText = "CLIENTE";
+            this.idClient.Name = "idClient";
+            this.idClient.ReadOnly = true;
+            this.idClient.Width = 60;
+            // 
+            // clientName
+            // 
+            this.clientName.DataPropertyName = "clientName";
+            this.clientName.HeaderText = "RAZÃO";
+            this.clientName.Name = "clientName";
+            this.clientName.ReadOnly = true;
+            this.clientName.Width = 250;
+            // 
+            // clientNameFantasy
+            // 
+            this.clientNameFantasy.DataPropertyName = "clientNameFantasy";
+            this.clientNameFantasy.HeaderText = "FANTASIA";
+            this.clientNameFantasy.Name = "clientNameFantasy";
+            this.clientNameFantasy.ReadOnly = true;
+            this.clientNameFantasy.Width = 250;
+            // 
+            // idSale
+            // 
+            this.idSale.DataPropertyName = "idSale";
+            this.idSale.HeaderText = "PEDIDO";
+            this.idSale.Name = "idSale";
+            this.idSale.ReadOnly = true;
+            this.idSale.Width = 80;
+            // 
+            // observation
+            // 
+            this.observation.DataPropertyName = "observation";
+            this.observation.HeaderText = "OBSERVAÇÕES";
+            this.observation.Name = "observation";
+            this.observation.ReadOnly = true;
+            this.observation.Width = 400;
+            // 
             // QuestionnaireAnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,7 +327,7 @@
             this.Controls.Add(this.tbxDti);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dgvAnalise);
+            this.Controls.Add(this.dgvAnalysis);
             this.Controls.Add(this.dgvAnswers);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
@@ -346,7 +347,7 @@
             this.Text = "Análise de questionário";
             this.Load += new System.EventHandler(this.QuestionnaireAnalysisForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAnalise)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnalysis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.analysisBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -361,7 +362,7 @@
         private System.Windows.Forms.ComboBox cbxQuestions;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvAnswers;
-        private System.Windows.Forms.DataGridView dgvAnalise;
+        private System.Windows.Forms.DataGridView dgvAnalysis;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSearch;
@@ -370,12 +371,12 @@
         private System.Windows.Forms.BindingSource analysisBindingSource;
         private System.Windows.Forms.DateTimePicker tbxDti;
         private System.Windows.Forms.DateTimePicker tbxDtf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FANTASIA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OBSERVACOES;
         private System.Windows.Forms.DataGridViewTextBoxColumn answer;
         private System.Windows.Forms.DataGridViewTextBoxColumn count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientNameFantasy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observation;
     }
 }

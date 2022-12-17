@@ -41,5 +41,13 @@ namespace project.presentation.forms.questionnaireAnalysis
 
             functions.loadAnswersOnDataGrid(dgvAnswers, filters);
         }
+
+        private void dgvAnswers_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string idQuestion = cbxQuestions.Text.Split('-')[0];
+            string answer = dgvAnswers.CurrentRow.Cells["answer"].Value.ToString();
+
+            functions.loadClientsByAnswerOnDataGrid(dgvAnalysis, idQuestion, answer);
+        }
     }
 }

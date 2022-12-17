@@ -14,7 +14,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000300",
+                id = "0000300",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,1),
                 client = "00013-JOHN",
@@ -24,7 +24,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000301",
+                id = "0000301",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,1),
                 client = "00014-KATE",
@@ -34,7 +34,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000302",
+                id = "0000302",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,2),
                 client = "00015-SAWYER",
@@ -44,7 +44,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000303",
+                id = "0000303",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,2),
                 client = "00016-JENIFER",
@@ -54,7 +54,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000304",
+                id = "0000304",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,3),
                 client = "00017-BOB",
@@ -64,7 +64,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000305",
+                id = "0000305",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,5),
                 client = "00018-FRED",
@@ -74,7 +74,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000306",
+                id = "0000306",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,6),
                 client = "00019-MAI",
@@ -84,7 +84,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000307",
+                id = "0000307",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,11,1),
                 client = "00020-KURT",
@@ -94,7 +94,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000308",
+                id = "0000308",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,9),
                 client = "00021-JAMES",
@@ -104,7 +104,7 @@ namespace project.specs.mocks
             new SaleModel()
             {
                 idCompany = "02",
-                idSale = "0000309",
+                id = "0000309",
                 liquidValue = Convert.ToDecimal(302.43),
                 dateSale = new DateTime(2022,12,8),
                 client = "00022-AMY",
