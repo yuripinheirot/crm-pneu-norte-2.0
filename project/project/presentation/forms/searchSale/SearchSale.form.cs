@@ -110,7 +110,7 @@ namespace project.presentation.forms.searchSale
         {
             try
             {
-                if (dgvSales.RowCount > 0 && (dgvSales.Focused == false || cbxTypeCrm.Focused == false))
+                if (dgvSales.RowCount > 0 && dgvSales.Focused == false)
                 {
                     if (e.KeyCode == Keys.Up)
                     {
