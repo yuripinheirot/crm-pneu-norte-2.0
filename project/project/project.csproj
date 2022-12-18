@@ -52,6 +52,12 @@
     <Compile Include="business\usecases\sales\Sales.business.cs" />
     <Compile Include="main\factories\validations\VerifyEmptyAnswersValidation.factory.cs" />
     <Compile Include="main\factories\validations\VerifyIfExistsCurrentCrmValidation.factory.cs" />
+    <Compile Include="presentation\forms\main\ObservationAnswer.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\main\ObservationAnswer.form.Designer.cs">
+      <DependentUpon>ObservationAnswer.form.cs</DependentUpon>
+    </Compile>
     <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
     <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
     <Compile Include="data\usecases\answers\Answers.data.cs" />

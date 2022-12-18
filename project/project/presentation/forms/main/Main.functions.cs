@@ -66,16 +66,36 @@ namespace project.presentation.forms.main
             return SalesFactory.handle.getSale(idCompany, idSale);
         }
 
+        Button observationButton(string idQuestion)
+        {
+            void observationButton(object sender, EventArgs e)
+            {
+                new ObservationAnswer().ShowDialog();
+            }
+
+            var button = new Button()
+            {
+                Text = "...",
+                Width = 30,
+                Tag = idQuestion,
+                UseVisualStyleBackColor = true,
+            };
+
+            button.Click += new EventHandler(observationButton);
+
+            return button;
+        }
+
         public void renderQuestions(FlowLayoutPanel flpQuestions, string posSale)
         {
             flpQuestions.Controls.Clear();
             var questions = getQuestions(posSale);
-            int widthControls = flpQuestions.Width - 40;
+            int widthControls = flpQuestions.Width - 70;
 
             foreach (var question in questions)
             {
                 addBlankAnswerOnQuestion(question);
-                Control[] questionRendered = new Control[2]
+                Control[] questionRendered = new Control[3]
                 {
                         new Label()
                         {
@@ -89,9 +109,10 @@ namespace project.presentation.forms.main
                             DropDownStyle = ComboBoxStyle.DropDownList,
                             Width = widthControls,
                             FormattingEnabled = true,
-                            Size = new Size(745, 28),
+                            Size = new Size(745, 70),
                             Tag = question.id,
-                        }
+                        },
+                        observationButton(question.id)
                 };
 
                 flpQuestions.Controls.AddRange(questionRendered);
