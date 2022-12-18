@@ -22,13 +22,12 @@ namespace project.data.usecases.answers
         private List<AnswerModel> convertAnswerDTOinAnswer(List<PostAnswerDTO> answersDTO)
         {
             List<AnswerModel> answers = new List<AnswerModel>();
-            Guid newId = Guid.NewGuid();
 
             foreach (PostAnswerDTO a in answersDTO)
             {
                 answers.Add(new AnswerModel()
                 {
-                    id = newId.ToString(),
+                    id = Guid.NewGuid().ToString(),
                     idQuestion = a.idQuestion,
                     idSale = a.idSale,
                     idClient = a.idClient,

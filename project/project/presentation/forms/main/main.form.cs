@@ -101,7 +101,6 @@ namespace project.presentation.forms.main
 
                 fillZerosOnIdSale();
                 var sale = functions.getSale(TbxIdCompany.Text, TbxIdSale.Text);
-                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(sale.idCompany, sale.id);
 
                 if (sale == null)
                 {
@@ -109,6 +108,8 @@ namespace project.presentation.forms.main
                     clearScreen();
                     return;
                 }
+
+                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(sale.idCompany, sale.id);
 
                 LoadInfoSalesOnFields(sale);
                 functions.renderQuestions(flpQuestions, tbxPosSale.Text);
