@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.data.client
+namespace project.data.usecases.client
 {
     internal class ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {

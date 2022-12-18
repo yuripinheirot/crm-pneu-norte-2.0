@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.data.sales
+namespace project.data.usecases.sales
 {
     internal class SalesData : IGetSales, IGetSale
     {

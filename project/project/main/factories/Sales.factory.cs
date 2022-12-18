@@ -1,5 +1,5 @@
-﻿using project.business.sales;
-using project.data.sales;
+﻿using project.business.usecases.sales;
+using project.data.usecases.sales;
 using project.infra.db.mock.repository;
 using System;
 using System.Collections.Generic;

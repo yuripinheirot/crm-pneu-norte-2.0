@@ -1,5 +1,5 @@
-﻿using project.business.client;
-using project.data.client;
+﻿using project.business.usecases.client;
+using project.data.usecases.client;
 using project.infra.db.mock.repository;
 using System;
 using System.Collections.Generic;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using project.presentation.protocols;
 
-namespace project.data.answers
+namespace project.data.usecases.answers
 {
     internal class AnswersData : IPostCrm, IGetAnswers
     {

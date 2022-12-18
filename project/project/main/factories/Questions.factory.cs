@@ -1,5 +1,5 @@
-﻿using project.business.questions;
-using project.data.questions;
+﻿using project.business.usecases.questions;
+using project.data.usecases.questions;
 using project.infra.db.mock.repository;
 
 namespace project.main.factories

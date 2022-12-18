@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.data.questions
+namespace project.data.usecases.questions
 {
     internal class QuestionsData : IGetQuestions
     {

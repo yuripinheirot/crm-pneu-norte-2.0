@@ -1,4 +1,4 @@
-﻿using project.data.client;
+﻿using project.data.usecases.client;
 using project.domain.model;
 using project.domain.usecases;
 using project.presentation.protocols;

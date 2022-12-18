@@ -1,4 +1,4 @@
-﻿using project.data.client;
+﻿using project.data.usecases.client;
 using project.domain.model;
 using project.domain.usecases;
 using project.presentation.protocols;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.business.client
+namespace project.business.usecases.client
 {
     internal class ClientBusiness : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {

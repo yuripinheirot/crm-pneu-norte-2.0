@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using project.data.answers;
+using project.data.usecases.answers;
 using project.domain.model;
 using project.domain.usecases;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 
-namespace project.business.answers
+namespace project.business.usecases.answers
 {
     internal class AnswersBusiness : IPostCrm, IGetAnswers
     {

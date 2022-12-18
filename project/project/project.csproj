@@ -46,14 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="business\answers\Answers.business.cs" />
-    <Compile Include="business\client\Client.business.cs" />
-    <Compile Include="business\questions\Questions.business.cs" />
-    <Compile Include="business\sales\Sales.business.cs" />
-    <Compile Include="data\answers\Answers.data.cs" />
-    <Compile Include="data\client\Client.data.cs" />
-    <Compile Include="data\questions\Questions.data.cs" />
-    <Compile Include="data\sales\Sales.data.cs" />
+    <Compile Include="business\usecases\answers\Answers.business.cs" />
+    <Compile Include="business\usecases\client\Client.business.cs" />
+    <Compile Include="business\usecases\questions\Questions.business.cs" />
+    <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="data\usecases\answers\Answers.data.cs" />
+    <Compile Include="data\usecases\client\Client.data.cs" />
+    <Compile Include="data\usecases\questions\Questions.data.cs" />
+    <Compile Include="data\usecases\sales\Sales.data.cs" />
     <Compile Include="domain\model\Client.model.cs" />
     <Compile Include="domain\model\Question.model.cs" />
     <Compile Include="domain\model\Sale.model.cs" />

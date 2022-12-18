@@ -1,5 +1,5 @@
-﻿using project.business.answers;
-using project.data.answers;
+﻿using project.business.usecases.answers;
+using project.data.usecases.answers;
 using project.infra.db.mock.repository;
 using System;
 using System.Collections.Generic;

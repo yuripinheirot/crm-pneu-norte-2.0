@@ -1,4 +1,4 @@
-﻿using project.data.questions;
+﻿using project.data.usecases.questions;
 using project.domain.model;
 using project.domain.usecases;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.business.questions
+namespace project.business.usecases.questions
 {
     internal class QuestionsBusiness : IGetQuestions
     {
