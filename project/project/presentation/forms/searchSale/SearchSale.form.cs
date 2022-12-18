@@ -91,8 +91,8 @@ namespace project.presentation.forms.searchSale
         {
             if (dgvSales.RowCount == 0) return;
             mainForm.TbxClientName.Text = dgvSales.CurrentRow.Cells["client"].Value.ToString();
-            mainForm.TbxCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
-            mainForm.TbxModule.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
+            mainForm.TbxIdCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
+            mainForm.tbxPosSale.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
             mainForm.TbxIdSale.Text = dgvSales.CurrentRow.Cells["id"].Value.ToString();
 
             Close();

@@ -13,7 +13,7 @@ namespace project.infra.db.mock.repository
     {
         public List<QuestionModel> getQuestions()
         {
-            return QuestionsMock.questionsMock;
+            return QuestionsMock.questions;
         }
     }
 }

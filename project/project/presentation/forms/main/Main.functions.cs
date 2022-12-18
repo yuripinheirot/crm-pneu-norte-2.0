@@ -1,6 +1,7 @@
 ﻿using project.domain.model;
 using project.main.factories;
 using project.presentation.protocols;
+using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,14 +21,13 @@ namespace project.presentation.forms.main
             string idSale = mainForm.TbxIdSale.Text;
             string idClient = mainForm.TbxClientName.Text.Split('-')[0];
             string status = "pending";
-            string idCompany = mainForm.TbxCompany.Text;
+            string idCompany = mainForm.TbxIdCompany.Text;
 
 
             foreach (Control control in flpQuestions.Controls)
             {
-                if (control is ComboBox)
+                if (control is ComboBox currentComboBox)
                 {
-                    ComboBox currentComboBox = (ComboBox)control;
                     answersList.Add(new PostAnswerDTO()
                     {
                         idQuestion = currentComboBox.Tag.ToString(),
@@ -47,24 +47,33 @@ namespace project.presentation.forms.main
 
         private List<QuestionModel> getQuestions(string module)
         {
+            module = TextUtils.translatePosSaleData(module);
             return QuestionsFactory.handle.getQuestions().Where(p => p.posSale == module).ToList();
         }
 
         private void addBlankAnswerOnQuestion(QuestionModel question)
         {
-            question.answers.Insert(0, "");
+            if (!question.answers.Contains(""))
+            {
+                question.answers.Insert(0, "");
+            }
         }
 
-        public void renderQuestions(FlowLayoutPanel flpQuestions, string module)
+        public SaleModel getSale(string idCompany,string idSale)
         {
+            return SalesFactory.handle.getSale(idCompany, idSale);
+        }
 
-            var questions = getQuestions(module);
+        public void renderQuestions(FlowLayoutPanel flpQuestions, string posSale)
+        {
+            Console.WriteLine("chamou");
+            flpQuestions.Controls.Clear();
+            var questions = getQuestions(posSale);
             int widthControls = flpQuestions.Width - 40;
 
             foreach (var question in questions)
             {
                 addBlankAnswerOnQuestion(question);
-
                 Control[] questionRendered = new Control[2]
                 {
                         new Label()
@@ -80,7 +89,7 @@ namespace project.presentation.forms.main
                             Width = widthControls,
                             FormattingEnabled = true,
                             Size = new Size(745, 28),
-                            Tag = question.id
+                            Tag = question.id,
                         }
                 };
 

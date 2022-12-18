@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TbxClientName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TbxModule = new System.Windows.Forms.TextBox();
+            this.tbxPosSale = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pesquisasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,9 +42,9 @@
             this.cRMsNãoFeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analiseDeRespostasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TbxCompany = new System.Windows.Forms.TextBox();
+            this.TbxIdCompany = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.FlpQuestions = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpQuestions = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,7 @@
             // 
             // BtnSave
             // 
+            this.BtnSave.Enabled = false;
             this.BtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSave.Location = new System.Drawing.Point(657, 531);
             this.BtnSave.Name = "BtnSave";
@@ -74,18 +75,20 @@
             // TbxIdSale
             // 
             this.TbxIdSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxIdSale.Location = new System.Drawing.Point(16, 50);
+            this.TbxIdSale.Location = new System.Drawing.Point(104, 50);
+            this.TbxIdSale.MaxLength = 7;
             this.TbxIdSale.Name = "TbxIdSale";
             this.TbxIdSale.Size = new System.Drawing.Size(82, 26);
-            this.TbxIdSale.TabIndex = 0;
+            this.TbxIdSale.TabIndex = 1;
             this.TbxIdSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TbxIdSale.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbxIdSale_KeyDown);
+            this.TbxIdSale.Leave += new System.EventHandler(this.TbxIdSale_Leave);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Location = new System.Drawing.Point(100, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 2;
@@ -111,15 +114,15 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Cliente";
             // 
-            // TbxModule
+            // tbxPosSale
             // 
-            this.TbxModule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxModule.Location = new System.Drawing.Point(655, 50);
-            this.TbxModule.Name = "TbxModule";
-            this.TbxModule.ReadOnly = true;
-            this.TbxModule.Size = new System.Drawing.Size(174, 26);
-            this.TbxModule.TabIndex = 3;
-            this.TbxModule.TabStop = false;
+            this.tbxPosSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPosSale.Location = new System.Drawing.Point(655, 50);
+            this.tbxPosSale.Name = "tbxPosSale";
+            this.tbxPosSale.ReadOnly = true;
+            this.tbxPosSale.Size = new System.Drawing.Size(174, 26);
+            this.tbxPosSale.TabIndex = 3;
+            this.tbxPosSale.TabStop = false;
             // 
             // label3
             // 
@@ -180,33 +183,33 @@
             this.analiseDeRespostasToolStripMenuItem.Text = "Análise de questionário";
             this.analiseDeRespostasToolStripMenuItem.Click += new System.EventHandler(this.analiseDeRespostasToolStripMenuItem_Click);
             // 
-            // TbxCompany
+            // TbxIdCompany
             // 
-            this.TbxCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TbxCompany.Location = new System.Drawing.Point(104, 50);
-            this.TbxCompany.MaxLength = 2;
-            this.TbxCompany.Name = "TbxCompany";
-            this.TbxCompany.Size = new System.Drawing.Size(82, 26);
-            this.TbxCompany.TabIndex = 1;
-            this.TbxCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbxIdCompany.Location = new System.Drawing.Point(16, 50);
+            this.TbxIdCompany.MaxLength = 2;
+            this.TbxIdCompany.Name = "TbxIdCompany";
+            this.TbxIdCompany.Size = new System.Drawing.Size(82, 26);
+            this.TbxIdCompany.TabIndex = 0;
+            this.TbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(100, 27);
+            this.label11.Location = new System.Drawing.Point(12, 27);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 20);
             this.label11.TabIndex = 2;
             this.label11.Text = "Empresa";
             // 
-            // FlpQuestions
+            // flpQuestions
             // 
-            this.FlpQuestions.AutoScroll = true;
-            this.FlpQuestions.Location = new System.Drawing.Point(16, 82);
-            this.FlpQuestions.Name = "FlpQuestions";
-            this.FlpQuestions.Size = new System.Drawing.Size(813, 427);
-            this.FlpQuestions.TabIndex = 4;
+            this.flpQuestions.AutoScroll = true;
+            this.flpQuestions.Location = new System.Drawing.Point(16, 82);
+            this.flpQuestions.Name = "flpQuestions";
+            this.flpQuestions.Size = new System.Drawing.Size(813, 427);
+            this.flpQuestions.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -215,14 +218,14 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.CancelButton = this.BtnClose;
             this.ClientSize = new System.Drawing.Size(841, 573);
-            this.Controls.Add(this.FlpQuestions);
+            this.Controls.Add(this.flpQuestions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TbxClientName);
-            this.Controls.Add(this.TbxModule);
-            this.Controls.Add(this.TbxCompany);
+            this.Controls.Add(this.tbxPosSale);
+            this.Controls.Add(this.TbxIdCompany);
             this.Controls.Add(this.TbxIdSale);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.BtnClose);
@@ -255,13 +258,13 @@
         private System.Windows.Forms.ToolStripMenuItem perguntasNãoResolvidasToolStripMenuItem;
         public System.Windows.Forms.TextBox TbxIdSale;
         public System.Windows.Forms.TextBox TbxClientName;
-        public System.Windows.Forms.TextBox TbxModule;
+        public System.Windows.Forms.TextBox tbxPosSale;
         private System.Windows.Forms.ToolStripMenuItem cRMsNãoFeitosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analiseDeRespostasToolStripMenuItem;
-        public System.Windows.Forms.TextBox TbxCompany;
+        public System.Windows.Forms.TextBox TbxIdCompany;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.FlowLayoutPanel FlpQuestions;
+        private System.Windows.Forms.FlowLayoutPanel flpQuestions;
     }
 }
 

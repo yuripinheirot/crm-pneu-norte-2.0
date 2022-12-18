@@ -10,13 +10,19 @@ using System.Threading.Tasks;
 
 namespace project.business.sales
 {
-    internal class SalesBusiness : IGetSales
+    internal class SalesBusiness : IGetSales, IGetSale
     {
         SalesData salesData;
         public SalesBusiness(SalesData salesData)
         {
             this.salesData = salesData;
         }
+
+        public SaleModel getSale(string idCompany, string idSale)
+        {
+            return salesData.getSale(idCompany, idSale);
+        }
+
         public List<SaleModel> getSales(GetSalesDTO filters)
         {
             filters.posSale = String.IsNullOrWhiteSpace(filters.posSale) ? "" : filters.posSale == "VENDAS" ? "sale" : "order";

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using project.data.answers;
 using project.domain.model;
 using project.domain.usecases;
+using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 
 namespace project.business.answers
@@ -23,7 +24,7 @@ namespace project.business.answers
             {
                 if (string.IsNullOrEmpty(answer.answer))
                 {
-                    throw new Exception("Todas as respostas devem ser preenchidas");
+                    throw new PresentationException("Atenção!", "Todas as respostas devem ser preenchidas");
                 }
             }
         }

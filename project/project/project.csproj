@@ -61,6 +61,7 @@
     <Compile Include="domain\usecases\IGetClient.usecase.cs" />
     <Compile Include="domain\usecases\IGetClients.usecase.cs" />
     <Compile Include="domain\usecases\IGetQuestions.usecase.cs" />
+    <Compile Include="domain\usecases\IGetSale.usecase.cs" />
     <Compile Include="domain\usecases\IGetSales.usecase.cs" />
     <Compile Include="infra\db\mock\repository\Answers.repository.cs" />
     <Compile Include="infra\db\mock\repository\Client.repository.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="main\factories\Sales.factory.cs" />
     <Compile Include="main\factories\Answers.factory.cs" />
     <Compile Include="main\factories\Questions.factory.cs" />
+    <Compile Include="presentation\errors\exceptions\PresentationException.cs" />
+    <Compile Include="presentation\errors\ThrowCustomException.cs" />
     <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +93,7 @@
     <Compile Include="presentation\protocols\PostAnswerDTO.protocol.cs" />
     <Compile Include="presentation\protocols\GetSalesDTO.protocol.cs" />
     <Compile Include="presentation\utils\Grid.utils.cs" />
+    <Compile Include="presentation\utils\Text.utils.cs" />
     <Compile Include="specs\mocks\Answers.mock.cs" />
     <Compile Include="specs\mocks\Client.mock.cs" />
     <Compile Include="specs\mocks\Questions.mock.cs" />
@@ -145,6 +149,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="specs\business\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

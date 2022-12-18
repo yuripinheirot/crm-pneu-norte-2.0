@@ -10,8 +10,13 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class SalesRepository : IGetSales
+    internal class SalesRepository : IGetSales, IGetSale
     {
+        public SaleModel getSale(string idCompany, string idSale)
+        {
+            return SalesMock.sales.Where(s => s.id == idSale && s.idCompany == idCompany).FirstOrDefault();
+        }
+
         public List<SaleModel> getSales(GetSalesDTO filters)
         {
             return SalesMock.sales.Where(sale =>

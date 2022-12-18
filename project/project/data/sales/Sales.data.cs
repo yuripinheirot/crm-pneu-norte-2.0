@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.data.sales
 {
-    internal class SalesData : IGetSales
+    internal class SalesData : IGetSales, IGetSale
     {
         SalesRepository salesRepository;
 
@@ -18,6 +18,12 @@ namespace project.data.sales
         {
             this.salesRepository = salesRepository;
         }
+
+        public SaleModel getSale(string idCompany, string idSale)
+        {
+            return salesRepository.getSale(idCompany, idSale);
+        }
+
         public List<SaleModel> getSales(GetSalesDTO filters)
         {
             filters.initialDate = new DateTime(filters.initialDate.Year, filters.initialDate.Month, filters.initialDate.Day, 0, 0, 0);

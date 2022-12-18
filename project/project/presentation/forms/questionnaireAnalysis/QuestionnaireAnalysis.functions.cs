@@ -15,29 +15,13 @@ namespace project.presentation.forms.questionnaireAnalysis
     {
         List<QuestionModel> questions = QuestionsFactory.handle.getQuestions();
 
-        string convertPosSale(string posSale)
-        {
-            if (posSale == "VENDAS")
-            {
-                return "sale";
-            }
-            else if (posSale == "SERVIÇOS")
-            {
-                return "order";
-            }
-            else
-            {
-                throw new Exception("Unexpected posSale name");
-            }
-        }
-
         public void loadQuestionsOnComboBox(ComboBox cbx, string posSale)
         {
             cbx.Items.Clear();
 
             foreach (QuestionModel question in questions)
             {
-                if (question.posSale == convertPosSale(posSale))
+                if (question.posSale == TextUtils.translatePosSaleData(posSale))
                 {
                     cbx.Items.Add($"{question.id}-{question.description}");
                 }
