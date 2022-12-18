@@ -92,7 +92,7 @@
     <Compile Include="presentation\protocols\GetAnswersDTO.protocol.cs" />
     <Compile Include="presentation\protocols\PostAnswerDTO.protocol.cs" />
     <Compile Include="presentation\protocols\GetSalesDTO.protocol.cs" />
-    <Compile Include="presentation\utils\DefaultButtonOpenForms.cs" />
+    <Compile Include="presentation\utils\DefaultButtonOpenForms.utils.cs" />
     <Compile Include="presentation\utils\Grid.utils.cs" />
     <Compile Include="presentation\utils\Text.utils.cs" />
     <Compile Include="specs\mocks\Answers.mock.cs" />
