@@ -54,6 +54,12 @@ namespace project.presentation.forms.searchSale
 
         private void SearchSale_Load(object sender, EventArgs e)
         {
+            string defaultCompany = Properties.Settings.Default.defaultCompany;
+            if (!string.IsNullOrWhiteSpace(defaultCompany))
+            {
+                tbxIdCompany.Text = defaultCompany;
+            }
+
             loadGrid();
         }
 

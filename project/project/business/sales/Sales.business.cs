@@ -25,7 +25,6 @@ namespace project.business.sales
 
         public List<SaleModel> getSales(GetSalesDTO filters)
         {
-            filters.posSale = String.IsNullOrWhiteSpace(filters.posSale) ? "" : filters.posSale == "VENDAS" ? "sale" : "order";
             return salesData.getSales(filters);
         }
     }

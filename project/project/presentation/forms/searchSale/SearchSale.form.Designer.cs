@@ -40,6 +40,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
+            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.liquidValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbxTypeCrm = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,13 +55,6 @@
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.tbxIdCompany = new System.Windows.Forms.TextBox();
-            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.liquidValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,6 +174,73 @@
             this.dgvSales.TabIndex = 7;
             this.dgvSales.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPedidos_KeyDown);
             // 
+            // idCompany
+            // 
+            this.idCompany.DataPropertyName = "idCompany";
+            this.idCompany.HeaderText = "EMPRESA";
+            this.idCompany.MinimumWidth = 6;
+            this.idCompany.Name = "idCompany";
+            this.idCompany.ReadOnly = true;
+            this.idCompany.Width = 65;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "PEDIDO";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 65;
+            // 
+            // client
+            // 
+            this.client.DataPropertyName = "client";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.client.DefaultCellStyle = dataGridViewCellStyle2;
+            this.client.HeaderText = "CLIENTE";
+            this.client.MinimumWidth = 6;
+            this.client.Name = "client";
+            this.client.ReadOnly = true;
+            this.client.Width = 415;
+            // 
+            // liquidValue
+            // 
+            this.liquidValue.DataPropertyName = "liquidValue";
+            dataGridViewCellStyle3.Format = "N2";
+            this.liquidValue.DefaultCellStyle = dataGridViewCellStyle3;
+            this.liquidValue.HeaderText = "VALOR LIQ.";
+            this.liquidValue.MinimumWidth = 6;
+            this.liquidValue.Name = "liquidValue";
+            this.liquidValue.ReadOnly = true;
+            this.liquidValue.Width = 125;
+            // 
+            // dateSale
+            // 
+            this.dateSale.DataPropertyName = "dateSale";
+            this.dateSale.HeaderText = "DATA PED.";
+            this.dateSale.MinimumWidth = 6;
+            this.dateSale.Name = "dateSale";
+            this.dateSale.ReadOnly = true;
+            this.dateSale.Width = 125;
+            // 
+            // clientCpfCnpj
+            // 
+            this.clientCpfCnpj.DataPropertyName = "clientCpfCnpj";
+            this.clientCpfCnpj.HeaderText = "CPF/CNPJ";
+            this.clientCpfCnpj.MinimumWidth = 6;
+            this.clientCpfCnpj.Name = "clientCpfCnpj";
+            this.clientCpfCnpj.ReadOnly = true;
+            this.clientCpfCnpj.Width = 125;
+            // 
+            // posSale
+            // 
+            this.posSale.DataPropertyName = "posSale";
+            this.posSale.HeaderText = "PÓS VENDA";
+            this.posSale.MinimumWidth = 6;
+            this.posSale.Name = "posSale";
+            this.posSale.ReadOnly = true;
+            this.posSale.Width = 125;
+            // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,75 +323,7 @@
             this.tbxIdCompany.Name = "tbxIdCompany";
             this.tbxIdCompany.Size = new System.Drawing.Size(70, 26);
             this.tbxIdCompany.TabIndex = 0;
-            this.tbxIdCompany.Text = "02";
             this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // idCompany
-            // 
-            this.idCompany.DataPropertyName = "idCompany";
-            this.idCompany.HeaderText = "EMPRESA";
-            this.idCompany.MinimumWidth = 6;
-            this.idCompany.Name = "idCompany";
-            this.idCompany.ReadOnly = true;
-            this.idCompany.Width = 65;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "PEDIDO";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 65;
-            // 
-            // client
-            // 
-            this.client.DataPropertyName = "client";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.client.DefaultCellStyle = dataGridViewCellStyle2;
-            this.client.HeaderText = "CLIENTE";
-            this.client.MinimumWidth = 6;
-            this.client.Name = "client";
-            this.client.ReadOnly = true;
-            this.client.Width = 415;
-            // 
-            // liquidValue
-            // 
-            this.liquidValue.DataPropertyName = "liquidValue";
-            dataGridViewCellStyle3.Format = "N2";
-            this.liquidValue.DefaultCellStyle = dataGridViewCellStyle3;
-            this.liquidValue.HeaderText = "VALOR LIQ.";
-            this.liquidValue.MinimumWidth = 6;
-            this.liquidValue.Name = "liquidValue";
-            this.liquidValue.ReadOnly = true;
-            this.liquidValue.Width = 125;
-            // 
-            // dateSale
-            // 
-            this.dateSale.DataPropertyName = "dateSale";
-            this.dateSale.HeaderText = "DATA PED.";
-            this.dateSale.MinimumWidth = 6;
-            this.dateSale.Name = "dateSale";
-            this.dateSale.ReadOnly = true;
-            this.dateSale.Width = 125;
-            // 
-            // clientCpfCnpj
-            // 
-            this.clientCpfCnpj.DataPropertyName = "clientCpfCnpj";
-            this.clientCpfCnpj.HeaderText = "CPF/CNPJ";
-            this.clientCpfCnpj.MinimumWidth = 6;
-            this.clientCpfCnpj.Name = "clientCpfCnpj";
-            this.clientCpfCnpj.ReadOnly = true;
-            this.clientCpfCnpj.Width = 125;
-            // 
-            // posSale
-            // 
-            this.posSale.DataPropertyName = "posSale";
-            this.posSale.HeaderText = "PÓS VENDA";
-            this.posSale.MinimumWidth = 6;
-            this.posSale.Name = "posSale";
-            this.posSale.ReadOnly = true;
-            this.posSale.Width = 125;
             // 
             // SearchSaleForm
             // 

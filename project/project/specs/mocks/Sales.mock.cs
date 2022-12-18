@@ -16,7 +16,7 @@ namespace project.specs.mocks
                 idCompany = "02",
                 id = "0000300",
                 liquidValue = Convert.ToDecimal(302.43),
-                dateSale = new DateTime(2022,12,1),
+                dateSale = DateTime.Now,
                 client = "00013-JOHN",
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "order"
@@ -96,7 +96,7 @@ namespace project.specs.mocks
                 idCompany = "02",
                 id = "0000308",
                 liquidValue = Convert.ToDecimal(302.43),
-                dateSale = new DateTime(2022,12,9),
+                dateSale = DateTime.Now,
                 client = "00021-JAMES",
                 clientCpfCnpj = "123.123.123-12",
                 posSale = "sale"

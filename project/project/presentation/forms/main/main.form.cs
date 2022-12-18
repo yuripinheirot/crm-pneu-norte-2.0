@@ -19,6 +19,7 @@ namespace project.presentation.forms.main
     public partial class MainForm : Form
     {
         readonly MainFunctions functions = new MainFunctions();
+        readonly string defaultCompany = Properties.Settings.Default.defaultCompany;
         public MainForm()
         {
             InitializeComponent();
@@ -26,7 +27,8 @@ namespace project.presentation.forms.main
 
         void clearScreen()
         {
-            tbxPosSale.Text = TbxClientName.Text = TbxIdCompany.Text = TbxIdSale.Text = "";
+            tbxPosSale.Text = TbxClientName.Text = TbxIdSale.Text = "";
+            if (string.IsNullOrWhiteSpace(defaultCompany)) TbxIdCompany.Text = "";
             flpQuestions.Controls.Clear();
             BtnSave.Enabled = false;
         }
@@ -53,7 +55,11 @@ namespace project.presentation.forms.main
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
+            if (!string.IsNullOrWhiteSpace(defaultCompany))
+            {
+                TbxIdCompany.Text = defaultCompany;
+            }
         }
 
         private void TbxIdSale_KeyDown(object sender, KeyEventArgs e)
