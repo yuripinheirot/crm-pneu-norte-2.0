@@ -1,6 +1,7 @@
 ﻿using project.presentation.forms.main;
 using project.presentation.forms.searchClient;
 using project.presentation.protocols;
+using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,7 +64,7 @@ namespace project.presentation.forms.searchSale
 
         private void tbxClientId_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2)
+            if (DefaultButtonOpenForms.handle(e))
             {
                 SearchClientForm clientForm = new SearchClientForm(this);
                 clientForm.ShowDialog();

@@ -58,17 +58,15 @@ namespace project.presentation.forms.main
 
         private void TbxIdSale_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2)
+            if (DefaultButtonOpenForms.handle(e))
             {
-                SearchSaleForm searchSale = new SearchSaleForm(this);
-                searchSale.ShowDialog();
+                new SearchSaleForm(this).ShowDialog();
             }
         }
 
         private void analiseDeRespostasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            QuestionnaireAnalysisForm questionnaire = new QuestionnaireAnalysisForm();
-            questionnaire.ShowDialog();
+            new QuestionnaireAnalysisForm().ShowDialog();
         }
 
         private void TbxIdSale_Leave(object sender, EventArgs e)
