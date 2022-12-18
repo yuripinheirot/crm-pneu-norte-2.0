@@ -66,7 +66,6 @@ namespace project.presentation.forms.main
 
         public void renderQuestions(FlowLayoutPanel flpQuestions, string posSale)
         {
-            Console.WriteLine("chamou");
             flpQuestions.Controls.Clear();
             var questions = getQuestions(posSale);
             int widthControls = flpQuestions.Width - 40;
