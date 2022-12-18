@@ -1,7 +1,9 @@
 ﻿using project.domain.model;
-using project.main.factories;
+using project.main.factories.business;
+using project.main.factories.validations;
 using project.presentation.protocols;
 using project.presentation.utils;
+using project.validations.crm;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -59,7 +61,7 @@ namespace project.presentation.forms.main
             }
         }
 
-        public SaleModel getSale(string idCompany,string idSale)
+        public SaleModel getSale(string idCompany, string idSale)
         {
             return SalesFactory.handle.getSale(idCompany, idSale);
         }
@@ -100,6 +102,8 @@ namespace project.presentation.forms.main
         public void saveCrm(MainForm mainForm)
         {
             var answers = getAnswersFromForm(mainForm);
+            VerifyEmptyAnswersValidationFactory.handle.validate(answers);
+
             AnswersFactory.handle.addCrm(answers);
         }
     }

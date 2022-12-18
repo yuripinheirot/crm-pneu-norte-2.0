@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class AnswersRepository : IPostCrmRepository, IGetAnswers
+    internal class AnswersRepository : IPostCrmRepository, IGetAnswers, IGetCrm
     {
         public void addCrm(List<AnswerModel> answers)
         {
@@ -25,6 +25,11 @@ namespace project.infra.db.mock.repository
                        (answer.createdAt <= filters.finalDate) &&
                        (answer.idQuestion == filters.idQuestion);
             }).ToList();
+        }
+
+        public List<AnswerModel> getCrm(string idSale, string idCompany)
+        {
+            return AnswersMock.answers.Where(a => a.idSale == idSale && a.idCompany == idCompany).ToList();
         }
     }
 }

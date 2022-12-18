@@ -1,4 +1,6 @@
-﻿namespace project.presentation.forms.main
+﻿using project.validations;
+
+namespace project.presentation.forms.main
 {
     partial class MainForm
     {

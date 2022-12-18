@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.main.factories
+namespace project.main.factories.business
 {
     internal class SalesFactory
     {

@@ -1,9 +1,10 @@
 ﻿using project.domain.model;
+using project.main.factories.validations;
 using project.presentation.errors;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
-using project.presentation.protocols;
 using project.presentation.utils;
+using project.validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace project.presentation.forms.main
     {
         readonly MainFunctions functions = new MainFunctions();
         readonly string defaultCompany = Properties.Settings.Default.defaultCompany;
+
         public MainForm()
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace project.presentation.forms.main
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+
             if (!string.IsNullOrWhiteSpace(defaultCompany))
             {
                 TbxIdCompany.Text = defaultCompany;
@@ -75,6 +77,18 @@ namespace project.presentation.forms.main
             new QuestionnaireAnalysisForm().ShowDialog();
         }
 
+        private void LoadInfoSalesOnFields(SaleModel sale)
+        {
+            tbxPosSale.Text = TextUtils.translatePosSalePresentation(sale.posSale);
+            TbxClientName.Text = sale.client;
+            TbxIdCompany.Text = sale.idCompany;
+        }
+
+        private void fillZerosOnIdSale()
+        {
+            TbxIdSale.Text = TbxIdSale.Text.PadLeft(7, '0');
+        }
+
         private void TbxIdSale_Leave(object sender, EventArgs e)
         {
             try
@@ -85,9 +99,9 @@ namespace project.presentation.forms.main
                     return;
                 }
 
-                TbxIdSale.Text = TbxIdSale.Text.PadLeft(7, '0');
-
+                fillZerosOnIdSale();
                 var sale = functions.getSale(TbxIdCompany.Text, TbxIdSale.Text);
+                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(sale.idCompany, sale.id);
 
                 if (sale == null)
                 {
@@ -96,17 +110,14 @@ namespace project.presentation.forms.main
                     return;
                 }
 
-                tbxPosSale.Text = TextUtils.translatePosSalePresentation(sale.posSale);
-                TbxClientName.Text = sale.client;
-                TbxIdCompany.Text = sale.idCompany;
-
+                LoadInfoSalesOnFields(sale);
                 functions.renderQuestions(flpQuestions, tbxPosSale.Text);
                 flpQuestions.Focus();
                 BtnSave.Enabled = true;
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ThrowCustomException.Throw(error);
             }
         }
     }

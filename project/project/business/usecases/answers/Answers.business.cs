@@ -8,30 +8,20 @@ using project.domain.model;
 using project.domain.usecases;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
+using project.validations.crm;
 
 namespace project.business.usecases.answers
 {
-    internal class AnswersBusiness : IPostCrm, IGetAnswers
+    internal class AnswersBusiness : IPostCrm, IGetAnswers, IGetCrm
     {
         AnswersData answersData;
         public AnswersBusiness(AnswersData answersData)
         {
             this.answersData = answersData;
         }
-        private void validateAnswers(List<PostAnswerDTO> answers)
-        {
-            foreach (PostAnswerDTO answer in answers)
-            {
-                if (string.IsNullOrEmpty(answer.answer))
-                {
-                    throw new PresentationException("Atenção!", "Todas as respostas devem ser preenchidas");
-                }
-            }
-        }
 
         public void addCrm(List<PostAnswerDTO> answers)
         {
-            validateAnswers(answers);
             answersData.addCrm(answers);
         }
 
@@ -40,5 +30,9 @@ namespace project.business.usecases.answers
             return answersData.getAnswers(filters);
         }
 
+        public List<AnswerModel> getCrm(string idSale, string idCompany)
+        {
+            return answersData.getCrm(idSale, idCompany);
+        }
     }
 }

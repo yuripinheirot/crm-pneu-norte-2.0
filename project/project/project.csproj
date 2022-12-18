@@ -50,6 +50,10 @@
     <Compile Include="business\usecases\client\Client.business.cs" />
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="main\factories\validations\VerifyEmptyAnswersValidation.factory.cs" />
+    <Compile Include="main\factories\validations\VerifyIfExistsCurrentCrmValidation.factory.cs" />
+    <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
+    <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
     <Compile Include="data\usecases\answers\Answers.data.cs" />
     <Compile Include="data\usecases\client\Client.data.cs" />
     <Compile Include="data\usecases\questions\Questions.data.cs" />
@@ -57,9 +61,10 @@
     <Compile Include="domain\model\Client.model.cs" />
     <Compile Include="domain\model\Question.model.cs" />
     <Compile Include="domain\model\Sale.model.cs" />
-    <Compile Include="domain\usecases\IGetAnswers.usecases.cs" />
+    <Compile Include="domain\usecases\IGetAnswers.usecase.cs" />
     <Compile Include="domain\usecases\IGetClient.usecase.cs" />
     <Compile Include="domain\usecases\IGetClients.usecase.cs" />
+    <Compile Include="domain\usecases\IGetCrm.usecase.cs" />
     <Compile Include="domain\usecases\IGetQuestions.usecase.cs" />
     <Compile Include="domain\usecases\IGetSale.usecase.cs" />
     <Compile Include="domain\usecases\IGetSales.usecase.cs" />
@@ -67,10 +72,10 @@
     <Compile Include="infra\db\mock\repository\Client.repository.cs" />
     <Compile Include="infra\db\mock\repository\Questions.repository.cs" />
     <Compile Include="infra\db\mock\repository\Sales.repository.cs" />
-    <Compile Include="main\factories\Clients.factory.cs" />
-    <Compile Include="main\factories\Sales.factory.cs" />
-    <Compile Include="main\factories\Answers.factory.cs" />
-    <Compile Include="main\factories\Questions.factory.cs" />
+    <Compile Include="main\factories\business\Clients.factory.cs" />
+    <Compile Include="main\factories\business\Sales.factory.cs" />
+    <Compile Include="main\factories\business\Answers.factory.cs" />
+    <Compile Include="main\factories\business\Questions.factory.cs" />
     <Compile Include="presentation\errors\exceptions\PresentationException.cs" />
     <Compile Include="presentation\errors\ThrowCustomException.cs" />
     <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.cs">

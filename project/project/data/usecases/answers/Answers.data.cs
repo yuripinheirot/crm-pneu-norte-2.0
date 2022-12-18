@@ -11,7 +11,7 @@ using project.presentation.protocols;
 
 namespace project.data.usecases.answers
 {
-    internal class AnswersData : IPostCrm, IGetAnswers
+    internal class AnswersData : IPostCrm, IGetAnswers, IGetCrm
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -56,6 +56,11 @@ namespace project.data.usecases.answers
             filters.initialDate = new DateTime(filters.initialDate.Year, filters.initialDate.Month, filters.initialDate.Day, 0, 0, 0);
             filters.finalDate = new DateTime(filters.finalDate.Year, filters.finalDate.Month, filters.finalDate.Day, 23, 59, 59);
             return answersRepository.getAnswers(filters);
+        }
+
+        public List<AnswerModel> getCrm(string idSale, string idCompany)
+        {
+            return answersRepository.getCrm(idSale, idCompany);
         }
     }
 }
