@@ -1,4 +1,5 @@
-﻿using project.main.factories.business;
+﻿using project.domain.model;
+using project.main.factories.business;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,10 @@ namespace project.presentation.forms.crmNotResolved
 
             dgv.DataSource = dataSource;
         }
+
+        //public AnswerModel getAnswersById(string id)
+        //{
+        //    return AnswersFactory.handle.
+        //}
     }
 }

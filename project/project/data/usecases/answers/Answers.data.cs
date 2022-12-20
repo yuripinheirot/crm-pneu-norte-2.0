@@ -11,7 +11,7 @@ using project.presentation.protocols;
 
 namespace project.data.usecases.answers
 {
-    internal class AnswersData : IPostCrm, IGetAnswers, IGetCrm, IGetAnswersNotResolved
+    internal class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -19,7 +19,7 @@ namespace project.data.usecases.answers
             this.answersRepository = answersRepository;
         }
 
-        public void addCrm(List<PostAnswerDTO> answersDTO)
+        public void addAnswersDTO(List<PostAnswerDTO> answersDTO)
         {
             var answers = answersDTO.Select(a => new AnswerModel()
             {
@@ -36,19 +36,18 @@ namespace project.data.usecases.answers
                 idCompany = a.idCompany
             }).ToList();
 
-            answersRepository.addCrm(answers);
+            answersRepository.addAnswersRepository(answers);
         }
 
         public List<AnswerModel> getAnswers(GetAnswersDTO filters)
         {
-            filters.initialDate = new DateTime(filters.initialDate.Year, filters.initialDate.Month, filters.initialDate.Day, 0, 0, 0);
-            filters.finalDate = new DateTime(filters.finalDate.Year, filters.finalDate.Month, filters.finalDate.Day, 23, 59, 59);
-            return answersRepository.getAnswers(filters);
-        }
+            if (filters.initialDate != null && filters.finalDate != null)
+            {
+                filters.initialDate = new DateTime(filters.initialDate.Value.Year, filters.initialDate.Value.Month, filters.initialDate.Value.Day, 0, 0, 0);
+                filters.finalDate = new DateTime(filters.finalDate.Value.Year, filters.finalDate.Value.Month, filters.finalDate.Value.Day, 23, 59, 59);
+            }
 
-        public List<AnswerModel> getCrm(string idSale, string idCompany)
-        {
-            return answersRepository.getCrm(idSale, idCompany);
+            return answersRepository.getAnswers(filters);
         }
 
         public List<AnswerNotResolvedProtocol> getAnswersNotResolved()

@@ -8,8 +8,10 @@ namespace project.presentation.protocols
 {
     internal class GetAnswersDTO
     {
-        public DateTime initialDate { get; set; }
-        public DateTime finalDate { get; set; }
+        public DateTime? initialDate { get; set; }
+        public DateTime? finalDate { get; set; }
         public string idQuestion { get; set; }
+        public string idSale { get; set; }
+        public string idCompany { get; set; }
     }
 }

@@ -13,7 +13,7 @@ using project.validations.crm;
 
 namespace project.business.usecases.answers
 {
-    internal class AnswersBusiness : IPostCrm, IGetAnswers, IGetCrm, IGetAnswersNotResolved
+    internal class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved
     {
         AnswersData answersData;
         QuestionsData questionData;
@@ -23,7 +23,7 @@ namespace project.business.usecases.answers
             this.questionData = questionData;
         }
 
-        public void addCrm(List<PostAnswerDTO> answers)
+        public void addAnswersDTO(List<PostAnswerDTO> answers)
         {
             answers.ForEach(answer =>
             {
@@ -33,7 +33,7 @@ namespace project.business.usecases.answers
                 answer.status = status;
             });
 
-            answersData.addCrm(answers);
+            answersData.addAnswersDTO(answers);
         }
 
         public List<AnswerModel> getAnswers(GetAnswersDTO filters)
@@ -44,11 +44,6 @@ namespace project.business.usecases.answers
         public List<AnswerNotResolvedProtocol> getAnswersNotResolved()
         {
             return answersData.getAnswersNotResolved();
-        }
-
-        public List<AnswerModel> getCrm(string idSale, string idCompany)
-        {
-            return answersData.getCrm(idSale, idCompany);
         }
     }
 }

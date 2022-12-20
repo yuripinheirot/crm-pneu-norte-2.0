@@ -22,5 +22,13 @@ namespace project.presentation.forms.crmNotResolved
         {
             functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvNotResolved.RowCount == 0) return;
+
+            var currentCrmId = dgvNotResolved.CurrentRow.Cells["id"].Value.ToString();
+            new CrmDetails(currentCrmId).ShowDialog();
+        }
     }
 }

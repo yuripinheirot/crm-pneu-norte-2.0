@@ -35,6 +35,13 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvNotResolved = new System.Windows.Forms.DataGridView();
+            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resolution = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.respostasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -64,6 +71,7 @@
             this.btnEditar.TabIndex = 0;
             this.btnEditar.Text = "&Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // dgvNotResolved
             // 
@@ -83,6 +91,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvNotResolved.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNotResolved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotResolved.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idCompany,
+            this.idSale,
+            this.idClient,
+            this.descriptionQuestion,
+            this.answer,
+            this.observation,
+            this.resolution});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,6 +125,62 @@
             this.dgvNotResolved.Size = new System.Drawing.Size(1109, 361);
             this.dgvNotResolved.StandardTab = true;
             this.dgvNotResolved.TabIndex = 8;
+            // 
+            // idCompany
+            // 
+            this.idCompany.DataPropertyName = "idCompany";
+            this.idCompany.HeaderText = "EMPRESA";
+            this.idCompany.Name = "idCompany";
+            this.idCompany.ReadOnly = true;
+            this.idCompany.Width = 80;
+            // 
+            // idSale
+            // 
+            this.idSale.DataPropertyName = "idSale";
+            this.idSale.HeaderText = "PEDIDO";
+            this.idSale.Name = "idSale";
+            this.idSale.ReadOnly = true;
+            this.idSale.Width = 80;
+            // 
+            // idClient
+            // 
+            this.idClient.DataPropertyName = "idClient";
+            this.idClient.HeaderText = "CLIENTE";
+            this.idClient.Name = "idClient";
+            this.idClient.ReadOnly = true;
+            this.idClient.Width = 60;
+            // 
+            // descriptionQuestion
+            // 
+            this.descriptionQuestion.DataPropertyName = "descriptionQuestion";
+            this.descriptionQuestion.HeaderText = "PERGUNTA";
+            this.descriptionQuestion.Name = "descriptionQuestion";
+            this.descriptionQuestion.ReadOnly = true;
+            this.descriptionQuestion.Width = 200;
+            // 
+            // answer
+            // 
+            this.answer.DataPropertyName = "answer";
+            this.answer.HeaderText = "RESPOSTA";
+            this.answer.Name = "answer";
+            this.answer.ReadOnly = true;
+            this.answer.Width = 180;
+            // 
+            // observation
+            // 
+            this.observation.DataPropertyName = "observation";
+            this.observation.HeaderText = "OBSERVAÇÃO";
+            this.observation.Name = "observation";
+            this.observation.ReadOnly = true;
+            this.observation.Width = 230;
+            // 
+            // resolution
+            // 
+            this.resolution.DataPropertyName = "resolution";
+            this.resolution.HeaderText = "RESOLUÇÃO";
+            this.resolution.Name = "resolution";
+            this.resolution.ReadOnly = true;
+            this.resolution.Width = 230;
             // 
             // dataTable1BindingSource1
             // 
@@ -153,14 +225,12 @@
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private System.Windows.Forms.BindingSource dataTable1BindingSource1;
         public System.Windows.Forms.DataGridView dgvNotResolved;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EMPRESA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_pedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resposta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn observacoes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resolucao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCompany;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionQuestion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn answer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resolution;
     }
 }

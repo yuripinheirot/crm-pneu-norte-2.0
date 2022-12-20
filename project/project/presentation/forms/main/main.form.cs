@@ -4,6 +4,7 @@ using project.presentation.errors;
 using project.presentation.forms.crmNotResolved;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
+using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
@@ -110,7 +111,8 @@ namespace project.presentation.forms.main
                     return;
                 }
 
-                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(sale.idCompany, sale.id, clearScreen);
+                var filters = new GetAnswersDTO() { idCompany = TbxIdCompany.Text, idSale = TbxIdSale.Text };
+                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(filters, clearScreen);
 
                 LoadInfoSalesOnFields(sale);
                 functions.renderQuestions(flpQuestions, tbxPosSale.Text);

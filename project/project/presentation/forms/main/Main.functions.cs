@@ -17,7 +17,7 @@ namespace project.presentation.forms.main
     internal class MainFunctions
     {
         Dictionary<string, string> observationsAnswers = new Dictionary<string, string>();
-        private List<PostAnswerDTO> buildCrmFromForm(MainForm mainForm)
+        private List<PostAnswerDTO> getAnswersFromForm(MainForm mainForm)
         {
             List<PostAnswerDTO> answersList = new List<PostAnswerDTO>();
             FlowLayoutPanel flpQuestions = mainForm.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
@@ -125,10 +125,10 @@ namespace project.presentation.forms.main
 
         public void saveCrm(MainForm mainForm)
         {
-            var answers = buildCrmFromForm(mainForm);
+            var answers = getAnswersFromForm(mainForm);
             VerifyEmptyAnswersValidationFactory.handle.validate(answers);
-
-            AnswersFactory.handle.addCrm(answers);
+            AnswersFactory.handle.addAnswersDTO(answers);
+            
             observationsAnswers.Clear();
         }
     }

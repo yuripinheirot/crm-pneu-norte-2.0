@@ -19,9 +19,9 @@ namespace project.validations.crm
         }
 
 
-        public void validate(string idCompany, string idSale, clearScreen clear)
+        public void validate(GetAnswersDTO filters, clearScreen clear)
         {
-            var crm = answersData.getCrm(idSale, idCompany);
+            var crm = answersData.getAnswers(filters);
 
             if (crm.Count > 0)
             {

@@ -18,4 +18,14 @@ namespace project.domain.usecases
         List<AnswerNotResolvedProtocol> getAnswersNotResolved();
     }
 
+    interface IGetAnswerById
+    {
+        List<AnswerNotResolvedProtocol> getAnswerById(string id);
+    }
+
+    //internal interface IGetCrm
+    //{
+    //    List<AnswerModel> getCrm(string idSale, string idCompany);
+    //}
+
 }

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class AnswersRepository : IPostCrmRepository, IGetAnswers, IGetCrm, IGetAnswersNotResolved
+    internal class AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved
     {
-        public void addCrm(List<AnswerModel> answers)
+        public void addAnswersRepository(List<AnswerModel> answers)
         {
             AnswersMock.answers.AddRange(answers);
         }
@@ -21,9 +21,11 @@ namespace project.infra.db.mock.repository
         {
             return AnswersMock.answers.Where(answer =>
             {
-                return (answer.createdAt >= filters.initialDate) &&
-                       (answer.createdAt <= filters.finalDate) &&
-                       (answer.idQuestion == filters.idQuestion);
+                return
+                (filters.initialDate != null ? answer.createdAt >= filters.initialDate : true) &&
+                (filters.finalDate != null ? answer.createdAt <= filters.finalDate : true) &&
+                (!string.IsNullOrWhiteSpace(filters.idSale) ? answer.idSale == filters.idSale : true) &&
+                (!string.IsNullOrWhiteSpace(filters.idCompany) ? answer.idCompany == filters.idCompany : true);
             }).ToList();
         }
 
@@ -45,11 +47,6 @@ namespace project.infra.db.mock.repository
                 };
 
             return query.ToList();
-        }
-
-        public List<AnswerModel> getCrm(string idSale, string idCompany)
-        {
-            return AnswersMock.answers.Where(a => a.idSale == idSale && a.idCompany == idCompany).ToList();
         }
     }
 }

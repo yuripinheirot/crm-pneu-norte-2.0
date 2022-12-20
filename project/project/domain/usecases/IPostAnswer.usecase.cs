@@ -8,14 +8,14 @@ using project.presentation.protocols;
 
 namespace project.domain.usecases
 {
-	interface IPostCrmRepository
+	interface IPostAnswersRepository
 	{
-		void addCrm(List<AnswerModel> answers);		
+		void addAnswersRepository(List<AnswerModel> answers);		
 			
 	}	
-	interface IPostCrm
+	interface IPostAnswers
 	{
-		void addCrm(List<PostAnswerDTO> answers);		
+		void addAnswersDTO(List<PostAnswerDTO> answers);		
 			
 	}
 }
