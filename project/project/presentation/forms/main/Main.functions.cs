@@ -23,7 +23,6 @@ namespace project.presentation.forms.main
             FlowLayoutPanel flpQuestions = mainForm.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
             string idSale = mainForm.TbxIdSale.Text;
             string idClient = mainForm.TbxClientName.Text.Split('-')[0];
-            string status = "pending";
             string idCompany = mainForm.TbxIdCompany.Text;
 
 
@@ -32,13 +31,17 @@ namespace project.presentation.forms.main
                 if (control is ComboBox currentComboBox)
                 {
                     var idQuestion = currentComboBox.Tag.ToString();
+                    var currentQuestion = QuestionsFactory.handle.getQuestion(idQuestion);
+                    var currentAnswer = currentComboBox.SelectedValue.ToString();
+                    var status = currentQuestion.badAnswers.Contains(currentAnswer) ? "pending" : "done";
+
                     answersList.Add(new PostAnswerDTO()
                     {
                         idQuestion = idQuestion,
                         idSale = idSale,
                         idClient = idClient,
                         status = status,
-                        answer = currentComboBox.SelectedValue.ToString(),
+                        answer = currentAnswer,
                         observation = observationsAnswers.ContainsKey(idQuestion) ? observationsAnswers[idQuestion] : "",
                         updatedAt = DateTime.Now,
                         idCompany = idCompany

@@ -21,5 +21,10 @@ namespace project.data.usecases.questions
         {
             return questionRepository.getQuestions();
         }
+
+        public QuestionModel getQuestion(string idQuestion)
+        {
+            return questionRepository.getQuestion(idQuestion);
+        }
     }
 }

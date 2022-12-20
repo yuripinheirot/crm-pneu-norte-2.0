@@ -13,5 +13,7 @@ namespace project.domain.model
         public string posSale { get; set; }
         public bool active { get; set; } = true;
         public List<string> answers { get; set; }
+        public List<string> badAnswers { get; set; }
+
     }
 }

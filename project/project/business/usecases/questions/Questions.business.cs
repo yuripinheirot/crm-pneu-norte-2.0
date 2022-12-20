@@ -22,5 +22,10 @@ namespace project.business.usecases.questions
         {
             return questionsData.getQuestions().Where(q => q.active == true).ToList();
         }
+
+        public QuestionModel getQuestion(string idQuestion)
+        {
+            return questionsData.getQuestion(idQuestion);
+        }
     }
 }

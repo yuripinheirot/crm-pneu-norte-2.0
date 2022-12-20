@@ -17,7 +17,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "First question order",
                 posSale = "order",
-                answers = new List<string> { "1", "2", "3" }
+                answers = new List<string> { "1", "2", "3" },
+                badAnswers = new List<string> { "1" }
             },
             new QuestionModel()
             {
@@ -25,7 +26,8 @@ namespace project.specs.mocks
                 active = false,
                 description = "Second question order deactivated",
                 posSale = "order",
-                answers = new List<string> { "a", "b", "c" }
+                answers = new List<string> { "a", "b", "c" },
+                badAnswers = new List<string> { "a", "b" }
             },
             new QuestionModel()
             {
@@ -33,7 +35,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "Third question order",
                 posSale = "order",
-                answers = new List<string> { "yes", "no", "maybe" }
+                answers = new List<string> { "yes", "no", "maybe" },
+                badAnswers = new List<string> { "no" }
             },
             new QuestionModel()
             {
@@ -41,7 +44,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "Fourth question order",
                 posSale = "order",
-                answers = new List<string> { "3", "4", "5" }
+                answers = new List<string> { "3", "4", "5" },
+                badAnswers = new List<string> { "3" }
             },
             new QuestionModel()
             {
@@ -49,7 +53,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "Fifth question order",
                 posSale = "order",
-                answers = new List<string> { "foo", "bar", "gzz" }
+                answers = new List<string> { "foo", "bar", "gzz" },
+                badAnswers = new List<string> { "foo" }
             },
             new QuestionModel()
             {
@@ -57,7 +62,8 @@ namespace project.specs.mocks
                 active = false,
                 description = "6 question sale deactivated",
                 posSale = "sale",
-                answers = new List<string> { "chicken", "horse", "cow" }
+                answers = new List<string> { "chicken", "horse", "cow" },
+                badAnswers = new List<string> { "chicken" }
             },
             new QuestionModel()
             {
@@ -65,7 +71,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "7 question sale",
                 posSale = "sale",
-                answers = new List<string> { "metallica", "iron maiden", "led zeppelin" }
+                answers = new List<string> { "metallica", "iron maiden", "led zeppelin", "queen" },
+                badAnswers = new List<string> { "queen" }
             },
             new QuestionModel()
             {
@@ -73,7 +80,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "8 question sale",
                 posSale = "sale",
-                answers = new List<string> { "javascript", "java", "c#" }
+                answers = new List<string> { "javascript", "java", "c#" },
+                badAnswers = new List<string> { "java" }
             },
             new QuestionModel()
             {
@@ -81,7 +89,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "9 question sale",
                 posSale = "sale",
-                answers = new List<string> { "jazz", "rock", "funk" }
+                answers = new List<string> { "jazz", "rock", "funk" },
+                badAnswers = new List<string> { "funk" }
             },
             new QuestionModel()
             {
@@ -89,7 +98,8 @@ namespace project.specs.mocks
                 active = true,
                 description = "10 question sale",
                 posSale = "sale",
-                answers = new List<string> { "dell", "apple", "samsung" }
+                answers = new List<string> { "dell", "apple", "samsung" },
+                badAnswers = new List<string> { "samsung" }
             },
         };
     }

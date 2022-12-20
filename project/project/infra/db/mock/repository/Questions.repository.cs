@@ -15,5 +15,10 @@ namespace project.infra.db.mock.repository
         {
             return QuestionsMock.questions;
         }
+
+        public QuestionModel getQuestion(string idQuestion)
+        {
+            return QuestionsMock.questions.Where(q => q.id == idQuestion).FirstOrDefault();
+        }
     }
 }
