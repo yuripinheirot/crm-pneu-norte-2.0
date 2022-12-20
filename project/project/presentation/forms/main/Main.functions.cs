@@ -16,6 +16,7 @@ namespace project.presentation.forms.main
 {
     internal class MainFunctions
     {
+        Dictionary<string, string> observationsAnswers = new Dictionary<string, string>();
         private List<PostAnswerDTO> getAnswersFromForm(MainForm mainForm)
         {
             List<PostAnswerDTO> answersList = new List<PostAnswerDTO>();
@@ -30,14 +31,15 @@ namespace project.presentation.forms.main
             {
                 if (control is ComboBox currentComboBox)
                 {
+                    var idQuestion = currentComboBox.Tag.ToString();
                     answersList.Add(new PostAnswerDTO()
                     {
-                        idQuestion = currentComboBox.Tag.ToString(),
+                        idQuestion = idQuestion,
                         idSale = idSale,
                         idClient = idClient,
                         status = status,
                         answer = currentComboBox.SelectedValue.ToString(),
-                        observation = "",
+                        observation = observationsAnswers[idQuestion],
                         updatedAt = DateTime.Now,
                         idCompany = idCompany
                     });
@@ -68,20 +70,19 @@ namespace project.presentation.forms.main
 
         Button observationButton(string idQuestion)
         {
-            void observationButton(object sender, EventArgs e)
+            void observationButtonClick(object sender, EventArgs e)
             {
-                new ObservationAnswer().ShowDialog();
+                new ObservationAnswer(observationsAnswers, idQuestion).ShowDialog();
             }
 
             var button = new Button()
             {
                 Text = "...",
                 Width = 30,
-                Tag = idQuestion,
                 UseVisualStyleBackColor = true,
             };
 
-            button.Click += new EventHandler(observationButton);
+            button.Click += new EventHandler(observationButtonClick);
 
             return button;
         }
@@ -126,6 +127,7 @@ namespace project.presentation.forms.main
             VerifyEmptyAnswersValidationFactory.handle.validate(answers);
 
             AnswersFactory.handle.addCrm(answers);
+            observationsAnswers.Clear();
         }
     }
 }

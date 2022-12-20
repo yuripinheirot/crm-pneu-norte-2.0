@@ -30,7 +30,7 @@
         {
             this.btnSair = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.tbxObservacao = new System.Windows.Forms.RichTextBox();
+            this.tbxObservation = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnSair
@@ -53,35 +53,37 @@
             this.btnSalvar.TabIndex = 1;
             this.btnSalvar.Text = "&Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // tbxObservacao
+            // tbxObservation
             // 
-            this.tbxObservacao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxObservacao.Location = new System.Drawing.Point(12, 12);
-            this.tbxObservacao.Name = "tbxObservacao";
-            this.tbxObservacao.Size = new System.Drawing.Size(627, 183);
-            this.tbxObservacao.TabIndex = 0;
-            this.tbxObservacao.Text = "";
+            this.tbxObservation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxObservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxObservation.Location = new System.Drawing.Point(12, 12);
+            this.tbxObservation.Name = "tbxObservation";
+            this.tbxObservation.Size = new System.Drawing.Size(627, 183);
+            this.tbxObservation.TabIndex = 0;
+            this.tbxObservation.Text = "";
             // 
-            // frmObservacoes
+            // ObservationAnswer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(650, 253);
-            this.Controls.Add(this.tbxObservacao);
+            this.Controls.Add(this.tbxObservation);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnSair);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "frmObservacoes";
+            this.Name = "ObservationAnswer";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Observações";
+            this.Load += new System.EventHandler(this.ObservationAnswer_Load);
             this.ResumeLayout(false);
 
         }
@@ -90,6 +92,6 @@
 
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.RichTextBox tbxObservacao;
+        private System.Windows.Forms.RichTextBox tbxObservation;
     }
 }

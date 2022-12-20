@@ -129,6 +129,9 @@
     <EmbeddedResource Include="presentation\forms\main\Main.form.resx">
       <DependentUpon>Main.form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="presentation\forms\main\ObservationAnswer.form.resx">
+      <DependentUpon>ObservationAnswer.form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.resx">
       <DependentUpon>QuestionnaireAnalysis.form.cs</DependentUpon>
     </EmbeddedResource>
