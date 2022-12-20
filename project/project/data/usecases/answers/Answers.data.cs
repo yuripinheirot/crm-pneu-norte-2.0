@@ -39,7 +39,7 @@ namespace project.data.usecases.answers
             answersRepository.addAnswersRepository(answers);
         }
 
-        public List<AnswerModel> getAnswers(GetAnswersDTO filters)
+        public List<AnswerModel> getAnswers(AnswersFilters filters)
         {
             if (filters.initialDate != null && filters.finalDate != null)
             {
@@ -50,7 +50,7 @@ namespace project.data.usecases.answers
             return answersRepository.getAnswers(filters);
         }
 
-        public List<AnswerNotResolvedProtocol> getAnswersNotResolved()
+        public List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             return answersRepository.getAnswersNotResolved();
         }

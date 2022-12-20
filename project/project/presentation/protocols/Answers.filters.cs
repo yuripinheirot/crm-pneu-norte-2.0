@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.protocols
 {
-    internal class GetAnswersDTO
+    internal class AnswersFilters
     {
         public DateTime? initialDate { get; set; }
         public DateTime? finalDate { get; set; }

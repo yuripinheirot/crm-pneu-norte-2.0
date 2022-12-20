@@ -79,7 +79,7 @@
     <Compile Include="presentation\forms\main\ObservationAnswer.form.Designer.cs">
       <DependentUpon>ObservationAnswer.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="presentation\protocols\AnswerNotResolved.protocol .cs" />
+    <Compile Include="presentation\protocols\AnswerNotResolved.dataview .cs" />
     <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
     <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
     <Compile Include="data\usecases\answers\Answers.data.cs" />
@@ -118,10 +118,10 @@
     </Compile>
     <Compile Include="presentation\forms\searchClient\SearchClient.functions.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSales.functions.cs" />
-    <Compile Include="presentation\protocols\AnalysisByQuestion.protocol.cs" />
-    <Compile Include="presentation\protocols\GetAnswersDTO.protocol.cs" />
-    <Compile Include="presentation\protocols\PostAnswerDTO.protocol.cs" />
-    <Compile Include="presentation\protocols\GetSalesDTO.protocol.cs" />
+    <Compile Include="presentation\protocols\AnalysisByQuestion.dateview.cs" />
+    <Compile Include="presentation\protocols\Answers.filters.cs" />
+    <Compile Include="presentation\protocols\PostAnswer.dto.cs" />
+    <Compile Include="presentation\protocols\Sales.filters.cs" />
     <Compile Include="presentation\utils\DefaultButtonOpenForms.utils.cs" />
     <Compile Include="presentation\utils\Grid.utils.cs" />
     <Compile Include="presentation\utils\Text.utils.cs" />

@@ -28,7 +28,7 @@ namespace project.business.usecases.client
             return clientData.getClients(fieldFilter, valueFilter);
         }
 
-        public List<AnalysisByQuestionProtocol> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
         {
             return clientData.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer);
         }

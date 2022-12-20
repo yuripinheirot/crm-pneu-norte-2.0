@@ -20,6 +20,6 @@ namespace project.domain.usecases
 
     internal interface IGetClientsAndSalesByAnswerAndQuestion
     {
-        List<AnalysisByQuestionProtocol> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer);
+        List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer);
     }
 }

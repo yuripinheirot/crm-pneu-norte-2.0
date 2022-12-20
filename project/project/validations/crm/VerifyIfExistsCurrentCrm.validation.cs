@@ -19,7 +19,7 @@ namespace project.validations.crm
         }
 
 
-        public void validate(GetAnswersDTO filters, clearScreen clear)
+        public void validate(AnswersFilters filters, clearScreen clear)
         {
             var crm = answersData.getAnswers(filters);
 

@@ -36,12 +36,12 @@ namespace project.business.usecases.answers
             answersData.addAnswersDTO(answers);
         }
 
-        public List<AnswerModel> getAnswers(GetAnswersDTO filters)
+        public List<AnswerModel> getAnswers(AnswersFilters filters)
         {
             return answersData.getAnswers(filters);
         }
 
-        public List<AnswerNotResolvedProtocol> getAnswersNotResolved()
+        public List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             return answersData.getAnswersNotResolved();
         }

@@ -22,7 +22,7 @@ namespace project.presentation.forms.searchSale
         {
             try
             {
-                GetSalesDTO filters = new GetSalesDTO()
+                SalesFilters filters = new SalesFilters()
                 {
                     idCompany = tbxIdCompany.Text,
                     idClient = tbxClientId.Text,

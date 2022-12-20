@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.domain.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,8 @@ namespace project.presentation.forms.crmNotResolved
 {
     public partial class CrmDetails : Form
     {
-        public CrmDetails(string crmId)
+        AnswerModel currentAnswer;
+        public CrmDetails(string crmId, string idCompany)
         {
             InitializeComponent();
         }

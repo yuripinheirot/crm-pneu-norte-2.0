@@ -111,7 +111,7 @@ namespace project.presentation.forms.main
                     return;
                 }
 
-                var filters = new GetAnswersDTO() { idCompany = TbxIdCompany.Text, idSale = TbxIdSale.Text };
+                var filters = new AnswersFilters() { idCompany = TbxIdCompany.Text, idSale = TbxIdSale.Text };
                 VerifyIfExistsCurrentCrmValidationFactory.handle.validate(filters, clearScreen);
 
                 LoadInfoSalesOnFields(sale);

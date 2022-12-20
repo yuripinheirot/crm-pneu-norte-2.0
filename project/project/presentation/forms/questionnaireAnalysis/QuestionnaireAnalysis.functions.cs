@@ -30,7 +30,7 @@ namespace project.presentation.forms.questionnaireAnalysis
             cbx.SelectedIndex = 0;
         }
 
-        public void loadAnswersOnDataGrid(DataGridView dgv, GetAnswersDTO filters)
+        public void loadAnswersOnDataGrid(DataGridView dgv, AnswersFilters filters)
         {
             var answers = AnswersFactory.handle.getAnswers(filters)
                 .GroupBy(answer => answer.answer)

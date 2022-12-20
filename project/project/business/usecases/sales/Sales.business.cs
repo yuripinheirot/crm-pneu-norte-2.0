@@ -23,7 +23,7 @@ namespace project.business.usecases.sales
             return salesData.getSale(idCompany, idSale);
         }
 
-        public List<SaleModel> getSales(GetSalesDTO filters)
+        public List<SaleModel> getSales(SalesFilters filters)
         {
             return salesData.getSales(filters);
         }

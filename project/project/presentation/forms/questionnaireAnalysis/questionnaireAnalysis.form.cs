@@ -32,7 +32,7 @@ namespace project.presentation.forms.questionnaireAnalysis
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var filters = new GetAnswersDTO()
+            var filters = new AnswersFilters()
             {
                 idQuestion = cbxQuestions.Text.Split('-')[0],
                 finalDate = tbxDtf.Value,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.protocols
 {
-    internal class AnswerNotResolvedProtocol
+    internal class AnswerNotResolvedDataView
     {
         public string idCompany { get; set; }
         public string idSale { get; set; }

@@ -17,7 +17,7 @@ namespace project.infra.db.mock.repository
             return SalesMock.sales.Where(s => s.id == idSale && s.idCompany == idCompany).FirstOrDefault();
         }
 
-        public List<SaleModel> getSales(GetSalesDTO filters)
+        public List<SaleModel> getSales(SalesFilters filters)
         {
             return SalesMock.sales.Where(sale =>
             {

@@ -29,7 +29,7 @@ namespace project.data.usecases.client
             return clientRepository.getClients(fieldFilter, valueFilter);
         }
 
-        public List<AnalysisByQuestionProtocol> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
         {
             return clientRepository.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer);
         }

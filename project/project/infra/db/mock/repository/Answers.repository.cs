@@ -17,7 +17,7 @@ namespace project.infra.db.mock.repository
             AnswersMock.answers.AddRange(answers);
         }
 
-        public List<AnswerModel> getAnswers(GetAnswersDTO filters)
+        public List<AnswerModel> getAnswers(AnswersFilters filters)
         {
             return AnswersMock.answers.Where(answer =>
             {
@@ -29,13 +29,13 @@ namespace project.infra.db.mock.repository
             }).ToList();
         }
 
-        public List<AnswerNotResolvedProtocol> getAnswersNotResolved()
+        public List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             var query =
                 from answer in AnswersMock.answers
                 join question in QuestionsMock.questions on answer.idQuestion equals question.id
                 where answer.status == "pending"
-                select new AnswerNotResolvedProtocol()
+                select new AnswerNotResolvedDataView()
                 {
                     idCompany = answer.idCompany,
                     idSale = answer.idSale,

@@ -10,22 +10,17 @@ namespace project.domain.usecases
 {
     internal interface IGetAnswers
     {
-        List<AnswerModel> getAnswers(GetAnswersDTO filters);
+        List<AnswerModel> getAnswers(AnswersFilters filters);
     }
 
     interface IGetAnswersNotResolved
     {
-        List<AnswerNotResolvedProtocol> getAnswersNotResolved();
+        List<AnswerNotResolvedDataView> getAnswersNotResolved();
     }
 
     interface IGetAnswerById
     {
-        List<AnswerNotResolvedProtocol> getAnswerById(string id);
+        List<AnswerNotResolvedDataView> getAnswerById(string id);
     }
-
-    //internal interface IGetCrm
-    //{
-    //    List<AnswerModel> getCrm(string idSale, string idCompany);
-    //}
 
 }

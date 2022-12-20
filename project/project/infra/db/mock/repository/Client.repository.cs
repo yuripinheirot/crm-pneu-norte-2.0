@@ -23,7 +23,7 @@ namespace project.infra.db.mock.repository
             return ClientMock.clients.Where(client => client.acessByProp(fieldFilter).ToString().Contains(valueFilter)).ToList();
         }
 
-        public List<AnalysisByQuestionProtocol> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
         {
             var answers = AnswersMock.answers;
             var query =
@@ -40,11 +40,11 @@ namespace project.infra.db.mock.repository
                     _answer.observation,
                 }).Distinct();
 
-            List<AnalysisByQuestionProtocol> analysis = new List<AnalysisByQuestionProtocol>();
+            List<AnalysisByQuestionDateView> analysis = new List<AnalysisByQuestionDateView>();
 
             foreach (var value in query)
             {
-                analysis.Add(new AnalysisByQuestionProtocol()
+                analysis.Add(new AnalysisByQuestionDateView()
                 {
                     clientName = value.clientName,
                     clientNameFantasy = value.clientNameFantasy,

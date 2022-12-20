@@ -20,9 +20,9 @@ namespace project.presentation.forms.crmNotResolved
             dgv.DataSource = dataSource;
         }
 
-        //public AnswerModel getAnswersById(string id)
-        //{
-        //    return AnswersFactory.handle.
-        //}
+        public AnswerModel getAnswersById(string id)
+        {
+            return AnswersFactory.handle.
+        }
     }
 }

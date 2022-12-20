@@ -15,6 +15,6 @@ namespace project.domain.usecases
 
     internal interface IGetSales
     {
-        List<SaleModel> getSales(GetSalesDTO filters);
+        List<SaleModel> getSales(SalesFilters filters);
     }
 }

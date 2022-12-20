@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.protocols
 {
-    internal class AnalysisByQuestionProtocol
+    internal class AnalysisByQuestionDateView
     {
         public string idClient { get; set; }
         public string clientName { get; set; }

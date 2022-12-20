@@ -29,7 +29,7 @@ namespace project.presentation.forms.searchSale
                 }
             }
         }
-        public void renderSalesOnGrid(DataGridView grid, GetSalesDTO filters)
+        public void renderSalesOnGrid(DataGridView grid, SalesFilters filters)
         {
             var sales = SalesFactory.handle.getSales(filters);
             var dataSource = GridUtils.ToDataTable(sales);
