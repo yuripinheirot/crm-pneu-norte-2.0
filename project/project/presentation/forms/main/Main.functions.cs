@@ -20,7 +20,7 @@ namespace project.presentation.forms.main
         private List<PostAnswerDTO> getAnswersFromForm(MainForm mainForm)
         {
             List<PostAnswerDTO> answersList = new List<PostAnswerDTO>();
-            FlowLayoutPanel flpQuestions = (FlowLayoutPanel)mainForm.Controls.Find("flpQuestions", true)[0];
+            FlowLayoutPanel flpQuestions = mainForm.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
             string idSale = mainForm.TbxIdSale.Text;
             string idClient = mainForm.TbxClientName.Text.Split('-')[0];
             string status = "pending";
