@@ -31,6 +31,7 @@ namespace project.presentation.forms.main
         {
             tbxPosSale.Text = TbxClientName.Text = TbxIdSale.Text = "";
             if (string.IsNullOrWhiteSpace(defaultCompany)) TbxIdCompany.Text = "";
+            flpQuestions.Controls.OfType<ComboBox>().ToList().ForEach(c => c.SelectedIndex = 0);
             flpQuestions.Controls.Clear();
             BtnSave.Enabled = false;
         }
@@ -109,7 +110,7 @@ namespace project.presentation.forms.main
                     return;
                 }
 
-                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(sale.idCompany, sale.id);
+                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(sale.idCompany, sale.id, clearScreen);
 
                 LoadInfoSalesOnFields(sale);
                 functions.renderQuestions(flpQuestions, tbxPosSale.Text);

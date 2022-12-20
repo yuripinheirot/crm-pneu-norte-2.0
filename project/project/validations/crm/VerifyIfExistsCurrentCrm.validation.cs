@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.validations.crm
 {
+    delegate void clearScreen();
     internal class VerifyIfExistsCurrentCrmValidation
     {
         AnswersData answersData;
@@ -17,12 +18,14 @@ namespace project.validations.crm
             this.answersData = answersData;
         }
 
-        public void validate(string idCompany, string idSale)
+
+        public void validate(string idCompany, string idSale, clearScreen clear)
         {
             var crm = answersData.getCrm(idSale, idCompany);
 
             if (crm.Count > 0)
             {
+                clear();
                 throw new PresentationException("Atenção!", "Já existe um CRM cadastrado para este pedido!");
             }
         }

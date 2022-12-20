@@ -39,7 +39,7 @@ namespace project.presentation.forms.main
                         idClient = idClient,
                         status = status,
                         answer = currentComboBox.SelectedValue.ToString(),
-                        observation = observationsAnswers[idQuestion],
+                        observation = observationsAnswers.ContainsKey(idQuestion) ? observationsAnswers[idQuestion] : "",
                         updatedAt = DateTime.Now,
                         idCompany = idCompany
                     });
