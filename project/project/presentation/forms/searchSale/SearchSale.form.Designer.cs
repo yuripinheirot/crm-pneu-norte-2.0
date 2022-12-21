@@ -50,7 +50,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbxTypeCrm = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblNumeroPedidos = new System.Windows.Forms.Label();
+            this.lblNumberSales = new System.Windows.Forms.Label();
             this.tbxDti = new System.Windows.Forms.DateTimePicker();
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -276,15 +276,15 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Pós venda";
             // 
-            // lblNumeroPedidos
+            // lblNumberSales
             // 
-            this.lblNumeroPedidos.AutoSize = true;
-            this.lblNumeroPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroPedidos.Location = new System.Drawing.Point(12, 61);
-            this.lblNumeroPedidos.Name = "lblNumeroPedidos";
-            this.lblNumeroPedidos.Size = new System.Drawing.Size(176, 20);
-            this.lblNumeroPedidos.TabIndex = 1;
-            this.lblNumeroPedidos.Text = "Pedidos encontrados: 0";
+            this.lblNumberSales.AutoSize = true;
+            this.lblNumberSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberSales.Location = new System.Drawing.Point(12, 61);
+            this.lblNumberSales.Name = "lblNumberSales";
+            this.lblNumberSales.Size = new System.Drawing.Size(176, 20);
+            this.lblNumberSales.TabIndex = 1;
+            this.lblNumberSales.Text = "Pedidos encontrados: 0";
             // 
             // tbxDti
             // 
@@ -344,7 +344,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblNumeroPedidos);
+            this.Controls.Add(this.lblNumberSales);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnInsert);
@@ -378,7 +378,7 @@
         public System.Windows.Forms.TextBox tbxClientName;
         private System.Windows.Forms.ComboBox cbxTypeCrm;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblNumeroPedidos;
+        private System.Windows.Forms.Label lblNumberSales;
         private System.Windows.Forms.DateTimePicker tbxDti;
         private System.Windows.Forms.DateTimePicker tbxDtf;
         private System.Windows.Forms.Label label5;

@@ -32,6 +32,7 @@ namespace project.presentation.forms.searchSale
                 };
 
                 functions.renderSalesOnGrid(dgvSales, filters);
+                lblNumberSales.Text = "Pedidos encontrados: " + dgvSales.RowCount;
             }
             catch (Exception error)
             {
@@ -79,7 +80,11 @@ namespace project.presentation.forms.searchSale
 
         private void tbxClientId_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbxClientId.Text)) return;
+            if (string.IsNullOrWhiteSpace(tbxClientId.Text))
+            {
+                tbxClientName.Text = "";
+                return;
+            };
 
             formatClientId();
             var client = functions.getClient(tbxClientId.Text);
@@ -90,6 +95,7 @@ namespace project.presentation.forms.searchSale
                 MessageBox.Show("Cliente não encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
 
             tbxClientName.Text = client.name;
         }
