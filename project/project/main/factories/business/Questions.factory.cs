@@ -6,8 +6,8 @@ namespace project.main.factories.business
 {
     internal class QuestionsFactory
     {
-        private static QuestionsDbMockRepository questionsRepository =
-               new QuestionsDbMockRepository();
+        private static QuestionsRepository questionsRepository =
+               new QuestionsRepository();
         private static QuestionsData questionsData =
             new QuestionsData(questionsRepository);
 

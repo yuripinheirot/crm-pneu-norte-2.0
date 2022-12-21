@@ -11,7 +11,7 @@ using project.presentation.protocols;
 
 namespace project.data.usecases.answers
 {
-    internal class AnswersData : IPostCrm, IGetAnswers, IGetCrm
+    internal class AnswersData : IPostCrm, IGetAnswers, IGetCrm, IGetAnswersNotResolved
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -19,34 +19,23 @@ namespace project.data.usecases.answers
             this.answersRepository = answersRepository;
         }
 
-        private List<AnswerModel> convertAnswerDTOinAnswer(List<PostAnswerDTO> answersDTO)
-        {
-            List<AnswerModel> answers = new List<AnswerModel>();
-
-            foreach (PostAnswerDTO a in answersDTO)
-            {
-                answers.Add(new AnswerModel()
-                {
-                    id = Guid.NewGuid().ToString(),
-                    idQuestion = a.idQuestion,
-                    idSale = a.idSale,
-                    idClient = a.idClient,
-                    status = a.status,
-                    answer = a.answer,
-                    observation = a.observation,
-                    resolution = null,
-                    updatedAt = DateTime.Now,
-                    createdAt = DateTime.Now,
-                    idCompany = a.idCompany
-                });
-            }
-
-            return answers;
-        }
-
         public void addCrm(List<PostAnswerDTO> answersDTO)
         {
-            var answers = convertAnswerDTOinAnswer(answersDTO);
+            var answers = answersDTO.Select(a => new AnswerModel()
+            {
+                id = Guid.NewGuid().ToString(),
+                idQuestion = a.idQuestion,
+                idSale = a.idSale,
+                idClient = a.idClient,
+                status = a.status,
+                answer = a.answer,
+                observation = a.observation,
+                resolution = null,
+                updatedAt = DateTime.Now,
+                createdAt = DateTime.Now,
+                idCompany = a.idCompany
+            }).ToList();
+
             answersRepository.addCrm(answers);
         }
 
@@ -60,6 +49,11 @@ namespace project.data.usecases.answers
         public List<AnswerModel> getCrm(string idSale, string idCompany)
         {
             return answersRepository.getCrm(idSale, idCompany);
+        }
+
+        public List<AnswerNotResolvedProtocol> getAnswersNotResolved()
+        {
+            return answersRepository.getAnswersNotResolved();
         }
     }
 }

@@ -12,4 +12,10 @@ namespace project.domain.usecases
     {
         List<AnswerModel> getAnswers(GetAnswersDTO filters);
     }
+
+    interface IGetAnswersNotResolved
+    {
+        List<AnswerNotResolvedProtocol> getAnswersNotResolved();
+    }
+
 }

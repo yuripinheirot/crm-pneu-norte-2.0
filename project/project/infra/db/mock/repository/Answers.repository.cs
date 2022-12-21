@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class AnswersRepository : IPostCrmRepository, IGetAnswers, IGetCrm
+    internal class AnswersRepository : IPostCrmRepository, IGetAnswers, IGetCrm, IGetAnswersNotResolved
     {
         public void addCrm(List<AnswerModel> answers)
         {
@@ -25,6 +25,26 @@ namespace project.infra.db.mock.repository
                        (answer.createdAt <= filters.finalDate) &&
                        (answer.idQuestion == filters.idQuestion);
             }).ToList();
+        }
+
+        public List<AnswerNotResolvedProtocol> getAnswersNotResolved()
+        {
+            var query =
+                from answer in AnswersMock.answers
+                join question in QuestionsMock.questions on answer.idQuestion equals question.id
+                where answer.status == "pending"
+                select new AnswerNotResolvedProtocol()
+                {
+                    idCompany = answer.idCompany,
+                    idSale = answer.idSale,
+                    idClient = answer.idClient,
+                    answer = answer.answer,
+                    descriptionQuestion = question.description,
+                    observation = answer.observation,
+                    resolution = answer.resolution,
+                };
+
+            return query.ToList();
         }
 
         public List<AnswerModel> getCrm(string idSale, string idCompany)

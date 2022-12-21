@@ -17,7 +17,7 @@ namespace project.presentation.forms.main
     internal class MainFunctions
     {
         Dictionary<string, string> observationsAnswers = new Dictionary<string, string>();
-        private List<PostAnswerDTO> getAnswersFromForm(MainForm mainForm)
+        private List<PostAnswerDTO> buildCrmFromForm(MainForm mainForm)
         {
             List<PostAnswerDTO> answersList = new List<PostAnswerDTO>();
             FlowLayoutPanel flpQuestions = mainForm.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
@@ -31,19 +31,18 @@ namespace project.presentation.forms.main
                 if (control is ComboBox currentComboBox)
                 {
                     var idQuestion = currentComboBox.Tag.ToString();
-                    var currentQuestion = QuestionsFactory.handle.getQuestion(idQuestion);
                     var currentAnswer = currentComboBox.SelectedValue.ToString();
-                    var status = currentQuestion.badAnswers.Contains(currentAnswer) ? "pending" : "done";
+                    var observation = observationsAnswers.ContainsKey(idQuestion) ? observationsAnswers[idQuestion] : "";
 
                     answersList.Add(new PostAnswerDTO()
                     {
                         idQuestion = idQuestion,
                         idSale = idSale,
                         idClient = idClient,
-                        status = status,
+                        status = null,
                         answer = currentAnswer,
-                        observation = observationsAnswers.ContainsKey(idQuestion) ? observationsAnswers[idQuestion] : "",
-                        updatedAt = DateTime.Now,
+                        observation = observation,
+                        updatedAt = null,
                         idCompany = idCompany
                     });
                 }
@@ -126,7 +125,7 @@ namespace project.presentation.forms.main
 
         public void saveCrm(MainForm mainForm)
         {
-            var answers = getAnswersFromForm(mainForm);
+            var answers = buildCrmFromForm(mainForm);
             VerifyEmptyAnswersValidationFactory.handle.validate(answers);
 
             AnswersFactory.handle.addCrm(answers);

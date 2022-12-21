@@ -40,7 +40,7 @@ namespace project.presentation.forms.main
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pesquisasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.perguntasNãoResolvidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crmNotResolvedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cRMsNãoFeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analiseDeRespostasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,17 +152,18 @@ namespace project.presentation.forms.main
             // pesquisasToolStripMenuItem
             // 
             this.pesquisasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.perguntasNãoResolvidasToolStripMenuItem,
+            this.crmNotResolvedToolStripMenuItem,
             this.cRMsNãoFeitosToolStripMenuItem});
             this.pesquisasToolStripMenuItem.Name = "pesquisasToolStripMenuItem";
             this.pesquisasToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.pesquisasToolStripMenuItem.Text = "Pesquisas";
             // 
-            // perguntasNãoResolvidasToolStripMenuItem
+            // crmNotResolvedToolStripMenuItem
             // 
-            this.perguntasNãoResolvidasToolStripMenuItem.Name = "perguntasNãoResolvidasToolStripMenuItem";
-            this.perguntasNãoResolvidasToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.perguntasNãoResolvidasToolStripMenuItem.Text = "Questionários não resolvidos";
+            this.crmNotResolvedToolStripMenuItem.Name = "crmNotResolvedToolStripMenuItem";
+            this.crmNotResolvedToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.crmNotResolvedToolStripMenuItem.Text = "Questionários não resolvidos";
+            this.crmNotResolvedToolStripMenuItem.Click += new System.EventHandler(this.crmNotResolvedToolStripMenuItem_Click);
             // 
             // cRMsNãoFeitosToolStripMenuItem
             // 
@@ -257,7 +258,7 @@ namespace project.presentation.forms.main
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pesquisasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem perguntasNãoResolvidasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crmNotResolvedToolStripMenuItem;
         public System.Windows.Forms.TextBox TbxIdSale;
         public System.Windows.Forms.TextBox TbxClientName;
         public System.Windows.Forms.TextBox tbxPosSale;

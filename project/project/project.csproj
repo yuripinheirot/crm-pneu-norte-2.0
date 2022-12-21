@@ -52,12 +52,28 @@
     <Compile Include="business\usecases\sales\Sales.business.cs" />
     <Compile Include="main\factories\validations\VerifyEmptyAnswersValidation.factory.cs" />
     <Compile Include="main\factories\validations\VerifyIfExistsCurrentCrmValidation.factory.cs" />
+    <Compile Include="presentation\forms\crmNotResolved\CrmNotResolved.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\crmNotResolved\CrmNotResolved.form.Designer.cs">
+      <DependentUpon>CrmNotResolved.form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="presentation\forms\crmNotResolved\CrmNotResolved.functions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\crmPending\CrmPending.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\crmPending\CrmPending.form.Designer.cs">
+      <DependentUpon>CrmPending.form.cs</DependentUpon>
+    </Compile>
     <Compile Include="presentation\forms\main\ObservationAnswer.form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="presentation\forms\main\ObservationAnswer.form.Designer.cs">
       <DependentUpon>ObservationAnswer.form.cs</DependentUpon>
     </Compile>
+    <Compile Include="presentation\protocols\AnswerNotResolved.protocol .cs" />
     <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
     <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
     <Compile Include="data\usecases\answers\Answers.data.cs" />
@@ -126,6 +142,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="specs\mocks\Sales.mock.cs" />
+    <EmbeddedResource Include="presentation\forms\crmNotResolved\CrmNotResolved.form.resx">
+      <DependentUpon>CrmNotResolved.form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\main\Main.form.resx">
       <DependentUpon>Main.form.cs</DependentUpon>
     </EmbeddedResource>

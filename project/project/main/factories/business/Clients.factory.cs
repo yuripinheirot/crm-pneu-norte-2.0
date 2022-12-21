@@ -11,8 +11,8 @@ namespace project.main.factories.business
 {
     internal class ClientFactory
     {
-        private static ClientDbMockRepository ClientsRepository =
-       new ClientDbMockRepository();
+        private static ClientRepository ClientsRepository =
+       new ClientRepository();
         private static ClientData ClientsData =
             new ClientData(ClientsRepository);
 

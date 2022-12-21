@@ -1,10 +1,10 @@
 ﻿using project.domain.model;
 using project.main.factories.validations;
 using project.presentation.errors;
+using project.presentation.forms.crmNotResolved;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
 using project.presentation.utils;
-using project.validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -121,6 +121,11 @@ namespace project.presentation.forms.main
             {
                 ThrowCustomException.Throw(error);
             }
+        }
+
+        private void crmNotResolvedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new CrmNotResolved().ShowDialog();
         }
     }
 }

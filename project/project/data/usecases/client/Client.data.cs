@@ -12,9 +12,9 @@ namespace project.data.usecases.client
 {
     internal class ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {
-        ClientDbMockRepository clientRepository;
+        ClientRepository clientRepository;
 
-        public ClientData(ClientDbMockRepository clientRepository)
+        public ClientData(ClientRepository clientRepository)
         {
             this.clientRepository = clientRepository;
         }
