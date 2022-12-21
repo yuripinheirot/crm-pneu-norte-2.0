@@ -10,11 +10,34 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved
+    class AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {
             AnswersMock.answers.AddRange(answers);
+        }
+
+        public AnswerDetails getAnswerDetailsDataView(string idAnswer)
+        {
+            var answerDetails =
+                from answer in AnswersMock.answers
+                join sale in SalesMock.sales on answer.idSale equals sale.id
+                join question in QuestionsMock.questions on answer.idQuestion equals question.id
+                where answer.id == idAnswer
+                select new AnswerDetails()
+                {
+                    answer = answer.answer,
+                    client = sale.client,
+                    idCompany = answer.idCompany,
+                    idSale = answer.idSale,
+                    descriptionQuestion = question.description,
+                    observation = answer.observation,
+                    resolution = answer.resolution,
+                    seller = sale.seller,
+                    status = answer.status
+                };
+
+            return answerDetails.FirstOrDefault();
         }
 
         public List<AnswerModel> getAnswers(AnswersFilters filters)
@@ -37,6 +60,7 @@ namespace project.infra.db.mock.repository
                 where answer.status == "pending"
                 select new AnswerNotResolvedDataView()
                 {
+                    idAnswer = answer.id,
                     idCompany = answer.idCompany,
                     idSale = answer.idSale,
                     idClient = answer.idClient,

@@ -30,23 +30,23 @@
         {
             this.btnSair = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.tbxPedido = new System.Windows.Forms.TextBox();
+            this.tbxIdSale = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbxObservacoes = new System.Windows.Forms.RichTextBox();
-            this.tbxCliente = new System.Windows.Forms.TextBox();
+            this.tbxObservation = new System.Windows.Forms.RichTextBox();
+            this.tbxClient = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbxPergunta = new System.Windows.Forms.TextBox();
+            this.tbxQuestion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbxResposta = new System.Windows.Forms.TextBox();
+            this.tbxAnswer = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbxResolucao = new System.Windows.Forms.RichTextBox();
-            this.tbxVendedor = new System.Windows.Forms.TextBox();
+            this.tbxResolution = new System.Windows.Forms.RichTextBox();
+            this.tbxSeller = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbxEmpresa = new System.Windows.Forms.TextBox();
+            this.tbxIdCompany = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -73,13 +73,13 @@
             // 
             // tbxPedido
             // 
-            this.tbxPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPedido.Location = new System.Drawing.Point(15, 32);
-            this.tbxPedido.Name = "tbxPedido";
-            this.tbxPedido.ReadOnly = true;
-            this.tbxPedido.Size = new System.Drawing.Size(99, 26);
-            this.tbxPedido.TabIndex = 0;
-            this.tbxPedido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxIdSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxIdSale.Location = new System.Drawing.Point(15, 32);
+            this.tbxIdSale.Name = "tbxPedido";
+            this.tbxIdSale.ReadOnly = true;
+            this.tbxIdSale.Size = new System.Drawing.Size(99, 26);
+            this.tbxIdSale.TabIndex = 0;
+            this.tbxIdSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -93,23 +93,23 @@
             // 
             // tbxObservacoes
             // 
-            this.tbxObservacoes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxObservacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxObservacoes.Location = new System.Drawing.Point(16, 143);
-            this.tbxObservacoes.Name = "tbxObservacoes";
-            this.tbxObservacoes.ReadOnly = true;
-            this.tbxObservacoes.Size = new System.Drawing.Size(882, 117);
-            this.tbxObservacoes.TabIndex = 7;
-            this.tbxObservacoes.Text = "";
+            this.tbxObservation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxObservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxObservation.Location = new System.Drawing.Point(16, 143);
+            this.tbxObservation.Name = "tbxObservacoes";
+            this.tbxObservation.ReadOnly = true;
+            this.tbxObservation.Size = new System.Drawing.Size(882, 117);
+            this.tbxObservation.TabIndex = 7;
+            this.tbxObservation.Text = "";
             // 
             // tbxCliente
             // 
-            this.tbxCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxCliente.Location = new System.Drawing.Point(212, 32);
-            this.tbxCliente.Name = "tbxCliente";
-            this.tbxCliente.ReadOnly = true;
-            this.tbxCliente.Size = new System.Drawing.Size(282, 26);
-            this.tbxCliente.TabIndex = 2;
+            this.tbxClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxClient.Location = new System.Drawing.Point(212, 32);
+            this.tbxClient.Name = "tbxCliente";
+            this.tbxClient.ReadOnly = true;
+            this.tbxClient.Size = new System.Drawing.Size(282, 26);
+            this.tbxClient.TabIndex = 2;
             // 
             // label2
             // 
@@ -133,12 +133,12 @@
             // 
             // tbxPergunta
             // 
-            this.tbxPergunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPergunta.Location = new System.Drawing.Point(15, 87);
-            this.tbxPergunta.Name = "tbxPergunta";
-            this.tbxPergunta.ReadOnly = true;
-            this.tbxPergunta.Size = new System.Drawing.Size(664, 26);
-            this.tbxPergunta.TabIndex = 5;
+            this.tbxQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion.Location = new System.Drawing.Point(15, 87);
+            this.tbxQuestion.Name = "tbxPergunta";
+            this.tbxQuestion.ReadOnly = true;
+            this.tbxQuestion.Size = new System.Drawing.Size(664, 26);
+            this.tbxQuestion.TabIndex = 5;
             // 
             // label4
             // 
@@ -152,12 +152,12 @@
             // 
             // tbxResposta
             // 
-            this.tbxResposta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxResposta.Location = new System.Drawing.Point(685, 87);
-            this.tbxResposta.Name = "tbxResposta";
-            this.tbxResposta.ReadOnly = true;
-            this.tbxResposta.Size = new System.Drawing.Size(213, 26);
-            this.tbxResposta.TabIndex = 6;
+            this.tbxAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxAnswer.Location = new System.Drawing.Point(685, 87);
+            this.tbxAnswer.Name = "tbxResposta";
+            this.tbxAnswer.ReadOnly = true;
+            this.tbxAnswer.Size = new System.Drawing.Size(213, 26);
+            this.tbxAnswer.TabIndex = 6;
             // 
             // label5
             // 
@@ -181,22 +181,22 @@
             // 
             // tbxResolucao
             // 
-            this.tbxResolucao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbxResolucao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxResolucao.Location = new System.Drawing.Point(16, 289);
-            this.tbxResolucao.Name = "tbxResolucao";
-            this.tbxResolucao.Size = new System.Drawing.Size(882, 196);
-            this.tbxResolucao.TabIndex = 8;
-            this.tbxResolucao.Text = "";
+            this.tbxResolution.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxResolution.Location = new System.Drawing.Point(16, 289);
+            this.tbxResolution.Name = "tbxResolucao";
+            this.tbxResolution.Size = new System.Drawing.Size(882, 196);
+            this.tbxResolution.TabIndex = 8;
+            this.tbxResolution.Text = "";
             // 
             // tbxVendedor
             // 
-            this.tbxVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxVendedor.Location = new System.Drawing.Point(500, 32);
-            this.tbxVendedor.Name = "tbxVendedor";
-            this.tbxVendedor.ReadOnly = true;
-            this.tbxVendedor.Size = new System.Drawing.Size(213, 26);
-            this.tbxVendedor.TabIndex = 3;
+            this.tbxSeller.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxSeller.Location = new System.Drawing.Point(500, 32);
+            this.tbxSeller.Name = "tbxVendedor";
+            this.tbxSeller.ReadOnly = true;
+            this.tbxSeller.Size = new System.Drawing.Size(213, 26);
+            this.tbxSeller.TabIndex = 3;
             // 
             // label7
             // 
@@ -233,13 +233,13 @@
             // 
             // tbxEmpresa
             // 
-            this.tbxEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmpresa.Location = new System.Drawing.Point(120, 32);
-            this.tbxEmpresa.Name = "tbxEmpresa";
-            this.tbxEmpresa.ReadOnly = true;
-            this.tbxEmpresa.Size = new System.Drawing.Size(86, 26);
-            this.tbxEmpresa.TabIndex = 1;
-            this.tbxEmpresa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxIdCompany.Location = new System.Drawing.Point(120, 32);
+            this.tbxIdCompany.Name = "tbxEmpresa";
+            this.tbxIdCompany.ReadOnly = true;
+            this.tbxIdCompany.Size = new System.Drawing.Size(86, 26);
+            this.tbxIdCompany.TabIndex = 1;
+            this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -259,9 +259,9 @@
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(916, 547);
             this.Controls.Add(this.cbxStatus);
-            this.Controls.Add(this.tbxResolucao);
+            this.Controls.Add(this.tbxResolution);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tbxObservacoes);
+            this.Controls.Add(this.tbxObservation);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -270,12 +270,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbxVendedor);
-            this.Controls.Add(this.tbxResposta);
-            this.Controls.Add(this.tbxCliente);
-            this.Controls.Add(this.tbxPergunta);
-            this.Controls.Add(this.tbxEmpresa);
-            this.Controls.Add(this.tbxPedido);
+            this.Controls.Add(this.tbxSeller);
+            this.Controls.Add(this.tbxAnswer);
+            this.Controls.Add(this.tbxClient);
+            this.Controls.Add(this.tbxQuestion);
+            this.Controls.Add(this.tbxIdCompany);
+            this.Controls.Add(this.tbxIdSale);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnSair);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -296,23 +296,23 @@
 
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnSalvar;
-        public System.Windows.Forms.TextBox tbxPedido;
+        public System.Windows.Forms.TextBox tbxIdSale;
         public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.RichTextBox tbxObservacoes;
-        public System.Windows.Forms.TextBox tbxCliente;
+        public System.Windows.Forms.RichTextBox tbxObservation;
+        public System.Windows.Forms.TextBox tbxClient;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox tbxPergunta;
+        public System.Windows.Forms.TextBox tbxQuestion;
         public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox tbxResposta;
+        public System.Windows.Forms.TextBox tbxAnswer;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.RichTextBox tbxResolucao;
-        public System.Windows.Forms.TextBox tbxVendedor;
+        public System.Windows.Forms.RichTextBox tbxResolution;
+        public System.Windows.Forms.TextBox tbxSeller;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.ComboBox cbxStatus;
-        public System.Windows.Forms.TextBox tbxEmpresa;
+        public System.Windows.Forms.TextBox tbxIdCompany;
         public System.Windows.Forms.Label label9;
     }
 }

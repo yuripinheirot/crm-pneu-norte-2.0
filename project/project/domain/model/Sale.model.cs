@@ -15,5 +15,6 @@ namespace project.domain.model
         public string client { get; set; }
         public string clientCpfCnpj { get; set; }
         public string posSale { get; set; }
+        public string seller { get; set; }
     }
 }

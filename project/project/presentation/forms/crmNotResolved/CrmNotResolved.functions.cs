@@ -1,5 +1,5 @@
-﻿using project.domain.model;
-using project.main.factories.business;
+﻿using project.main.factories.business;
+using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace project.presentation.forms.crmNotResolved
 {
-    public class CrmNotResolvedFunctions
+    internal class CrmNotResolvedFunctions
     {
         public void loadAnswersNotResolvedOnDataGrid(DataGridView dgv)
         {
@@ -20,9 +20,9 @@ namespace project.presentation.forms.crmNotResolved
             dgv.DataSource = dataSource;
         }
 
-        public AnswerModel getAnswersById(string id)
+        public AnswerDetails getAnswerDetailsDataView(string idAnswer)
         {
-            return AnswersFactory.handle.
+            return AnswersFactory.handle.getAnswerDetailsDataView(idAnswer);
         }
     }
 }

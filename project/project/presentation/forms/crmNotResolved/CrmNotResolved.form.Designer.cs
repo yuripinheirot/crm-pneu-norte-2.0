@@ -35,6 +35,10 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvNotResolved = new System.Windows.Forms.DataGridView();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.respostasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,9 +46,6 @@
             this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resolution = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.respostasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotResolved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
@@ -92,6 +93,7 @@
             this.dgvNotResolved.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNotResolved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotResolved.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idAnswer,
             this.idCompany,
             this.idSale,
             this.idClient,
@@ -125,6 +127,22 @@
             this.dgvNotResolved.Size = new System.Drawing.Size(1109, 361);
             this.dgvNotResolved.StandardTab = true;
             this.dgvNotResolved.TabIndex = 8;
+            // 
+            // dataTable1BindingSource1
+            // 
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            // 
+            // idAnswer
+            // 
+            this.idAnswer.DataPropertyName = "idAnswer";
+            this.idAnswer.HeaderText = "idQuestion";
+            this.idAnswer.Name = "idAnswer";
+            this.idAnswer.ReadOnly = true;
+            this.idAnswer.Visible = false;
             // 
             // idCompany
             // 
@@ -182,14 +200,6 @@
             this.resolution.ReadOnly = true;
             this.resolution.Width = 230;
             // 
-            // dataTable1BindingSource1
-            // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            // 
             // CrmNotResolved
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +235,7 @@
         private System.Windows.Forms.BindingSource dataTable1BindingSource;
         private System.Windows.Forms.BindingSource dataTable1BindingSource1;
         public System.Windows.Forms.DataGridView dgvNotResolved;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idAnswer;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn idClient;

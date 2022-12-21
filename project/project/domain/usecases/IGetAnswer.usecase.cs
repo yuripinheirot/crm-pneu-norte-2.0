@@ -18,9 +18,14 @@ namespace project.domain.usecases
         List<AnswerNotResolvedDataView> getAnswersNotResolved();
     }
 
-    interface IGetAnswerById
+    interface IGetAnswerDataView
     {
-        List<AnswerNotResolvedDataView> getAnswerById(string id);
+        List<AnswerNotResolvedDataView> getAnswerDataView(string idCompany, string idSale);
+    }
+
+    interface IGetAnswerDetails
+    {
+        AnswerDetails getAnswerDetailsDataView(string idAnswer);
     }
 
 }

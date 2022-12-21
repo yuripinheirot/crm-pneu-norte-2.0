@@ -11,7 +11,7 @@ using project.presentation.protocols;
 
 namespace project.data.usecases.answers
 {
-    internal class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved
+    class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -37,6 +37,11 @@ namespace project.data.usecases.answers
             }).ToList();
 
             answersRepository.addAnswersRepository(answers);
+        }
+
+        public AnswerDetails getAnswerDetailsDataView(string idAnswer)
+        {
+            return answersRepository.getAnswerDetailsDataView(idAnswer);
         }
 
         public List<AnswerModel> getAnswers(AnswersFilters filters)

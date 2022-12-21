@@ -27,9 +27,9 @@ namespace project.presentation.forms.crmNotResolved
         {
             if (dgvNotResolved.RowCount == 0) return;
 
-            var idSale = dgvNotResolved.CurrentRow.Cells["idSale"].Value.ToString();
-            var idCompany = dgvNotResolved.CurrentRow.Cells["idCompany"].Value.ToString();
-            new CrmDetails(idSale, idCompany).ShowDialog();
+            var idAnswer = dgvNotResolved.CurrentRow.Cells["idAnswer"].Value.ToString();
+
+            new CrmDetails(idAnswer).ShowDialog();
         }
     }
 }

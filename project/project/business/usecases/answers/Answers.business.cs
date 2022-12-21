@@ -7,13 +7,12 @@ using project.data.usecases.answers;
 using project.data.usecases.questions;
 using project.domain.model;
 using project.domain.usecases;
-using project.presentation.errors.exceptions;
 using project.presentation.protocols;
-using project.validations.crm;
+
 
 namespace project.business.usecases.answers
 {
-    internal class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved
+    internal class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
     {
         AnswersData answersData;
         QuestionsData questionData;
@@ -34,6 +33,11 @@ namespace project.business.usecases.answers
             });
 
             answersData.addAnswersDTO(answers);
+        }
+
+        public AnswerDetails getAnswerDetailsDataView(string idAnswer)
+        {
+            return answersData.getAnswerDetailsDataView(idAnswer);
         }
 
         public List<AnswerModel> getAnswers(AnswersFilters filters)

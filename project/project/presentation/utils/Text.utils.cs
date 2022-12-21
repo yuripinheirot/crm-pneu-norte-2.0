@@ -39,5 +39,37 @@ namespace project.presentation.utils
                 throw new Exception("Unexpected posSale name");
             }
         }
+
+        public static string translateStatusAnswerData(string status)
+        {
+            if (status == "PENDENTE")
+            {
+                return "pending";
+            }
+            else if (status == "RESOLVIDO")
+            {
+                return "resolved";
+            }
+            else
+            {
+                throw new Exception("Unexpected status name");
+            }
+        }
+
+        public static string translateStatusAnswerPresentation(string status)
+        {
+            if (status == "pending")
+            {
+                return "PENDENTE";
+            }
+            else if (status == "resolved")
+            {
+                return "RESOLVIDO";
+            }
+            else
+            {
+                throw new Exception("Unexpected status name");
+            }
+        }
     }
 }
