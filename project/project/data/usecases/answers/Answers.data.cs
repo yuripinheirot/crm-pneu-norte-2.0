@@ -11,7 +11,7 @@ using project.presentation.protocols;
 
 namespace project.data.usecases.answers
 {
-    class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
+    public class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)

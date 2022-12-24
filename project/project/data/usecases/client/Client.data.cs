@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.client
 {
-    internal class ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {
         ClientRepository clientRepository;
 

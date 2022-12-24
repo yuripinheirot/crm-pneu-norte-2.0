@@ -7,7 +7,7 @@ using project.domain.model;
 
 namespace project.domain.usecases
 {
-    internal interface IGetQuestions
+    public interface IGetQuestions
     {
         List<QuestionModel> getQuestions();
     }

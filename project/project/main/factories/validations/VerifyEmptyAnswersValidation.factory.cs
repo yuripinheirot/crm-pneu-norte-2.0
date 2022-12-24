@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace project.main.factories.validations
 {
-    internal class VerifyEmptyAnswersValidationFactory
+    public class VerifyEmptyAnswersValidationFactory
     {
         public static VerifyEmptyAnswersValidation handle = new VerifyEmptyAnswersValidation();
     }

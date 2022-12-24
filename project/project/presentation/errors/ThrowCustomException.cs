@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace project.presentation.errors
 {
-    internal class ThrowCustomException
+    public class ThrowCustomException
     {
         static Dictionary<string, MessageBoxIcon> typeErrors = new Dictionary<string, MessageBoxIcon>()
         {

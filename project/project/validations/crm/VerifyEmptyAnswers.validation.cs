@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.validations.crm
 {
-    internal class VerifyEmptyAnswersValidation 
+    public class VerifyEmptyAnswersValidation 
     {
         public void validate(List<PostAnswerDTO> answers)
         {

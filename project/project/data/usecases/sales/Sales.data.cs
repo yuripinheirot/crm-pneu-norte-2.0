@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.sales
 {
-    internal class SalesData : IGetSales, IGetSale
+    public class SalesData : IGetSales, IGetSale
     {
         SalesRepository salesRepository;
 

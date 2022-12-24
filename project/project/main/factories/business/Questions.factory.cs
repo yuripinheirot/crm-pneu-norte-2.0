@@ -4,7 +4,7 @@ using project.infra.db.mock.repository;
 
 namespace project.main.factories.business
 {
-    internal class QuestionsFactory
+    public class QuestionsFactory
     {
         private static QuestionsRepository questionsRepository =
                new QuestionsRepository();

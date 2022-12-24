@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace project.presentation.forms.crmNotResolved
 {
-    internal class CrmNotResolvedFunctions
+    public class CrmNotResolvedFunctions
     {
         public void loadAnswersNotResolvedOnDataGrid(DataGridView dgv)
         {

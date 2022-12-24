@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace project.domain.usecases
 {
-    internal interface IGetAnswers
+    public interface IGetAnswers
     {
         List<AnswerModel> getAnswers(AnswersFilters filters);
     }
 
-    interface IGetAnswersNotResolved
+    public interface IGetAnswersNotResolved
     {
         List<AnswerNotResolvedDataView> getAnswersNotResolved();
     }
 
-    interface IGetAnswerDataView
+    public interface IGetAnswerDataView
     {
         List<AnswerNotResolvedDataView> getAnswerDataView(string idCompany, string idSale);
     }
 
-    interface IGetAnswerDetails
+    public interface IGetAnswerDetails
     {
         AnswerDetails getAnswerDetailsDataView(string idAnswer);
     }

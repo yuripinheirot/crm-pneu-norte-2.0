@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.main.factories.business
 {
-    internal class AnswersFactory
+    public class AnswersFactory
     {
         private static QuestionsRepository questionsRepository = new QuestionsRepository();
         private static QuestionsData questionsData = new QuestionsData(questionsRepository);

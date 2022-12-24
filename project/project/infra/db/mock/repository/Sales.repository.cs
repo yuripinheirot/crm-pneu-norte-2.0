@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    internal class SalesRepository : IGetSales, IGetSale
+    public class SalesRepository : IGetSales, IGetSale
     {
         public SaleModel getSale(string idCompany, string idSale)
         {

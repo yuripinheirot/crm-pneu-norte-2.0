@@ -12,10 +12,11 @@ using project.presentation.protocols;
 
 namespace project.business.usecases.answers
 {
-    internal class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
+    public class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
     {
         AnswersData answersData;
         QuestionsData questionData;
+
         public AnswersBusiness(AnswersData answersData, QuestionsData questionData)
         {
             this.answersData = answersData;

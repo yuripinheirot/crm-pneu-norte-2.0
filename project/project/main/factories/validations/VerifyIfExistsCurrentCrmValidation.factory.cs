@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.main.factories.validations
 {
-    internal class VerifyIfExistsCurrentCrmValidationFactory
+    public class VerifyIfExistsCurrentCrmValidationFactory
     {
         private static AnswersRepository answersRepository = new AnswersRepository();
         private static AnswersData answersData = new AnswersData(answersRepository);

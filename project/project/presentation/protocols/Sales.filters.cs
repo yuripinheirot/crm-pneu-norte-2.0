@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.protocols
 {
-    internal class SalesFilters
+    public class SalesFilters
     {
         public string idCompany { get; set; }
         public string idClient { get; set; }

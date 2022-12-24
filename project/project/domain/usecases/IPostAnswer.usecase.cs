@@ -8,12 +8,12 @@ using project.presentation.protocols;
 
 namespace project.domain.usecases
 {
-	interface IPostAnswersRepository
+	public interface IPostAnswersRepository
 	{
 		void addAnswersRepository(List<AnswerModel> answers);		
 			
-	}	
-	interface IPostAnswers
+	}
+	public interface IPostAnswers
 	{
 		void addAnswersDTO(List<PostAnswerDTO> answers);		
 			

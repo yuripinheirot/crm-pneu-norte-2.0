@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.questions
 {
-    internal class QuestionsData : IGetQuestions
+    public class QuestionsData : IGetQuestions
     {
         QuestionsRepository questionRepository;
         public QuestionsData(QuestionsRepository questionRepository)

@@ -2,7 +2,7 @@
 
 namespace project.domain.model
 {
-    internal class AnswerModel
+    public class AnswerModel
     {
         public string id { get; set; }
         public string idQuestion { get; set; }

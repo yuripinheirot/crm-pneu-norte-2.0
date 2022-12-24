@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.utils
 {
-    internal class TextUtils
+    public class TextUtils
     {
         public static string translatePosSaleData(string posSale)
         {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.sales
 {
-    internal class SalesBusiness : IGetSales, IGetSale
+    public class SalesBusiness : IGetSales, IGetSale
     {
         SalesData salesData;
         public SalesBusiness(SalesData salesData)

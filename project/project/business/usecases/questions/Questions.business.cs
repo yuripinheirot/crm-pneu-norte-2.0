@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.questions
 {
-    internal class QuestionsBusiness : IGetQuestions
+    public class QuestionsBusiness : IGetQuestions
     {
         QuestionsData questionsData;
         public QuestionsBusiness(QuestionsData questionsData)

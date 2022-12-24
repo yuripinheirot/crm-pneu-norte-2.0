@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.utils
 {
-    internal class GridUtils
+    public class GridUtils
     {
         public static DataTable ToDataTable<T>(List<T> items)
         {

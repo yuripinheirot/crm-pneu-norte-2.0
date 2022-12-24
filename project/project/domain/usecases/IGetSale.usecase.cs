@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace project.domain.usecases
 {
-    internal interface IGetSale
+    public interface IGetSale
     {
         SaleModel getSale(string idCompany, string idSale);
     }
 
-    internal interface IGetSales
+    public interface IGetSales
     {
         List<SaleModel> getSales(SalesFilters filters);
     }

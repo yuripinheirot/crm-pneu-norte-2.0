@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.presentation.errors.exceptions
 {
-    internal class PresentationException : Exception
+    public class PresentationException : Exception
     {
         public string title;
         public string description;

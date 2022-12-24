@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.main.factories.business
 {
-    internal class ClientFactory
+    public class ClientFactory
     {
         private static ClientRepository ClientsRepository =
        new ClientRepository();

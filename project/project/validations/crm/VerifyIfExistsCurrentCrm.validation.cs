@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace project.validations.crm
 {
-    delegate void clearScreen();
-    internal class VerifyIfExistsCurrentCrmValidation
+    public delegate void clearScreen();
+    public class VerifyIfExistsCurrentCrmValidation
     {
         AnswersData answersData;
         public VerifyIfExistsCurrentCrmValidation(AnswersData answersData)

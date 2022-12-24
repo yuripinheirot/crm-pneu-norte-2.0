@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace project.domain.usecases
 {
-    internal interface IGetClient
+    public interface IGetClient
     {
         ClientModel getClient(string id);
     }
 
-    internal interface IGetClients
+    public interface IGetClients
     {
         List<ClientModel> getClients(string fieldFilter, string valueFilter);
     }
 
-    internal interface IGetClientsAndSalesByAnswerAndQuestion
+    public interface IGetClientsAndSalesByAnswerAndQuestion
     {
         List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer);
     }

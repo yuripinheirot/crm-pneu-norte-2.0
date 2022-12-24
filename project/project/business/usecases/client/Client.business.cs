@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.client
 {
-    internal class ClientBusiness : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientBusiness : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {
         ClientData clientData;
         public ClientBusiness(ClientData clientData)

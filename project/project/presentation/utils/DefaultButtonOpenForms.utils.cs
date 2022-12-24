@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace project.presentation.utils
 {
-    internal class DefaultButtonOpenForms
+    public class DefaultButtonOpenForms
     {
         public static bool handle(KeyEventArgs e)
         {
