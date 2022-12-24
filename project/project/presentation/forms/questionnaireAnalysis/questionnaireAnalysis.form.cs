@@ -49,5 +49,14 @@ namespace project.presentation.forms.questionnaireAnalysis
 
             functions.loadClientsByAnswerOnDataGrid(dgvAnalysis, idQuestion, answer);
         }
+
+        private void dgvAnswers_DataSourceChanged(object sender, EventArgs e)
+        {
+            //TODO: Fix it
+            //if (dgvAnswers.RowCount == 0)
+            //{
+            //    dgvAnalysis.DataSource = false;
+            //}
+        }
     }
 }

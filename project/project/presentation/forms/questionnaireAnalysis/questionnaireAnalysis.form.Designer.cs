@@ -39,8 +39,14 @@
             this.cbxQuestions = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAnswers = new System.Windows.Forms.DataGridView();
+            this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvAnalysis = new System.Windows.Forms.DataGridView();
-            this.analysisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientNameFantasy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -48,16 +54,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbxDti = new System.Windows.Forms.DateTimePicker();
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
-            this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientNameFantasy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalysis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.analysisBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -150,7 +148,24 @@
             this.dgvAnswers.Size = new System.Drawing.Size(835, 153);
             this.dgvAnswers.StandardTab = true;
             this.dgvAnswers.TabIndex = 5;
+            this.dgvAnswers.DataSourceChanged += new System.EventHandler(this.dgvAnswers_DataSourceChanged);
             this.dgvAnswers.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnswers_CellEnter);
+            // 
+            // answer
+            // 
+            this.answer.DataPropertyName = "answer";
+            this.answer.HeaderText = "RESPOSTA";
+            this.answer.Name = "answer";
+            this.answer.ReadOnly = true;
+            this.answer.Width = 750;
+            // 
+            // count
+            // 
+            this.count.DataPropertyName = "count";
+            this.count.HeaderText = "QTD";
+            this.count.Name = "count";
+            this.count.ReadOnly = true;
+            this.count.Width = 60;
             // 
             // dgvAnalysis
             // 
@@ -190,6 +205,46 @@
             this.dgvAnalysis.Size = new System.Drawing.Size(835, 186);
             this.dgvAnalysis.StandardTab = true;
             this.dgvAnalysis.TabIndex = 6;
+            // 
+            // idClient
+            // 
+            this.idClient.DataPropertyName = "idClient";
+            this.idClient.HeaderText = "CLIENTE";
+            this.idClient.Name = "idClient";
+            this.idClient.ReadOnly = true;
+            this.idClient.Width = 60;
+            // 
+            // clientName
+            // 
+            this.clientName.DataPropertyName = "clientName";
+            this.clientName.HeaderText = "RAZÃO";
+            this.clientName.Name = "clientName";
+            this.clientName.ReadOnly = true;
+            this.clientName.Width = 250;
+            // 
+            // clientNameFantasy
+            // 
+            this.clientNameFantasy.DataPropertyName = "clientNameFantasy";
+            this.clientNameFantasy.HeaderText = "FANTASIA";
+            this.clientNameFantasy.Name = "clientNameFantasy";
+            this.clientNameFantasy.ReadOnly = true;
+            this.clientNameFantasy.Width = 250;
+            // 
+            // idSale
+            // 
+            this.idSale.DataPropertyName = "idSale";
+            this.idSale.HeaderText = "PEDIDO";
+            this.idSale.Name = "idSale";
+            this.idSale.ReadOnly = true;
+            this.idSale.Width = 80;
+            // 
+            // observation
+            // 
+            this.observation.DataPropertyName = "observation";
+            this.observation.HeaderText = "OBSERVAÇÕES";
+            this.observation.Name = "observation";
+            this.observation.ReadOnly = true;
+            this.observation.Width = 400;
             // 
             // label3
             // 
@@ -260,62 +315,6 @@
             this.tbxDtf.Size = new System.Drawing.Size(118, 26);
             this.tbxDtf.TabIndex = 2;
             // 
-            // answer
-            // 
-            this.answer.DataPropertyName = "answer";
-            this.answer.HeaderText = "RESPOSTA";
-            this.answer.Name = "answer";
-            this.answer.ReadOnly = true;
-            this.answer.Width = 750;
-            // 
-            // count
-            // 
-            this.count.DataPropertyName = "count";
-            this.count.HeaderText = "QTD";
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 60;
-            // 
-            // idClient
-            // 
-            this.idClient.DataPropertyName = "idClient";
-            this.idClient.HeaderText = "CLIENTE";
-            this.idClient.Name = "idClient";
-            this.idClient.ReadOnly = true;
-            this.idClient.Width = 60;
-            // 
-            // clientName
-            // 
-            this.clientName.DataPropertyName = "clientName";
-            this.clientName.HeaderText = "RAZÃO";
-            this.clientName.Name = "clientName";
-            this.clientName.ReadOnly = true;
-            this.clientName.Width = 250;
-            // 
-            // clientNameFantasy
-            // 
-            this.clientNameFantasy.DataPropertyName = "clientNameFantasy";
-            this.clientNameFantasy.HeaderText = "FANTASIA";
-            this.clientNameFantasy.Name = "clientNameFantasy";
-            this.clientNameFantasy.ReadOnly = true;
-            this.clientNameFantasy.Width = 250;
-            // 
-            // idSale
-            // 
-            this.idSale.DataPropertyName = "idSale";
-            this.idSale.HeaderText = "PEDIDO";
-            this.idSale.Name = "idSale";
-            this.idSale.ReadOnly = true;
-            this.idSale.Width = 80;
-            // 
-            // observation
-            // 
-            this.observation.DataPropertyName = "observation";
-            this.observation.HeaderText = "OBSERVAÇÕES";
-            this.observation.Name = "observation";
-            this.observation.ReadOnly = true;
-            this.observation.Width = 400;
-            // 
             // QuestionnaireAnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,7 +347,6 @@
             this.Load += new System.EventHandler(this.QuestionnaireAnalysisForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalysis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.analysisBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,7 +366,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.BindingSource analysisBindingSource;
         private System.Windows.Forms.DateTimePicker tbxDti;
         private System.Windows.Forms.DateTimePicker tbxDtf;
         private System.Windows.Forms.DataGridViewTextBoxColumn answer;

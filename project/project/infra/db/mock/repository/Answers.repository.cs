@@ -42,14 +42,17 @@ namespace project.infra.db.mock.repository
 
         public List<AnswerModel> getAnswers(AnswersFilters filters)
         {
-            return AnswersMock.answers.Where(answer =>
+            //var teste = AnswersMock.answers;
+            var teste = AnswersMock.answers.Where(answer =>
             {
                 return
                 (filters.initialDate != null ? answer.createdAt >= filters.initialDate : true) &&
                 (filters.finalDate != null ? answer.createdAt <= filters.finalDate : true) &&
                 (!string.IsNullOrWhiteSpace(filters.idSale) ? answer.idSale == filters.idSale : true) &&
+                (!string.IsNullOrWhiteSpace(filters.idQuestion) ? answer.idQuestion == filters.idQuestion : true) &&
                 (!string.IsNullOrWhiteSpace(filters.idCompany) ? answer.idCompany == filters.idCompany : true);
             }).ToList();
+            return teste;
         }
 
         public List<AnswerNotResolvedDataView> getAnswersNotResolved()
