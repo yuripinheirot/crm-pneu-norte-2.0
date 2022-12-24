@@ -42,8 +42,7 @@ namespace project.infra.db.mock.repository
 
         public List<AnswerModel> getAnswers(AnswersFilters filters)
         {
-            //var teste = AnswersMock.answers;
-            var teste = AnswersMock.answers.Where(answer =>
+            return AnswersMock.answers.Where(answer =>
             {
                 return
                 (filters.initialDate != null ? answer.createdAt >= filters.initialDate : true) &&
@@ -52,7 +51,6 @@ namespace project.infra.db.mock.repository
                 (!string.IsNullOrWhiteSpace(filters.idQuestion) ? answer.idQuestion == filters.idQuestion : true) &&
                 (!string.IsNullOrWhiteSpace(filters.idCompany) ? answer.idCompany == filters.idCompany : true);
             }).ToList();
-            return teste;
         }
 
         public List<AnswerNotResolvedDataView> getAnswersNotResolved()
