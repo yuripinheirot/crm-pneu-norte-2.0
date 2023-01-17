@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace project.specs.mocks
 {
-    internal class AnswersMock
+    public class AnswersMock
     {
         public static List<AnswerModel> answers = new List<AnswerModel>()
         {

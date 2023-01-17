@@ -16,6 +16,5 @@ namespace project.domain.usecases
 	public interface IPostAnswers
 	{
 		void addAnswersDTO(List<PostAnswerDTO> answers);		
-			
 	}
 }

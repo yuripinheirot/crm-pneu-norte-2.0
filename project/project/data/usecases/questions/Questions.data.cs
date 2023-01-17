@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.questions
 {
-    public class QuestionsData : IGetQuestions
+    public class QuestionsData : IGetQuestions, IGetQuestion
     {
         QuestionsRepository questionRepository;
         public QuestionsData(QuestionsRepository questionRepository)
@@ -22,7 +22,7 @@ namespace project.data.usecases.questions
             return questionRepository.getQuestions();
         }
 
-        public QuestionModel getQuestion(string idQuestion)
+        public virtual QuestionModel getQuestion(string idQuestion)
         {
             return questionRepository.getQuestion(idQuestion);
         }

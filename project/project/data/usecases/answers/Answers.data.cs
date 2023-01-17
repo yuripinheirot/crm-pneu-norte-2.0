@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using project.presentation.protocols;
+using project.presentation.utils;
 
 namespace project.data.usecases.answers
 {
-    public class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
+    public class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
         AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -58,6 +59,13 @@ namespace project.data.usecases.answers
         public List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             return answersRepository.getAnswersNotResolved();
+        }
+
+        public void putAnswer(AnswerModel answer)
+        {
+            answer.updatedAt = DateTime.Now;
+            if (!string.IsNullOrWhiteSpace(answer.status)) answer.status = TextUtils.translateStatusAnswerData(answer.status);
+            answersRepository.putAnswer(answer);
         }
     }
 }

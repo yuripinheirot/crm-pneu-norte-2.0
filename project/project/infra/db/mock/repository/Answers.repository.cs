@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
+    public class AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {
@@ -72,6 +72,25 @@ namespace project.infra.db.mock.repository
                 };
 
             return query.ToList();
+        }
+
+        public void putAnswer(AnswerModel answer)
+        {
+            AnswersMock.answers.ForEach(a =>
+            {
+                if (a.id == answer.id)
+                {
+                    if (answer.idQuestion != null) a.idQuestion = answer.idQuestion;
+                    if (answer.idSale != null) a.idSale = answer.idSale;
+                    if (answer.idClient != null) a.idClient = answer.idClient;
+                    if (answer.status != null) a.status = answer.status;
+                    if (answer.answer != null) a.answer = answer.answer;
+                    if (answer.observation != null) a.observation = answer.observation;
+                    if (answer.resolution != null) a.resolution = answer.resolution;
+                    if (answer.idCompany != null) a.idCompany = answer.idCompany;
+                    if (answer.createdAt.Ticks > 0) a.createdAt = answer.createdAt;
+                }
+            });
         }
     }
 }

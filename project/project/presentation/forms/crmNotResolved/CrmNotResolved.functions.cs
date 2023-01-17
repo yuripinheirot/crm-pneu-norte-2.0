@@ -1,4 +1,5 @@
-﻿using project.main.factories.business;
+﻿using project.domain.model;
+using project.main.factories.business;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
@@ -23,6 +24,11 @@ namespace project.presentation.forms.crmNotResolved
         public AnswerDetails getAnswerDetailsDataView(string idAnswer)
         {
             return AnswersFactory.handle.getAnswerDetailsDataView(idAnswer);
+        }
+
+        public void putAnswer(AnswerModel answer)
+        {
+            AnswersFactory.handle.putAnswer(answer);
         }
     }
 }

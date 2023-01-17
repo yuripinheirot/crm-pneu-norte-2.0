@@ -1,4 +1,5 @@
-﻿using project.presentation.errors;
+﻿using project.domain.model;
+using project.presentation.errors;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 using project.presentation.utils;
@@ -18,6 +19,7 @@ namespace project.presentation.forms.crmNotResolved
     {
         CrmNotResolvedFunctions functions = new CrmNotResolvedFunctions();
         AnswerDetails currentAnswer;
+        string idAnswer;
 
         void loadFields()
         {
@@ -42,6 +44,7 @@ namespace project.presentation.forms.crmNotResolved
         {
             InitializeComponent();
             currentAnswer = functions.getAnswerDetailsDataView(idAnswer);
+            this.idAnswer = idAnswer;
         }
 
         private void CrmDetails_Load(object sender, EventArgs e)
@@ -54,6 +57,19 @@ namespace project.presentation.forms.crmNotResolved
             {
                 ThrowCustomException.Throw(error);
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            AnswerModel answer = new AnswerModel()
+            {
+                id = idAnswer,
+                status = cbxStatus.Text,
+                resolution = tbxResolution.Text
+            };
+
+            functions.putAnswer(answer);
+            Close();
         }
     }
 }

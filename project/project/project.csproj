@@ -50,6 +50,7 @@
     <Compile Include="business\usecases\client\Client.business.cs" />
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="domain\usecases\IPutAnswer.usecase.cs" />
     <Compile Include="main\factories\validations\VerifyEmptyAnswersValidation.factory.cs" />
     <Compile Include="main\factories\validations\VerifyIfExistsCurrentCrmValidation.factory.cs" />
     <Compile Include="presentation\forms\crmNotResolved\CrmDetails.form.cs">

@@ -11,4 +11,9 @@ namespace project.domain.usecases
     {
         List<QuestionModel> getQuestions();
     }
+    
+    public interface IGetQuestion
+    {
+        QuestionModel getQuestion(string idQuestion);
+    }
 }

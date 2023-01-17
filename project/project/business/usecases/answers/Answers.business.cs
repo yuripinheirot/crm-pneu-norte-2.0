@@ -12,7 +12,7 @@ using project.presentation.protocols;
 
 namespace project.business.usecases.answers
 {
-    public class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails
+    public class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
         AnswersData answersData;
         QuestionsData questionData;
@@ -49,6 +49,11 @@ namespace project.business.usecases.answers
         public List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             return answersData.getAnswersNotResolved();
+        }
+
+        public void putAnswer(AnswerModel answer)
+        {
+            answersData.putAnswer(answer);
         }
     }
 }

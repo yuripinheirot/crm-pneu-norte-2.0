@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class QuestionsRepository : IGetQuestions
+    public class QuestionsRepository : IGetQuestions, IGetQuestion
     {
         public List<QuestionModel> getQuestions()
         {
