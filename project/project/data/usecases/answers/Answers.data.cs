@@ -14,8 +14,8 @@ namespace project.data.usecases.answers
 {
     public class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
-        AnswersRepository answersRepository;
-        public AnswersData(AnswersRepository answersRepository)
+        AnswersMockRepository answersRepository;
+        public AnswersData(AnswersMockRepository answersRepository)
         {
             this.answersRepository = answersRepository;
         }

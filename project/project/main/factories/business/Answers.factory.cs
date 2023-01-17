@@ -12,11 +12,11 @@ namespace project.main.factories.business
 {
     public class AnswersFactory
     {
-        private static QuestionsRepository questionsRepository = new QuestionsRepository();
+        private static QuestionsMockRepository questionsRepository = new QuestionsMockRepository();
         private static QuestionsData questionsData = new QuestionsData(questionsRepository);
 
 
-        private static AnswersRepository answersRepository = new AnswersRepository();
+        private static AnswersMockRepository answersRepository = new AnswersMockRepository();
         private static AnswersData answersData = new AnswersData(answersRepository);
 
 

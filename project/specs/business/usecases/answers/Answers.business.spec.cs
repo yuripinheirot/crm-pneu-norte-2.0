@@ -17,9 +17,9 @@ namespace specs.business.answer
     [TestClass]
     public class AnswersBusinessSpec
     {
-        static QuestionsRepository questionsRepository = new QuestionsRepository();
+        static QuestionsMockRepository questionsRepository = new QuestionsMockRepository();
         static QuestionsData questionData = new QuestionsData(questionsRepository);
-        static AnswersRepository answerRepository = new AnswersRepository();
+        static AnswersMockRepository answerRepository = new AnswersMockRepository();
         static AnswersData answerData = new AnswersData(answerRepository);
         AnswersBusiness sut;
 

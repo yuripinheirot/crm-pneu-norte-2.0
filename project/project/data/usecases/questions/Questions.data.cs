@@ -11,8 +11,8 @@ namespace project.data.usecases.questions
 {
     public class QuestionsData : IGetQuestions, IGetQuestion
     {
-        QuestionsRepository questionRepository;
-        public QuestionsData(QuestionsRepository questionRepository)
+        QuestionsMockRepository questionRepository;
+        public QuestionsData(QuestionsMockRepository questionRepository)
         {
             this.questionRepository = questionRepository;
         }

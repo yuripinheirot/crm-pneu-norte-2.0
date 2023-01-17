@@ -6,8 +6,8 @@ namespace project.main.factories.business
 {
     public class QuestionsFactory
     {
-        private static QuestionsRepository questionsRepository =
-               new QuestionsRepository();
+        private static QuestionsMockRepository questionsRepository =
+               new QuestionsMockRepository();
         private static QuestionsData questionsData =
             new QuestionsData(questionsRepository);
 

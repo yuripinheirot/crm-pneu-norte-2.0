@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersMockRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {

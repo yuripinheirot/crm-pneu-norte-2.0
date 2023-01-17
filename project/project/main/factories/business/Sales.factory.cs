@@ -11,7 +11,7 @@ namespace project.main.factories.business
 {
     public class SalesFactory
     {
-        private static SalesRepository SalesRepository = new SalesRepository();
+        private static SalesMockRepository SalesRepository = new SalesMockRepository();
         private static SalesData SalesData = new SalesData(SalesRepository);
 
         public static SalesBusiness handle = new SalesBusiness(SalesData);

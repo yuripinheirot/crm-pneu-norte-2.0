@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class ClientRepository : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientMockRepository : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {
         public ClientModel getClient(string id)
         {

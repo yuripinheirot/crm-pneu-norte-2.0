@@ -13,9 +13,9 @@ namespace project.data.usecases.sales
 {
     public class SalesData : IGetSales, IGetSale
     {
-        SalesRepository salesRepository;
+        SalesMockRepository salesRepository;
 
-        public SalesData(SalesRepository salesRepository)
+        public SalesData(SalesMockRepository salesRepository)
         {
             this.salesRepository = salesRepository;
         }
