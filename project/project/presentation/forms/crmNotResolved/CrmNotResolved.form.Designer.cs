@@ -35,9 +35,6 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.dgvNotResolved = new System.Windows.Forms.DataGridView();
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.respostasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idAnswer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             this.answer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resolution = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.respostasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotResolved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
@@ -128,14 +128,6 @@
             this.dgvNotResolved.StandardTab = true;
             this.dgvNotResolved.TabIndex = 8;
             // 
-            // dataTable1BindingSource1
-            // 
-            this.dataTable1BindingSource1.DataMember = "DataTable1";
-            // 
-            // dataTable1BindingSource
-            // 
-            this.dataTable1BindingSource.DataMember = "DataTable1";
-            // 
             // idAnswer
             // 
             this.idAnswer.DataPropertyName = "idAnswer";
@@ -200,6 +192,14 @@
             this.resolution.ReadOnly = true;
             this.resolution.Width = 230;
             // 
+            // dataTable1BindingSource1
+            // 
+            this.dataTable1BindingSource1.DataMember = "DataTable1";
+            // 
+            // dataTable1BindingSource
+            // 
+            this.dataTable1BindingSource.DataMember = "DataTable1";
+            // 
             // CrmNotResolved
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,6 +218,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questionários não resolvidos";
+            this.Activated += new System.EventHandler(this.CrmNotResolved_Activated);
             this.Load += new System.EventHandler(this.CrmNotResolved_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotResolved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();

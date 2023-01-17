@@ -31,5 +31,10 @@ namespace project.presentation.forms.crmNotResolved
 
             new CrmDetails(idAnswer).ShowDialog();
         }
+
+        private void CrmNotResolved_Activated(object sender, EventArgs e)
+        {
+            functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
+        }
     }
 }
