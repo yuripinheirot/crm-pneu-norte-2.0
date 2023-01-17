@@ -79,7 +79,7 @@
       <DependentUpon>ObservationAnswer.form.cs</DependentUpon>
     </Compile>
     <Compile Include="presentation\protocols\AnswerDetails.dataview.cs" />
-    <Compile Include="presentation\protocols\AnswerNotResolved.dataview .cs" />
+    <Compile Include="presentation\protocols\AnswerNotResolved.dataview.cs" />
     <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
     <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
     <Compile Include="data\usecases\answers\Answers.data.cs" />
