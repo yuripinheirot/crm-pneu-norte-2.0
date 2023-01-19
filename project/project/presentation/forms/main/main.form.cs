@@ -1,4 +1,6 @@
-﻿using project.domain.model;
+﻿using FirebirdSql.Data.FirebirdClient;
+using project.domain.model;
+using project.infra.db.firebird.repository;
 using project.main.factories.validations;
 using project.presentation.errors;
 using project.presentation.forms.crmNotResolved;
@@ -59,7 +61,6 @@ namespace project.presentation.forms.main
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
             if (!string.IsNullOrWhiteSpace(defaultCompany))
             {
                 TbxIdCompany.Text = defaultCompany;
