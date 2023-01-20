@@ -5,5 +5,11 @@
     <Setting Name="defaultCompany" Type="System.String" Scope="User">
       <Value Profile="(Default)">02</Value>
     </Setting>
+    <Setting Name="firebirdConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User=SYSDBA;Password=masterkey;Database=C:\Users\yurii\Downloads\ECODADOS.ECO;DataSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=0;</Value>
+    </Setting>
+    <Setting Name="productionMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PROD</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

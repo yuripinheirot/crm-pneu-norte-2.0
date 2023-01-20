@@ -34,5 +34,31 @@ namespace project.Properties {
                 this["defaultCompany"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("User=SYSDBA;Password=masterkey;Database=C:\\Users\\yurii\\Downloads\\ECODADOS.ECO;Dat" +
+            "aSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;" +
+            "Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=0;")]
+        public string firebirdConnectionString {
+            get {
+                return ((string)(this["firebirdConnectionString"]));
+            }
+            set {
+                this["firebirdConnectionString"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PROD")]
+        public string productionMode {
+            get {
+                return ((string)(this["productionMode"]));
+            }
+            set {
+                this["productionMode"] = value;
+            }
+        }
     }
 }

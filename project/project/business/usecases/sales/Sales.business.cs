@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.sales
 {
-    public class SalesBusiness : IGetSales, IGetSale
+    public class SalesBusiness<T> : IGetSales, IGetSale where T : IGetSales, IGetSale
     {
-        SalesData salesData;
-        public SalesBusiness(SalesData salesData)
+        T salesData;
+        public SalesBusiness(T salesData)
         {
             this.salesData = salesData;
         }

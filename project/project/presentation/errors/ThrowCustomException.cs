@@ -25,7 +25,7 @@ namespace project.presentation.errors
             }
             else
             {
-                MessageBox.Show($"{error.Message} \n\n\n {error.InnerException}", "Ops! Algo inesperado aconteceu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{error.Message} \n\n {error.InnerException}", "Ops! Algo inesperado aconteceu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

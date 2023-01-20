@@ -1,5 +1,7 @@
 ﻿using project.business.usecases.sales;
 using project.data.usecases.sales;
+using project.domain.usecases;
+using project.infra.db.firebird.repository;
 using project.infra.db.mock.repository;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,14 @@ namespace project.main.factories.business
 {
     public class SalesFactory
     {
-        private static SalesMockRepository SalesRepository = new SalesMockRepository();
-        private static SalesData SalesData = new SalesData(SalesRepository);
+        //private static SalesMockRepository salesMockRepository = new SalesMockRepository();
+        private static SalesFirebirdRepository salesFirebirdRepository = new SalesFirebirdRepository();
 
-        public static SalesBusiness handle = new SalesBusiness(SalesData);
+
+
+        private static SalesData<SalesFirebirdRepository> salesData = new SalesData<SalesFirebirdRepository>(salesFirebirdRepository);
+
+        public static SalesBusiness<SalesData<SalesFirebirdRepository>> handle = new SalesBusiness<SalesData<SalesFirebirdRepository>>(salesData);
+    
     }
 }

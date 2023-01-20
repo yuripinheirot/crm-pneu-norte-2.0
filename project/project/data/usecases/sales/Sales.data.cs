@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.sales
 {
-    public class SalesData : IGetSales, IGetSale
+    public class SalesData<T> : IGetSales, IGetSale where T : IGetSale, IGetSales
     {
-        SalesMockRepository salesRepository;
+        private T salesRepository;
 
-        public SalesData(SalesMockRepository salesRepository)
+        public SalesData(T salesRepository)
         {
             this.salesRepository = salesRepository;
         }
