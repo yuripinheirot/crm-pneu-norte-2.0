@@ -17,7 +17,8 @@ namespace project.infra.db.postgres.config
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            setKeys_answers(modelBuilder);
+            setKeys_questions(modelBuilder);
         }
 
     }

@@ -84,8 +84,9 @@
     <Compile Include="infra\db\firebird\tables\TVENVENDEDOR.cs" />
     <Compile Include="infra\db\firebird\tables\TVENPEDIDO.cs" />
     <Compile Include="infra\db\postgres\config\DbContext.cs" />
-    <Compile Include="infra\db\postgres\tables\Answers.cs" />
+    <Compile Include="infra\db\postgres\repository\Answers.postgres.repository.cs" />
     <Compile Include="infra\db\postgres\tables\Questions.cs" />
+    <Compile Include="infra\db\postgres\tables\Answers.cs" />
     <Compile Include="main\factories\validations\VerifyEmptyAnswersValidation.factory.cs" />
     <Compile Include="main\factories\validations\VerifyIfExistsCurrentCrmValidation.factory.cs" />
     <Compile Include="presentation\forms\crmNotResolved\CrmDetails.form.cs">
