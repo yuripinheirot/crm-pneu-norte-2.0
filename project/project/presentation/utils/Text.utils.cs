@@ -10,6 +10,7 @@ namespace project.presentation.utils
     {
         public static string translatePosSaleData(string posSale)
         {
+            posSale = posSale.Trim();
             if (posSale == "VENDAS")
             {
                 return "sale";
@@ -20,12 +21,13 @@ namespace project.presentation.utils
             }
             else
             {
-                throw new Exception("Unexpected posSale name");
+                throw new Exception($"Unexpected posSale name {posSale}");
             }
         }
 
         public static string translatePosSalePresentation(string posSale)
         {
+            posSale = posSale.Trim();
             if (posSale == "sale")
             {
                 return "VENDAS";
@@ -36,12 +38,13 @@ namespace project.presentation.utils
             }
             else
             {
-                throw new Exception("Unexpected posSale name");
+                throw new Exception($"Unexpected posSale name {posSale}");
             }
         }
 
         public static string translateStatusAnswerData(string status)
         {
+            status = status.Trim();
             if (status == "PENDENTE")
             {
                 return "pending";
@@ -52,12 +55,13 @@ namespace project.presentation.utils
             }
             else
             {
-                throw new Exception("Unexpected status name");
+                throw new Exception($"Unexpected status name {status}");
             }
         }
 
         public static string translateStatusAnswerPresentation(string status)
         {
+            status = status.Trim();
             if (status == "pending")
             {
                 return "PENDENTE";
@@ -68,7 +72,7 @@ namespace project.presentation.utils
             }
             else
             {
-                throw new Exception("Unexpected status name");
+                throw new Exception($"Unexpected status name {status}"  );
             }
         }
     }
