@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using project.domain.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,19 +13,28 @@ namespace project.infra.db.postgres.config
 {
     public partial class PgDbContext
     {
-        [Table("questions", Schema = "crm")]
-        public class Questions
+        [Table("questions", Schema = "public")]
+        public class Questions 
         {
             [Key]
             public string id { get; set; }
+
             [MaxLength(255), Required]
             public string description { get; set; }
+
             [MaxLength(255), Required]
+            [Column("pos_sale")]
             public string posSale { get; set; }
+
             [Required]
             public bool active { get; set; } = true;
 
-            public ICollection<Answers> answers { get; set; }
+            [Column("answers")]
+            public string answersArray { get; set; }
+            [Column("bad_answers")]
+            public string badAnswersArray { get; set; }
+            public List<string> answers => answersArray.Replace("{", "").Replace("}", "").Split(',').ToList();
+            public List<string> badAnswers => badAnswersArray.Replace("{", "").Replace("}", "").Split(',').ToList();
         }
 
         public DbSet<Questions> questions { get; set; }

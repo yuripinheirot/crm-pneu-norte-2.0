@@ -1,6 +1,7 @@
 ﻿using project.presentation.errors.exceptions;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,33 @@ namespace project.presentation.errors
             {
                 MessageBox.Show(exception.description, exception.title, MessageBoxButtons.OK, typeErrors[exception.title]);
             }
+            if (error is DbEntityValidationException dbError)
+            {
+                string errorString = "";
+
+                foreach (var validationError in dbError.EntityValidationErrors)
+                {
+                    errorString += String.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors: \n",
+                        validationError.Entry.Entity.GetType().Name, validationError.Entry.State);
+                    foreach (var propertyError in validationError.ValidationErrors)
+                    {
+                        errorString += String.Format("- Property: \"{0}\", Error: \"{1}\"\n",
+                            propertyError.PropertyName, propertyError.ErrorMessage);
+                    }
+                }
+
+                new ErrorForm(error.Message, errorString).ShowDialog();
+            }
             else
             {
-                MessageBox.Show($"{error.Message} \n\n {error.InnerException}", "Ops! Algo inesperado aconteceu!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (error.InnerException != null)
+                {
+                    new ErrorForm(error.Message, error.InnerException.ToString()).ShowDialog();
+                }
+                else
+                {
+                    new ErrorForm(error.Message, error.Message).ShowDialog();
+                }
             }
         }
     }

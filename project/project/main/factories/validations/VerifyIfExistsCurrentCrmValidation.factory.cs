@@ -12,8 +12,9 @@ namespace project.main.factories.validations
     public class VerifyIfExistsCurrentCrmValidationFactory
     {
         private static AnswersMockRepository answersRepository = new AnswersMockRepository();
-        private static AnswersData answersData = new AnswersData(answersRepository);
+        private static AnswersData<AnswersMockRepository> answersData = new AnswersData<AnswersMockRepository>(answersRepository);
 
-        public static VerifyIfExistsCurrentCrmValidation handle = new VerifyIfExistsCurrentCrmValidation(answersData);
+        public static VerifyIfExistsCurrentCrmValidation<AnswersData<AnswersMockRepository>> 
+            handle = new VerifyIfExistsCurrentCrmValidation<AnswersData<AnswersMockRepository>>(answersData);
     }
 }

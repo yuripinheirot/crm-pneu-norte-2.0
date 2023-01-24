@@ -11,5 +11,8 @@
     <Setting Name="productionMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">PROD</Value>
     </Setting>
+    <Setting Name="postgresConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server=localhost;Port=5432;User Id=postgres;Password=postgres;Database=postgres;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

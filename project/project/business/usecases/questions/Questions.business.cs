@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.questions
 {
-    public class QuestionsBusiness : IGetQuestions
+    public class QuestionsBusiness<T> : IGetQuestions, IGetQuestion
+        where T : IGetQuestions, IGetQuestion
     {
-        QuestionsData questionsData;
-        public QuestionsBusiness(QuestionsData questionsData)
+        T questionsData;
+        public QuestionsBusiness(T questionsData)
         {
             this.questionsData = questionsData;
         }

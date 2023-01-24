@@ -1,4 +1,5 @@
 ﻿using project.data.usecases.answers;
+using project.domain.usecases;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 using System;
@@ -10,7 +11,8 @@ using System.Threading.Tasks;
 namespace project.validations.crm
 {
     public delegate void clearScreen();
-    public class VerifyIfExistsCurrentCrmValidation
+    public class VerifyIfExistsCurrentCrmValidation<AnswersData> 
+        where AnswersData : IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
         AnswersData answersData;
         public VerifyIfExistsCurrentCrmValidation(AnswersData answersData)

@@ -12,10 +12,11 @@ using project.presentation.utils;
 
 namespace project.data.usecases.answers
 {
-    public class AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersData<AnswersRepository> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer 
+        where AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
-        AnswersMockRepository answersRepository;
-        public AnswersData(AnswersMockRepository answersRepository)
+        private AnswersRepository answersRepository;
+        public AnswersData(AnswersRepository answersRepository)
         {
             this.answersRepository = answersRepository;
         }

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using project.domain.interfaces;
+using System;
 
 namespace project.domain.model
 {
-    public class AnswerModel
+    public class AnswerModel : IAnswerModel
     {
         public string id { get; set; }
         public string idQuestion { get; set; }

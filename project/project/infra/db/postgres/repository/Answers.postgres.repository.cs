@@ -5,19 +5,38 @@ using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.repository
 {
-    internal class AnswersPostgresRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersPostgresRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {
             using (var db = new PgDbContext())
             {
-                db.answers.AddRange((IEnumerable<PgDbContext.Answers>)answers);
+                answers.ForEach(a =>
+                {
+                    db.answers.Add(new PgDbContext.Answers()
+                    {
+                        answer = a.answer,
+                        createdAt = a.createdAt.ToUniversalTime(),
+                        id = a.id,
+                        idClient = a.idClient,
+                        idCompany = a.idCompany,
+                        idQuestion = a.idQuestion,
+                        idSale = a.idSale,
+                        observation = a.observation,
+                        resolution = a.resolution,
+                        status = a.status,
+                        updatedAt = a.updatedAt.ToUniversalTime(),
+                    });
+                });
+
+                db.SaveChanges();
             }
         }
 

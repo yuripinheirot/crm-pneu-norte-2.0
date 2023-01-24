@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace project.domain.usecases
 {
-    internal interface IPutAnswer
+    public interface IPutAnswer
     {
         void putAnswer(AnswerModel answer);
     }

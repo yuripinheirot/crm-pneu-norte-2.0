@@ -60,5 +60,17 @@ namespace project.Properties {
                 this["productionMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;Port=5432;User Id=postgres;Password=postgres;Database=postgres;")]
+        public string postgresConnectionString {
+            get {
+                return ((string)(this["postgresConnectionString"]));
+            }
+            set {
+                this["postgresConnectionString"] = value;
+            }
+        }
     }
 }

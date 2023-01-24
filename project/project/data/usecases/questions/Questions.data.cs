@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.questions
 {
-    public class QuestionsData : IGetQuestions, IGetQuestion
+    public class QuestionsData<T> : IGetQuestions, IGetQuestion 
+        where T : IGetQuestions, IGetQuestion
     {
-        QuestionsMockRepository questionRepository;
-        public QuestionsData(QuestionsMockRepository questionRepository)
+        T questionRepository;
+        public QuestionsData(T questionRepository)
         {
             this.questionRepository = questionRepository;
         }

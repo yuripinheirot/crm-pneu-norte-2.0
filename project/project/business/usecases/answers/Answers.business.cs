@@ -12,7 +12,9 @@ using project.presentation.protocols;
 
 namespace project.business.usecases.answers
 {
-    public class AnswersBusiness : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersBusiness<AnswersData, QuestionsData> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer 
+        where AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+        where QuestionsData : IGetQuestions, IGetQuestion
     {
         AnswersData answersData;
         QuestionsData questionData;

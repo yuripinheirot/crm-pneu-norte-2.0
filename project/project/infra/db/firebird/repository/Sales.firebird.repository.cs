@@ -28,7 +28,7 @@ namespace project.infra.db.firebird.repository
                     posSale = "order",
                     seller = seller.NOME,
                     dateSale = sale.DATAEFE,
-                    client = client.NOME,
+                    client = client.CODIGO + "-" + client.NOME,
                     clientCpfCnpj = client.CPFCNPJ,
                 };
             }
