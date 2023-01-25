@@ -41,6 +41,7 @@ namespace project.presentation.forms.questionnaireAnalysis
                     count = answer.Select(p => p.answer).Distinct().Count(),
                 })
                 .ToList();
+
             var dataSource = GridUtils.ToDataTable(answers);
 
             dgv.DataSource = dataSource;

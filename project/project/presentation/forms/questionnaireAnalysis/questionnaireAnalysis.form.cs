@@ -51,6 +51,11 @@ namespace project.presentation.forms.questionnaireAnalysis
                 };
 
                 functions.loadAnswersOnDataGrid(dgvAnswers, filters);
+
+                if (dgvAnswers.Rows.Count == 0)
+                {
+                    MessageBox.Show("Nenhum registro foi encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception err)
             {

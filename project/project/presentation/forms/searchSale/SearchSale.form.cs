@@ -68,6 +68,11 @@ namespace project.presentation.forms.searchSale
         private void btnSearch_Click(object sender, EventArgs e)
         {
             loadGrid();
+
+            if (dgvSales.Rows.Count == 0)
+            {
+                MessageBox.Show("Nenhum registro foi encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void tbxClientId_KeyDown(object sender, KeyEventArgs e)
