@@ -1,9 +1,11 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
+using FirebirdSql.Data.Logging;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
@@ -25,15 +27,6 @@ namespace project.infra.db.postgres.config
 
             setKeys_answers(modelBuilder);
             setKeys_questions(modelBuilder);
-
-            //modelBuilder.Entity<Questions>()
-            //    .Property(e => e.answers)
-            //    .HasColumnName("answers")
-            //    .HasConversion(new ArrayConverter());
-            //modelBuilder.Entity<Questions>()
-            //    .Property(e => e.badAnswers)
-            //    .HasColumnName("badanswers")
-            //    .HasConversion(new ArrayConverter());
         }
 
     }

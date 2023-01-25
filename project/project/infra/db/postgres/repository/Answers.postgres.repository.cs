@@ -1,10 +1,12 @@
-﻿using project.domain.model;
+﻿using Npgsql;
+using project.domain.model;
 using project.domain.usecases;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -67,17 +69,40 @@ namespace project.infra.db.postgres.repository
 
         public List<AnswerModel> getAnswers(AnswersFilters filters)
         {
-            using (var pg = new PgDbContext())
+            using (var db = new PgDbContext())
             {
-                var answers = pg.answers.Where(answer =>
-                    (filters.initialDate != null ? answer.createdAt >= filters.initialDate : true) &&
-                    (filters.finalDate != null ? answer.createdAt <= filters.finalDate : true) &&
-                    (!string.IsNullOrWhiteSpace(filters.idSale) ? answer.idSale == filters.idSale : true) &&
-                    (!string.IsNullOrWhiteSpace(filters.idQuestion) ? answer.idQuestion == filters.idQuestion : true) &&
-                    (!string.IsNullOrWhiteSpace(filters.idCompany) ? answer.idCompany == filters.idCompany : true)
-                );
+                string buildQuery()
+                {
+                    string _query = $"select * from answers a " +
+                    $"where " +
+                    $"a.id_company = '{filters.idCompany}' and " +
+                    $"a.created_at between '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' and '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}'";
 
-                return (List<AnswerModel>)answers;
+                    return _query;
+                }
+                var command = new NpgsqlCommand(buildQuery(), db.Database.Connection as NpgsqlConnection);
+                db.Database.Connection.Open();
+
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
+                DataTable table = new DataTable();
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                return table.AsEnumerable()
+                    .Select(row => new AnswerModel()
+                    {
+                        answer = row.Field<string>("answer"),
+                        createdAt = row.Field<DateTime>("created_at"),
+                        updatedAt = row.Field<DateTime>("updated_at"),
+                        id = row.Field<Guid>("id").ToString(),
+                        idClient = row.Field<string>("id_client"),
+                        idCompany = row.Field<string>("id_company"),
+                        idQuestion = row.Field<Guid>("id_question").ToString(),
+                        idSale = row.Field<string>("id_sale"),
+                        observation = row.Field<string>("observation"),
+                        resolution = row.Field<string>("resolution"),
+                        status = row.Field<string>("status"),
+                    }).ToList();
             }
         }
 

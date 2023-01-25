@@ -1,4 +1,5 @@
-﻿using project.presentation.protocols;
+﻿using project.presentation.errors;
+using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,14 +33,22 @@ namespace project.presentation.forms.questionnaireAnalysis
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var filters = new AnswersFilters()
+            try
             {
-                idQuestion = cbxQuestions.Text.Split('-')[0],
-                finalDate = tbxDtf.Value,
-                initialDate = tbxDti.Value
-            };
+                var filters = new AnswersFilters()
+                {
+                    idQuestion = cbxQuestions.Text.Split('-')[0],
+                    finalDate = tbxDtf.Value,
+                    initialDate = tbxDti.Value,
+                    idCompany = "02"
+                };
 
-            functions.loadAnswersOnDataGrid(dgvAnswers, filters);
+                functions.loadAnswersOnDataGrid(dgvAnswers, filters);
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void dgvAnswers_CellEnter(object sender, DataGridViewCellEventArgs e)
