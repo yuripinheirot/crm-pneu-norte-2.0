@@ -18,7 +18,7 @@ namespace project.infra.db.firebird.config
             public string VENDEDOR { get; set; }
             public string TIPOPEDIDO { get; set; }
             public decimal VALORLIQUIDO { get; set; }
-            public DateTime DATAEFE { get; set; }
+            public DateTime? DATAEFE { get; set; }
 
         }
 

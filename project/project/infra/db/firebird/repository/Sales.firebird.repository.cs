@@ -16,42 +16,61 @@ namespace project.infra.db.firebird.repository
 {
     public class SalesFirebirdRepository : IGetSales, IGetSale
     {
+        static string saleQuery =
+                 "select                                                                                        " +
+                 "ped.empresa as idCompany,                                                                     " +
+                 "ped.codigo as id,                                                                             " +
+                 "ped.valorliquido as liquidValue,                                                              " +
+                 "ped.dataefe as dateSale,                                                                      " +
+                 "clg.codigo || '-' || clg.nome as client,                                                      " +
+                 "clg.cpfcnpj as clientCpfCnpj,                                                                 " +
+                 "                                                                                              " +
+                 "(                                                                                             " +
+                 "select                                                                                        " +
+                 "iif(list(DISTINCT CASE c.TIPO                                                                 " +
+                 "WHEN 'R' THEN 'VENDAS'                                                                        " +
+                 "ELSE 'SERVIÇOS'                                                                               " +
+                 "END) LIKE '%SERVIÇOS%', 'order', 'sale')                                                      " +
+                 "from tvenproduto a                                                                            " +
+                 "left outer join testproduto b on(a.empresa = b.empresa and a.produto = b.produto)             " +
+                 "left outer join testgrupo c on(a.empresa = c.empresa and b.grupo = c.codigo)                  " +
+                 "where                                                                                         " +
+                 "a.pedido = ped.codigo                                                                         " +
+                 "and a.empresa = ped.empresa                                                                   " +
+                 ") as posSale,                                                                                 " +
+                 "vdd.nome as seller                                                                            " +
+                 "                                                                                              " +
+                 "from tvenpedido ped                                                                           " +
+                 "left outer join trecclientegeral clg on(ped.cliente = clg.codigo)                             " +
+                 "left outer join tvenvendedor vdd on(ped.empresa = vdd.empresa and ped.vendedor = vdd.codigo)  ";
         public SaleModel getSale(string idCompany, string idSale)
         {
             using (var db = new FbDbContext())
             {
-                var sale = db.tvenpedido.Where(ped => ped.EMPRESA == idCompany && ped.CODIGO == idSale).First();
-                var client = db.trecclientegeral.Where(clt => clt.CODIGO == sale.CLIENTE).First();
-                var seller = db.tvenvendedor.Where(sll => sll.CODIGO == sale.VENDEDOR && sll.EMPRESA == sale.EMPRESA).First();
+                string whereClause =
+                        $"where                                                                                         " +
+                        $"ped.codigo = '{idSale}' and ped.empresa = '{idCompany}'                                       " +
+                        $"and ped.tipopedido <> 'O'                                                                     " +
+                        $"and ped.dataefe is not null                                                                   " +
+                        $"order by                                                                                      " +
+                        $"ped.codigo desc                                                                               ";
 
-                string posSaleQuery()
+                var sale = db.Database.SqlQuery<SaleModel>(saleQuery + whereClause).ToList().FirstOrDefault();
+                if (sale == null)
                 {
-                    string query =
-                           "select                                                                            " +
-                           "iif(count(distinct c.tipo) > 1, 'VENDAS', 'SERVIÇOS')                             " +
-                           "from tvenproduto a                                                                " +
-                           "left outer join testproduto b on(a.empresa = b.empresa and a.produto = b.produto) " +
-                           "left outer join testgrupo c on(a.empresa = c.empresa and b.grupo = c.codigo)      " +
-                           "where                                                                             " +
-                          $"a.pedido = '{idSale}'                                                             " +
-                          $"and a.empresa = '{idCompany}'                                                     ";
-
-                    var result = db.Database.SqlQuery<string>(query).Single();
-
-                    return TextUtils.translatePosSaleData(result);
+                    return null;
                 }
-
 
                 return new SaleModel()
                 {
-                    idCompany = sale.EMPRESA,
-                    id = sale.CODIGO,
-                    liquidValue = sale.VALORLIQUIDO,
-                    posSale = posSaleQuery(),
-                    seller = seller.NOME,
-                    dateSale = sale.DATAEFE,
-                    client = client.CODIGO + "-" + client.NOME,
-                    clientCpfCnpj = client.CPFCNPJ,
+                    idCompany = sale.idCompany,
+                    id = sale.id,
+                    liquidValue = sale.liquidValue,
+                    posSale = sale.posSale,
+                    seller = sale.seller,
+                    dateSale = sale.dateSale,
+                    client = sale.client,
+                    clientCpfCnpj = sale.clientCpfCnpj,
                 };
             }
         }
@@ -60,7 +79,7 @@ namespace project.infra.db.firebird.repository
         {
             using (var db = new FbDbContext())
             {
-                string buildQuery()
+                string buildMoreConditionalWhere()
                 {
                     string _query = "";
                     if (!string.IsNullOrWhiteSpace(filters.idClient))
@@ -71,45 +90,18 @@ namespace project.infra.db.firebird.repository
                     return _query;
                 };
 
-                var query =
-                    $"select                                                                                       " +
-                    $"ped.empresa as idCompany,                                                                    " +
-                    $"ped.codigo as id,                                                                            " +
-                    $"ped.valorliquido as liquidValue,                                                             " +
-                    $"ped.dataefe as dateSale,                                                                     " +
-                    $"                                                                                             " +
-                    $"clg.codigo || '-' || clg.nome as client,                                                     " +
-                    $"clg.cpfcnpj as clientCpfCnpj,                                                                " +
-                    $"                                                                                             " +
-                    $"(                                                                                            " +
-                    $"select                                                                                       " +
-                    $"iif(list(DISTINCT CASE c.TIPO                                                                " +
-                    $"WHEN 'R' THEN 'VENDAS'                                                                       " +
-                    $"ELSE 'SERVIÇOS'                                                                              " +
-                    $"END) LIKE '%SERVIÇOS%', 'SERVIÇOS', 'VENDAS')                                                " +
-                    $"from tvenproduto a                                                                           " +
-                    $"left outer join testproduto b on(a.empresa = b.empresa and a.produto = b.produto)            " +
-                    $"left outer join testgrupo c on(a.empresa = c.empresa and b.grupo = c.codigo)                 " +
-                    $"where                                                                                        " +
-                    $"a.pedido = ped.codigo                                                                        " +
-                    $"and a.empresa = ped.empresa                                                                  " +
-                    $") as posSale,                                                                                " +
-                    $"vdd.nome as seller                                                                          " +
-                    $"                                                                                             " +
-                    $"from tvenpedido ped                                                                          " +
-                    $"left outer join trecclientegeral clg on(ped.cliente = clg.codigo)                            " +
-                    $"left outer join tvenvendedor vdd on(ped.empresa = vdd.empresa and ped.vendedor = vdd.codigo) " +
+                var whereClause =
                     $"                                                                                             " +
                     $"where                                                                                        " +
                     $"ped.dataefe between '{filters.initialDate:dd.MM.yyyy}' and '{filters.finalDate:dd.MM.yyyy}'  " +
                     $"and ped.empresa = '{filters.idCompany}'                                                      " +
                     $"and ped.tipopedido <> 'O'                                                                    " +
                     $"and ped.dataefe is not null                                                                  " +
-                    $"{buildQuery()}                                                                                " +
+                    $"{buildMoreConditionalWhere()}                                                                " +
                     $"order by                                                                                     " +
                     $"ped.codigo ASC                                                                               ";
 
-                var command = new FbCommand(query, db.Database.Connection as FbConnection);
+                var command = new FbCommand(saleQuery + whereClause, db.Database.Connection as FbConnection);
                 db.Database.Connection.Open();
 
                 FbDataAdapter adapter = new FbDataAdapter();
