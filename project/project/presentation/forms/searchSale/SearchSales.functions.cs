@@ -35,6 +35,15 @@ namespace project.presentation.forms.searchSale
             var dataSource = GridUtils.ToDataTable(sales);
             convertNamePosSale(dataSource);
 
+            if (!string.IsNullOrWhiteSpace(filters.posSale))
+            {
+                dataSource.DefaultView.RowFilter = $"posSale = '{TextUtils.translatePosSalePresentation(filters.posSale)}'";
+            }
+            else
+            {
+                dataSource.DefaultView.RowFilter = null;
+            }
+
             grid.DataSource = dataSource;
         }
 

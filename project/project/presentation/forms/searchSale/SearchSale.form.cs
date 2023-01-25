@@ -1,4 +1,5 @@
-﻿using project.presentation.forms.main;
+﻿using project.presentation.errors;
+using project.presentation.forms.main;
 using project.presentation.forms.searchClient;
 using project.presentation.protocols;
 using project.presentation.utils;
@@ -36,7 +37,7 @@ namespace project.presentation.forms.searchSale
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ThrowCustomException.Throw(error);
             }
         }
         void formatClientId()

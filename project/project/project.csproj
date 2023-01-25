@@ -120,9 +120,12 @@
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
     <Compile Include="domain\interfaces\IAnswerModel.cs" />
+    <Compile Include="domain\interfaces\IClientModel.cs" />
+    <Compile Include="domain\interfaces\ISaleModel .cs" />
     <Compile Include="domain\interfaces\IQuestionModel.cs" />
     <Compile Include="domain\usecases\IPutAnswer.usecase.cs" />
     <Compile Include="infra\db\firebird\config\DbContext.cs" />
+    <Compile Include="infra\db\firebird\repository\Client.firebird.repository.cs" />
     <Compile Include="infra\db\firebird\repository\Sales.firebird.repository.cs" />
     <Compile Include="infra\db\firebird\tables\TRECCLIENTEGERAL.cs" />
     <Compile Include="infra\db\firebird\tables\TVENVENDEDOR.cs" />

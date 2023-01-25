@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.client
 {
-    public class ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientData<T> : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+        where T : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {
-        ClientMockRepository clientRepository;
+        T clientRepository;
 
-        public ClientData(ClientMockRepository clientRepository)
+        public ClientData(T clientRepository)
         {
             this.clientRepository = clientRepository;
         }

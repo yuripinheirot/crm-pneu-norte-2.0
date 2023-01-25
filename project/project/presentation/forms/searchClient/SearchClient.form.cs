@@ -1,4 +1,5 @@
-﻿using project.presentation.forms.searchSale;
+﻿using project.presentation.errors;
+using project.presentation.forms.searchSale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,7 @@ namespace project.presentation.forms.searchClient
             }
             catch (Exception error)
             {
-                MessageBox.Show(error.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ThrowCustomException.Throw(error);
             }
         }
         public SearchClientForm(SearchSaleForm searchSaleForm)
@@ -79,6 +80,11 @@ namespace project.presentation.forms.searchClient
                 {
                 }
             }
+        }
+
+        private void cbxSearchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadGrid();
         }
     }
 }

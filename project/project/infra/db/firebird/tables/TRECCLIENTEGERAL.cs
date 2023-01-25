@@ -13,6 +13,8 @@ namespace project.infra.db.firebird.config
             public string CODIGO { get; set; }
             public string NOME { get; set; }
             public string CPFCNPJ { get; set; }
+            public string FANTASIA { get; set; }
+            public string FONE { get; set; }
         }
 
         public DbSet<TRECCLIENTEGERAL> trecclientegeral { get; set; }

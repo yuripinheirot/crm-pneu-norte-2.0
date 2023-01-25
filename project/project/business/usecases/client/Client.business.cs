@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.client
 {
-    public class ClientBusiness : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientBusiness<ClientData> : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+        where ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
     {
         ClientData clientData;
         public ClientBusiness(ClientData clientData)

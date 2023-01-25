@@ -24,6 +24,7 @@ namespace project.presentation.errors
             {
                 MessageBox.Show(exception.description, exception.title, MessageBoxButtons.OK, typeErrors[exception.title]);
             }
+            
             if (error is DbEntityValidationException dbError)
             {
                 string errorString = "";
