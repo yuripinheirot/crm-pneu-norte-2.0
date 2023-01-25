@@ -30,9 +30,9 @@ namespace project.data.usecases.client
             return clientRepository.getClients(fieldFilter, valueFilter);
         }
 
-        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer, string idCompany)
         {
-            return clientRepository.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer);
+            return clientRepository.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer, idCompany);
         }
     }
 }

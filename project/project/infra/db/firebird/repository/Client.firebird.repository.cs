@@ -1,6 +1,7 @@
 ﻿using project.domain.model;
 using project.domain.usecases;
 using project.infra.db.firebird.config;
+using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
@@ -34,11 +35,11 @@ namespace project.infra.db.firebird.repository
             string translatedFieldFilter()
             {
                 switch (fieldFilter)
-                {                 
+                {
                     case "name":
-                        return "NOME";                 
+                        return "NOME";
                     case "nameFantasy":
-                        return "FANTASIA";                   
+                        return "FANTASIA";
                     case "cpfCnpj":
                         return "cpfCnpj";
                     case "phone":
@@ -69,9 +70,48 @@ namespace project.infra.db.firebird.repository
             }
         }
 
-        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer, string idCompany)
         {
-            throw new NotImplementedException();
+            using (var pg = new PgDbContext())
+            using (var fb = new FbDbContext())
+            {
+                var answers =
+                    (from _answer in pg.answers
+                     where _answer.idQuestion == idQuestion && _answer.answer == answer  && _answer.idCompany == idCompany
+                     select new
+                     {
+                         idSale = _answer.idSale,
+                         idCompany = _answer.idCompany,
+                         idClient = _answer.idClient,
+                         observation = _answer.observation,
+                     }).Distinct().ToList();
+
+                List<string> clientsIds = answers.Select(a => a.idClient).ToList();
+
+                var clients =
+                    (from client in fb.trecclientegeral
+                     where clientsIds.Contains(client.CODIGO)
+                     select new
+                     {
+                         idClient = client.CODIGO,
+                         clientName = client.NOME,
+                         clientNameFantasy = client.FANTASIA,
+                     }).ToList();
+
+                var result =
+                    from a in answers
+                    join c in clients on a.idClient equals c.idClient
+                    select new AnalysisByQuestionDateView()
+                    {
+                        idClient = a.idClient,
+                        clientName = c.clientName,
+                        clientNameFantasy = c.clientNameFantasy,
+                        idSale = a.idSale,
+                        observation = a.observation
+                    };
+
+                return result.ToList();
+            }
         }
     }
 }

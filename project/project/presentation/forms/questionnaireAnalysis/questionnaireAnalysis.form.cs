@@ -1,4 +1,5 @@
-﻿using project.presentation.errors;
+﻿using project.domain.model;
+using project.presentation.errors;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,11 @@ namespace project.presentation.forms.questionnaireAnalysis
         private void QuestionnaireAnalysisForm_Load(object sender, EventArgs e)
         {
             cbxPosSale.SelectedIndex = 0;
+            string defaultCompany = Properties.Settings.Default.defaultCompany;
+            if (!string.IsNullOrWhiteSpace(defaultCompany))
+            {
+                tbxIdCompany.Text = defaultCompany;
+            }
             functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
         }
 
@@ -35,12 +41,13 @@ namespace project.presentation.forms.questionnaireAnalysis
         {
             try
             {
+                var selectedItem = (QuestionModel)cbxQuestions.SelectedItem;
                 var filters = new AnswersFilters()
                 {
-                    idQuestion = cbxQuestions.Text.Split('-')[0],
+                    idQuestion = selectedItem.id,
                     finalDate = tbxDtf.Value,
                     initialDate = tbxDti.Value,
-                    idCompany = "02"
+                    idCompany = tbxIdCompany.Text,
                 };
 
                 functions.loadAnswersOnDataGrid(dgvAnswers, filters);
@@ -53,10 +60,19 @@ namespace project.presentation.forms.questionnaireAnalysis
 
         private void dgvAnswers_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            string idQuestion = cbxQuestions.Text.Split('-')[0];
-            string answer = dgvAnswers.CurrentRow.Cells["answer"].Value.ToString();
+            try
+            {
+                var selectedItem = (QuestionModel)cbxQuestions.SelectedItem;
+                string idQuestion = selectedItem.id;
+                string answer = dgvAnswers.CurrentRow.Cells["answer"].Value.ToString();
+                string idCompany = tbxIdCompany.Text;
 
-            functions.loadClientsByAnswerOnDataGrid(dgvAnalysis, idQuestion, answer);
+                functions.loadClientsByAnswerOnDataGrid(dgvAnalysis, idQuestion, answer, idCompany);
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void dgvAnswers_DataSourceChanged(object sender, EventArgs e)

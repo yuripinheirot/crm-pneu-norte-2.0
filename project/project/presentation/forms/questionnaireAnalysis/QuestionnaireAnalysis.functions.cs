@@ -18,12 +18,13 @@ namespace project.presentation.forms.questionnaireAnalysis
         public void loadQuestionsOnComboBox(ComboBox cbx, string posSale)
         {
             cbx.Items.Clear();
+            cbx.DisplayMember = "description";
 
             foreach (QuestionModel question in questions)
             {
                 if (question.posSale == TextUtils.translatePosSaleData(posSale))
                 {
-                    cbx.Items.Add($"{question.id}-{question.description}");
+                    cbx.Items.Add(question);
                 }
             }
 
@@ -45,9 +46,9 @@ namespace project.presentation.forms.questionnaireAnalysis
             dgv.DataSource = dataSource;
         }
 
-        public void loadClientsByAnswerOnDataGrid(DataGridView dgv, string idQuestion, string answer)
+        public void loadClientsByAnswerOnDataGrid(DataGridView dgv, string idQuestion, string answer, string idCompany)
         {
-            var clients = ClientFactory.handle.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer);
+            var clients = ClientFactory.handle.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer, idCompany);
             var dataSource = GridUtils.ToDataTable(clients);
 
             dgv.DataSource = dataSource;

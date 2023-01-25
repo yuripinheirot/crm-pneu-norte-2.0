@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,6 +53,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbxDti = new System.Windows.Forms.DateTimePicker();
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbxIdCompany = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnswers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAnalysis)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +66,7 @@
             this.btnSair.Location = new System.Drawing.Point(768, 573);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(83, 30);
-            this.btnSair.TabIndex = 7;
+            this.btnSair.TabIndex = 8;
             this.btnSair.Text = "Sai&r";
             this.btnSair.UseVisualStyleBackColor = true;
             // 
@@ -80,7 +81,7 @@
             this.cbxPosSale.Location = new System.Drawing.Point(140, 30);
             this.cbxPosSale.Name = "cbxPosSale";
             this.cbxPosSale.Size = new System.Drawing.Size(576, 28);
-            this.cbxPosSale.TabIndex = 1;
+            this.cbxPosSale.TabIndex = 2;
             this.cbxPosSale.SelectedIndexChanged += new System.EventHandler(this.cbxPosSale_SelectedIndexChanged);
             // 
             // label1
@@ -147,7 +148,7 @@
             this.dgvAnswers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnswers.Size = new System.Drawing.Size(835, 153);
             this.dgvAnswers.StandardTab = true;
-            this.dgvAnswers.TabIndex = 5;
+            this.dgvAnswers.TabIndex = 6;
             this.dgvAnswers.DataSourceChanged += new System.EventHandler(this.dgvAnswers_DataSourceChanged);
             this.dgvAnswers.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAnswers_CellEnter);
             // 
@@ -204,7 +205,7 @@
             this.dgvAnalysis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAnalysis.Size = new System.Drawing.Size(835, 186);
             this.dgvAnalysis.StandardTab = true;
-            this.dgvAnalysis.TabIndex = 6;
+            this.dgvAnalysis.TabIndex = 7;
             // 
             // idClient
             // 
@@ -269,10 +270,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(722, 30);
+            this.btnSearch.Location = new System.Drawing.Point(722, 64);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 85);
-            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Size = new System.Drawing.Size(129, 51);
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "&Pesquisar";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -313,7 +314,27 @@
             this.tbxDtf.Location = new System.Drawing.Point(16, 87);
             this.tbxDtf.Name = "tbxDtf";
             this.tbxDtf.Size = new System.Drawing.Size(118, 26);
-            this.tbxDtf.TabIndex = 2;
+            this.tbxDtf.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(718, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Empresa";
+            // 
+            // tbxIdCompany
+            // 
+            this.tbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxIdCompany.Location = new System.Drawing.Point(722, 30);
+            this.tbxIdCompany.MaxLength = 2;
+            this.tbxIdCompany.Name = "tbxIdCompany";
+            this.tbxIdCompany.Size = new System.Drawing.Size(129, 26);
+            this.tbxIdCompany.TabIndex = 4;
+            this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // QuestionnaireAnalysisForm
             // 
@@ -322,6 +343,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(865, 611);
+            this.Controls.Add(this.tbxIdCompany);
             this.Controls.Add(this.tbxDtf);
             this.Controls.Add(this.tbxDti);
             this.Controls.Add(this.label5);
@@ -331,6 +353,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxQuestions);
             this.Controls.Add(this.cbxPosSale);
@@ -375,5 +398,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clientNameFantasy;
         private System.Windows.Forms.DataGridViewTextBoxColumn idSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn observation;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox tbxIdCompany;
     }
 }
