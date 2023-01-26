@@ -33,16 +33,16 @@ namespace project.presentation.forms.questionnaireAnalysis
 
         public void loadAnswersOnDataGrid(DataGridView dgv, AnswersFilters filters)
         {
-            var answers = AnswersFactory.handle.getAnswers(filters)
-                .GroupBy(answer => answer.answer)
-                .Select(answer => new
+            var result =
+                from answers in AnswersFactory.handle.getAnswers(filters)
+                group answers by answers.answer into answersGroup
+                select new
                 {
-                    answer = answer.Key,
-                    count = answer.Select(p => p.answer).Distinct().Count(),
-                })
-                .ToList();
+                    answer = answersGroup.Key,
+                    count = answersGroup.Count(),
+                };
 
-            var dataSource = GridUtils.ToDataTable(answers);
+            var dataSource = GridUtils.ToDataTable(result.ToList());
 
             dgv.DataSource = dataSource;
         }

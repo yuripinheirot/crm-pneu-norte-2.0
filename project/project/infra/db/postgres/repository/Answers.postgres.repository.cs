@@ -84,8 +84,7 @@ namespace project.infra.db.postgres.repository
                     string _query = $"select * from answers a " +
                     $"where " +
                     $"a.id_company = '{filters.idCompany}' and " +
-                    $"a.created_at between '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' and '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}' " +
-                    $"";
+                    $"a.created_at between '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' and '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}' ";
 
                     if (!string.IsNullOrEmpty(filters.idQuestion)) _query += $" and a.id_Question = '{filters.idQuestion}'";
                     if (!string.IsNullOrEmpty(filters.idSale)) _query += $" and a.id_Sale = '{filters.idSale}'";
