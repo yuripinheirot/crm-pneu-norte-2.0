@@ -23,14 +23,17 @@ namespace project.infra.db.mock.repository
             return ClientMock.clients.Where(client => client.acessByProp(fieldFilter).ToString().Contains(valueFilter)).ToList();
         }
 
-        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer, string idCompany)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
         {
             var answers = AnswersMock.answers;
             var query =
                 (from _answer in AnswersMock.answers
                 join client in ClientMock.clients on _answer.idClient equals client.id
                 join sale in SalesMock.sales on _answer.idSale equals sale.id
-                where _answer.idQuestion == idQuestion && _answer.answer == answer && _answer.idCompany == idCompany
+                where 
+                _answer.idQuestion == filters.idQuestion && 
+                _answer.answer == filters.answer && 
+                _answer.idCompany == filters.idCompany
                 select new
                 {
                     idClient = client.id,

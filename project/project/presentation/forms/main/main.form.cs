@@ -3,6 +3,7 @@ using project.domain.model;
 using project.infra.db.firebird.repository;
 using project.main.factories.validations;
 using project.presentation.errors;
+using project.presentation.errors.exceptions;
 using project.presentation.forms.crmNotResolved;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
@@ -102,7 +103,17 @@ namespace project.presentation.forms.main
                     return;
                 }
 
+                string idCompany = TbxIdCompany.Text;
                 fillZerosOnIdSale();
+                string idSale = TbxIdSale.Text;
+
+                if (functions.crmAlreadyExists(idCompany, idSale))
+                {
+                    MessageBox.Show("Já existe um crm registrado para este pedido.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TbxIdSale.Text = null;
+                    return;
+                }
+
                 var sale = functions.getSale(TbxIdCompany.Text, TbxIdSale.Text);
 
                 if (sale == null)

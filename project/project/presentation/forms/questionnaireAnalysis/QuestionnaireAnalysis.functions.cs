@@ -47,9 +47,9 @@ namespace project.presentation.forms.questionnaireAnalysis
             dgv.DataSource = dataSource;
         }
 
-        public void loadClientsByAnswerOnDataGrid(DataGridView dgv, string idQuestion, string answer, string idCompany)
+        public void loadClientsByAnswerOnDataGrid(DataGridView dgv, AnswersFilters filters)
         {
-            var clients = ClientFactory.handle.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer, idCompany);
+            var clients = ClientFactory.handle.getClientsAndSalesByAnswerAndQuestion(filters);
             var dataSource = GridUtils.ToDataTable(clients);
 
             dgv.DataSource = dataSource;

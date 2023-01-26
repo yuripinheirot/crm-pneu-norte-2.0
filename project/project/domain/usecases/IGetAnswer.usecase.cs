@@ -27,5 +27,4 @@ namespace project.domain.usecases
     {
         AnswerDetails getAnswerDetailsDataView(string idAnswer);
     }
-
 }

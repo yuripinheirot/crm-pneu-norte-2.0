@@ -140,6 +140,7 @@
     <Compile Include="business\usecases\client\Client.business.cs" />
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="data\utils\DateTime.utils.cs" />
     <Compile Include="domain\interfaces\IAnswerModel.cs" />
     <Compile Include="domain\interfaces\IClientModel.cs" />
     <Compile Include="domain\interfaces\ISaleModel .cs" />

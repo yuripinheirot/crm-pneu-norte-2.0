@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using project.presentation.protocols;
 using project.presentation.utils;
+using project.data.utils;
 
 namespace project.data.usecases.answers
 {
-    public class AnswersData<AnswersRepository> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer 
-        where AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersData<AnswersRepository> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer , IPostAnswerAlreadyExists
+        where AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer , IPostAnswerAlreadyExists
     {
         private AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)
@@ -41,6 +42,11 @@ namespace project.data.usecases.answers
             answersRepository.addAnswersRepository(answers);
         }
 
+        public bool postAnswerAlreadyExists(string idCompany, string idSale)
+        {
+            return answersRepository.postAnswerAlreadyExists(idCompany, idSale);
+        }
+
         public AnswerDetails getAnswerDetailsDataView(string idAnswer)
         {
             return answersRepository.getAnswerDetailsDataView(idAnswer);
@@ -50,8 +56,8 @@ namespace project.data.usecases.answers
         {
             if (filters.initialDate != null && filters.finalDate != null)
             {
-                filters.initialDate = new DateTime(filters.initialDate.Value.Year, filters.initialDate.Value.Month, filters.initialDate.Value.Day, 0, 0, 0);
-                filters.finalDate = new DateTime(filters.finalDate.Value.Year, filters.finalDate.Value.Month, filters.finalDate.Value.Day, 23, 59, 59);
+                filters.initialDate = DateTimeUtils.convertToInitial((DateTime)filters.initialDate);
+                filters.finalDate = DateTimeUtils.convertToFinal((DateTime)filters.finalDate);
             }
 
             return answersRepository.getAnswers(filters);

@@ -17,4 +17,9 @@ namespace project.domain.usecases
 	{
 		void addAnswersDTO(List<PostAnswerDTO> answers);		
 	}
+
+	public interface IPostAnswerAlreadyExists
+	{
+		bool postAnswerAlreadyExists(string idCompany, string idSale);
+	}
 }

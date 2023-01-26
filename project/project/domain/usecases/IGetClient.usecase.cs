@@ -20,6 +20,6 @@ namespace project.domain.usecases
 
     public interface IGetClientsAndSalesByAnswerAndQuestion
     {
-        List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer, string idCompany);
+        List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters);
     }
 }

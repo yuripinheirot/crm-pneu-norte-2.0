@@ -12,8 +12,8 @@ using project.presentation.protocols;
 
 namespace project.business.usecases.answers
 {
-    public class AnswersBusiness<AnswersData, QuestionsData> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer 
-        where AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersBusiness<AnswersData, QuestionsData> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
+        where AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
         where QuestionsData : IGetQuestions, IGetQuestion
     {
         AnswersData answersData;
@@ -36,6 +36,11 @@ namespace project.business.usecases.answers
             });
 
             answersData.addAnswersDTO(answers);
+        }
+
+        public bool postAnswerAlreadyExists(string idCompany, string idSale)
+        {
+            return answersData.postAnswerAlreadyExists(idCompany, idSale);
         }
 
         public AnswerDetails getAnswerDetailsDataView(string idAnswer)

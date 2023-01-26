@@ -13,5 +13,6 @@ namespace project.presentation.protocols
         public string idQuestion { get; set; }
         public string idSale { get; set; }
         public string idCompany { get; set; }
+        public string answer { get; set; }
     }
 }

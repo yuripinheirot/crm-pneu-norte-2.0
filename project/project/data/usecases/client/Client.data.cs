@@ -1,4 +1,5 @@
-﻿using project.domain.model;
+﻿using project.data.utils;
+using project.domain.model;
 using project.domain.usecases;
 using project.infra.db.mock.repository;
 using project.presentation.protocols;
@@ -30,9 +31,12 @@ namespace project.data.usecases.client
             return clientRepository.getClients(fieldFilter, valueFilter);
         }
 
-        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer, string idCompany)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
         {
-            return clientRepository.getClientsAndSalesByAnswerAndQuestion(idQuestion, answer, idCompany);
+            filters.initialDate = DateTimeUtils.convertToInitial((DateTime)filters.initialDate);
+            filters.finalDate = DateTimeUtils.convertToFinal((DateTime)filters.finalDate);
+
+            return clientRepository.getClientsAndSalesByAnswerAndQuestion(filters);
         }
     }
 }

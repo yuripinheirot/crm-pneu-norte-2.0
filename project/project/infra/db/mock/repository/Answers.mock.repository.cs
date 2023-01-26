@@ -10,11 +10,16 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class AnswersMockRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersMockRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {
             AnswersMock.answers.AddRange(answers);
+        }
+
+        public bool postAnswerAlreadyExists(string idCompany, string idSale)
+        {
+            throw new NotImplementedException();
         }
 
         public AnswerDetails getAnswerDetailsDataView(string idAnswer)

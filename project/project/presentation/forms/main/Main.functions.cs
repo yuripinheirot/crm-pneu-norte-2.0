@@ -91,6 +91,7 @@ namespace project.presentation.forms.main
 
         public void renderQuestions(FlowLayoutPanel flpQuestions, string posSale)
         {
+            Console.WriteLine("chamou >>> renderQuestions");
             flpQuestions.Controls.Clear();
             var questions = getQuestions(posSale);
             int widthControls = flpQuestions.Width - 70;
@@ -130,6 +131,11 @@ namespace project.presentation.forms.main
             AnswersFactory.handle.addAnswersDTO(answers);
             
             observationsAnswers.Clear();
+        }
+
+        public bool crmAlreadyExists(string idCompany, string idSale)
+        {
+            return AnswersFactory.handle.postAnswerAlreadyExists(idCompany, idSale);
         }
     }
 }

@@ -70,14 +70,19 @@ namespace project.infra.db.firebird.repository
             }
         }
 
-        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(string idQuestion, string answer, string idCompany)
+        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
         {
             using (var pg = new PgDbContext())
             using (var fb = new FbDbContext())
             {
                 var answers =
                     (from _answer in pg.answers
-                     where _answer.idQuestion == idQuestion && _answer.answer == answer  && _answer.idCompany == idCompany
+                     where 
+                     _answer.idQuestion == filters.idQuestion && 
+                     _answer.answer == filters.answer  && 
+                     _answer.idCompany == filters.idCompany &&
+                     _answer.createdAt >= filters.initialDate &&
+                     _answer.createdAt <= filters.finalDate
                      select new
                      {
                          idSale = _answer.idSale,

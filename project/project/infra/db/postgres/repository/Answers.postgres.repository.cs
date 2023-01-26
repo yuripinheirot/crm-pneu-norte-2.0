@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.repository
 {
-    public class AnswersPostgresRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+    public class AnswersPostgresRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {
@@ -25,7 +25,7 @@ namespace project.infra.db.postgres.repository
                     db.answers.Add(new PgDbContext.Answers()
                     {
                         answer = a.answer,
-                        createdAt = a.createdAt.ToUniversalTime(),
+                        createdAt = a.createdAt,
                         id = a.id,
                         idClient = a.idClient,
                         idCompany = a.idCompany,
@@ -34,11 +34,19 @@ namespace project.infra.db.postgres.repository
                         observation = a.observation,
                         resolution = a.resolution,
                         status = a.status,
-                        updatedAt = a.updatedAt.ToUniversalTime(),
+                        updatedAt = a.updatedAt,
                     });
                 });
 
                 db.SaveChanges();
+            }
+        }
+
+        public bool postAnswerAlreadyExists(string idCompany, string idSale)
+        {
+            using (var pg = new PgDbContext())
+            {
+                return pg.answers.Any(a => a.idCompany == idCompany && a.idSale == idSale);
             }
         }
 

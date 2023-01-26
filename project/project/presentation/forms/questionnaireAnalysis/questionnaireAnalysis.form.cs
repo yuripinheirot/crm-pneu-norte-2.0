@@ -67,12 +67,16 @@ namespace project.presentation.forms.questionnaireAnalysis
         {
             try
             {
-                var selectedItem = (QuestionModel)cbxQuestions.SelectedItem;
-                string idQuestion = selectedItem.id;
-                string answer = dgvAnswers.CurrentRow.Cells["answer"].Value.ToString();
-                string idCompany = tbxIdCompany.Text;
+                AnswersFilters filters = new AnswersFilters()
+                {
+                    answer = dgvAnswers.CurrentRow.Cells["answer"].Value.ToString(),
+                    idCompany = tbxIdCompany.Text,
+                    idQuestion = ((QuestionModel)cbxQuestions.SelectedItem).id,
+                    initialDate = tbxDti.Value,
+                    finalDate = tbxDtf.Value
+                };
 
-                functions.loadClientsByAnswerOnDataGrid(dgvAnalysis, idQuestion, answer, idCompany);
+                functions.loadClientsByAnswerOnDataGrid(dgvAnalysis, filters);
             }
             catch (Exception err)
             {
