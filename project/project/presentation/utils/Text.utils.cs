@@ -51,7 +51,7 @@ namespace project.presentation.utils
             }
             else if (status == "RESOLVIDO")
             {
-                return "resolved";
+                return "done";
             }
             else
             {
@@ -66,7 +66,7 @@ namespace project.presentation.utils
             {
                 return "PENDENTE";
             }
-            else if (status == "resolved")
+            else if (status == "done")
             {
                 return "RESOLVIDO";
             }

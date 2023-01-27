@@ -13,8 +13,9 @@ namespace project.main.factories.business
 {
     public class AnswersFactory
     {
-        private static QuestionsMockRepository questionsRepository = new QuestionsMockRepository();
-        private static QuestionsData<QuestionsMockRepository> questionsData = new QuestionsData<QuestionsMockRepository>(questionsRepository);
+        //private static QuestionsMockRepository questionsRepository = new QuestionsMockRepository();
+        private static QuestionsPostgresRepository questionsRepository = new QuestionsPostgresRepository();
+        private static QuestionsData<QuestionsPostgresRepository> questionsData = new QuestionsData<QuestionsPostgresRepository>(questionsRepository);
 
 
         //private static AnswersMockRepository answersRepository = new AnswersMockRepository();
@@ -22,7 +23,7 @@ namespace project.main.factories.business
         private static AnswersData<AnswersPostgresRepository> answersData = new AnswersData<AnswersPostgresRepository>(answersRepository);
 
 
-        public static AnswersBusiness<AnswersData<AnswersPostgresRepository>, QuestionsData<QuestionsMockRepository>> handle = 
-            new AnswersBusiness<AnswersData<AnswersPostgresRepository>, QuestionsData<QuestionsMockRepository>>(answersData, questionsData);
+        public static AnswersBusiness<AnswersData<AnswersPostgresRepository>, QuestionsData<QuestionsPostgresRepository>> handle = 
+            new AnswersBusiness<AnswersData<AnswersPostgresRepository>, QuestionsData<QuestionsPostgresRepository>>(answersData, questionsData);
     }
 }

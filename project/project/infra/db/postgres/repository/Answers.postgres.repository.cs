@@ -58,7 +58,7 @@ namespace project.infra.db.postgres.repository
                 var answer = pg.answers.Where(a => a.id == idAnswer).First();
                 var question = pg.questions.Where(a => a.id == answer.idQuestion).First();
                 var sale = fb.tvenpedido.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == answer.idSale).First();
-                var seller = fb.tvenvendedor.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == answer.idSale).First();
+                var seller = fb.tvenvendedor.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == sale.VENDEDOR).First();
 
                 return new AnswerDetails()
                 {
