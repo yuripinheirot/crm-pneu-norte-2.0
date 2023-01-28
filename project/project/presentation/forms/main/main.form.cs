@@ -88,9 +88,9 @@ namespace project.presentation.forms.main
             TbxIdCompany.Text = sale.idCompany;
         }
 
-        private void fillZerosOnIdSale()
+        private void tbxFillZeros(TextBox tbx, int length)
         {
-            TbxIdSale.Text = TbxIdSale.Text.PadLeft(7, '0');
+            tbx.Text = tbx.Text.PadLeft(length, '0');
         }
 
         private void TbxIdSale_Leave(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace project.presentation.forms.main
                 }
 
                 string idCompany = TbxIdCompany.Text;
-                fillZerosOnIdSale();
+                tbxFillZeros(TbxIdSale, 7);
                 string idSale = TbxIdSale.Text;
 
                 if (functions.crmAlreadyExists(idCompany, idSale))
@@ -140,6 +140,11 @@ namespace project.presentation.forms.main
         private void crmNotResolvedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new CrmNotResolved().ShowDialog();
+        }
+
+        private void TbxIdCompany_Leave(object sender, EventArgs e)
+        {
+            tbxFillZeros(TbxIdCompany, 2);
         }
     }
 }

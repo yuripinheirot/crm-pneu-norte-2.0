@@ -195,6 +195,7 @@ namespace project.presentation.forms.main
             this.TbxIdCompany.Size = new System.Drawing.Size(82, 26);
             this.TbxIdCompany.TabIndex = 0;
             this.TbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TbxIdCompany.Leave += new System.EventHandler(this.TbxIdCompany_Leave);
             // 
             // label11
             // 

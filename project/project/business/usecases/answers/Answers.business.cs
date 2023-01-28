@@ -9,7 +9,7 @@ using project.domain.model;
 using project.domain.usecases;
 using project.presentation.protocols;
 
-
+  
 namespace project.business.usecases.answers
 {
     public class AnswersBusiness<AnswersData, QuestionsData> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists

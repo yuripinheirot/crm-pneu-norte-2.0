@@ -335,6 +335,7 @@
             this.tbxIdCompany.Size = new System.Drawing.Size(129, 26);
             this.tbxIdCompany.TabIndex = 4;
             this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxIdCompany.Leave += new System.EventHandler(this.tbxIdCompany_Leave);
             // 
             // QuestionnaireAnalysisForm
             // 

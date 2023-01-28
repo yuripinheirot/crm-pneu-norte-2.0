@@ -92,5 +92,10 @@ namespace project.presentation.forms.questionnaireAnalysis
             //    dgvAnalysis.DataSource = false;
             //}
         }
+
+        private void tbxIdCompany_Leave(object sender, EventArgs e)
+        {
+            tbxIdCompany.Text = tbxIdCompany.Text.PadLeft(2, '0');
+        }
     }
 }
