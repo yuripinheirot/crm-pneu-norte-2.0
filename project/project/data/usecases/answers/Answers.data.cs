@@ -43,7 +43,7 @@ namespace project.data.usecases.answers
             answersRepository.addAnswersRepository(answers);
         }
 
-        public bool postAnswerAlreadyExists(string idCompany, string idSale)
+        public virtual bool postAnswerAlreadyExists(string idCompany, string idSale)
         {
             return answersRepository.postAnswerAlreadyExists(idCompany, idSale);
         }

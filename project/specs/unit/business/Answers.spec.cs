@@ -19,6 +19,7 @@ namespace specs
     public class AnswerBusinessSpec
     {
         [TestMethod]
+        [Description("AddAnswersDTO should throw if question data throws")]
         public void ShouldThrowIfQuestionDataThrows()
         {
             AnswersBusinessFactoryMock.questionsDataMock
@@ -31,8 +32,19 @@ namespace specs
         }
 
         [TestMethod]
+        [Description("AddAnswersDTO should throw if answers data throws")]
         public void ShouldThrowIfAnswersDataThrows()
         {
+            var questionModel = new QuestionModel()
+            {
+                answers = new List<string>() { "yes", "no" },
+                badAnswers = new List<string>() { "no" }
+            };
+
+            AnswersBusinessFactoryMock.questionsDataMock
+                .Setup(x => x.getQuestion(It.Is<string>(i => true)))
+                .Returns(questionModel);
+
             AnswersBusinessFactoryMock.answersDataMock
                 .Setup(x => x.addAnswersDTO(It.IsAny<List<PostAnswerDTO>>()))
                 .Throws(new Exception());
@@ -43,6 +55,7 @@ namespace specs
         }
 
         [TestMethod]
+        [Description("AddAnswersDTO should return list with correct values")]
         public void ShouldReturnListWithCorrectValues()
         {
             List<PostAnswerDTO> expectedListPostAnswersDTO = new List<PostAnswerDTO>()
@@ -100,6 +113,38 @@ namespace specs
               });
 
             AnswersBusinessFactoryMock.answersBusiness.addAnswersDTO(ListPostAnswerDtoMock.listPostAnswersDTO);
+        }
+
+        [TestMethod]
+        [Description("postAnswerAlreadyExists should throw if answers data throws")]
+        public void PostAnswerAlreadyExistsShouldThrowIfAnswersDataThrows()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.postAnswerAlreadyExists("idCompany", "idSale")
+            );
+        }
+
+        [TestMethod]
+        [Description("postAnswerAlreadyExists should return correct boolean value")]
+        public void PostAnswerAlreadyExistsShouldReturnCorrectBooleanValue()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(true);
+            Assert.AreEqual(true,
+                AnswersBusinessFactoryMock.answersBusiness.postAnswerAlreadyExists("idCompany", "idSale")
+            );
+
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(false);
+            Assert.AreEqual(false,
+                AnswersBusinessFactoryMock.answersBusiness.postAnswerAlreadyExists("idCompany", "idSale")
+            );
         }
     }
 }
