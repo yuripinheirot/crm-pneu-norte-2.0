@@ -69,7 +69,7 @@ namespace project.data.usecases.answers
             return answersRepository.getAnswersNotResolved();
         }
 
-        public void putAnswer(AnswerModel answer)
+        public virtual void putAnswer(AnswerModel answer)
         {
             answer.updatedAt = DateTime.Now;
             if (!string.IsNullOrWhiteSpace(answer.status)) answer.status = TextUtils.translateStatusAnswerData(answer.status);

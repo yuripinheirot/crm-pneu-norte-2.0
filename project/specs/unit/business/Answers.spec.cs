@@ -272,5 +272,47 @@ namespace specs
                 AnswersBusinessFactoryMock.answersBusiness.getAnswersNotResolved()
                 );
         }
+
+        [TestMethod]
+        [Description("putAnswer should throw if answers data throws")]
+        public void PutAnswerShouldThrowIfAnswersDataThrows()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.putAnswer(It.IsAny<AnswerModel>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.putAnswer(new AnswerModel())
+            );
+        }
+
+        [TestMethod]
+        [Description("putAnswer should call answersData.putAnswer with correct values")]
+        public void PutAnswerShouldReturnCorrectValues()
+        {
+            var answerModelMock = new AnswerModel()
+            {
+                answer = "answer",
+                createdAt = new DateTime(2000, 01, 01),
+                id = "id",
+                idClient = "idClient",
+                idCompany = "idCompany",
+                idQuestion = "idQuestion",
+                idSale = "idSale",
+                observation = "observation",
+                resolution = "resolution",
+                status = "status",
+                updatedAt = new DateTime(2000, 01, 01)
+            };
+
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.putAnswer(It.IsAny<AnswerModel>()))
+                .Callback((AnswerModel answer) =>
+                {
+                    Assert.AreEqual(answerModelMock, answer);
+                });
+
+            AnswersBusinessFactoryMock.answersBusiness.putAnswer(answerModelMock);
+        }
     }
 }
