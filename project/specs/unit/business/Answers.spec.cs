@@ -146,5 +146,45 @@ namespace specs
                 AnswersBusinessFactoryMock.answersBusiness.postAnswerAlreadyExists("idCompany", "idSale")
             );
         }
+
+        [TestMethod]
+        [Description("getAnswerDetailsDataView should throw if answers data throws")]
+        public void GetAnswerDetailsDataViewShouldThrowIfAnswersDataThrows()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswerDetailsDataView(It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.getAnswerDetailsDataView("idAnswer")
+            );
+        }
+
+        [TestMethod]
+        [Description("getAnswerDetailsDataView should return correct values")]
+        public void GetAnswerDetailsDataViewShouldReturnCorrectValues()
+        {
+            var answerDetails = new AnswerDetails()
+            {
+                answer = "answer",
+                client = "client",
+                descriptionQuestion = "descriptionQuestion",
+                idCompany = "idCompany",
+                idSale = "idSale",
+                observation = "observation",
+                resolution = "resolution",
+                seller = "seller",
+                status = "status"
+            };
+
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswerDetailsDataView(It.IsAny<string>()))
+                .Returns(answerDetails);
+
+            Assert.AreEqual(
+                    answerDetails,
+                    AnswersBusinessFactoryMock.answersBusiness.getAnswerDetailsDataView("idAnswer")
+                );
+        }
     }
 }

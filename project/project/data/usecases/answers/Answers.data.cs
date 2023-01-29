@@ -48,7 +48,7 @@ namespace project.data.usecases.answers
             return answersRepository.postAnswerAlreadyExists(idCompany, idSale);
         }
 
-        public AnswerDetails getAnswerDetailsDataView(string idAnswer)
+        public virtual AnswerDetails getAnswerDetailsDataView(string idAnswer)
         {
             return answersRepository.getAnswerDetailsDataView(idAnswer);
         }
