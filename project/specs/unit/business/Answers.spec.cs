@@ -8,6 +8,7 @@ using project.infra.db.postgres.repository;
 using project.presentation.protocols;
 using System.Collections.Generic;
 using project.domain.model;
+using project.domain.interfaces.Struct;
 
 namespace specs
 {
@@ -15,37 +16,8 @@ namespace specs
     public class AnswerBusinessSpec
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod2()
         {
-            // Usando o Moq
-            var mockAnswersRepository = new Mock<AnswersPostgresRepository>();
-            var mockQuestionsRepository = new Mock<QuestionsPostgresRepository>();
-            var mockAnswersData = new Mock<AnswersData<AnswersPostgresRepository>>(mockAnswersRepository.Object) { CallBase = true };
-            var mockQuestionsData = new Mock<QuestionsData<QuestionsPostgresRepository>>(mockQuestionsRepository.Object) { CallBase = true };
-
-            mockQuestionsData.Setup(x => x.getQuestion(It.Is<string>(i => i == "1")))
-                .Returns(
-                    new QuestionModel()
-                    {
-                        answers = new List<string>() { "yes", "no" },
-                        badAnswers = new List<string>() { "no" }
-                    }
-                );
-            mockQuestionsData.Setup(x => x.getQuestion(It.Is<string>(i => i == "2")))
-                .Returns(
-                    new QuestionModel()
-                    {
-                        answers = new List<string>() { "yes", "no" },
-                        badAnswers = new List<string>() { "no" }
-                    }
-                );
-
-            // criar instâncias mockadas das classes
-            var answersBusiness = new AnswersBusiness<
-                AnswersData<AnswersPostgresRepository>,
-                QuestionsData<QuestionsPostgresRepository>
-                >(mockAnswersData.Object, mockQuestionsData.Object);
-
             List<PostAnswerDTO> listPostAnswersDTO = new List<PostAnswerDTO>()
             {
                 new PostAnswerDTO()
@@ -85,27 +57,66 @@ namespace specs
                 },
                 new PostAnswerDTO()
                 {
-                    answer = "no",
-                    idClient = "00013",
-                    idQuestion = "2",
-                    idCompany = "02",
-                    idSale = "0000301",
+                    answer       = "no",
+                    idClient         = "00013",
+                    idQuestion   = "2",
+                    idCompany       = "02",
+                    idSale      = "0000301",
                     observation = "Lorem ipsum dolor",
-                    updatedAt = DateTime.Now,
-                    status = "pending"
+                    updatedAt        = DateTime.Now,
+                    status       = "pending"
                 },
             };
 
-            //answersBusiness.addAnswersDTO(listPostAnswersDTO);
+            var answerRepository = new Mock<AnswersPostgresRepository>();
+            var answersDataMock = new Mock<AnswersData<IAnswersRepository>>(answerRepository.Object);
 
-            mockAnswersData.Verify(x => x.addAnswersDTO(It.Is<List<PostAnswerDTO>>(a =>
-    a[0].status == "done" &&
-    a[1].status == "done")), Times.Once());
-            //mockAnswersData.Setup(x => x.addAnswersDTO(It.IsAny<List<PostAnswerDTO>>()))
-            //    .Callback((List<PostAnswerDTO> param) =>
-            //    {
-            //        Assert.Equals(param, expectedListPostAnswersDTO);
-            //    });
+            var questionRepository = new Mock<QuestionsPostgresRepository>();
+            var questionsData = new Mock<QuestionsData<IQuestionsRepository>>(questionRepository.Object);
+
+            var answersBusiness = new AnswersBusiness<IAnswersData, IQuestionsData>(answersDataMock.Object, questionsData.Object);
+
+            questionsData.Setup(x => x.getQuestion(It.Is<string>(i => i == "1")))
+                .Returns(
+                    new QuestionModel()
+                    {
+                        answers = new List<string>() { "yes", "no" },
+                        badAnswers = new List<string>() { "no" }
+                    }
+                );
+            questionsData.Setup(x => x.getQuestion(It.Is<string>(i => i == "2")))
+                .Returns(
+                    new QuestionModel()
+                    {
+                        answers = new List<string>() { "yes", "no" },
+                        badAnswers = new List<string>() { "no" }
+                    }
+                );
+
+            answersDataMock.Setup(x => x.addAnswersDTO(It.IsAny<List<PostAnswerDTO>>()))
+              .Callback((List<PostAnswerDTO> answers) =>
+              {
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].answer, answers[0].answer);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].idClient, answers[0].idClient);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].idQuestion, answers[0].idQuestion);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].idCompany, answers[0].idCompany);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].idSale, answers[0].idSale);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].observation, answers[0].observation);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].updatedAt, answers[0].updatedAt);
+                  Assert.AreEqual(expectedListPostAnswersDTO[0].status, answers[0].status);
+
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].answer, answers[1].answer);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].idClient, answers[1].idClient);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].idQuestion, answers[1].idQuestion);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].idCompany, answers[1].idCompany);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].idSale, answers[1].idSale);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].observation, answers[1].observation);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].updatedAt, answers[1].updatedAt);
+                  Assert.AreEqual(expectedListPostAnswersDTO[1].status, answers[1].status);
+              });
+
+
+            answersBusiness.addAnswersDTO(listPostAnswersDTO);
         }
     }
 }

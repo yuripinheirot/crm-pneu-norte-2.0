@@ -23,7 +23,7 @@ namespace project.data.usecases.answers
             this.answersRepository = answersRepository;
         }
 
-        public void addAnswersDTO(List<PostAnswerDTO> answersDTO)
+        public virtual void addAnswersDTO(List<PostAnswerDTO> answersDTO)
         {
             var answers = answersDTO.Select(a => new AnswerModel()
             {
