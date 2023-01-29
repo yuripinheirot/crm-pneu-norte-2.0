@@ -230,5 +230,47 @@ namespace specs
                 AnswersBusinessFactoryMock.answersBusiness.getAnswers(new AnswersFilters())
                 );
         }
+
+        [TestMethod]
+        [Description("getAnswersNotResolved should throw if answers data throws")]
+        public void GetAnswersNotResolvedShouldThrowIfAnswersDataThrows()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswersNotResolved())
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.getAnswersNotResolved()
+            );
+        }
+
+
+        [TestMethod]
+        [Description("getAnswersNotResolved should return correct values")]
+        public void GetAnswersNotResolvedShouldReturnCorrectValues()
+        {
+            var answerModelMock = new List<AnswerNotResolvedDataView>(){
+                new AnswerNotResolvedDataView()
+                {
+                    answer = "answer",
+                    idClient = "idClient",
+                    idCompany = "idCompany",
+                    idSale = "idSale",
+                    observation = "observation",
+                    resolution = "resolution",
+                    descriptionQuestion = "descriptionQuestion",
+                    idAnswer = "idAnswer"
+                }
+            };
+
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswersNotResolved())
+                .Returns(answerModelMock);
+
+            CollectionAssert.AreEquivalent(
+                answerModelMock,
+                AnswersBusinessFactoryMock.answersBusiness.getAnswersNotResolved()
+                );
+        }
     }
 }

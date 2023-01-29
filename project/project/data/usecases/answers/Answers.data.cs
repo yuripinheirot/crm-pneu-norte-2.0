@@ -64,7 +64,7 @@ namespace project.data.usecases.answers
             return answersRepository.getAnswers(filters);
         }
 
-        public List<AnswerNotResolvedDataView> getAnswersNotResolved()
+        public virtual List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             return answersRepository.getAnswersNotResolved();
         }
