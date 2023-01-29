@@ -9,6 +9,7 @@ using project.presentation.protocols;
 using System.Collections.Generic;
 using project.domain.model;
 using project.domain.interfaces.Struct;
+using specs.suport;
 
 namespace specs
 {
@@ -66,32 +67,17 @@ namespace specs
                 },
             };
 
-            var answerRepository = new Mock<AnswersPostgresRepository>();
-            var answersDataMock = new Mock<AnswersData<IAnswersRepository>>(answerRepository.Object);
+            var questionModel = new QuestionModel()
+            {
+                answers = new List<string>() { "yes", "no" },
+                badAnswers = new List<string>() { "no" }
+            };
 
-            var questionRepository = new Mock<QuestionsPostgresRepository>();
-            var questionsData = new Mock<QuestionsData<IQuestionsRepository>>(questionRepository.Object);
+            AnswersBusinessFactoryMock.questionsData
+                .Setup(x => x.getQuestion(It.Is<string>(i => true)))
+                .Returns(questionModel);
 
-            var answersBusiness = new AnswersBusiness<IAnswersData, IQuestionsData>(answersDataMock.Object, questionsData.Object);
-
-            questionsData.Setup(x => x.getQuestion(It.Is<string>(i => i == "1")))
-                .Returns(
-                    new QuestionModel()
-                    {
-                        answers = new List<string>() { "yes", "no" },
-                        badAnswers = new List<string>() { "no" }
-                    }
-                );
-            questionsData.Setup(x => x.getQuestion(It.Is<string>(i => i == "2")))
-                .Returns(
-                    new QuestionModel()
-                    {
-                        answers = new List<string>() { "yes", "no" },
-                        badAnswers = new List<string>() { "no" }
-                    }
-                );
-
-            answersDataMock.Setup(x => x.addAnswersDTO(It.IsAny<List<PostAnswerDTO>>()))
+            AnswersBusinessFactoryMock.answersDataMock.Setup(x => x.addAnswersDTO(It.IsAny<List<PostAnswerDTO>>()))
               .Callback((List<PostAnswerDTO> answers) =>
               {
                   Assert.AreEqual(expectedListPostAnswersDTO[0].answer, answers[0].answer);
@@ -112,7 +98,7 @@ namespace specs
               });
 
 
-            answersBusiness.addAnswersDTO(listPostAnswersDTO);
+            AnswersBusinessFactoryMock.answersBusiness.addAnswersDTO(listPostAnswersDTO);
         }
     }
 }

@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="suport\Answers.factory.mock.cs" />
     <Compile Include="unit\business\Answers.spec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
