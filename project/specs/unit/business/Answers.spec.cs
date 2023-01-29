@@ -186,5 +186,49 @@ namespace specs
                     AnswersBusinessFactoryMock.answersBusiness.getAnswerDetailsDataView("idAnswer")
                 );
         }
+
+        [TestMethod]
+        [Description("getAnswers should throw if answers data throws")]
+        public void GetAnswersShouldThrowIfAnswersDataThrows()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.getAnswers(new AnswersFilters())
+            );
+        }
+
+        [TestMethod]
+        [Description("getAnswers should return correct values")]
+        public void GetAnswersShouldReturnCorrectValues()
+        {
+            var answerModelMock = new List<AnswerModel>(){
+                new AnswerModel()
+                {
+                    answer = "answer",
+                    createdAt = new DateTime(2000, 01, 01),
+                    id = "id",
+                    idClient = "idClient",
+                    idCompany = "idCompany",
+                    idQuestion = "idQuestion",
+                    idSale = "idSale",
+                    observation = "observation",
+                    resolution = "resolution",
+                    status = "status",
+                    updatedAt = new DateTime(2000, 01, 01)
+                }
+            };
+
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Returns(answerModelMock);
+
+            CollectionAssert.AreEquivalent(
+                answerModelMock,
+                AnswersBusinessFactoryMock.answersBusiness.getAnswers(new AnswersFilters())
+                );
+        }
     }
 }

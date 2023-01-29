@@ -53,7 +53,7 @@ namespace project.data.usecases.answers
             return answersRepository.getAnswerDetailsDataView(idAnswer);
         }
 
-        public List<AnswerModel> getAnswers(AnswersFilters filters)
+        public virtual List<AnswerModel> getAnswers(AnswersFilters filters)
         {
             if (filters.initialDate != null && filters.finalDate != null)
             {
