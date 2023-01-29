@@ -14,12 +14,12 @@ namespace specs.suport.factories
 {
     public class AnswersBusinessFactoryMock
     {
-        public static Mock<AnswersPostgresRepository> answerRepository = new Mock<AnswersPostgresRepository>();
-        public static Mock<AnswersData<IAnswersRepository>> answersDataMock = new Mock<AnswersData<IAnswersRepository>>(answerRepository.Object);
+        public static Mock<AnswersPostgresRepository> answerRepositoryMock = new Mock<AnswersPostgresRepository>();
+        public static Mock<AnswersData<IAnswersRepository>> answersDataMock = new Mock<AnswersData<IAnswersRepository>>(answerRepositoryMock.Object);
 
-        public static Mock<QuestionsPostgresRepository> questionRepository = new Mock<QuestionsPostgresRepository>();
-        public static Mock<QuestionsData<IQuestionsRepository>> questionsData = new Mock<QuestionsData<IQuestionsRepository>>(questionRepository.Object);
+        public static Mock<QuestionsPostgresRepository> questionRepositoryMock = new Mock<QuestionsPostgresRepository>();
+        public static Mock<QuestionsData<IQuestionsRepository>> questionsDataMock = new Mock<QuestionsData<IQuestionsRepository>>(questionRepositoryMock.Object);
 
-        public static AnswersBusiness<IAnswersData, IQuestionsData> answersBusiness = new AnswersBusiness<IAnswersData, IQuestionsData>(answersDataMock.Object, questionsData.Object);
+        public static AnswersBusiness<IAnswersData, IQuestionsData> answersBusiness = new AnswersBusiness<IAnswersData, IQuestionsData>(answersDataMock.Object, questionsDataMock.Object);
     }
 }

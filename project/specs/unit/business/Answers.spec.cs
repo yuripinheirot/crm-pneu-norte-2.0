@@ -21,8 +21,20 @@ namespace specs
         [TestMethod]
         public void ShouldThrowIfQuestionDataThrows()
         {
-            AnswersBusinessFactoryMock.questionsData
+            AnswersBusinessFactoryMock.questionsDataMock
                 .Setup(x => x.getQuestion(It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.addAnswersDTO(ListPostAnswerDtoMock.listPostAnswersDTO)
+            );
+        }
+
+        [TestMethod]
+        public void ShouldThrowIfAnswersDataThrows()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.addAnswersDTO(It.IsAny<List<PostAnswerDTO>>()))
                 .Throws(new Exception());
 
             Assert.ThrowsException<Exception>(() =>
@@ -63,7 +75,7 @@ namespace specs
                 badAnswers = new List<string>() { "no" }
             };
 
-            AnswersBusinessFactoryMock.questionsData
+            AnswersBusinessFactoryMock.questionsDataMock
                 .Setup(x => x.getQuestion(It.Is<string>(i => true)))
                 .Returns(questionModel);
 
