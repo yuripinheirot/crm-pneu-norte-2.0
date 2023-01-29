@@ -5,13 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using project.domain.model;
 
-namespace project.domain.usecases
-{
-    public interface IGetQuestions
-    {
-        List<QuestionModel> getQuestions();
-    }
-    
+namespace project.domain.interfaces.usecases
+{    
     public interface IGetQuestion
     {
         QuestionModel getQuestion(string idQuestion);

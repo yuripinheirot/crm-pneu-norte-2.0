@@ -1,5 +1,5 @@
-﻿using project.domain.model;
-using project.domain.usecases;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model;
 using project.infra.db.mock.repository;
 using System;
 using System.Collections.Generic;
@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.questions
 {
-    public class QuestionsData<T> : IGetQuestions, IGetQuestion 
-        where T : IGetQuestions, IGetQuestion
+    public class QuestionsData<QuestionsRepository> : IQuestionsData
+        where QuestionsRepository : IQuestionsRepository
     {
-        T questionRepository;
-        public QuestionsData(T questionRepository)
+        QuestionsRepository questionRepository;
+        public QuestionsData(QuestionsRepository questionRepository)
         {
             this.questionRepository = questionRepository;
         }

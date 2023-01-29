@@ -6,15 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.domain.usecases
+namespace project.domain.interfaces.usecases
 {
     public interface IGetSale
     {
         SaleModel getSale(string idCompany, string idSale);
-    }
-
-    public interface IGetSales
-    {
-        List<SaleModel> getSales(SalesFilters filters);
     }
 }

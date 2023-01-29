@@ -1,5 +1,4 @@
 ﻿using project.domain.model;
-using project.domain.usecases;
 using project.infra.db.mock.repository;
 using System;
 using System.Collections.Generic;
@@ -10,11 +9,13 @@ using System.Diagnostics;
 using project.presentation.protocols;
 using project.presentation.utils;
 using project.data.utils;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 
 namespace project.data.usecases.answers
 {
-    public class AnswersData<AnswersRepository> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer , IPostAnswerAlreadyExists
-        where AnswersRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer , IPostAnswerAlreadyExists
+    public class AnswersData<AnswersRepository> : IAnswersData
+        where AnswersRepository : IAnswersRepository
     {
         private AnswersRepository answersRepository;
         public AnswersData(AnswersRepository answersRepository)

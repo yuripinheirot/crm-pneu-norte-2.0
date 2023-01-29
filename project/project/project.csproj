@@ -141,11 +141,32 @@
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
     <Compile Include="data\utils\DateTime.utils.cs" />
-    <Compile Include="domain\interfaces\IAnswerModel.cs" />
-    <Compile Include="domain\interfaces\IClientModel.cs" />
-    <Compile Include="domain\interfaces\ISaleModel .cs" />
-    <Compile Include="domain\interfaces\IQuestionModel.cs" />
-    <Compile Include="domain\usecases\IPutAnswer.usecase.cs" />
+    <Compile Include="domain\interfaces\entities\IAnswer.entity.cs" />
+    <Compile Include="domain\interfaces\struct\IAnswers.business.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IAnswers.data.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IAnswers.repository.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IClient.repository.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IClient.data.struct.cs" />
+    <Compile Include="domain\interfaces\entities\IClient.entity.cs" />
+    <Compile Include="domain\interfaces\struct\IQuestions.repository.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IQuestions.data.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IQuestions.business.struct.cs" />
+    <Compile Include="domain\interfaces\entities\ISale.entity.cs" />
+    <Compile Include="domain\interfaces\entities\IQuestion.entity.cs" />
+    <Compile Include="domain\interfaces\struct\ISales.data.struct.cs" />
+    <Compile Include="domain\interfaces\struct\IClient.business.struct.cs" />
+    <Compile Include="domain\interfaces\struct\ISales.repository.struct.cs" />
+    <Compile Include="domain\interfaces\struct\ISales.business.struct.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetAnswers.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetAnswersNotResolved.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetAnswerDetails.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetClientsAndSalesByAnswerAndQuestion.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetClients.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetQuestions.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetSales.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IPostAnswersRepository.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IPostAnswerAlreadyExists.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IPutAnswer.usecase.cs" />
     <Compile Include="infra\db\firebird\config\DbContext.cs" />
     <Compile Include="infra\db\firebird\repository\Client.firebird.repository.cs" />
     <Compile Include="infra\db\firebird\repository\Sales.firebird.repository.cs" />
@@ -202,10 +223,10 @@
     <Compile Include="domain\model\Client.model.cs" />
     <Compile Include="domain\model\Question.model.cs" />
     <Compile Include="domain\model\Sale.model.cs" />
-    <Compile Include="domain\usecases\IGetAnswer.usecase.cs" />
-    <Compile Include="domain\usecases\IGetClient.usecase.cs" />
-    <Compile Include="domain\usecases\IGetQuestion.usecase.cs" />
-    <Compile Include="domain\usecases\IGetSale.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetAnswerDataView.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetClient.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetQuestion.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetSale.usecase.cs" />
     <Compile Include="infra\db\mock\repository\Answers.mock.repository.cs" />
     <Compile Include="infra\db\mock\repository\Client.mock.repository.cs" />
     <Compile Include="infra\db\mock\repository\Questions.mock.repository.cs" />
@@ -292,7 +313,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="domain\usecases\IPostAnswer.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IPostAnswers.usecase.cs" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

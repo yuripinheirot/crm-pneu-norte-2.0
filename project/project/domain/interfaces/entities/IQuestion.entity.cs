@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.domain.interfaces
+namespace project.domain.interfaces.entities
 {
-    public interface IQuestionModel
+    public interface IQuestionEntity
     {
        string id { get; set; }
        string description { get; set; }

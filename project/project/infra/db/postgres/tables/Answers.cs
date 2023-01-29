@@ -1,4 +1,5 @@
 ﻿using project.domain.interfaces;
+using project.domain.interfaces.entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,7 @@ namespace project.infra.db.postgres.config
     public partial class PgDbContext
     {
         [Table("answers", Schema = "public")]
-        public class Answers : IAnswerModel
+        public class Answers : IAnswerEntity
         {
             [Key, Column(Order = 0)]
             public string id { get; set; }

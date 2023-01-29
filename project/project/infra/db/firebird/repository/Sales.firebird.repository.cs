@@ -1,9 +1,9 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using project.infra.db.firebird.config;
 using project.presentation.protocols;
-using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.firebird.repository
 {
-    public class SalesFirebirdRepository : IGetSales, IGetSale
+    public class SalesFirebirdRepository : ISalesRepository
     {
         static string saleQuery =
                  "select                                                                                        " +

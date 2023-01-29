@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using project.data.usecases.answers;
 using project.data.usecases.questions;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using project.presentation.protocols;
 
   
 namespace project.business.usecases.answers
 {
-    public class AnswersBusiness<AnswersData, QuestionsData> : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
-        where AnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
-        where QuestionsData : IGetQuestions, IGetQuestion
+    public class AnswersBusiness<AnswersData, QuestionsData> : IAnswersBusiness
+        where AnswersData : IAnswersData
+        where QuestionsData : IQuestionsData
     {
         AnswersData answersData;
         QuestionsData questionData;

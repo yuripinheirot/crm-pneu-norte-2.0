@@ -1,5 +1,5 @@
-﻿using project.domain.model;
-using project.domain.usecases;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model;
 using project.specs.mocks;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class QuestionsMockRepository : IGetQuestions, IGetQuestion
+    public class QuestionsMockRepository : IQuestionsRepository
     {
         public List<QuestionModel> getQuestions()
         {

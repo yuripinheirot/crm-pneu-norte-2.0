@@ -1,5 +1,6 @@
-﻿using project.domain.model;
-using project.domain.usecases;
+﻿using project.domain.interfaces;
+using project.domain.interfaces.Struct;
+using project.domain.model;
 using project.infra.db.mock.repository;
 using project.presentation.protocols;
 using project.presentation.utils;
@@ -11,11 +12,12 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.sales
 {
-    public class SalesData<T> : IGetSales, IGetSale where T : IGetSale, IGetSales
+    public class SalesData<SalesRepository> : ISalesData 
+        where SalesRepository : ISalesRepository
     {
-        private T salesRepository;
+        private SalesRepository salesRepository;
 
-        public SalesData(T salesRepository)
+        public SalesData(SalesRepository salesRepository)
         {
             this.salesRepository = salesRepository;
         }

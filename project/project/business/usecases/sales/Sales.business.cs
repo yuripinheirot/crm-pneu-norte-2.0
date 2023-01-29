@@ -1,6 +1,7 @@
 ﻿using project.data.usecases.sales;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,11 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.sales
 {
-    public class SalesBusiness<T> : IGetSales, IGetSale where T : IGetSales, IGetSale
+    public class SalesBusiness<SalesData> : ISalesBusiness
+        where SalesData : ISalesData
     {
-        T salesData;
-        public SalesBusiness(T salesData)
+        SalesData salesData;
+        public SalesBusiness(SalesData salesData)
         {
             this.salesData = salesData;
         }

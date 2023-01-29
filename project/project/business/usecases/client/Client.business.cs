@@ -1,6 +1,7 @@
 ﻿using project.data.usecases.client;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.client
 {
-    public class ClientBusiness<ClientData> : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
-        where ClientData : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientBusiness<ClientData> : IClientBusiness
+        where ClientData : IClientData
     {
         ClientData clientData;
         public ClientBusiness(ClientData clientData)

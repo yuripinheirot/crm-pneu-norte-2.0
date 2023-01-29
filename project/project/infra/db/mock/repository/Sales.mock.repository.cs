@@ -1,5 +1,5 @@
-﻿using project.domain.model;
-using project.domain.usecases;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model;
 using project.presentation.protocols;
 using project.specs.mocks;
 using System;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.mock.repository
 {
-    public class SalesMockRepository : IGetSales, IGetSale
+    public class SalesMockRepository : ISalesRepository
     {
         public SaleModel getSale(string idCompany, string idSale)
         {

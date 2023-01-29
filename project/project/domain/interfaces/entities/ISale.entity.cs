@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.domain.interfaces
+namespace project.domain.interfaces.entities
 {
-    public interface ISaleModel
+    public interface ISaleEntity
     {
         string id { get; set; }
         string idCompany { get; set; }

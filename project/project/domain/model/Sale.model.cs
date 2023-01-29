@@ -1,4 +1,5 @@
 ﻿using project.domain.interfaces;
+using project.domain.interfaces.entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace project.domain.model
 {
-    public class SaleModel : ISaleModel
+    public class SaleModel : ISaleEntity
     {
         public string id { get; set; }
         public string idCompany { get; set; }

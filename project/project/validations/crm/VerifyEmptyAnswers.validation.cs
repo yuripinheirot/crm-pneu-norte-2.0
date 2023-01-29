@@ -1,5 +1,4 @@
 ﻿using project.domain.model;
-using project.domain.usecases;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 using System;

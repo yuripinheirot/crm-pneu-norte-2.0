@@ -1,6 +1,7 @@
 ﻿using Npgsql;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.repository
 {
-    public class AnswersPostgresRepository : IPostAnswersRepository, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
+    public class AnswersPostgresRepository : IAnswersRepository
     {
         public void addAnswersRepository(List<AnswerModel> answers)
         {

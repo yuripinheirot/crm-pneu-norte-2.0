@@ -6,20 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.domain.usecases
+namespace project.domain.interfaces.usecases
 {
-    public interface IGetClient
-    {
-        ClientModel getClient(string id);
-    }
-
     public interface IGetClients
     {
         List<ClientModel> getClients(string fieldFilter, string valueFilter);
-    }
-
-    public interface IGetClientsAndSalesByAnswerAndQuestion
-    {
-        List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters);
     }
 }

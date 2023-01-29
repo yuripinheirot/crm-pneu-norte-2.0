@@ -1,5 +1,6 @@
-﻿using project.domain.model;
-using project.domain.usecases;
+﻿using project.domain.interfaces;
+using project.domain.interfaces.Struct;
+using project.domain.model;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
@@ -12,7 +13,7 @@ using static project.infra.db.firebird.config.FbDbContext;
 
 namespace project.infra.db.firebird.repository
 {
-    public class ClientFirebirdRepository : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientFirebirdRepository : IClientRepository
     {
         public ClientModel getClient(string id)
         {

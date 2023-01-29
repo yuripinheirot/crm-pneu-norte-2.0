@@ -1,5 +1,6 @@
-﻿using project.domain.model;
-using project.domain.usecases;
+﻿using project.domain.interfaces;
+using project.domain.interfaces.Struct;
+using project.domain.model;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.repository
 {
-    public class QuestionsPostgresRepository : IGetQuestions, IGetQuestion
+    public class QuestionsPostgresRepository : IQuestionsRepository
     {
         public QuestionModel getQuestion(string idQuestion)
         {

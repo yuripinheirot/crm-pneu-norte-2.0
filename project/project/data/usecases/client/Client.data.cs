@@ -1,6 +1,7 @@
 ﻿using project.data.utils;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using project.infra.db.mock.repository;
 using project.presentation.protocols;
 using System;
@@ -11,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace project.data.usecases.client
 {
-    public class ClientData<T> : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
-        where T : IGetClients, IGetClient, IGetClientsAndSalesByAnswerAndQuestion
+    public class ClientData<ClientRepository> : IClientData
+        where ClientRepository : IClientRepository
     {
-        T clientRepository;
+        ClientRepository clientRepository;
 
-        public ClientData(T clientRepository)
+        public ClientData(ClientRepository clientRepository)
         {
             this.clientRepository = clientRepository;
         }

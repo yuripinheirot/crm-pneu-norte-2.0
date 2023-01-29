@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.domain.usecases
+namespace project.domain.interfaces.usecases
 {
     public interface IPutAnswer
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.domain.interfaces.entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace project.domain.model
 {
-    public class ClientModel
+    public class ClientModel : IClientEntity
     {
         public string id { get; set; }
         public string name { get; set; }

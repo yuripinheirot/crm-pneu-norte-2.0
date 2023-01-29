@@ -1,5 +1,5 @@
 ﻿using project.data.usecases.answers;
-using project.domain.usecases;
+using project.domain.interfaces.Struct;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 using System;
@@ -12,7 +12,7 @@ namespace project.validations.crm
 {
     public delegate void clearScreen();
     public class VerifyIfExistsCurrentCrmValidation<AnswersData> 
-        where AnswersData : IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer
+        where AnswersData : IAnswersData
     {
         AnswersData answersData;
         public VerifyIfExistsCurrentCrmValidation(AnswersData answersData)

@@ -1,6 +1,7 @@
 ﻿using project.data.usecases.questions;
+using project.domain.interfaces;
+using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.domain.usecases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace project.business.usecases.questions
 {
-    public class QuestionsBusiness<T> : IGetQuestions, IGetQuestion
-        where T : IGetQuestions, IGetQuestion
+    public class QuestionsBusiness<QuestionsData> : IQuestionsBusiness
+        where QuestionsData : IQuestionsData
     {
-        T questionsData;
-        public QuestionsBusiness(T questionsData)
+        QuestionsData questionsData;
+        public QuestionsBusiness(QuestionsData questionsData)
         {
             this.questionsData = questionsData;
         }

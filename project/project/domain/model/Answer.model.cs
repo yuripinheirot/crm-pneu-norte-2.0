@@ -1,9 +1,10 @@
 ﻿using project.domain.interfaces;
+using project.domain.interfaces.entities;
 using System;
 
 namespace project.domain.model
 {
-    public class AnswerModel : IAnswerModel
+    public class AnswerModel : IAnswerEntity
     {
         public string id { get; set; }
         public string idQuestion { get; set; }
