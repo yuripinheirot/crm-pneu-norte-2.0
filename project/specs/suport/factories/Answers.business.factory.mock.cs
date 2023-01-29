@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace specs.suport
+namespace specs.suport.factories
 {
     public class AnswersBusinessFactoryMock
     {

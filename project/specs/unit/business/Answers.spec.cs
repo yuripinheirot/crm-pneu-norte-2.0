@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using project.domain.model;
 using project.domain.interfaces.Struct;
 using specs.suport;
+using specs.suport.factories;
+using specs.suport.mocks;
 
 namespace specs
 {
@@ -17,32 +19,20 @@ namespace specs
     public class AnswerBusinessSpec
     {
         [TestMethod]
-        public void TestMethod2()
+        public void ShouldThrowIfQuestionDataThrows()
         {
-            List<PostAnswerDTO> listPostAnswersDTO = new List<PostAnswerDTO>()
-            {
-                new PostAnswerDTO()
-                {
-                    answer = "yes",
-                    idClient = "00013",
-                    idQuestion = "1",
-                    idCompany = "02",
-                    idSale = "0000301",
-                    observation = "Lorem ipsum dolor",
-                    updatedAt = DateTime.Now,
-                },
-                new PostAnswerDTO()
-                {
-                    answer = "no",
-                    idClient = "00013",
-                    idQuestion = "2",
-                    idCompany = "02",
-                    idSale = "0000301",
-                    observation = "Lorem ipsum dolor",
-                    updatedAt = DateTime.Now,
-                },
-            };
+            AnswersBusinessFactoryMock.questionsData
+                .Setup(x => x.getQuestion(It.IsAny<string>()))
+                .Throws(new Exception());
 
+            Assert.ThrowsException<Exception>(() =>
+             AnswersBusinessFactoryMock.answersBusiness.addAnswersDTO(ListPostAnswerDtoMock.listPostAnswersDTO)
+            );
+        }
+
+        [TestMethod]
+        public void ShouldReturnListWithCorrectValues()
+        {
             List<PostAnswerDTO> expectedListPostAnswersDTO = new List<PostAnswerDTO>()
             {
                 new PostAnswerDTO()
@@ -97,8 +87,7 @@ namespace specs
                   Assert.AreEqual(expectedListPostAnswersDTO[1].status, answers[1].status);
               });
 
-
-            AnswersBusinessFactoryMock.answersBusiness.addAnswersDTO(listPostAnswersDTO);
+            AnswersBusinessFactoryMock.answersBusiness.addAnswersDTO(ListPostAnswerDtoMock.listPostAnswersDTO);
         }
     }
 }
