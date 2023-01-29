@@ -52,7 +52,6 @@ namespace specs
                     idCompany = "02",
                     idSale = "0000301",
                     observation = "Lorem ipsum dolor",
-                    updatedAt = DateTime.Now,
                     status = "done"
                 },
                 new PostAnswerDTO()
@@ -63,7 +62,6 @@ namespace specs
                     idCompany       = "02",
                     idSale      = "0000301",
                     observation = "Lorem ipsum dolor",
-                    updatedAt        = DateTime.Now,
                     status       = "pending"
                 },
             };
@@ -102,7 +100,6 @@ namespace specs
                   Assert.AreEqual(expectedListPostAnswersDTO[0].idCompany, answers[0].idCompany);
                   Assert.AreEqual(expectedListPostAnswersDTO[0].idSale, answers[0].idSale);
                   Assert.AreEqual(expectedListPostAnswersDTO[0].observation, answers[0].observation);
-                  Assert.AreEqual(expectedListPostAnswersDTO[0].updatedAt, answers[0].updatedAt);
                   Assert.AreEqual(expectedListPostAnswersDTO[0].status, answers[0].status);
 
                   Assert.AreEqual(expectedListPostAnswersDTO[1].answer, answers[1].answer);
@@ -111,7 +108,6 @@ namespace specs
                   Assert.AreEqual(expectedListPostAnswersDTO[1].idCompany, answers[1].idCompany);
                   Assert.AreEqual(expectedListPostAnswersDTO[1].idSale, answers[1].idSale);
                   Assert.AreEqual(expectedListPostAnswersDTO[1].observation, answers[1].observation);
-                  Assert.AreEqual(expectedListPostAnswersDTO[1].updatedAt, answers[1].updatedAt);
                   Assert.AreEqual(expectedListPostAnswersDTO[1].status, answers[1].status);
               });
 
