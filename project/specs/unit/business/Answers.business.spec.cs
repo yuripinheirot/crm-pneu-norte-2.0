@@ -175,6 +175,19 @@ namespace specs
         }
 
         [TestMethod]
+        [Description("getAnswerDetailsDataView should call answerData with correct params")]
+        public void getAnswerDetailsDataViewShouldCallAnswerDataWithCorrectParams()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswerDetailsDataView(It.IsAny<string>()))
+                .Callback((string idAnswer) =>
+                {
+                    Assert.AreEqual("idAnswer", idAnswer);
+                });
+            AnswersBusinessFactoryMock.answersBusiness.getAnswerDetailsDataView("idAnswer");
+        }
+
+        [TestMethod]
         [Description("getAnswerDetailsDataView should return correct values")]
         public void GetAnswerDetailsDataViewShouldReturnCorrectValues()
         {
