@@ -17,7 +17,7 @@ namespace project.infra.db.postgres.repository
 {
     public class AnswersPostgresRepository : IAnswersRepository
     {
-        public void addAnswersRepository(List<AnswerModel> answers)
+        public virtual void addAnswersRepository(List<AnswerModel> answers)
         {
             using (var db = new PgDbContext())
             {
