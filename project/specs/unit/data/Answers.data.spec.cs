@@ -62,5 +62,33 @@ namespace specs.unit.data
 
             AnswersDataFactoryMock.answersData.addAnswersDTO(listPostAnswerDtoMock);
         }
+
+        [TestMethod]
+        [Description("postAnswerAlreadyExists should throw if answersRepository throws")]
+        public void PostAnswerAlreadyExistsShouldThrowIfAnswersRepositoryThrows()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+            {
+                AnswersDataFactoryMock.answersData.postAnswerAlreadyExists("idCompany", "idSale");
+            });
+        }
+
+        [TestMethod]
+        [Description("postAnswerAlreadyExists should return correct value")]
+        public void PostAnswerAlreadyExistsShouldReturnCorrectValue()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(true);
+
+            Assert.AreEqual(
+                    AnswersDataFactoryMock.answersData.postAnswerAlreadyExists("idCompany", "idSale"),
+                    true
+                );
+        }
     }
 }

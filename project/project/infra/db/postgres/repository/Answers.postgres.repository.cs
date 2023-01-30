@@ -43,7 +43,7 @@ namespace project.infra.db.postgres.repository
             }
         }
 
-        public bool postAnswerAlreadyExists(string idCompany, string idSale)
+        public virtual bool postAnswerAlreadyExists(string idCompany, string idSale)
         {
             using (var pg = new PgDbContext())
             {
