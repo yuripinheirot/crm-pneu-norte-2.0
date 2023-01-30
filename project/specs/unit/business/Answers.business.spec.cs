@@ -129,6 +129,20 @@ namespace specs
         }
 
         [TestMethod]
+        [Description("postAnswerAlreadyExists should call answerData with correct params")]
+        public void PostAnswerAlreadyExistsShouldCallAnswerDataWithCorrectParams()
+        {
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Callback((string idCompany, string idSale) =>
+                {
+                    Assert.AreEqual("idCompany", idCompany);
+                    Assert.AreEqual("idSale", idSale);
+                });
+            AnswersBusinessFactoryMock.answersBusiness.postAnswerAlreadyExists("idCompany", "idSale");
+        }
+
+        [TestMethod]
         [Description("postAnswerAlreadyExists should return correct boolean value")]
         public void PostAnswerAlreadyExistsShouldReturnCorrectBooleanValue()
         {
