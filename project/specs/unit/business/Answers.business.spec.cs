@@ -228,6 +228,30 @@ namespace specs
         }
 
         [TestMethod]
+        [Description("getAnswers should call answerData with correct params")]
+        public void getAnswersShouldCallAnswerDataWithCorrectParams()
+        {
+            var expectedAnswerFiltersMock = new AnswersFilters()
+            {
+                answer = "answer",
+                idCompany = "idCompany",
+                finalDate = new DateTime(2000, 01, 01),
+                initialDate = new DateTime(2000, 01, 01),
+                idQuestion = "idQuestion",
+                idSale = "idSale",
+            };
+
+            AnswersBusinessFactoryMock.answersDataMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Callback((AnswersFilters filters) =>
+                {
+                    Assert.AreEqual(expectedAnswerFiltersMock, filters);
+                });
+
+            AnswersBusinessFactoryMock.answersBusiness.getAnswers(expectedAnswerFiltersMock);
+        }
+
+        [TestMethod]
         [Description("getAnswers should return correct values")]
         public void GetAnswersShouldReturnCorrectValues()
         {
