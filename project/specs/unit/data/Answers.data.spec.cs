@@ -77,6 +77,22 @@ namespace specs.unit.data
             });
         }
 
+
+        [TestMethod]
+        [Description("postAnswerAlreadyExists should call answersRepository with correct values")]
+        public void PostAnswerAlreadyExistsShouldCallAnswersRepositoryWithCorrectValues()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.postAnswerAlreadyExists(It.IsAny<string>(), It.IsAny<string>()))
+                .Callback((string idCompany, string idSale) =>
+                {
+                    Assert.AreEqual("idCompany", idCompany);
+                    Assert.AreEqual("idSale", idSale);
+                });
+
+            AnswersDataFactoryMock.answersData.postAnswerAlreadyExists("idCompany", "idSale");
+        }
+
         [TestMethod]
         [Description("postAnswerAlreadyExists should return correct value")]
         public void PostAnswerAlreadyExistsShouldReturnCorrectValue()
@@ -90,5 +106,7 @@ namespace specs.unit.data
                     true
                 );
         }
+
+
     }
 }
