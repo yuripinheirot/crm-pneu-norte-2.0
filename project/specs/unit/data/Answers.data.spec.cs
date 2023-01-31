@@ -183,12 +183,8 @@ namespace specs.unit.data
         {
             var expectedAnswerFiltersMock = new AnswersFilters()
             {
-                answer = "answer",
-                idCompany = "idCompany",
                 finalDate = null,
                 initialDate = null,
-                idQuestion = "idQuestion",
-                idSale = "idSale",
             };
 
             AnswersDataFactoryMock.answerRepositoryMock
@@ -208,6 +204,27 @@ namespace specs.unit.data
         {
             var expectedAnswerFiltersMock = new AnswersFilters()
             {
+                finalDate = new DateTime(2000, 01, 01, 22, 22, 22),
+                initialDate = new DateTime(2000, 01, 01, 11, 11, 11),
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Callback((AnswersFilters filter) =>
+                {
+                    Assert.AreEqual(filter.initialDate, new DateTime(2000, 01, 01, 00, 00, 00));
+                    Assert.AreEqual(filter.finalDate, new DateTime(2000, 01, 01, 23, 59, 59));
+                });
+
+            AnswersDataFactoryMock.answersData.getAnswers(expectedAnswerFiltersMock);
+        }
+
+        [TestMethod]
+        [Description("getAnswers should call answersRepository with correct values")]
+        public void GetAnswersShouldCallAnswersRepositoryWithCorrectValues()
+        {
+            var expectedAnswerFiltersMock = new AnswersFilters()
+            {
                 answer = "answer",
                 idCompany = "idCompany",
                 finalDate = new DateTime(2000, 01, 01, 22, 22, 22),
@@ -220,8 +237,12 @@ namespace specs.unit.data
                 .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
                 .Callback((AnswersFilters filter) =>
                 {
+                    Assert.AreEqual(filter.answer, "answer");
+                    Assert.AreEqual(filter.idCompany, "idCompany");
                     Assert.AreEqual(filter.initialDate, new DateTime(2000, 01, 01, 00, 00, 00));
                     Assert.AreEqual(filter.finalDate, new DateTime(2000, 01, 01, 23, 59, 59));
+                    Assert.AreEqual(filter.idQuestion, "idQuestion");
+                    Assert.AreEqual(filter.idSale, "idSale");
                 });
 
             AnswersDataFactoryMock.answersData.getAnswers(expectedAnswerFiltersMock);
