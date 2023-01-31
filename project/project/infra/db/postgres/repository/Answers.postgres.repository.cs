@@ -142,7 +142,7 @@ namespace project.infra.db.postgres.repository
             }
         }
 
-        public void putAnswer(AnswerModel answerUpdated)
+        public virtual void putAnswer(AnswerModel answerUpdated)
         {
             using (var pg = new PgDbContext())
             {

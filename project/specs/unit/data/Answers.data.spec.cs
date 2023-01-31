@@ -290,5 +290,85 @@ namespace specs.unit.data
                     expectedAnswersNotResolved
                 );
         }
+
+        [TestMethod]
+        [Description("putAnswer should throw if answers repository throws")]
+        public void PutAnswerShouldThrowIfAnswersRepositoryThrows()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.putAnswer(It.IsAny<AnswerModel>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             AnswersDataFactoryMock.answersData.putAnswer(new AnswerModel())
+            );
+        }
+
+        [TestMethod]
+        [Description("putAnswer should convert status")]
+        public void PutAnswerShouldConvertStatus()
+        {
+            var answerModelMock = new AnswerModel()
+            {
+                status = "RESOLVIDO",
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.putAnswer(It.IsAny<AnswerModel>()))
+                .Callback((AnswerModel answer) =>
+                {
+                    Assert.AreEqual(answerModelMock.status, "done");
+                });
+
+            AnswersDataFactoryMock.answersData.putAnswer(answerModelMock);
+        }
+
+        [TestMethod]
+        [Description("putAnswer should not convert status")]
+        public void PutAnswerShouldNotConvertStatus()
+        {
+            var answerModelMock = new AnswerModel()
+            {
+                status = null,
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.putAnswer(It.IsAny<AnswerModel>()))
+                .Callback((AnswerModel answer) =>
+                {
+                    Assert.IsNull(answerModelMock.status);
+                });
+
+            AnswersDataFactoryMock.answersData.putAnswer(answerModelMock);
+        }
+
+        [TestMethod]
+        [Description("putAnswer should call answersData.putAnswer with correct values")]
+        public void PutAnswerShouldReturnCorrectValues()
+        {
+            var answerModelMock = new AnswerModel()
+            {
+                answer = "answer",
+                createdAt = new DateTime(2000, 01, 01),
+                id = "id",
+                idClient = "idClient",
+                idCompany = "idCompany",
+                idQuestion = "idQuestion",
+                idSale = "idSale",
+                observation = "observation",
+                resolution = "resolution",
+                status = "RESOLVIDO",
+                updatedAt = new DateTime(2000, 01, 01)
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.putAnswer(It.IsAny<AnswerModel>()))
+                .Callback((AnswerModel answer) =>
+                {
+                    Assert.AreEqual(answerModelMock, answer);
+                });
+
+            AnswersDataFactoryMock.answersData.putAnswer(answerModelMock);
+        }
     }
 }
