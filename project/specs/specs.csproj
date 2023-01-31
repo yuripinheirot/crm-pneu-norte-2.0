@@ -62,8 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="suport\factories\Answers.data.factory.mock .cs" />
-    <Compile Include="suport\factories\Answers.business.factory.mock.cs" />
+    <Compile Include="suport\factories\feature\answers\Answers.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\unit\answers\Answers.data.factory.mock .cs" />
+    <Compile Include="suport\factories\unit\answers\Answers.business.factory.mock.cs" />
     <Compile Include="suport\mocks\ListPostAnswerDto.mock.cs" />
     <Compile Include="unit\business\Answers.business.spec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,12 +12,14 @@ using project.domain.interfaces.Struct;
 using specs.suport;
 using specs.suport.factories;
 using specs.suport.mocks;
+using specs.suport.factories.unit.answers;
 
 namespace specs
 {
     [TestClass]
     public class AnswerBusinessSpec
     {
+        [TestCategory("aaa")]
         [TestMethod]
         [Description("AddAnswersDTO should throw if question data throws")]
         public void ShouldThrowIfQuestionDataThrows()
