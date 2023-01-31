@@ -162,5 +162,69 @@ namespace specs.unit.data
                     answerDetailsMock
                 );
         }
+
+        [TestMethod]
+        [Description("getAnswers should throw if answersRepository throws")]
+        public void GetAnswersShouldThrowIfAnswersRepositoryThrows()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+            {
+                AnswersDataFactoryMock.answersData.getAnswers(new AnswersFilters());
+            });
+        }
+
+        [TestMethod]
+        [Description("getAnswers should pass null date filters if null")]
+        public void GetAnswersShouldPassNullDateFiltersIfNull()
+        {
+            var expectedAnswerFiltersMock = new AnswersFilters()
+            {
+                answer = "answer",
+                idCompany = "idCompany",
+                finalDate = null,
+                initialDate = null,
+                idQuestion = "idQuestion",
+                idSale = "idSale",
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Callback((AnswersFilters filter) =>
+                {
+                    Assert.IsNull(filter.initialDate);
+                    Assert.IsNull(filter.finalDate);
+                });
+
+            AnswersDataFactoryMock.answersData.getAnswers(expectedAnswerFiltersMock);
+        }
+
+        [TestMethod]
+        [Description("getAnswers should convert initial and final date")]
+        public void GetAnswersShouldConvertInitialAndFinalDate()
+        {
+            var expectedAnswerFiltersMock = new AnswersFilters()
+            {
+                answer = "answer",
+                idCompany = "idCompany",
+                finalDate = new DateTime(2000, 01, 01, 22, 22, 22),
+                initialDate = new DateTime(2000, 01, 01, 11, 11, 11),
+                idQuestion = "idQuestion",
+                idSale = "idSale",
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswers(It.IsAny<AnswersFilters>()))
+                .Callback((AnswersFilters filter) =>
+                {
+                    Assert.AreEqual(filter.initialDate, new DateTime(2000, 01, 01, 00, 00, 00));
+                    Assert.AreEqual(filter.finalDate, new DateTime(2000, 01, 01, 23, 59, 59));
+                });
+
+            AnswersDataFactoryMock.answersData.getAnswers(expectedAnswerFiltersMock);
+        }
     }
 }

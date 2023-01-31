@@ -76,7 +76,7 @@ namespace project.infra.db.postgres.repository
             }
         }
 
-        public List<AnswerModel> getAnswers(AnswersFilters filters)
+        public virtual List<AnswerModel> getAnswers(AnswersFilters filters)
         {
             using (var db = new PgDbContext())
             {
