@@ -107,6 +107,60 @@ namespace specs.unit.data
                 );
         }
 
+        [TestMethod]
+        [Description("getAnswerDetailsDataView should throw if answersRepository throws")]
+        public void GetAnswerDetailsDataViewShouldThrowIfAnswersRepositoryThrows()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswerDetailsDataView(It.IsAny<string>()))
+                .Throws(new Exception());
 
+            Assert.ThrowsException<Exception>(() =>
+            {
+                AnswersDataFactoryMock.answersData.getAnswerDetailsDataView("idAnswer");
+            });
+        }
+
+
+        [TestMethod]
+        [Description("getAnswerDetailsDataView should call answersRepository with correct values")]
+        public void GetAnswerDetailsDataViewShouldCallAnswersRepositoryWithCorrectValues()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswerDetailsDataView(It.IsAny<string>()))
+                .Callback((string idAnswer) =>
+                {
+                    Assert.AreEqual("idAnswer", idAnswer);
+                });
+
+            AnswersDataFactoryMock.answersData.postAnswerAlreadyExists("idCompany", "idSale");
+        }
+
+        [TestMethod]
+        [Description("getAnswerDetailsDataView should return correct value")]
+        public void GetAnswerDetailsDataViewShouldReturnCorrectValue()
+        {
+            var answerDetailsMock = new AnswerDetails()
+            {
+                answer = "answer",
+                client = "client",
+                descriptionQuestion = "descriptionQuestion",
+                idCompany = "idCompany",
+                idSale = "idSale",
+                observation = "observation",
+                resolution = "resolution",
+                seller = "seller",
+                status = "status"
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswerDetailsDataView(It.IsAny<string>()))
+                .Returns(answerDetailsMock);
+
+            Assert.AreEqual(
+                    AnswersDataFactoryMock.answersData.getAnswerDetailsDataView("idAnswer"),
+                    answerDetailsMock
+                );
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace project.infra.db.postgres.repository
             }
         }
 
-        public AnswerDetails getAnswerDetailsDataView(string idAnswer)
+        public virtual AnswerDetails getAnswerDetailsDataView(string idAnswer)
         {
             using (var fb = new FbDbContext())
             using (var pg = new PgDbContext())
