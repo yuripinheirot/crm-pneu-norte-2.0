@@ -118,7 +118,7 @@ namespace project.infra.db.postgres.repository
             }
         }
 
-        public List<AnswerNotResolvedDataView> getAnswersNotResolved()
+        public virtual List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             using (var pg = new PgDbContext())
             {

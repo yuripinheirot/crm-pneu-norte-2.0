@@ -247,5 +247,48 @@ namespace specs.unit.data
 
             AnswersDataFactoryMock.answersData.getAnswers(expectedAnswerFiltersMock);
         }
+
+        [TestMethod]
+        [Description("getAnswersNotResolved should throw if answersRepository throws")]
+        public void GetAnswersNotResolvedShouldThrowIfAnswersRepositoryThrows()
+        {
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswersNotResolved())
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+            {
+                AnswersDataFactoryMock.answersData.getAnswersNotResolved();
+            });
+        }
+
+        [TestMethod]
+        [Description("getAnswersNotResolved should return correct value")]
+        public void GetAnswersNotResolvedShouldReturnCorrectValue()
+        {
+            var expectedAnswersNotResolved = new List<AnswerNotResolvedDataView>()
+            {
+                new AnswerNotResolvedDataView()
+                {
+                    answer = "answer",
+                    idClient = "idClient",
+                    idCompany = "idCompany",
+                    idSale = "idSale",
+                    observation = "observation",
+                    resolution = "resolution",
+                    descriptionQuestion = "descriptionQuestion",
+                    idAnswer = "idAnswer"
+                }
+            };
+
+            AnswersDataFactoryMock.answerRepositoryMock
+                .Setup(x => x.getAnswersNotResolved())
+                .Returns(expectedAnswersNotResolved);
+
+            Assert.AreEqual(
+                    AnswersDataFactoryMock.answersData.getAnswersNotResolved(),
+                    expectedAnswersNotResolved
+                );
+        }
     }
 }
