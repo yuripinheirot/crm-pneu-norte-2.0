@@ -17,17 +17,19 @@ namespace project.infra.db.postgres.repository
 {
     public class AnswersPostgresRepository : IAnswersRepository
     {
-        readonly PgDbContext db;
-        public AnswersPostgresRepository(PgDbContext postgres)
+        readonly PgDbContext pg;
+        readonly FbDbContext fb;
+        public AnswersPostgresRepository(PgDbContext postgres, FbDbContext firebird)
         {
-            db = postgres;
+            pg = postgres;
+            fb = firebird;
         }
 
         public virtual void addAnswersRepository(List<AnswerModel> answers)
         {
             answers.ForEach(a =>
             {
-                db.answers.Add(new PgDbContext.Answers()
+                pg.answers.Add(new PgDbContext.Answers()
                 {
                     answer = a.answer,
                     createdAt = a.createdAt,
@@ -43,36 +45,33 @@ namespace project.infra.db.postgres.repository
                 });
             });
 
-            db.SaveChanges();
+            pg.SaveChanges();
         }
 
         public virtual bool postAnswerAlreadyExists(string idCompany, string idSale)
         {
-            return db.answers.Any(a => a.idCompany == idCompany && a.idSale == idSale);
+            return pg.answers.Any(a => a.idCompany == idCompany && a.idSale == idSale);
         }
 
         public virtual AnswerDetails getAnswerDetailsDataView(string idAnswer)
         {
-            using (var fb = new FbDbContext())
-            {
-                var answer = db.answers.Where(a => a.id == idAnswer).First();
-                var question = db.questions.Where(a => a.id == answer.idQuestion).First();
-                var sale = fb.tvenpedido.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == answer.idSale).First();
-                var seller = fb.tvenvendedor.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == sale.VENDEDOR).First();
+            var answer = pg.answers.Where(a => a.id == idAnswer).First();
+            var question = pg.questions.Where(a => a.id == answer.idQuestion).First();
+            var sale = fb.tvenpedido.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == answer.idSale).First();
+            var seller = fb.tvenvendedor.Where(s => s.EMPRESA == answer.idCompany && s.CODIGO == sale.VENDEDOR).First();
 
-                return new AnswerDetails()
-                {
-                    idCompany = answer.idCompany,
-                    idSale = answer.idSale,
-                    client = answer.idClient,
-                    seller = seller.NOME,
-                    status = answer.status,
-                    descriptionQuestion = question.description,
-                    answer = answer.answer,
-                    observation = answer.observation,
-                    resolution = answer.resolution,
-                };
-            }
+            return new AnswerDetails()
+            {
+                idCompany = answer.idCompany,
+                idSale = answer.idSale,
+                client = answer.idClient,
+                seller = seller.NOME,
+                status = answer.status,
+                descriptionQuestion = question.description,
+                answer = answer.answer,
+                observation = answer.observation,
+                resolution = answer.resolution,
+            };
         }
 
         public virtual List<AnswerModel> getAnswers(AnswersFilters filters)
@@ -89,8 +88,8 @@ namespace project.infra.db.postgres.repository
 
                 return _query;
             }
-            var command = new NpgsqlCommand(buildQuery(), db.Database.Connection as NpgsqlConnection);
-            db.Database.Connection.Open();
+            var command = new NpgsqlCommand(buildQuery(), pg.Database.Connection as NpgsqlConnection);
+            pg.Database.Connection.Open();
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable table = new DataTable();
@@ -117,8 +116,8 @@ namespace project.infra.db.postgres.repository
         public virtual List<AnswerNotResolvedDataView> getAnswersNotResolved()
         {
             var query =
-                from answer in db.answers
-                join question in db.questions on answer.idQuestion equals question.id
+                from answer in pg.answers
+                join question in pg.questions on answer.idQuestion equals question.id
                 where answer.status == "pending"
                 select new AnswerNotResolvedDataView()
                 {
@@ -137,7 +136,7 @@ namespace project.infra.db.postgres.repository
 
         public virtual void putAnswer(AnswerModel answerUpdated)
         {
-            var answer = db.answers.Where(a => a.id == answerUpdated.id).First();
+            var answer = pg.answers.Where(a => a.id == answerUpdated.id).First();
 
             if (answer == null)
             {
@@ -154,7 +153,7 @@ namespace project.infra.db.postgres.repository
             if (answerUpdated.idCompany != null) answer.idCompany = answerUpdated.idCompany;
             if (answerUpdated.createdAt.Ticks > 0) answer.createdAt = answerUpdated.createdAt;
 
-            db.SaveChanges();
+            pg.SaveChanges();
         }
     }
 }

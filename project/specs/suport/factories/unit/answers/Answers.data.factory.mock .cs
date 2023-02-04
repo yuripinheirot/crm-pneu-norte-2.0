@@ -3,6 +3,7 @@ using project.business.usecases.answers;
 using project.data.usecases.answers;
 using project.data.usecases.questions;
 using project.domain.interfaces.Struct;
+using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.infra.db.postgres.repository;
 using System;
@@ -18,8 +19,9 @@ namespace specs.suport.factories.unit.answers
     {
         static string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
         public static PgDbContext postgresMock = new PgDbContext(connectionSpecsPostgres);
+        public static FbDbContext firebirdMock = new FbDbContext();
 
-        public static Mock<AnswersPostgresRepository> answerRepositoryMock = new Mock<AnswersPostgresRepository>(postgresMock);
+        public static Mock<AnswersPostgresRepository> answerRepositoryMock = new Mock<AnswersPostgresRepository>(postgresMock, firebirdMock);
         public static AnswersData<IAnswersRepository> answersData = new AnswersData<IAnswersRepository>(answerRepositoryMock.Object);
     }
 }

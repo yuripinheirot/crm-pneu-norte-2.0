@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using project.infra.db.firebird.config;
 
 namespace specs.suport.factories.feature.answers
 {
@@ -18,7 +19,8 @@ namespace specs.suport.factories.feature.answers
     {
         static string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
         public static PgDbContext postgresMock = new PgDbContext(connectionSpecsPostgres);
+        public static FbDbContext firebirdMock = new FbDbContext();
         
-        public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository(postgresMock);
+        public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository(postgresMock, firebirdMock);
     }
 }

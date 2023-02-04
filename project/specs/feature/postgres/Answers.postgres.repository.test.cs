@@ -40,7 +40,7 @@ namespace specs.feature.postgres
                 idClient = "00001",
                 idCompany = "01",
                 idQuestion = questionsInserted[0].id,
-                idSale = "0000001",
+                idSale = "0000200",
                 observation = "observation",
                 resolution = "resolution",
                 status = "done",
@@ -54,7 +54,7 @@ namespace specs.feature.postgres
                 idClient = "00002",
                 idCompany = "02",
                 idQuestion = questionsInserted[1].id,
-                idSale = "0000002",
+                idSale = "0000201",
                 observation = "observation",
                 resolution = "resolution",
                 status = "pending",
@@ -73,8 +73,8 @@ namespace specs.feature.postgres
         [ClassCleanup()]
         public static void ClassCleanup()
         {
-            MethodsPostgresHelper.cleanAnswers();
-            MethodsPostgresHelper.cleanQuestions();
+            //MethodsPostgresHelper.cleanAnswers();
+            //MethodsPostgresHelper.cleanQuestions();
         }
 
         [TestMethod]
@@ -126,6 +126,22 @@ namespace specs.feature.postgres
             
             Assert.IsFalse(answerNotExist);
             Assert.IsTrue(answerExist);
+        }        
+        
+        [TestMethod]
+        [Description("GetAnswerDetailsDataView should return correct value")]
+        public void GetAnswerDetailsDataViewShouldReturnCorrectValue()
+        {
+            var answerDetail = AnswersRepositoryFactoryMock.answerRepository.getAnswerDetailsDataView(answersInserted[0].id);
+
+            Assert.AreEqual(answersInserted[0].idCompany, answerDetail.idCompany);
+            Assert.AreEqual(answersInserted[0].idSale, answerDetail.idSale);
+            Assert.AreEqual(answersInserted[0].resolution, answerDetail.resolution);
+            Assert.AreEqual(answersInserted[0].status, answerDetail.status);
+            Assert.AreEqual(answersInserted[0].observation, answerDetail.observation);
+            Assert.AreEqual(answersInserted[0].answer, answerDetail.answer);
+            Assert.AreEqual(answersInserted[0].idClient, answerDetail.client);
+            Assert.AreEqual(questionsInserted[0].description, answerDetail.descriptionQuestion);
         }
     }
 }
