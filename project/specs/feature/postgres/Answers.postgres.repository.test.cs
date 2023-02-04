@@ -32,7 +32,6 @@ namespace specs.feature.postgres
                 posSale = "sale"
             },
         };
-
         static List<AnswerModel> answersInserted = new List<AnswerModel>()
         {
             new AnswerModel()
