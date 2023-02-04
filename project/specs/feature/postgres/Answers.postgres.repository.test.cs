@@ -4,7 +4,6 @@ using specs.suport.factories.feature.answers;
 using specs.suport.helpers;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 
 namespace specs.feature.postgres
 {
@@ -32,7 +31,6 @@ namespace specs.feature.postgres
                 posSale = "sale"
             },
         };
-
         static List<AnswerModel> answersInserted = new List<AnswerModel>()
         {
             new AnswerModel()
@@ -80,8 +78,8 @@ namespace specs.feature.postgres
         }
 
         [TestMethod]
-        [Description("Should add answers on db with correct values")]
-        public void ShouldAddAnswersOnDbWithCorrectValues()
+        [Description("Should addAnswersRepository add on db with correct values")]
+        public void ShouldAddAnswersRepositoryOnDbWithCorrectValues()
         {
             var id = Guid.NewGuid().ToString();
             var answerToInsert = new List<AnswerModel>()
