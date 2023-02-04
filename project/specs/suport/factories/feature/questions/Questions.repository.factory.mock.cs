@@ -12,13 +12,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace specs.suport.factories.feature.answers
+namespace specs.suport.factories.feature.questions
 {
-    public class AnswersRepositoryFactoryMock
+    public class QuestionsRepositoryFactoryMock
     {
         static string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
         public static PgDbContext postgresMock = new PgDbContext(connectionSpecsPostgres);
         
-        public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository(postgresMock);
+        public static QuestionsPostgresRepository questionRepository = new QuestionsPostgresRepository(postgresMock);
     }
 }

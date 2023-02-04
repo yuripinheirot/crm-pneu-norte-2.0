@@ -106,9 +106,10 @@
   <ItemGroup>
     <Compile Include="feature\postgres\Answers.postgres.repository.test.cs" />
     <Compile Include="suport\factories\feature\answers\Answers.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\feature\questions\Questions.repository.factory.mock.cs" />
     <Compile Include="suport\factories\unit\answers\Answers.data.factory.mock .cs" />
     <Compile Include="suport\factories\unit\answers\Answers.business.factory.mock.cs" />
-    <Compile Include="suport\helpers\InsertsManyPostgres.helper.cs" />
+    <Compile Include="suport\helpers\MethodsPostgres.helper.cs" />
     <Compile Include="suport\mocks\ListPostAnswerDto.mock.cs" />
     <Compile Include="unit\business\Answers.business.spec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
