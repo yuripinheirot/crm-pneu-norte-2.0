@@ -116,5 +116,16 @@ namespace specs.feature.postgres
             Assert.AreEqual(answerToInsert[0].createdAt, insertedAnswer.createdAt);
             Assert.AreEqual(answerToInsert[0].updatedAt, insertedAnswer.updatedAt);
         }
+
+        [TestMethod]
+        [Description("PostAnswerAlreadyExists should return correct value")]
+        public void PostAnswerAlreadyExistsShouldReturnCorrectValue()
+        {
+            var answerExist = AnswersRepositoryFactoryMock.answerRepository.postAnswerAlreadyExists(answersInserted[0].idCompany, answersInserted[0].idSale);
+            var answerNotExist = AnswersRepositoryFactoryMock.answerRepository.postAnswerAlreadyExists(answersInserted[0].idCompany, "invalidIdSale");
+            
+            Assert.IsFalse(answerNotExist);
+            Assert.IsTrue(answerExist);
+        }
     }
 }
