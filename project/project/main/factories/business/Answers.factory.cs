@@ -2,6 +2,7 @@
 using project.data.usecases.answers;
 using project.data.usecases.questions;
 using project.infra.db.mock.repository;
+using project.infra.db.postgres.config;
 using project.infra.db.postgres.repository;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,14 @@ namespace project.main.factories.business
 {
     public class AnswersFactory
     {
+        static PgDbContext postgres = new PgDbContext(Properties.Settings.Default.postgresConnectionString);
         //private static QuestionsMockRepository questionsRepository = new QuestionsMockRepository();
-        private static QuestionsPostgresRepository questionsRepository = new QuestionsPostgresRepository();
+        private static QuestionsPostgresRepository questionsRepository = new QuestionsPostgresRepository(postgres);
         private static QuestionsData<QuestionsPostgresRepository> questionsData = new QuestionsData<QuestionsPostgresRepository>(questionsRepository);
 
 
         //private static AnswersMockRepository answersRepository = new AnswersMockRepository();
-        private static AnswersPostgresRepository answersRepository = new AnswersPostgresRepository();
+        private static AnswersPostgresRepository answersRepository = new AnswersPostgresRepository(postgres);
         private static AnswersData<AnswersPostgresRepository> answersData = new AnswersData<AnswersPostgresRepository>(answersRepository);
 
 

@@ -6,6 +6,7 @@ using project.domain.interfaces.Struct;
 using project.infra.db.postgres.config;
 using project.infra.db.postgres.repository;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,11 @@ namespace specs.suport.factories.feature.answers
 {
     public class AnswersRepositoryFactoryMock
     {
-        public static Mock<PgDbContext> postgresMock = new Mock<PgDbContext>();
-        public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository();
+        //static string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
+
+        //public static Mock<PgDbContext> postgresMock = new Mock<PgDbContext>(connectionSpecsPostgres);
+        public static PgDbContext postgresMock = new PgDbContext("server=localhost; port=5432; database=specs; user id=postgres; password=postgres;");
+        //public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository(postgresMock.Object);
+        public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository(postgresMock);
     }
 }

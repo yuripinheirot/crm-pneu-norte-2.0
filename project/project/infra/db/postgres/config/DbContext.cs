@@ -20,6 +20,11 @@ namespace project.infra.db.postgres.config
 
         }
 
+        public PgDbContext(string connection) : base(new NpgsqlConnection(connection), true)
+        {
+
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("public");

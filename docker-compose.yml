@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  postgres:
-    container_name: postgres-container
+  crm: &db
+    container_name: database-crm
     image: postgres:12-alpine
     restart: always
     volumes:
@@ -10,7 +10,16 @@ services:
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=crm
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_SCHEMA=crm
+      - POSTGRES_SCHEMA=public
+
+  specs:
+    <<: *db
+    container_name: database-specs
+    environment:
+      - POSTGRES_DB=specs
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_SCHEMA=public
