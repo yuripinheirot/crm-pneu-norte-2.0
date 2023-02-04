@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using project.domain.model;
+using project.presentation.protocols;
 using specs.suport.factories.feature.answers;
 using specs.suport.helpers;
 using System;
@@ -118,18 +119,18 @@ namespace specs.feature.postgres
         }
 
         [TestMethod]
-        [Description("PostAnswerAlreadyExists should return correct value")]
+        [Description("PostAnswerAlreadyExists should return correct values")]
         public void PostAnswerAlreadyExistsShouldReturnCorrectValue()
         {
             var answerExist = AnswersRepositoryFactoryMock.answerRepository.postAnswerAlreadyExists(answersInserted[0].idCompany, answersInserted[0].idSale);
             var answerNotExist = AnswersRepositoryFactoryMock.answerRepository.postAnswerAlreadyExists(answersInserted[0].idCompany, "invalidIdSale");
-            
+
             Assert.IsFalse(answerNotExist);
             Assert.IsTrue(answerExist);
-        }        
-        
+        }
+
         [TestMethod]
-        [Description("GetAnswerDetailsDataView should return correct value")]
+        [Description("GetAnswerDetailsDataView should return correct values")]
         public void GetAnswerDetailsDataViewShouldReturnCorrectValue()
         {
             var answerDetail = AnswersRepositoryFactoryMock.answerRepository.getAnswerDetailsDataView(answersInserted[0].id);
@@ -142,6 +143,35 @@ namespace specs.feature.postgres
             Assert.AreEqual(answersInserted[0].answer, answerDetail.answer);
             Assert.AreEqual(answersInserted[0].idClient, answerDetail.client);
             Assert.AreEqual(questionsInserted[0].description, answerDetail.descriptionQuestion);
+        }
+
+        [TestMethod]
+        [Description("getAnswers should return correct values")]
+        public void getAnswersShouldReturnCorrectValue()
+        {
+            var filters = new AnswersFilters()
+            {
+                answer = "answer2",
+                initialDate = new DateTime(2000, 01, 01),
+                finalDate = new DateTime(2010, 01, 01),
+                idCompany = "02",
+                idQuestion = questionsInserted[1].id,
+                idSale = "0000201"
+            };
+            var answers = AnswersRepositoryFactoryMock.answerRepository.getAnswers(filters);
+
+            Assert.AreEqual(1, answers.Count);
+            Assert.AreEqual(answersInserted[1].id, answers[0].id);
+            Assert.AreEqual(answersInserted[1].idQuestion, answers[0].idQuestion);
+            Assert.AreEqual(answersInserted[1].idSale, answers[0].idSale);
+            Assert.AreEqual(answersInserted[1].idClient, answers[0].idClient);
+            Assert.AreEqual(answersInserted[1].status, answers[0].status);
+            Assert.AreEqual(answersInserted[1].answer, answers[0].answer);
+            Assert.AreEqual(answersInserted[1].observation, answers[0].observation);
+            Assert.AreEqual(answersInserted[1].resolution, answers[0].resolution);
+            Assert.AreEqual(answersInserted[1].createdAt, answers[0].createdAt);
+            Assert.AreEqual(answersInserted[1].updatedAt, answers[0].updatedAt);
+            Assert.AreEqual(answersInserted[1].idCompany, answers[0].idCompany);
         }
     }
 }
