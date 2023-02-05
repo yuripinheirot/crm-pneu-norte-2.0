@@ -111,7 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="feature\postgres\Sales.firebird.repository.test.cs" />
+    <Compile Include="feature\firebird\Sales.firebird.repository.test.cs" />
     <Compile Include="feature\postgres\Questions.postgres.repository.test.cs" />
     <Compile Include="feature\postgres\Answers.postgres.repository.test.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

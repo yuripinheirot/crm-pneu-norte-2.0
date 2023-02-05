@@ -7,7 +7,7 @@ using specs.suport.helpers;
 using System;
 using System.Collections.Generic;
 
-namespace specs.feature.postgres
+namespace specs.feature.firebird
 {
     [TestClass]
     public class SalesFirebirdRepositoryTest
