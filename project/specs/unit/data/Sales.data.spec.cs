@@ -14,7 +14,7 @@ namespace specs.unit.data
     {
         [TestMethod]
         [Description("getSale should throw if salesRepository throws")]
-        public void AddAnswersDtoShouldThrowIfAnswersRepositoryThrows()
+        public void getSaleDtoShouldThrowIfSalesRepositoryThrows()
         {
             SalesDataFactoryMock.salesRepositoryMock
                 .Setup(x => x.getSale(It.IsAny<string>(), It.IsAny<string>()))
@@ -70,6 +70,22 @@ namespace specs.unit.data
             Assert.AreEqual(sale.clientCpfCnpj, saleReturned.clientCpfCnpj);
             Assert.AreEqual(sale.posSale, saleReturned.posSale);
             Assert.AreEqual(sale.seller, saleReturned.seller);
+        }
+
+        ////////////////
+
+        [TestMethod]
+        [Description("getSales should throw if salesRepository throws")]
+        public void getSalesDtoShouldThrowIfSalesRepositoryThrows()
+        {
+            SalesDataFactoryMock.salesRepositoryMock
+                .Setup(x => x.getSales(It.IsAny<SalesFilters>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+            {
+                SalesDataFactoryMock.salesData.getSales(new SalesFilters());
+            });
         }
     }
 }

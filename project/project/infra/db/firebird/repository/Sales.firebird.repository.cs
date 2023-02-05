@@ -75,7 +75,7 @@ namespace project.infra.db.firebird.repository
             }
         }
 
-        public List<SaleModel> getSales(SalesFilters filters)
+        public virtual List<SaleModel> getSales(SalesFilters filters)
         {
             using (var db = new FbDbContext())
             {
