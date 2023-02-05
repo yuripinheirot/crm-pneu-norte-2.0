@@ -74,8 +74,8 @@ namespace specs.feature.postgres
         [ClassCleanup()]
         public static void ClassCleanup()
         {
-            //MethodsPostgresHelper.cleanAnswers();
-            //MethodsPostgresHelper.cleanQuestions();
+            MethodsPostgresHelper.cleanAnswers();
+            MethodsPostgresHelper.cleanQuestions();
         }
 
         [TestMethod]
@@ -172,6 +172,23 @@ namespace specs.feature.postgres
             Assert.AreEqual(answersInserted[1].createdAt, answers[0].createdAt);
             Assert.AreEqual(answersInserted[1].updatedAt, answers[0].updatedAt);
             Assert.AreEqual(answersInserted[1].idCompany, answers[0].idCompany);
+        }
+
+        [TestMethod]
+        [Description("getAnswersNotResolved should return correct values")]
+        public void getAnswersNotResolvedShouldReturnCorrectValue()
+        {
+            var answersNotResolved = AnswersRepositoryFactoryMock.answerRepository.getAnswersNotResolved();
+
+            Assert.AreEqual(1, answersNotResolved.Count);
+            Assert.AreEqual(answersInserted[1].id, answersNotResolved[0].idAnswer);
+            Assert.AreEqual(answersInserted[1].idCompany, answersNotResolved[0].idCompany);
+            Assert.AreEqual(answersInserted[1].idSale, answersNotResolved[0].idSale);
+            Assert.AreEqual(answersInserted[1].idClient, answersNotResolved[0].idClient);
+            Assert.AreEqual(answersInserted[1].answer, answersNotResolved[0].answer);
+            Assert.AreEqual(questionsInserted[1].description, answersNotResolved[0].descriptionQuestion);
+            Assert.AreEqual(answersInserted[1].observation, answersNotResolved[0].observation);
+            Assert.AreEqual(answersInserted[1].resolution, answersNotResolved[0].resolution);
         }
     }
 }
