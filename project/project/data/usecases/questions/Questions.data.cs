@@ -18,7 +18,7 @@ namespace project.data.usecases.questions
             this.questionRepository = questionRepository;
         }
 
-        public List<QuestionModel> getQuestions()
+        public virtual List<QuestionModel> getQuestions()
         {
             return questionRepository.getQuestions();
         }
