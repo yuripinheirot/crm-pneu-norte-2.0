@@ -15,9 +15,10 @@ namespace specs.suport.helpers
             PropertyInfo[] properties = expected.GetType().GetProperties();
             foreach (var property in properties)
             {
+                string propertyName = property.Name;
                 object expectedValue = property.GetValue(expected);
                 object actualValue = property.GetValue(actual);
-                Assert.AreEqual(expectedValue, actualValue);
+                Assert.AreEqual(expectedValue, actualValue, $"\nProperty '{propertyName}' has different values. Expected: {expectedValue} but was: {actualValue}");
             }
         }
     }
