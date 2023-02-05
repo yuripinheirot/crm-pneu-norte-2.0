@@ -40,5 +40,36 @@ namespace specs.unit.data
 
             SalesDataFactoryMock.salesData.getSale("idCompany", "idSale");
         }
+
+        [TestMethod]
+        [Description("getSale should return correct values")]
+        public void GetSaleShouldReturnCorrectValues()
+        {
+            var sale = new SaleModel()
+            {
+                id = "id",
+                idCompany = "idCompany",
+                liquidValue = (decimal)1999.99,
+                dateSale = new DateTime(2000, 01, 01),
+                client = "client",
+                clientCpfCnpj = "clientCpfCnpj",
+                posSale = "posSale",
+                seller = "seller"
+            };
+
+            SalesDataFactoryMock.salesRepositoryMock
+                .Setup(x => x.getSale(It.IsAny<string>(), It.IsAny<string>())).Returns(sale);
+
+            var saleReturned = SalesDataFactoryMock.salesData.getSale("idCompany", "idSale");
+
+            Assert.AreEqual(sale.id, saleReturned.id);
+            Assert.AreEqual(sale.idCompany, saleReturned.idCompany);
+            Assert.AreEqual(sale.liquidValue, saleReturned.liquidValue);
+            Assert.AreEqual(sale.dateSale, saleReturned.dateSale);
+            Assert.AreEqual(sale.client, saleReturned.client);
+            Assert.AreEqual(sale.clientCpfCnpj, saleReturned.clientCpfCnpj);
+            Assert.AreEqual(sale.posSale, saleReturned.posSale);
+            Assert.AreEqual(sale.seller, saleReturned.seller);
+        }
     }
 }
