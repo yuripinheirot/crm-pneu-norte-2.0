@@ -22,7 +22,7 @@ namespace project.data.usecases.sales
             this.salesRepository = salesRepository;
         }
 
-        public SaleModel getSale(string idCompany, string idSale)
+        public virtual SaleModel getSale(string idCompany, string idSale)
         {
             return salesRepository.getSale(idCompany, idSale);
         }
