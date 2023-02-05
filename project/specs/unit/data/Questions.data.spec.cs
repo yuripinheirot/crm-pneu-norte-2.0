@@ -66,5 +66,47 @@ namespace specs.unit.data
             Assert.AreEqual(questions[0].description, questionsReturned[0].description);
             Assert.AreEqual(questions[0].posSale, questionsReturned[0].posSale);
         }
+
+        [TestMethod]
+        [Description("getQuestion should throw if question repository throws")]
+        public void GetQuestionShouldThrowIfQuestionDataThrows()
+        {
+            QuestionsDataFactoryMock.questionRepositoryMock
+                .Setup(x => x.getQuestion(It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             QuestionsDataFactoryMock.questionsData.getQuestion("invalidId")
+            );
+        }
+
+        [TestMethod]
+        [Description("getQuestion should return correct values")]
+        public void GetQuestionShouldReturnCorrectValues()
+        {
+            QuestionModel question = new QuestionModel()
+            {
+                id = "id",
+                active = false,
+                answers = new List<string>() { "yes", "no" },
+                badAnswers = new List<string>() { "no" },
+                description = "description",
+                posSale = "posSale"
+            };
+
+            QuestionsDataFactoryMock.questionRepositoryMock
+                .Setup(x => x.getQuestion(It.IsAny<string>()))
+                .Returns(question);
+
+            var questionsReturned = QuestionsDataFactoryMock.questionsData.getQuestion("validId");
+
+            Assert.IsNotNull(questionsReturned);
+            Assert.AreEqual(question.id, questionsReturned.id);
+            Assert.AreEqual(question.active, questionsReturned.active);
+            CollectionAssert.AreEqual(question.answers, questionsReturned.answers);
+            CollectionAssert.AreEqual(question.badAnswers, questionsReturned.badAnswers);
+            Assert.AreEqual(question.description, questionsReturned.description);
+            Assert.AreEqual(question.posSale, questionsReturned.posSale);
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace project.infra.db.postgres.repository
         {
             db = postgres;
         }
-        public QuestionModel getQuestion(string idQuestion)
+        public virtual QuestionModel getQuestion(string idQuestion)
         {
             //using (var db = new PgDbContext())
             //{
