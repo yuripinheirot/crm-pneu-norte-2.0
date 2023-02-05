@@ -114,6 +114,7 @@
     <Compile Include="feature\postgres\Answers.postgres.repository.test.cs" />
     <Compile Include="suport\factories\feature\Answers.repository.factory.mock.cs" />
     <Compile Include="suport\factories\feature\Questions.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\unit\Questions.data.factory.mock.cs" />
     <Compile Include="suport\factories\unit\Questions.business.factory.mock.cs" />
     <Compile Include="suport\factories\unit\Answers.data.factory.mock .cs" />
     <Compile Include="suport\factories\unit\Answers.business.factory.mock.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="unit\business\Questions.business.spec.cs" />
     <Compile Include="unit\business\Answers.business.spec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="unit\data\Questions.data.spec.cs" />
     <Compile Include="unit\data\Answers.data.spec.cs" />
   </ItemGroup>
   <ItemGroup>

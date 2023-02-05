@@ -38,7 +38,7 @@ namespace project.infra.db.postgres.repository
             //}
         }
 
-        public List<QuestionModel> getQuestions()
+        public virtual List<QuestionModel> getQuestions()
         {
             //using (var db = new PgDbContext())
             //{
