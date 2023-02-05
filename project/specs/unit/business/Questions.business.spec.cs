@@ -85,5 +85,34 @@ namespace specs
              QuestionsBusinessFactoryMock.questionsBusiness.getQuestion("invalidId")
             );
         }
+
+        [TestMethod]
+        [Description("getQuestion should return correct values")]
+        public void GetQuestionShouldReturnCorrectValues()
+        {
+            QuestionModel question = new QuestionModel()
+            {
+                id = "id",
+                active = false,
+                answers = new List<string>() { "yes", "no" },
+                badAnswers = new List<string>() { "no" },
+                description = "description",
+                posSale = "posSale"
+            };
+
+            QuestionsBusinessFactoryMock.questionsDataMock
+                .Setup(x => x.getQuestion(It.IsAny<string>()))
+                .Returns(question);
+
+            var questionsReturned = QuestionsBusinessFactoryMock.questionsBusiness.getQuestion("validId");
+
+            Assert.IsNotNull(questionsReturned);
+            Assert.AreEqual(question.id, questionsReturned.id);
+            Assert.AreEqual(question.active, questionsReturned.active);
+            CollectionAssert.AreEqual(question.answers, questionsReturned.answers);
+            CollectionAssert.AreEqual(question.badAnswers, questionsReturned.badAnswers);
+            Assert.AreEqual(question.description, questionsReturned.description);
+            Assert.AreEqual(question.posSale, questionsReturned.posSale);
+        }
     }
 }
