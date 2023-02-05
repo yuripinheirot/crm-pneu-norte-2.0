@@ -68,6 +68,8 @@ namespace specs.feature.postgres
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
+            MethodsPostgresHelper.cleanAnswers();
+            MethodsPostgresHelper.cleanQuestions();
             MethodsPostgresHelper.insertManyQuestions(questionsInserted);
             MethodsPostgresHelper.insertManyAnswers(answersInserted);
         }
