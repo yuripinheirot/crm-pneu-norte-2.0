@@ -4,6 +4,7 @@ using Moq;
 using System.Collections.Generic;
 using project.domain.model;
 using specs.suport.factories.unit.business;
+using project.presentation.protocols;
 
 namespace specs
 {
@@ -67,6 +68,22 @@ namespace specs
             Assert.AreEqual(sale.clientCpfCnpj, saleReturned.clientCpfCnpj);
             Assert.AreEqual(sale.posSale, saleReturned.posSale);
             Assert.AreEqual(sale.seller, saleReturned.seller);
+        }
+
+        ////////////////
+
+        [TestMethod]
+        [Description("getSales should throw if salesRepository throws")]
+        public void getSalesDtoShouldThrowIfSalesRepositoryThrows()
+        {
+            SalesBusinessFactoryMock.salesDataMock
+                .Setup(x => x.getSales(It.IsAny<SalesFilters>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+            {
+                SalesBusinessFactoryMock.salesBusiness.getSales(new SalesFilters());
+            });
         }
     }
 }

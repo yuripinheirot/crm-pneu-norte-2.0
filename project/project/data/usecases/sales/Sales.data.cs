@@ -27,7 +27,7 @@ namespace project.data.usecases.sales
             return salesRepository.getSale(idCompany, idSale);
         }
 
-        public List<SaleModel> getSales(SalesFilters filters)
+        public virtual List<SaleModel> getSales(SalesFilters filters)
         {
             filters.initialDate = new DateTime(filters.initialDate.Year, filters.initialDate.Month, filters.initialDate.Day, 0, 0, 0);
             filters.finalDate = new DateTime(filters.finalDate.Year, filters.finalDate.Month, filters.finalDate.Day, 23, 59, 59);
