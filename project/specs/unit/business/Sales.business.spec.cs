@@ -109,5 +109,45 @@ namespace specs
 
             SalesBusinessFactoryMock.salesBusiness.getSales(filters);
         }
+
+        [TestMethod]
+        [Description("getSales should return correct values")]
+        public void GetSalesShouldReturnCorrectValues()
+        {
+            List<SaleModel> sales = new List<SaleModel>()
+            {
+                new SaleModel()
+                {
+                    idCompany = "02",
+                    id = "0000300",
+                    liquidValue = Convert.ToDecimal(302.43),
+                    dateSale = DateTime.Now,
+                    client = "00013-JOHN",
+                    clientCpfCnpj = "123.123.123-12",
+                    posSale = "order",
+                    seller = "OZZY"
+                },
+                new SaleModel()
+                {
+                    idCompany = "02",
+                    id = "0000301",
+                    liquidValue = Convert.ToDecimal(302.43),
+                    dateSale = new DateTime(2022,12,1),
+                    client = "00014-KATE",
+                    clientCpfCnpj = "123.123.123-12",
+                    posSale = "order",
+                    seller = "OZZY"
+                }
+            };
+
+            SalesBusinessFactoryMock.salesDataMock
+                .Setup(x => x.getSales(It.IsAny<SalesFilters>()))
+                .Returns(sales);
+
+            var salesReturned = SalesBusinessFactoryMock.salesBusiness.getSales(new SalesFilters());
+
+            AssertObjectAreEqualHelper.verify(sales[0], salesReturned[0]);
+            AssertObjectAreEqualHelper.verify(sales[1], salesReturned[1]);
+        }
     }
 }
