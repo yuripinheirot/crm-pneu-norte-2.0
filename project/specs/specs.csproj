@@ -111,9 +111,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="feature\postgres\Sales.firebird.repository.test.cs" />
     <Compile Include="feature\postgres\Questions.postgres.repository.test.cs" />
     <Compile Include="feature\postgres\Answers.postgres.repository.test.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="suport\factories\feature\Answers.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\feature\Sales.repository.factory.mock.cs" />
     <Compile Include="suport\factories\feature\Questions.repository.factory.mock.cs" />
     <Compile Include="suport\factories\unit\questions\Questions.data.factory.mock.cs" />
     <Compile Include="suport\factories\unit\questions\Questions.business.factory.mock.cs" />
@@ -130,6 +137,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\project\project.csproj">
@@ -139,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="suport\factories\unit\sales\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
