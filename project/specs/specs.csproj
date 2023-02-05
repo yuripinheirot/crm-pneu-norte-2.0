@@ -111,6 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="feature\postgres\Questions.postgres.repository.test.cs" />
     <Compile Include="feature\postgres\Answers.postgres.repository.test.cs" />
     <Compile Include="suport\factories\feature\Answers.repository.factory.mock.cs" />
     <Compile Include="suport\factories\feature\Questions.repository.factory.mock.cs" />

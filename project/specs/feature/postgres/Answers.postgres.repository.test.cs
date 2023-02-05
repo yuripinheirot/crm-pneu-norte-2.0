@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace specs.feature.postgres
 {
     [TestClass]
-    public class UnitTest1
+    public class AnswersPostgresRepositoryTest
     {
         static List<QuestionModel> questionsInserted = new List<QuestionModel>()
         {
