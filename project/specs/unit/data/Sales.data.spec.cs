@@ -114,5 +114,65 @@ namespace specs.unit.data
 
             SalesDataFactoryMock.salesData.getSales(filtersToPass);
         }
+
+        [TestMethod]
+        [Description("getSales should return correct values")]
+        public void GetSalesShouldReturnCorrectValues()
+        {
+            var filtersToPass = new SalesFilters()
+            {
+                initialDate = new DateTime(2000, 01, 01),
+                finalDate = new DateTime(2030, 12, 31),
+                idClient = "idClient",
+                idCompany = "idCompany",
+                posSale = "VENDAS"
+            };
+
+            var sales = new List<SaleModel>()
+            {
+                new SaleModel()
+                {
+                    id = "id",
+                    idCompany = "idCompany",
+                    liquidValue = (decimal)1999.99,
+                    dateSale = new DateTime(2000, 01, 01),
+                    client = "client",
+                    clientCpfCnpj = "clientCpfCnpj",
+                    posSale = "posSale",
+                    seller = "seller"
+                },
+                new SaleModel()
+                {
+                    id = "id2",
+                    idCompany = "idCompany2",
+                    liquidValue = (decimal)19992.99,
+                    dateSale = new DateTime(2002, 01, 01),
+                    client = "client2",
+                    clientCpfCnpj = "clientCpfCnpj2",
+                    posSale = "posSale2",
+                    seller = "seller2"
+                },
+            };
+
+            SalesDataFactoryMock.salesRepositoryMock
+                .Setup(x => x.getSales(It.IsAny<SalesFilters>()))
+                .Returns(sales);
+
+            var salesReturned = SalesDataFactoryMock.salesData.getSales(filtersToPass);
+
+            Assert.AreEqual(2, salesReturned.Count);
+            
+            for (int i = 0; i < salesReturned.Count; i++)
+            {
+                Assert.AreEqual(sales[i].id, salesReturned[i].id);
+                Assert.AreEqual(sales[i].idCompany, salesReturned[i].idCompany);
+                Assert.AreEqual(sales[i].liquidValue, salesReturned[i].liquidValue);
+                Assert.AreEqual(sales[i].dateSale, salesReturned[i].dateSale);
+                Assert.AreEqual(sales[i].client, salesReturned[i].client);
+                Assert.AreEqual(sales[i].clientCpfCnpj, salesReturned[i].clientCpfCnpj);
+                Assert.AreEqual(sales[i].posSale, salesReturned[i].posSale);
+                Assert.AreEqual(sales[i].seller, salesReturned[i].seller);
+            }
+        }
     }
 }
