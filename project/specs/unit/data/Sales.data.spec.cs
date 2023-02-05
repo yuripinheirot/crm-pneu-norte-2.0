@@ -87,5 +87,32 @@ namespace specs.unit.data
                 SalesDataFactoryMock.salesData.getSales(new SalesFilters());
             });
         }
+
+        [TestMethod]
+        [Description("getSales should pass correct params")]
+        public void GetSalesShouldPassCorrectParams()
+        {
+            var filtersToPass = new SalesFilters()
+            {
+                initialDate = new DateTime(2000, 01, 01),
+                finalDate = new DateTime(2030, 12, 31),
+                idClient = "idClient",
+                idCompany = "idCompany",
+                posSale = "VENDAS"
+            };
+
+            SalesDataFactoryMock.salesRepositoryMock
+                .Setup(x => x.getSales(It.IsAny<SalesFilters>()))
+                .Callback((SalesFilters filters) =>
+                {
+                    Assert.AreEqual(new DateTime(2000, 01, 01, 0, 0, 0), filters.initialDate);
+                    Assert.AreEqual(new DateTime(2030, 12, 31, 23, 59, 59), filters.finalDate);
+                    Assert.AreEqual("idClient", filters.idClient);
+                    Assert.AreEqual("idCompany", filters.idCompany);
+                    Assert.AreEqual("sale", filters.posSale);
+                });
+
+            SalesDataFactoryMock.salesData.getSales(filtersToPass);
+        }
     }
 }
