@@ -128,6 +128,7 @@
     <Compile Include="suport\factories\unit\answers\Answers.business.factory.mock.cs" />
     <Compile Include="suport\factories\unit\sales\Sales.business.factory.mock.cs" />
     <Compile Include="suport\factories\unit\sales\Sales.data.factory.mock.cs" />
+    <Compile Include="suport\helpers\AssertObjectAreEqual.helper.cs" />
     <Compile Include="suport\helpers\MethodsPostgres.helper.cs" />
     <Compile Include="suport\mocks\ListPostAnswerDto.mock.cs" />
     <Compile Include="unit\business\Sales.business.spec.cs" />

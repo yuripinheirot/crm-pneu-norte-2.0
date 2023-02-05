@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using project.domain.model;
 using specs.suport.factories.unit.business;
 using project.presentation.protocols;
+using specs.suport.helpers;
 
 namespace specs
 {
@@ -84,6 +85,29 @@ namespace specs
             {
                 SalesBusinessFactoryMock.salesBusiness.getSales(new SalesFilters());
             });
+        }
+
+        [TestMethod]
+        [Description("Get sales should pass correct params to salesData")]
+        public void GetSalesShouldPassCorrectParamsToSalesData()
+        {
+            SalesFilters filters = new SalesFilters()
+            {
+                idCompany = "idCompany",
+                idClient = "idClient",
+                initialDate = new DateTime(2000, 01, 01),
+                finalDate = new DateTime(2050, 12, 31),
+                posSale = "posSale"
+            };
+
+            SalesBusinessFactoryMock.salesDataMock
+                .Setup(x => x.getSales(It.IsAny<SalesFilters>()))
+                .Callback((SalesFilters filtersReceived) =>
+                {
+                    AssertObjectAreEqualHelper.verify(filters, filtersReceived);
+                });
+
+            SalesBusinessFactoryMock.salesBusiness.getSales(filters);
         }
     }
 }
