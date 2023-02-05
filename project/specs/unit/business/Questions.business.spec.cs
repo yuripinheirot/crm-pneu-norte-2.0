@@ -72,5 +72,18 @@ namespace specs
             Assert.AreEqual(questions[0].description, questionsReturned[0].description);
             Assert.AreEqual(questions[0].posSale, questionsReturned[0].posSale);
         }
+
+        [TestMethod]
+        [Description("getQuestion should throw if question data throws")]
+        public void GetQuestionShouldThrowIfQuestionDataThrows()
+        {
+            QuestionsBusinessFactoryMock.questionsDataMock
+                .Setup(x => x.getQuestion(It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             QuestionsBusinessFactoryMock.questionsBusiness.getQuestion("invalidId")
+            );
+        }
     }
 }
