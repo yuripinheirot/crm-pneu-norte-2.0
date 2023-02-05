@@ -43,7 +43,7 @@ namespace project.infra.db.firebird.repository
                  "from tvenpedido ped                                                                           " +
                  "left outer join trecclientegeral clg on(ped.cliente = clg.codigo)                             " +
                  "left outer join tvenvendedor vdd on(ped.empresa = vdd.empresa and ped.vendedor = vdd.codigo)  ";
-        public SaleModel getSale(string idCompany, string idSale)
+        public virtual SaleModel getSale(string idCompany, string idSale)
         {
             using (var db = new FbDbContext())
             {
