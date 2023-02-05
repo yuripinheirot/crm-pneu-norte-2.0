@@ -190,5 +190,39 @@ namespace specs.feature.postgres
             Assert.AreEqual(answersInserted[1].observation, answersNotResolved[0].observation);
             Assert.AreEqual(answersInserted[1].resolution, answersNotResolved[0].resolution);
         }
+
+        [TestMethod]
+        [Description("putAnswer should return correct values")]
+        public void putAnswerShouldReturnCorrectValue()
+        {
+            var answerModel = new AnswerModel()
+            {
+                id = answersInserted[0].id,
+                answer = "answer2renamed",
+                idClient = "00003",
+                idCompany = "03",
+                idQuestion = questionsInserted[0].id,
+                idSale = "0000203",
+                observation = "observationrenamed",
+                resolution = "resolutionrenamed",
+                status = "done",
+                createdAt = new DateTime(2003, 03, 04),
+                updatedAt = new DateTime(2004, 04, 05)
+            };
+
+            AnswersRepositoryFactoryMock.answerRepository.putAnswer(answerModel);
+            var answerUpdated = MethodsPostgresHelper.getAnswerById(answerModel.id);
+
+            Assert.AreEqual(answerModel.id, answerUpdated.id);
+            Assert.AreEqual(answerModel.answer, answerUpdated.answer);
+            Assert.AreEqual(answerModel.idClient, answerUpdated.idClient);
+            Assert.AreEqual(answerModel.idCompany, answerUpdated.idCompany);
+            Assert.AreEqual(answerModel.idQuestion, answerUpdated.idQuestion);
+            Assert.AreEqual(answerModel.idSale, answerUpdated.idSale);
+            Assert.AreEqual(answerModel.observation, answerUpdated.observation);
+            Assert.AreEqual(answerModel.resolution, answerUpdated.resolution);
+            Assert.AreEqual(answerModel.status, answerUpdated.status);
+            Assert.AreEqual(answerModel.createdAt, answerUpdated.createdAt);
+        }
     }
 }
