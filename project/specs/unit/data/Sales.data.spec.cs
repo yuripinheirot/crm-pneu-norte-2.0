@@ -25,5 +25,20 @@ namespace specs.unit.data
                 SalesDataFactoryMock.salesData.getSale("invalidIdCompany", "invalidIdSale");
             });
         }
+
+        [TestMethod]
+        [Description("salesRepository should receive correct params")]
+        public void SalesRepositoryShouldReceiveCorrectParams()
+        {
+            SalesDataFactoryMock.salesRepositoryMock
+                .Setup(x => x.getSale(It.IsAny<string>(), It.IsAny<string>()))
+                .Callback((string idCompany, string idSale) =>
+                {
+                    Assert.AreEqual("idCompany", idCompany);
+                    Assert.AreEqual("idSale", idSale);
+                });
+
+            SalesDataFactoryMock.salesData.getSale("idCompany", "idSale");
+        }
     }
 }
