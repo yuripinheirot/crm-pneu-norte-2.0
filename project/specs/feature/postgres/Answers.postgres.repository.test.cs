@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using project.domain.model;
 using project.presentation.protocols;
-using specs.suport.factories.feature.answers;
+using specs.suport.factories.feature;
 using specs.suport.helpers;
 using System;
 using System.Collections.Generic;

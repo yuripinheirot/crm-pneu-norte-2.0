@@ -3,25 +3,24 @@ using project.business.usecases.answers;
 using project.data.usecases.answers;
 using project.data.usecases.questions;
 using project.domain.interfaces.Struct;
-using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.infra.db.postgres.repository;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using project.infra.db.firebird.config;
 
-namespace specs.suport.factories.unit.answers
+namespace specs.suport.factories.feature
 {
-    public class AnswersDataFactoryMock
+    public class AnswersRepositoryFactoryMock
     {
         static string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
         public static PgDbContext postgresMock = new PgDbContext(connectionSpecsPostgres);
         public static FbDbContext firebirdMock = new FbDbContext();
-
-        public static Mock<AnswersPostgresRepository> answerRepositoryMock = new Mock<AnswersPostgresRepository>(postgresMock, firebirdMock);
-        public static AnswersData<IAnswersRepository> answersData = new AnswersData<IAnswersRepository>(answerRepositoryMock.Object);
+        
+        public static AnswersPostgresRepository answerRepository = new AnswersPostgresRepository(postgresMock, firebirdMock);
     }
 }

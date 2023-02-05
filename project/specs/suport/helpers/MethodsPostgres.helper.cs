@@ -1,7 +1,6 @@
 ﻿using project.domain.model;
 using project.infra.db.postgres.config;
-using specs.suport.factories.feature.answers;
-using specs.suport.factories.feature.questions;
+using specs.suport.factories.feature;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -112,10 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="feature\postgres\Answers.postgres.repository.test.cs" />
-    <Compile Include="suport\factories\feature\answers\Answers.repository.factory.mock.cs" />
-    <Compile Include="suport\factories\feature\questions\Questions.repository.factory.mock.cs" />
-    <Compile Include="suport\factories\unit\answers\Answers.data.factory.mock .cs" />
-    <Compile Include="suport\factories\unit\answers\Answers.business.factory.mock.cs" />
+    <Compile Include="suport\factories\feature\Answers.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\feature\Questions.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\unit\Answers.data.factory.mock .cs" />
+    <Compile Include="suport\factories\unit\Answers.business.factory.mock.cs" />
     <Compile Include="suport\helpers\MethodsPostgres.helper.cs" />
     <Compile Include="suport\mocks\ListPostAnswerDto.mock.cs" />
     <Compile Include="unit\business\Answers.business.spec.cs" />

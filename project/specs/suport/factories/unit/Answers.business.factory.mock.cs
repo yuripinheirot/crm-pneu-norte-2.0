@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace specs.suport.factories.unit.answers
+namespace specs.suport.factories.unit
 {
     public class AnswersBusinessFactoryMock
     {
