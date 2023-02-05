@@ -1,6 +1,5 @@
 ﻿using Moq;
 using project.business.usecases.answers;
-using project.business.usecases.questions;
 using project.data.usecases.answers;
 using project.data.usecases.questions;
 using project.domain.interfaces.Struct;
@@ -14,15 +13,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace specs.suport.factories.unit
+namespace specs.suport.factories.unit.answers
 {
-    public class QuestionsDataFactoryMock
+    public class AnswersDataFactoryMock
     {
-        static readonly string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
+        static string connectionSpecsPostgres = ConfigurationManager.ConnectionStrings["specs"].ToString();
         public static PgDbContext postgresMock = new PgDbContext(connectionSpecsPostgres);
         public static FbDbContext firebirdMock = new FbDbContext();
 
-        public static Mock<QuestionsPostgresRepository> questionRepositoryMock = new Mock<QuestionsPostgresRepository>(postgresMock);
-        public static QuestionsData<IQuestionsRepository> questionsData = new QuestionsData<IQuestionsRepository>(questionRepositoryMock.Object);
+        public static Mock<AnswersPostgresRepository> answerRepositoryMock = new Mock<AnswersPostgresRepository>(postgresMock, firebirdMock);
+        public static AnswersData<IAnswersRepository> answersData = new AnswersData<IAnswersRepository>(answerRepositoryMock.Object);
     }
 }
