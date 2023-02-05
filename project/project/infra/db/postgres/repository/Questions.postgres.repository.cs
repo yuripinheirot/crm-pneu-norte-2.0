@@ -22,8 +22,6 @@ namespace project.infra.db.postgres.repository
         }
         public virtual QuestionModel getQuestion(string idQuestion)
         {
-            //using (var db = new PgDbContext())
-            //{
             var questionDb = db.questions.Where(q => q.id == idQuestion).First();
 
             return new QuestionModel()
@@ -35,13 +33,10 @@ namespace project.infra.db.postgres.repository
                 description = questionDb.description,
                 posSale = questionDb.posSale,
             };
-            //}
         }
 
         public virtual List<QuestionModel> getQuestions()
         {
-            //using (var db = new PgDbContext())
-            //{
             var questionsDb = db.questions.ToList();
             var questions = new List<QuestionModel>();
 
@@ -59,7 +54,6 @@ namespace project.infra.db.postgres.repository
             });
 
             return questions;
-            //}
         }
     }
 }
