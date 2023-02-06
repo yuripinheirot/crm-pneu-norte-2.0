@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using project.domain.model;
 using specs.suport.factories.unit.business;
+using specs.suport.helpers;
 using System;
 
 namespace specs
@@ -33,6 +35,27 @@ namespace specs
                 });
 
             ClientBusinessFactoryMock.clientBusiness.getClient("validIdClient");
+        }
+
+        [TestMethod]
+        [Description("getClient should return correct values")]
+        public void getClientShouldReturnCorrectValues()
+        {
+            var client = new ClientModel()
+            {
+                id = "id",
+                cpfCnpj = "cpfCnpj",
+                name = "name",
+                nameFantasy = "nameFantasy",
+                phone = "phone"
+            };
+
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClient(It.IsAny<string>()))
+                .Returns(client);
+            var clientReturned = ClientBusinessFactoryMock.clientBusiness.getClient("validIdClient");
+
+            AssertObjectAreEqualHelper.verify(client, clientReturned);
         }
     }
 }
