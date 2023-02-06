@@ -1,14 +1,9 @@
 ﻿using project.data.utils;
-using project.domain.interfaces;
 using project.domain.interfaces.Struct;
 using project.domain.model;
-using project.infra.db.mock.repository;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.data.usecases.client
 {
@@ -22,7 +17,7 @@ namespace project.data.usecases.client
             this.clientRepository = clientRepository;
         }
 
-        public ClientModel getClient(string id)
+        public virtual ClientModel getClient(string id)
         {
             return clientRepository.getClient(id);
         }

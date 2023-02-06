@@ -122,6 +122,7 @@
     <Compile Include="suport\factories\feature\Answers.repository.factory.mock.cs" />
     <Compile Include="suport\factories\feature\Sales.repository.factory.mock.cs" />
     <Compile Include="suport\factories\feature\Questions.repository.factory.mock.cs" />
+    <Compile Include="suport\factories\unit\client\Client.business.factory.mock.cs" />
     <Compile Include="suport\factories\unit\questions\Questions.data.factory.mock.cs" />
     <Compile Include="suport\factories\unit\questions\Questions.business.factory.mock.cs" />
     <Compile Include="suport\factories\unit\answers\Answers.data.factory.mock .cs" />
@@ -131,6 +132,7 @@
     <Compile Include="suport\helpers\AssertObjectAreEqual.helper.cs" />
     <Compile Include="suport\helpers\MethodsPostgres.helper.cs" />
     <Compile Include="suport\mocks\ListPostAnswerDto.mock.cs" />
+    <Compile Include="unit\business\Client.business.spec.cs" />
     <Compile Include="unit\business\Sales.business.spec.cs" />
     <Compile Include="unit\business\Questions.business.spec.cs" />
     <Compile Include="unit\business\Answers.business.spec.cs" />
