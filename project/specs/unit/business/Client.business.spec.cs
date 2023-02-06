@@ -20,5 +20,19 @@ namespace specs
              ClientBusinessFactoryMock.clientBusiness.getClient("invalidIdClient")
             );
         }
+
+        [TestMethod]
+        [Description("getClient should pass correct params to clientData")]
+        public void getClientShouldPassCorrectParamsToClientData()
+        {
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClient(It.IsAny<string>()))
+                .Callback((string idClient) =>
+                {
+                    Assert.AreEqual("validIdClient", idClient);
+                });
+
+            ClientBusinessFactoryMock.clientBusiness.getClient("validIdClient");
+        }
     }
 }
