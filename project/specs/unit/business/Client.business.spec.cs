@@ -72,5 +72,20 @@ namespace specs
              ClientBusinessFactoryMock.clientBusiness.getClients("invalidField", "invalidValue")
             );
         }
+
+        [TestMethod]
+        [Description("getClients should pass correct params to clientData")]
+        public void getClientsShouldPassCorrectParamsToClientData()
+        {
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClients(It.IsAny<string>(), It.IsAny<string>()))
+                .Callback((string field, string value) =>
+                {
+                    Assert.AreEqual("field", field);
+                    Assert.AreEqual("value", value);
+                });
+
+            ClientBusinessFactoryMock.clientBusiness.getClients("field", "value");
+        }
     }
 }
