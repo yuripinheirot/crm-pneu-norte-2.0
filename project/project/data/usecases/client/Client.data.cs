@@ -27,7 +27,7 @@ namespace project.data.usecases.client
             return clientRepository.getClients(fieldFilter, valueFilter);
         }
 
-        public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
+        public virtual List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
         {
             filters.initialDate = DateTimeUtils.convertToInitial((DateTime)filters.initialDate);
             filters.finalDate = DateTimeUtils.convertToFinal((DateTime)filters.finalDate);

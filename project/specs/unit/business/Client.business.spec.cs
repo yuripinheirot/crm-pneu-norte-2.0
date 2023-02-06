@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using project.domain.model;
+using project.presentation.protocols;
 using specs.suport.factories.unit.business;
 using specs.suport.helpers;
 using System;
@@ -121,6 +122,21 @@ namespace specs
 
             AssertObjectAreEqualHelper.verify(client[0], clientReturned[0]);
             AssertObjectAreEqualHelper.verify(client[1], clientReturned[1]);
+        }
+
+        //////////
+
+        [TestMethod]
+        [Description("getClientsAndSalesByAnswerAndQuestion should throw if clientData throws")]
+        public void getClientsAndSalesByAnswerAndQuestionShouldThrowIfClientDataThrows()
+        {
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClientsAndSalesByAnswerAndQuestion(It.IsAny<AnswersFilters>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             ClientBusinessFactoryMock.clientBusiness.getClientsAndSalesByAnswerAndQuestion(new AnswersFilters())
+            );
         }
     }
 }
