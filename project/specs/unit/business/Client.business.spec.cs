@@ -4,6 +4,7 @@ using project.domain.model;
 using specs.suport.factories.unit.business;
 using specs.suport.helpers;
 using System;
+using System.Collections.Generic;
 
 namespace specs
 {
@@ -86,6 +87,40 @@ namespace specs
                 });
 
             ClientBusinessFactoryMock.clientBusiness.getClients("field", "value");
+        }
+
+        [TestMethod]
+        [Description("getClients should return correct values")]
+        public void getClientsShouldReturnCorrectValues()
+        {
+            var client = new List<ClientModel>()
+            {
+                new ClientModel()
+                {
+                    id = "id",
+                    cpfCnpj = "cpfCnpj",
+                    name = "name",
+                    nameFantasy = "nameFantasy",
+                    phone = "phone"
+                },
+                new ClientModel()
+                {
+                    id = "ids",
+                    cpfCnpj = "cpfCnpjs",
+                    name = "names",
+                    nameFantasy = "nameFantasys",
+                    phone = "phones"
+                }
+            };
+
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClients(It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(client);
+
+            var clientReturned = ClientBusinessFactoryMock.clientBusiness.getClients("validField", "validValue");
+
+            AssertObjectAreEqualHelper.verify(client[0], clientReturned[0]);
+            AssertObjectAreEqualHelper.verify(client[1], clientReturned[1]);
         }
     }
 }
