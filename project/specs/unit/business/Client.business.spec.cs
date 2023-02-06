@@ -138,5 +138,29 @@ namespace specs
              ClientBusinessFactoryMock.clientBusiness.getClientsAndSalesByAnswerAndQuestion(new AnswersFilters())
             );
         }
+
+        [TestMethod]
+        [Description("getClientsAndSalesByAnswerAndQuestion should pass correct params to clientData")]
+        public void getClientsAndSalesByAnswerAndQuestionShouldPassCorrectParamsToClientData()
+        {
+            var filters = new AnswersFilters()
+            {
+                answer = "answer",
+                idCompany = "idCompany",
+                idQuestion = "idQuestion",
+                idSale = "idSale",
+                initialDate = new DateTime(2000, 01, 01),
+                finalDate = new DateTime(2001, 01, 01),
+            };
+
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClientsAndSalesByAnswerAndQuestion(It.IsAny<AnswersFilters>()))
+                .Callback((AnswersFilters filtersReceived) =>
+                {
+                    AssertObjectAreEqualHelper.verify(filters, filtersReceived);
+                });
+
+            ClientBusinessFactoryMock.clientBusiness.getClientsAndSalesByAnswerAndQuestion(filters);
+        }
     }
 }
