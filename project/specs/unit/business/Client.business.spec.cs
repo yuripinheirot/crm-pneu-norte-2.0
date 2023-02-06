@@ -57,5 +57,20 @@ namespace specs
 
             AssertObjectAreEqualHelper.verify(client, clientReturned);
         }
+
+        //////////////////
+
+        [TestMethod]
+        [Description("getClients should throw if clientData throws")]
+        public void getClientsShouldThrowIfClientDataThrows()
+        {
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClients(It.IsAny<string>(), It.IsAny<string>()))
+                .Throws(new Exception());
+
+            Assert.ThrowsException<Exception>(() =>
+             ClientBusinessFactoryMock.clientBusiness.getClients("invalidField", "invalidValue")
+            );
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace project.data.usecases.client
             return clientRepository.getClient(id);
         }
 
-        public List<ClientModel> getClients(string fieldFilter, string valueFilter)
+        public virtual List<ClientModel> getClients(string fieldFilter, string valueFilter)
         {
             return clientRepository.getClients(fieldFilter, valueFilter);
         }
