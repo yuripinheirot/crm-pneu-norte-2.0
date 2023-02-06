@@ -162,5 +162,39 @@ namespace specs
 
             ClientBusinessFactoryMock.clientBusiness.getClientsAndSalesByAnswerAndQuestion(filters);
         }
+
+        [TestMethod]
+        [Description("getClientsAndSalesByAnswerAndQuestion should return correct values")]
+        public void getClientsAndSalesByAnswerAndQuestionShouldReturnCorrectValues()
+        {
+            var analysis = new List<AnalysisByQuestionDateView>()
+            {
+                new AnalysisByQuestionDateView()
+                {
+                    idSale = "idSale",
+                    clientName = "clientName",
+                    clientNameFantasy = "clientNameFantasy",
+                    idClient = "idClient",
+                    observation = "observation"
+                },
+                new AnalysisByQuestionDateView()
+                {
+                    idSale = "idSales",
+                    clientName = "clientNames",
+                    clientNameFantasy = "clientNameFantasys",
+                    idClient = "idClients",
+                    observation = "observations"
+                }
+            };
+
+            ClientBusinessFactoryMock.clientDataMock
+                .Setup(x => x.getClientsAndSalesByAnswerAndQuestion(It.IsAny<AnswersFilters>()))
+                .Returns(analysis);
+
+            var analysisReturned = ClientBusinessFactoryMock.clientBusiness.getClientsAndSalesByAnswerAndQuestion(new AnswersFilters());
+
+            AssertObjectAreEqualHelper.verify(analysis[0], analysisReturned[0]);
+            AssertObjectAreEqualHelper.verify(analysis[1], analysisReturned[1]);
+        }
     }
 }
