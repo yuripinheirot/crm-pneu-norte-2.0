@@ -240,6 +240,12 @@
     </Compile>
     <Compile Include="presentation\protocols\AnswerDetails.dataview.cs" />
     <Compile Include="presentation\protocols\AnswerNotResolved.dataview.cs" />
+    <Compile Include="presentation\reports\questionnaireAnalysisGraphic\QuestionnaireAnalysisGraphic.report.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\reports\questionnaireAnalysisGraphic\QuestionnaireAnalysisGraphic.report.form.Designer.cs">
+      <DependentUpon>QuestionnaireAnalysisGraphic.report.form.cs</DependentUpon>
+    </Compile>
     <Compile Include="presentation\reports\questionnaireAnalysis\QuestionnaireAnalysis.report.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     <EmbeddedResource Include="presentation\forms\searchSale\SearchSale.form.resx">
       <DependentUpon>SearchSale.form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="presentation\reports\questionnaireAnalysisGraphic\QuestionnaireAnalysisGraphic.report.form.resx">
+      <DependentUpon>QuestionnaireAnalysisGraphic.report.form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="presentation\reports\questionnaireAnalysis\QuestionnaireAnalysis.report.form.resx">
       <DependentUpon>QuestionnaireAnalysis.report.form.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +355,9 @@
     </Compile>
     <Compile Include="domain\interfaces\usecases\IPostAnswers.usecase.cs" />
     <None Include="packages.config" />
+    <None Include="presentation\reports\questionnaireAnalysisGraphic\questionnaireAnalysisGraphic.report.frx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="presentation\reports\questionnaireAnalysis\questionnaireAnalysis.report.frx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

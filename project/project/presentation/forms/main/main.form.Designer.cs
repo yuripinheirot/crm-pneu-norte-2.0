@@ -48,6 +48,7 @@ namespace project.presentation.forms.main
             this.TbxIdCompany = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.flpQuestions = new System.Windows.Forms.FlowLayoutPanel();
+            this.análiseDeQuestionáriográficoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,7 +184,8 @@ namespace project.presentation.forms.main
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.analiseDeRespostasToolStripMenuItem});
+            this.analiseDeRespostasToolStripMenuItem,
+            this.análiseDeQuestionáriográficoToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
@@ -191,7 +193,7 @@ namespace project.presentation.forms.main
             // analiseDeRespostasToolStripMenuItem
             // 
             this.analiseDeRespostasToolStripMenuItem.Name = "analiseDeRespostasToolStripMenuItem";
-            this.analiseDeRespostasToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.analiseDeRespostasToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.analiseDeRespostasToolStripMenuItem.Text = "Análise de questionário";
             this.analiseDeRespostasToolStripMenuItem.Click += new System.EventHandler(this.analiseDeRespostasToolStripMenuItem_Click);
             // 
@@ -223,6 +225,13 @@ namespace project.presentation.forms.main
             this.flpQuestions.Name = "flpQuestions";
             this.flpQuestions.Size = new System.Drawing.Size(813, 427);
             this.flpQuestions.TabIndex = 4;
+            // 
+            // análiseDeQuestionáriográficoToolStripMenuItem
+            // 
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Name = "análiseDeQuestionáriográficoToolStripMenuItem";
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Text = "Análise de questionário (gráfico)";
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Click += new System.EventHandler(this.análiseDeQuestionáriográficoToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -279,6 +288,7 @@ namespace project.presentation.forms.main
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.FlowLayoutPanel flpQuestions;
         private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionáriográficoToolStripMenuItem;
     }
 }
 

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/22/2020 08:28:47" ReportInfo.Modified="02/22/2023 13:42:28" ReportInfo.CreatorVersion="2022.3.9.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void PageHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      TableDataSource dts = Report.GetDataSource(&quot;queryPG&quot;) as TableDataSource;
+      string whereCondition = ((String)Report.GetParameterValue(&quot;whereCondition&quot;));
+      dts.SelectCommand =
+        &quot;select                                         &quot;+
+        &quot;a.id_sale ,                                    &quot;+
+        &quot;a.id_client ,                                  &quot;+
+        &quot;a.status ,                                     &quot;+
+        &quot;a.answer ,                                     &quot;+
+        &quot;a.observation ,                                &quot;+
+        &quot;a.resolution ,                                 &quot;+
+        &quot;a.created_at ,                                 &quot;+
+        &quot;a.id_company ,                                 &quot;+
+        &quot;q.description,                                 &quot;+
+        &quot;q.pos_sale                                     &quot;+
+        &quot;from answers a                                 &quot;+
+        &quot;inner join questions q on a.id_question = q.id &quot;+
+        whereCondition;
+
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <OdbcDataConnection Name="ConnectionPG" ConnectionString="rijcmlqeSW1OOMEY3hN/tGxGKhhXNl//lQ46iwsLjRSpV3CmgUWLmE95mx49Ow5c8WTjBdR">
+      <TableDataSource Name="Table" Alias="queryPG" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;a.id_sale ,&#13;&#10;a.id_client ,&#13;&#10;a.status ,&#13;&#10;a.answer ,&#13;&#10;a.observation ,&#13;&#10;a.resolution ,&#13;&#10;a.created_at ,&#13;&#10;a.id_company ,&#13;&#10;q.description,&#13;&#10;q.pos_sale&#13;&#10;from answers a &#13;&#10;inner join questions q on a.id_question = q.id">
+        <Column Name="id_sale" DataType="System.String"/>
+        <Column Name="id_client" DataType="System.String"/>
+        <Column Name="status" DataType="System.String"/>
+        <Column Name="answer" DataType="System.String"/>
+        <Column Name="observation" DataType="System.String"/>
+        <Column Name="resolution" DataType="System.String"/>
+        <Column Name="created_at" DataType="System.DateTime"/>
+        <Column Name="id_company" DataType="System.String"/>
+        <Column Name="description" DataType="System.String"/>
+        <Column Name="pos_sale" DataType="System.String"/>
+      </TableDataSource>
+    </OdbcDataConnection>
+    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlqjn/pU5yFk4iMuIxuxwo32g==">
+      <TableDataSource Name="Table1" Alias="queryFB" DataType="System.Int32" Enabled="true" SelectCommand="SELECT&#13;&#10;t.CODIGO ,&#13;&#10;t.NOME ,&#13;&#10;t.FANTASIA &#13;&#10;FROM &#13;&#10;TRECCLIENTEGERAL t ">
+        <Column Name="CODIGO" DataType="System.String"/>
+        <Column Name="NOME" DataType="System.String"/>
+        <Column Name="FANTASIA" DataType="System.String"/>
+      </TableDataSource>
+    </OdbcDataConnection>
+    <Parameter Name="whereCondition" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="51.03">
+      <TextObject Name="Text19" Left="0.45" Width="170.1" Height="28.35" Text="PNEUNORTE" Font="Calibri, 18pt, style=Bold"/>
+      <TextObject Name="Text20" Left="623.7" Width="94.5" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Calibri, 10pt"/>
+      <TextObject Name="Text21" Left="0.45" Top="30.35" Width="302.4" Height="18.9" Text="GRÁFICO ANÁLISE DE QUESTIONÁRIOS " Font="Calibri, 12pt"/>
+      <TextObject Name="Text22" Left="623.7" Top="28.35" Width="94.5" Height="18.9" Text="[Page]/[TotalPages#]" HorzAlign="Right" Font="Calibri, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="53.53" Width="718.2" Height="24.57" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="Text2" Width="718.2" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.5" Text="Perguntas" Font="Cambria, 11pt, style=Bold"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="80.6" Width="718.2" Height="24.57" Condition="[queryPG.description]">
+      <TextObject Name="Text1" Width="718.2" Height="18.9" Text="[[queryPG.description]]" Font="Calibri, 10pt, style=Bold"/>
+      <DataBand Name="Data1" Top="107.67" Width="718.2" DataSource="Table"/>
+      <GroupFooterBand Name="GroupFooter1" Top="110.17" Width="718.2" Height="198.45">
+        <MSChartObject Name="MSChart1" Width="330.75" Height="189" DataSource="Table" Filter="" AlignXValues="true" AutoSeriesColumn="" AutoSeriesColor="" AutoSeriesSortOrder="Ascending" AutoSeriesForce="true" ChartData="PENoYXJ0IEJhY2tIYXRjaFN0eWxlPSJXYXZlIiBCb3JkZXJsaW5lQ29sb3I9IkRhcmtHcmF5IiBCb3JkZXJsaW5lV2lkdGg9IjIiIEJvcmRlcmxpbmVEYXNoU3R5bGU9IlNvbGlkIj4NCiAgPFNlcmllcz4NCiAgICA8U2VyaWVzIE5hbWU9IlNlcmllczEiIExlZ2VuZD0iRGVmYXVsdCIgWFZhbHVlVHlwZT0iU3RyaW5nIiBZVmFsdWVUeXBlPSJEb3VibGUiIENoYXJ0VHlwZT0iUGllIiBDaGFydEFyZWE9IkRlZmF1bHQiIExhYmVsPSIjVkFMWDogI1BFUkNFTlQiIExhYmVsQm9yZGVyV2lkdGg9IjIiPg0KICAgICAgPFBvaW50cz4NCiAgICAgICAgPERhdGFQb2ludCBZVmFsdWVzPSIxIiBBeGlzTGFiZWw9IkEiIC8+DQogICAgICAgIDxEYXRhUG9pbnQgWVZhbHVlcz0iMyIgQXhpc0xhYmVsPSJCIiAvPg0KICAgICAgICA8RGF0YVBvaW50IFlWYWx1ZXM9IjIiIEF4aXNMYWJlbD0iQyIgLz4NCiAgICAgICAgPERhdGFQb2ludCBZVmFsdWVzPSI0IiBBeGlzTGFiZWw9IkQiIC8+DQogICAgICA8L1BvaW50cz4NCiAgICA8L1Nlcmllcz4NCiAgPC9TZXJpZXM+DQogIDxMZWdlbmRzPg0KICAgIDxMZWdlbmQgTmFtZT0iRGVmYXVsdCI+DQogICAgPC9MZWdlbmQ+DQogIDwvTGVnZW5kcz4NCiAgPFRpdGxlcz4NCiAgICA8VGl0bGUgTmFtZT0iVGl0bGUxIiBWaXNpYmxlPSJGYWxzZSI+DQogICAgPC9UaXRsZT4NCiAgPC9UaXRsZXM+DQogIDxDaGFydEFyZWFzPg0KICAgIDxDaGFydEFyZWEgTmFtZT0iRGVmYXVsdCI+DQogICAgICA8QXhpc1k+DQogICAgICAgIDxNYWpvckdyaWQgTGluZUNvbG9yPSI2NCwgNjQsIDY0LCA2NCIgLz4NCiAgICAgIDwvQXhpc1k+DQogICAgICA8QXhpc1g+DQogICAgICAgIDxNYWpvckdyaWQgTGluZUNvbG9yPSI2NCwgNjQsIDY0LCA2NCIgLz4NCiAgICAgIDwvQXhpc1g+DQogICAgICA8QXhpc1gyPg0KICAgICAgICA8TWFqb3JHcmlkIExpbmVDb2xvcj0iNjQsIDY0LCA2NCwgNjQiIC8+DQogICAgICA8L0F4aXNYMj4NCiAgICAgIDxBeGlzWTI+DQogICAgICAgIDxNYWpvckdyaWQgTGluZUNvbG9yPSI2NCwgNjQsIDY0LCA2NCIgLz4NCiAgICAgIDwvQXhpc1kyPg0KICAgIDwvQ2hhcnRBcmVhPg0KICA8L0NoYXJ0QXJlYXM+DQogIDxCb3JkZXJTa2luIFNraW5TdHlsZT0iRW1ib3NzIiAvPg0KPC9DaGFydD4=">
+          <MSChartSeries Name="Series1" GroupBy="XValue" XValue="[queryPG.answer]" YValue1="[queryPG.id_client]" Color="[queryPG.answer]" AutoSeriesForce="false" AutoSeriesColumn=""/>
+        </MSChartObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="311.12" Width="718.2" Height="37.8">
+      <LineObject Name="Line1" Top="9.45" Width="718.2"/>
+      <TextObject Name="Text27" Left="557.55" Top="9.45" Width="160.65" Height="18.9" Text="CRM PNEUNORTE" HorzAlign="Right" VertAlign="Center" Font="Cambria, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

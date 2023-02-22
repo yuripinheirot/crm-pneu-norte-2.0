@@ -6,6 +6,7 @@ using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
 using project.presentation.protocols;
 using project.presentation.reports.questionnaireAnalysis;
+using project.presentation.reports.questionnaireAnalysisGraphic;
 using project.presentation.utils;
 using System;
 using System.Linq;
@@ -142,6 +143,11 @@ namespace project.presentation.forms.main
         private void analiseDeQuestionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new QuestionnaireAnalysisForm().ShowDialog();
+        }
+
+        private void análiseDeQuestionáriográficoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QuestionnaireAnalysisGraphicReportForm().ShowDialog();
         }
     }
 }
