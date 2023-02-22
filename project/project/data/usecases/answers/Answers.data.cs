@@ -1,7 +1,6 @@
 ﻿using project.data.utils;
 using project.domain.interfaces.Struct;
 using project.domain.model.entities;
-using project.domain.model.reports.questionnaireAnalysis;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
@@ -70,16 +69,6 @@ namespace project.data.usecases.answers
             answer.updatedAt = DateTime.Now;
             if (!string.IsNullOrWhiteSpace(answer.status)) answer.status = TextUtils.translateStatusAnswerData(answer.status);
             answersRepository.putAnswer(answer);
-        }
-
-        public List<QuestionnaireAnalysisReportModel> postQuestionnaireAnalysisReport(QuestionnaireAnalysisFilters filters)
-        {
-            if (filters.initialDate != null && filters.finalDate != null)
-            {
-                filters.initialDate = DateTimeUtils.convertToInitial((DateTime)filters.initialDate);
-                filters.finalDate = DateTimeUtils.convertToFinal((DateTime)filters.finalDate);
-            }
-            return answersRepository.postQuestionnaireAnalysisReport(filters);
         }
     }
 }

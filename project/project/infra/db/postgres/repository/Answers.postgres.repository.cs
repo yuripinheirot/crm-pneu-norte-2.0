@@ -1,7 +1,6 @@
 ﻿using Npgsql;
 using project.domain.interfaces.Struct;
 using project.domain.model.entities;
-using project.domain.model.reports.questionnaireAnalysis;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
@@ -153,37 +152,6 @@ namespace project.infra.db.postgres.repository
             if (answerUpdated.createdAt.Ticks > 0) answer.createdAt = answerUpdated.createdAt;
 
             pg.SaveChanges();
-        }
-
-        public List<QuestionnaireAnalysisReportModel> postQuestionnaireAnalysisReport(QuestionnaireAnalysisFilters filters)
-        {
-            var result =
-                (from answer in pg.answers
-                 join question in pg.questions on answer.idQuestion equals question.id
-                 where
-                 answer.createdAt >= filters.initialDate &&
-                 answer.createdAt <= filters.finalDate
-                 select new QuestionnaireAnalysisReportModel()
-                 {
-                     answer = answer.answer,
-                     answerStatus = answer.status,
-                     idClient = answer.idClient,
-                     idSale = answer.idSale,
-                     descriptionQuestion = question.description,
-                     idQuestion = question.id,
-                     posSaleTypeQuestion = question.posSale
-                 }).ToList();
-
-            var idClients = result.Select(r => r.idClient).Distinct().ToList();
-            var clients = fb.trecclientegeral.Where(c => idClients.Contains(c.CODIGO)).ToList();
-
-            result.ForEach(r =>
-            {
-                r.clientFantasy = clients.Where(c => c.CODIGO == r.idClient).First().FANTASIA;
-                r.clientName = clients.Where(c => c.CODIGO == r.idClient).First().NOME;
-            });
-
-            return result;
         }
     }
 }

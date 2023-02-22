@@ -1,5 +1,4 @@
 ﻿using project.domain.interfaces.usecases;
-using project.domain.interfaces.usecases.reports;
 
 namespace project.domain.interfaces.Struct
 {
@@ -9,8 +8,7 @@ namespace project.domain.interfaces.Struct
         IGetAnswersNotResolved,
         IGetAnswerDetails,
         IPutAnswer,
-        IPostAnswerAlreadyExists,
-        IPostQuestionnaireAnalysisReport
+        IPostAnswerAlreadyExists
     {
     }
 }

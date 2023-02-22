@@ -1,6 +1,5 @@
 ﻿using project.domain.interfaces.Struct;
 using project.domain.model.entities;
-using project.domain.model.reports.questionnaireAnalysis;
 using project.presentation.protocols;
 using System.Collections.Generic;
 
@@ -56,11 +55,6 @@ namespace project.business.usecases.answers
         public void putAnswer(AnswerModel answer)
         {
             answersData.putAnswer(answer);
-        }
-
-        public List<QuestionnaireAnalysisReportModel> postQuestionnaireAnalysisReport(QuestionnaireAnalysisFilters filters)
-        {
-            return answersData.postQuestionnaireAnalysisReport(filters);
         }
     }
 }

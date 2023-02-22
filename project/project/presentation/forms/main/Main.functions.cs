@@ -1,5 +1,4 @@
 ﻿using project.domain.model.entities;
-using project.domain.model.reports.questionnaireAnalysis;
 using project.main.factories.business;
 using project.main.factories.validations;
 using project.presentation.protocols;
@@ -136,16 +135,5 @@ namespace project.presentation.forms.main
             return AnswersFactory.handle.postAnswerAlreadyExists(idCompany, idSale);
         }
 
-        public DataTable getQuestionnaireAnalysisDataReport()
-        {
-            var filters = new QuestionnaireAnalysisFilters()
-            {
-                initialDate = new DateTime(2000, 01, 01),
-                finalDate = new DateTime(2050, 01, 01)
-            };
-            var data = AnswersFactory.handle.postQuestionnaireAnalysisReport(filters);
-
-            return GridUtils.ToDataTable(data);
-        }
     }
 }
