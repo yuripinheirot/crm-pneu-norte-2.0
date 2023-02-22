@@ -79,6 +79,7 @@ namespace project.presentation.forms.main
             {
                 Text = "...",
                 Width = 30,
+                Height = 29,
                 UseVisualStyleBackColor = true,
             };
 
@@ -112,6 +113,7 @@ namespace project.presentation.forms.main
                             FormattingEnabled = true,
                             Size = new Size(745, 70),
                             Tag = question.id,
+                            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0)
                         },
                         observationButton(question.id)
                 };
