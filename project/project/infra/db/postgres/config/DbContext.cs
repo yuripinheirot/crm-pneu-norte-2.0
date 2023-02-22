@@ -1,15 +1,5 @@
-﻿using FirebirdSql.Data.FirebirdClient;
-using FirebirdSql.Data.Logging;
-using Npgsql;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Npgsql;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure.Interception;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.config
 {

@@ -94,7 +94,7 @@ namespace project.infra.db.postgres.repository
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
-            return table.AsEnumerable()
+            var result = table.AsEnumerable()
                 .Select(row => new AnswerModel()
                 {
                     answer = row.Field<string>("answer"),
@@ -108,7 +108,9 @@ namespace project.infra.db.postgres.repository
                     observation = row.Field<string>("observation"),
                     resolution = row.Field<string>("resolution"),
                     status = row.Field<string>("status"),
-                }).ToList();
+                });
+
+            return result.ToList();
         }
 
         public virtual List<AnswerNotResolvedDataView> getAnswersNotResolved()

@@ -111,5 +111,10 @@ namespace project.presentation.forms.questionnaireAnalysis
                 ThrowCustomException.Throw(err);
             }
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
