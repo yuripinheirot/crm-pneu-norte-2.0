@@ -1,13 +1,6 @@
 ﻿using project.presentation.errors;
 using project.presentation.forms.searchSale;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.searchClient
@@ -19,14 +12,7 @@ namespace project.presentation.forms.searchClient
 
         void loadGrid()
         {
-            try
-            {
-                functions.renderClientsOnGrid(dgvClients, cbxSearchBy.Text, tbxValueFilter.Text);
-            }
-            catch (Exception error)
-            {
-                ThrowCustomException.Throw(error);
-            }
+            functions.renderClientsOnGrid(dgvClients, cbxSearchBy.Text, tbxValueFilter.Text);
         }
         public SearchClientForm(SearchSaleForm searchSaleForm)
         {
@@ -36,23 +22,44 @@ namespace project.presentation.forms.searchClient
 
         private void SearchClientForm_Load(object sender, EventArgs e)
         {
-            cbxSearchBy.SelectedIndex = 0;
-            loadGrid();
+            try
+            {
+                cbxSearchBy.SelectedIndex = 0;
+                loadGrid();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void tbxValueFilter_TextChanged(object sender, EventArgs e)
         {
-            loadGrid();
+            try
+            {
+                loadGrid();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (dgvClients.RowCount > 0)
+            try
             {
-                searchSaleForm.tbxClientId.Text = dgvClients.CurrentRow.Cells["id"].Value.ToString();
-                searchSaleForm.tbxClientName.Text = dgvClients.CurrentRow.Cells["name"].Value.ToString();
+                if (dgvClients.RowCount > 0)
+                {
+                    searchSaleForm.tbxClientId.Text = dgvClients.CurrentRow.Cells["id"].Value.ToString();
+                    searchSaleForm.tbxClientName.Text = dgvClients.CurrentRow.Cells["name"].Value.ToString();
 
-                Close();
+                    Close();
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
 
@@ -84,7 +91,14 @@ namespace project.presentation.forms.searchClient
 
         private void cbxSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadGrid();
+            try
+            {
+                loadGrid();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
     }
 }

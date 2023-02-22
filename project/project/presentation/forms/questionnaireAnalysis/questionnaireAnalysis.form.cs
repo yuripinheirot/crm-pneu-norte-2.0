@@ -16,18 +16,32 @@ namespace project.presentation.forms.questionnaireAnalysis
 
         private void QuestionnaireAnalysisForm_Load(object sender, EventArgs e)
         {
-            cbxPosSale.SelectedIndex = 0;
-            string defaultCompany = Properties.Settings.Default.defaultCompany;
-            if (!string.IsNullOrWhiteSpace(defaultCompany))
+            try
             {
-                tbxIdCompany.Text = defaultCompany;
+                cbxPosSale.SelectedIndex = 0;
+                string defaultCompany = Properties.Settings.Default.defaultCompany;
+                if (!string.IsNullOrWhiteSpace(defaultCompany))
+                {
+                    tbxIdCompany.Text = defaultCompany;
+                }
+                functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
             }
-            functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void cbxPosSale_SelectedIndexChanged(object sender, EventArgs e)
         {
-            functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
+            try
+            {
+                functions.loadQuestionsOnComboBox(cbxQuestions, cbxPosSale.Text);
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -88,7 +102,14 @@ namespace project.presentation.forms.questionnaireAnalysis
 
         private void tbxIdCompany_Leave(object sender, EventArgs e)
         {
-            tbxIdCompany.Text = tbxIdCompany.Text.PadLeft(2, '0');
+            try
+            {
+                tbxIdCompany.Text = tbxIdCompany.Text.PadLeft(2, '0');
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
     }
 }

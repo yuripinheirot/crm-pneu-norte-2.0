@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using project.presentation.errors;
+using System;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.crmNotResolved
@@ -20,21 +14,42 @@ namespace project.presentation.forms.crmNotResolved
 
         private void CrmNotResolved_Load(object sender, EventArgs e)
         {
-            functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
+            try
+            {
+                functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvNotResolved.RowCount == 0) return;
+            try
+            {
+                if (dgvNotResolved.RowCount == 0) return;
 
-            var idAnswer = dgvNotResolved.CurrentRow.Cells["idAnswer"].Value.ToString();
+                var idAnswer = dgvNotResolved.CurrentRow.Cells["idAnswer"].Value.ToString();
 
-            new CrmDetails(idAnswer).ShowDialog();
+                new CrmDetails(idAnswer).ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void CrmNotResolved_Activated(object sender, EventArgs e)
         {
-            functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
+            try
+            {
+                functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
     }
 }

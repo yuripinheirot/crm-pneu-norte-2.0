@@ -4,13 +4,6 @@ using project.presentation.forms.searchClient;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.searchSale
@@ -56,72 +49,113 @@ namespace project.presentation.forms.searchSale
 
         private void SearchSale_Load(object sender, EventArgs e)
         {
-            string defaultCompany = Properties.Settings.Default.defaultCompany;
-            if (!string.IsNullOrWhiteSpace(defaultCompany))
+            try
             {
-                tbxIdCompany.Text = defaultCompany;
-            }
+                string defaultCompany = Properties.Settings.Default.defaultCompany;
+                if (!string.IsNullOrWhiteSpace(defaultCompany))
+                {
+                    tbxIdCompany.Text = defaultCompany;
+                }
 
-            loadGrid();
+                loadGrid();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            loadGrid();
-
-            if (dgvSales.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("Nenhum registro foi encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                loadGrid();
+
+                if (dgvSales.Rows.Count == 0)
+                {
+                    MessageBox.Show("Nenhum registro foi encontrado.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
 
         private void tbxClientId_KeyDown(object sender, KeyEventArgs e)
         {
-            if (DefaultButtonOpenForms.handle(e))
+            try
             {
-                SearchClientForm clientForm = new SearchClientForm(this);
-                clientForm.ShowDialog();
+                if (DefaultButtonOpenForms.handle(e))
+                {
+                    SearchClientForm clientForm = new SearchClientForm(this);
+                    clientForm.ShowDialog();
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
 
         private void tbxClientId_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbxClientId.Text))
+            try
             {
-                tbxClientName.Text = "";
-                return;
-            };
+                if (string.IsNullOrWhiteSpace(tbxClientId.Text))
+                {
+                    tbxClientName.Text = "";
+                    return;
+                };
 
-            formatClientId();
-            var client = functions.getClient(tbxClientId.Text);
+                formatClientId();
+                var client = functions.getClient(tbxClientId.Text);
 
-            if (client == null)
-            {
-                cleanClientId();
-                MessageBox.Show("Cliente não encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (client == null)
+                {
+                    cleanClientId();
+                    MessageBox.Show("Cliente não encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                tbxClientName.Text = client.name;
             }
-
-
-            tbxClientName.Text = client.name;
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (dgvSales.RowCount == 0) return;
-            mainForm.TbxClientName.Text = dgvSales.CurrentRow.Cells["client"].Value.ToString();
-            mainForm.TbxIdCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
-            mainForm.tbxPosSale.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
-            mainForm.TbxIdSale.Text = dgvSales.CurrentRow.Cells["id"].Value.ToString();
+            try
+            {
+                if (dgvSales.RowCount == 0) return;
+                mainForm.TbxClientName.Text = dgvSales.CurrentRow.Cells["client"].Value.ToString();
+                mainForm.TbxIdCompany.Text = dgvSales.CurrentRow.Cells["idCompany"].Value.ToString();
+                mainForm.tbxPosSale.Text = dgvSales.CurrentRow.Cells["posSale"].Value.ToString();
+                mainForm.TbxIdSale.Text = dgvSales.CurrentRow.Cells["id"].Value.ToString();
 
-            Close();
+                Close();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void dgvPedidos_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                btnInsert_Click(sender, e);
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnInsert_Click(sender, e);
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
 

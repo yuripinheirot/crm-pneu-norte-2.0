@@ -59,15 +59,22 @@ namespace project.presentation.forms.crmNotResolved
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            AnswerModel answer = new AnswerModel()
+            try
             {
-                id = idAnswer,
-                status = cbxStatus.Text,
-                resolution = tbxResolution.Text
-            };
+                AnswerModel answer = new AnswerModel()
+                {
+                    id = idAnswer,
+                    status = cbxStatus.Text,
+                    resolution = tbxResolution.Text
+                };
 
-            functions.putAnswer(answer);
-            Close();
+                functions.putAnswer(answer);
+                Close();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
     }
 }

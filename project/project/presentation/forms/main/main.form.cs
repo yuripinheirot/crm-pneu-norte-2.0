@@ -55,23 +55,44 @@ namespace project.presentation.forms.main
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(defaultCompany))
+            try
             {
-                TbxIdCompany.Text = defaultCompany;
+                if (!string.IsNullOrWhiteSpace(defaultCompany))
+                {
+                    TbxIdCompany.Text = defaultCompany;
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
 
         private void TbxIdSale_KeyDown(object sender, KeyEventArgs e)
         {
-            if (DefaultButtonOpenForms.handle(e))
+            try
             {
-                new SearchSaleForm(this).ShowDialog();
+                if (DefaultButtonOpenForms.handle(e))
+                {
+                    new SearchSaleForm(this).ShowDialog();
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
 
         private void analiseDeRespostasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new QuestionnaireAnalysisReportForm().ShowDialog();
+            try
+            {
+                new QuestionnaireAnalysisReportForm().ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void LoadInfoSalesOnFields(SaleModel sale)
@@ -132,22 +153,50 @@ namespace project.presentation.forms.main
 
         private void crmNotResolvedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new CrmNotResolved().ShowDialog();
+            try
+            {
+                new CrmNotResolved().ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void TbxIdCompany_Leave(object sender, EventArgs e)
         {
-            tbxFillZeros(TbxIdCompany, 2);
+            try
+            {
+                tbxFillZeros(TbxIdCompany, 2);
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void analiseDeQuestionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new QuestionnaireAnalysisForm().ShowDialog();
+            try
+            {
+                new QuestionnaireAnalysisForm().ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
 
         private void análiseDeQuestionáriográficoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new QuestionnaireAnalysisGraphicReportForm().ShowDialog();
+            try
+            {
+                new QuestionnaireAnalysisGraphicReportForm().ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
         }
     }
 }

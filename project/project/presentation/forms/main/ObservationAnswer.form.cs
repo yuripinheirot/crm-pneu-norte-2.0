@@ -1,12 +1,6 @@
 ﻿using project.presentation.errors;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.main
@@ -37,9 +31,16 @@ namespace project.presentation.forms.main
 
         private void ObservationAnswer_Load(object sender, EventArgs e)
         {
-            if (observationsAnswers.ContainsKey(idQuestion))
+            try
             {
-                tbxObservation.Text = observationsAnswers[idQuestion];
+                if (observationsAnswers.ContainsKey(idQuestion))
+                {
+                    tbxObservation.Text = observationsAnswers[idQuestion];
+                }
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
             }
         }
     }
