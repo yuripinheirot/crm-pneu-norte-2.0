@@ -1,16 +1,12 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
-using project.domain.interfaces;
 using project.domain.interfaces.Struct;
-using project.domain.model;
+using project.domain.model.entities;
 using project.infra.db.firebird.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.infra.db.firebird.repository
 {

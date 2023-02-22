@@ -1,14 +1,11 @@
-﻿using project.domain.interfaces;
-using project.domain.interfaces.Struct;
-using project.domain.model;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model.entities;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static project.infra.db.firebird.config.FbDbContext;
 
 namespace project.infra.db.firebird.repository
@@ -78,9 +75,9 @@ namespace project.infra.db.firebird.repository
             {
                 var answers =
                     (from _answer in pg.answers
-                     where 
-                     _answer.idQuestion == filters.idQuestion && 
-                     _answer.answer == filters.answer  && 
+                     where
+                     _answer.idQuestion == filters.idQuestion &&
+                     _answer.answer == filters.answer &&
                      _answer.idCompany == filters.idCompany &&
                      _answer.createdAt >= filters.initialDate &&
                      _answer.createdAt <= filters.finalDate

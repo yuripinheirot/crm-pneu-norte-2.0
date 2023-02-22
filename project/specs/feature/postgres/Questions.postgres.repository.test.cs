@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using project.domain.model;
-using project.infra.db.postgres.repository;
-using project.presentation.protocols;
+using project.domain.model.entities;
 using specs.suport.factories.feature;
 using specs.suport.helpers;
 using System;

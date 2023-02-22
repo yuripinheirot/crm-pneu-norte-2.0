@@ -1,11 +1,8 @@
-﻿using project.domain.model;
+﻿using project.domain.model.entities;
 using project.infra.db.postgres.config;
 using specs.suport.factories.feature;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace specs.suport.helpers
 {

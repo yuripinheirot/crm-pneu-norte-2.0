@@ -1,17 +1,14 @@
 ﻿using Npgsql;
-using project.domain.interfaces;
 using project.domain.interfaces.Struct;
-using project.domain.model;
+using project.domain.model.entities;
+using project.domain.model.reports.questionnaireAnalysis;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Validation;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.repository
 {
@@ -80,16 +77,18 @@ namespace project.infra.db.postgres.repository
             {
                 string _query = $"select * from answers a " +
                 $"where " +
-                $"a.id_company = '{filters.idCompany}' and " +
-                $"a.created_at between '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' and '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}' ";
+                $"a.id_company = '{filters.idCompany}'";
 
+                if (filters.initialDate != null && filters.finalDate != null)
+                {
+                    _query += $"and a.created_at between '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' and '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}' ";
+                }
                 if (!string.IsNullOrEmpty(filters.idQuestion)) _query += $" and a.id_Question = '{filters.idQuestion}'";
                 if (!string.IsNullOrEmpty(filters.idSale)) _query += $" and a.id_Sale = '{filters.idSale}'";
 
                 return _query;
             }
             var command = new NpgsqlCommand(buildQuery(), pg.Database.Connection as NpgsqlConnection);
-            pg.Database.Connection.Open();
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable table = new DataTable();
@@ -154,6 +153,37 @@ namespace project.infra.db.postgres.repository
             if (answerUpdated.createdAt.Ticks > 0) answer.createdAt = answerUpdated.createdAt;
 
             pg.SaveChanges();
+        }
+
+        public List<QuestionnaireAnalysisReportModel> postQuestionnaireAnalysisReport(QuestionnaireAnalysisFilters filters)
+        {
+            var result =
+                (from answer in pg.answers
+                 join question in pg.questions on answer.idQuestion equals question.id
+                 where
+                 answer.createdAt >= filters.initialDate &&
+                 answer.createdAt <= filters.finalDate
+                 select new QuestionnaireAnalysisReportModel()
+                 {
+                     answer = answer.answer,
+                     answerStatus = answer.status,
+                     idClient = answer.idClient,
+                     idSale = answer.idSale,
+                     descriptionQuestion = question.description,
+                     idQuestion = question.id,
+                     posSaleTypeQuestion = question.posSale
+                 }).ToList();
+
+            var idClients = result.Select(r => r.idClient).Distinct().ToList();
+            var clients = fb.trecclientegeral.Where(c => idClients.Contains(c.CODIGO)).ToList();
+
+            result.ForEach(r =>
+            {
+                r.clientFantasy = clients.Where(c => c.CODIGO == r.idClient).First().FANTASIA;
+                r.clientName = clients.Where(c => c.CODIGO == r.idClient).First().NOME;
+            });
+
+            return result;
         }
     }
 }

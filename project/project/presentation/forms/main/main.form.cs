@@ -1,22 +1,14 @@
-﻿using FirebirdSql.Data.FirebirdClient;
-using project.domain.model;
-using project.infra.db.firebird.repository;
+﻿using project.domain.model.entities;
 using project.main.factories.validations;
 using project.presentation.errors;
-using project.presentation.errors.exceptions;
 using project.presentation.forms.crmNotResolved;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
 using project.presentation.protocols;
+using project.presentation.reports.questionnaireAnalysis;
 using project.presentation.utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.main
@@ -78,7 +70,7 @@ namespace project.presentation.forms.main
 
         private void analiseDeRespostasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new QuestionnaireAnalysisForm().ShowDialog();
+            new QuestionnaireAnalysisReportForm().ShowDialog();
         }
 
         private void LoadInfoSalesOnFields(SaleModel sale)
@@ -145,6 +137,11 @@ namespace project.presentation.forms.main
         private void TbxIdCompany_Leave(object sender, EventArgs e)
         {
             tbxFillZeros(TbxIdCompany, 2);
+        }
+
+        private void analiseDeQuestionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new QuestionnaireAnalysisForm().ShowDialog();
         }
     }
 }

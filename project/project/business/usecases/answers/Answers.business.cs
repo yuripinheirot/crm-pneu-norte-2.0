@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using project.data.usecases.answers;
-using project.data.usecases.questions;
-using project.domain.interfaces;
-using project.domain.interfaces.Struct;
-using project.domain.model;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model.entities;
+using project.domain.model.reports.questionnaireAnalysis;
 using project.presentation.protocols;
+using System.Collections.Generic;
 
-  
+
 namespace project.business.usecases.answers
 {
     public class AnswersBusiness<AnswersData, QuestionsData> : IAnswersBusiness
@@ -62,6 +56,11 @@ namespace project.business.usecases.answers
         public void putAnswer(AnswerModel answer)
         {
             answersData.putAnswer(answer);
+        }
+
+        public List<QuestionnaireAnalysisReportModel> postQuestionnaireAnalysisReport(QuestionnaireAnalysisFilters filters)
+        {
+            return answersData.postQuestionnaireAnalysisReport(filters);
         }
     }
 }

@@ -1,15 +1,14 @@
-﻿using project.domain.model;
+﻿using project.domain.model.entities;
+using project.domain.model.reports.questionnaireAnalysis;
 using project.main.factories.business;
 using project.main.factories.validations;
 using project.presentation.protocols;
 using project.presentation.utils;
-using project.validations.crm;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.main
@@ -91,7 +90,6 @@ namespace project.presentation.forms.main
 
         public void renderQuestions(FlowLayoutPanel flpQuestions, string posSale)
         {
-            Console.WriteLine("chamou >>> renderQuestions");
             flpQuestions.Controls.Clear();
             var questions = getQuestions(posSale);
             int widthControls = flpQuestions.Width - 70;
@@ -129,13 +127,25 @@ namespace project.presentation.forms.main
             var answers = getAnswersFromForm(mainForm);
             VerifyEmptyAnswersValidationFactory.handle.validate(answers);
             AnswersFactory.handle.addAnswersDTO(answers);
-            
+
             observationsAnswers.Clear();
         }
 
         public bool crmAlreadyExists(string idCompany, string idSale)
         {
             return AnswersFactory.handle.postAnswerAlreadyExists(idCompany, idSale);
+        }
+
+        public DataTable getQuestionnaireAnalysisDataReport()
+        {
+            var filters = new QuestionnaireAnalysisFilters()
+            {
+                initialDate = new DateTime(2000, 01, 01),
+                finalDate = new DateTime(2050, 01, 01)
+            };
+            var data = AnswersFactory.handle.postQuestionnaireAnalysisReport(filters);
+
+            return GridUtils.ToDataTable(data);
         }
     }
 }

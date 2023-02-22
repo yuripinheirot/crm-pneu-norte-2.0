@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using Moq;
-using System.Collections.Generic;
-using project.domain.model;
+using project.domain.model.entities;
 using specs.suport.factories.unit.business;
+using System;
+using System.Collections.Generic;
 
 namespace specs
 {

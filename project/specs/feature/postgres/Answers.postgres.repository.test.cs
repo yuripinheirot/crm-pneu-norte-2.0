@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using project.domain.model;
+using project.domain.model.entities;
 using project.presentation.protocols;
 using specs.suport.factories.feature;
 using specs.suport.helpers;

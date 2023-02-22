@@ -1,5 +1,5 @@
 ﻿using project.domain.interfaces.Struct;
-using project.domain.model;
+using project.domain.model.entities;
 using project.presentation.protocols;
 using System.Collections.Generic;
 

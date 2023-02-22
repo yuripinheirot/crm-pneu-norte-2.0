@@ -1,12 +1,7 @@
-﻿using project.domain.interfaces;
-using project.domain.interfaces.entities;
+﻿using project.domain.interfaces.entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace project.domain.model
+namespace project.domain.model.entities
 {
     public class SaleModel : ISaleEntity
     {

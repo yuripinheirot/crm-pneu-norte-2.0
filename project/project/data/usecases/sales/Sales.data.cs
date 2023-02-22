@@ -1,18 +1,13 @@
-﻿using project.domain.interfaces;
-using project.domain.interfaces.Struct;
-using project.domain.model;
-using project.infra.db.mock.repository;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model.entities;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.data.usecases.sales
 {
-    public class SalesData<SalesRepository> : ISalesData 
+    public class SalesData<SalesRepository> : ISalesData
         where SalesRepository : ISalesRepository
     {
         private SalesRepository salesRepository;

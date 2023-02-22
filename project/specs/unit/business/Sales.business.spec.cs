@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using project.domain.model;
+using project.domain.model.entities;
 using project.presentation.protocols;
 using specs.suport.factories.unit.business;
 using specs.suport.helpers;

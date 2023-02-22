@@ -1,13 +1,15 @@
 ﻿using project.domain.interfaces.usecases;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using project.domain.interfaces.usecases.reports;
 
 namespace project.domain.interfaces.Struct
 {
-    public interface IAnswersData : IPostAnswers, IGetAnswers, IGetAnswersNotResolved, IGetAnswerDetails, IPutAnswer, IPostAnswerAlreadyExists
-    {
-    }
+    public interface IAnswersData :
+        IPostAnswers,
+        IGetAnswers,
+        IGetAnswersNotResolved,
+        IGetAnswerDetails,
+        IPutAnswer,
+        IPostAnswerAlreadyExists,
+        IPostQuestionnaireAnalysisReport
+    { }
 }

@@ -1,12 +1,7 @@
-﻿using project.domain.model;
+﻿using project.domain.model.entities;
 using project.main.factories.business;
 using project.presentation.protocols;
 using project.presentation.utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.crmNotResolved

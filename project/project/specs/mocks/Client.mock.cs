@@ -1,9 +1,5 @@
-﻿using project.domain.model;
-using System;
+﻿using project.domain.model.entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.specs.mocks
 {

@@ -42,6 +42,7 @@ namespace project.presentation.forms.main
             this.pesquisasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crmNotResolvedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cRMsNãoFeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.análiseDeQuestionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analiseDeRespostasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TbxIdCompany = new System.Windows.Forms.TextBox();
@@ -153,7 +154,8 @@ namespace project.presentation.forms.main
             // 
             this.pesquisasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crmNotResolvedToolStripMenuItem,
-            this.cRMsNãoFeitosToolStripMenuItem});
+            this.cRMsNãoFeitosToolStripMenuItem,
+            this.análiseDeQuestionárioToolStripMenuItem});
             this.pesquisasToolStripMenuItem.Name = "pesquisasToolStripMenuItem";
             this.pesquisasToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.pesquisasToolStripMenuItem.Text = "Pesquisas";
@@ -170,6 +172,13 @@ namespace project.presentation.forms.main
             this.cRMsNãoFeitosToolStripMenuItem.Name = "cRMsNãoFeitosToolStripMenuItem";
             this.cRMsNãoFeitosToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
             this.cRMsNãoFeitosToolStripMenuItem.Text = "CRM\'s pendentes";
+            // 
+            // análiseDeQuestionárioToolStripMenuItem
+            // 
+            this.análiseDeQuestionárioToolStripMenuItem.Name = "análiseDeQuestionárioToolStripMenuItem";
+            this.análiseDeQuestionárioToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.análiseDeQuestionárioToolStripMenuItem.Text = "Análise de questionário";
+            this.análiseDeQuestionárioToolStripMenuItem.Click += new System.EventHandler(this.analiseDeQuestionarioToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -269,6 +278,7 @@ namespace project.presentation.forms.main
         public System.Windows.Forms.TextBox TbxIdCompany;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.FlowLayoutPanel flpQuestions;
+        private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionárioToolStripMenuItem;
     }
 }
 

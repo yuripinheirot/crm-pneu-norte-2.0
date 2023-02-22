@@ -1,14 +1,7 @@
-﻿using project.domain.model;
+﻿using project.domain.model.entities;
 using project.presentation.errors;
 using project.presentation.protocols;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.questionnaireAnalysis

@@ -1,11 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using Moq;
-using project.domain.model;
-using System.Collections.Generic;
+using project.domain.model.entities;
 using project.presentation.protocols;
-using specs.suport.factories.unit.answers;
 using specs.suport.factories.unit.business;
+using System;
+using System.Collections.Generic;
 
 namespace specs.unit.data
 {
@@ -161,7 +160,7 @@ namespace specs.unit.data
             var salesReturned = SalesDataFactoryMock.salesData.getSales(filtersToPass);
 
             Assert.AreEqual(2, salesReturned.Count);
-            
+
             for (int i = 0; i < salesReturned.Count; i++)
             {
                 Assert.AreEqual(sales[i].id, salesReturned[i].id);

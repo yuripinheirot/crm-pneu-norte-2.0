@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace project.presentation.errors
@@ -23,8 +20,9 @@ namespace project.presentation.errors
             if (error is PresentationException exception)
             {
                 MessageBox.Show(exception.description, exception.title, MessageBoxButtons.OK, typeErrors[exception.title]);
+                return;
             }
-            
+
             if (error is DbEntityValidationException dbError)
             {
                 string errorString = "";

@@ -1,16 +1,12 @@
-﻿using project.domain.model;
-using project.infra.db.mock.repository;
+﻿using project.data.utils;
+using project.domain.interfaces.Struct;
+using project.domain.model.entities;
+using project.domain.model.reports.questionnaireAnalysis;
+using project.presentation.protocols;
+using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using project.presentation.protocols;
-using project.presentation.utils;
-using project.data.utils;
-using project.domain.interfaces;
-using project.domain.interfaces.Struct;
 
 namespace project.data.usecases.answers
 {
@@ -74,6 +70,16 @@ namespace project.data.usecases.answers
             answer.updatedAt = DateTime.Now;
             if (!string.IsNullOrWhiteSpace(answer.status)) answer.status = TextUtils.translateStatusAnswerData(answer.status);
             answersRepository.putAnswer(answer);
+        }
+
+        public List<QuestionnaireAnalysisReportModel> postQuestionnaireAnalysisReport(QuestionnaireAnalysisFilters filters)
+        {
+            if (filters.initialDate != null && filters.finalDate != null)
+            {
+                filters.initialDate = DateTimeUtils.convertToInitial((DateTime)filters.initialDate);
+                filters.finalDate = DateTimeUtils.convertToFinal((DateTime)filters.finalDate);
+            }
+            return answersRepository.postQuestionnaireAnalysisReport(filters);
         }
     }
 }

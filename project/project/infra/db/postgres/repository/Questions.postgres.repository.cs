@@ -1,15 +1,8 @@
-﻿using project.domain.interfaces;
-using project.domain.interfaces.Struct;
-using project.domain.model;
-using project.infra.db.firebird.config;
+﻿using project.domain.interfaces.Struct;
+using project.domain.model.entities;
 using project.infra.db.postgres.config;
-using project.presentation.protocols;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.repository
 {

@@ -1,8 +1,7 @@
-﻿using project.domain.interfaces;
-using project.domain.interfaces.entities;
+﻿using project.domain.interfaces.entities;
 using System;
 
-namespace project.domain.model
+namespace project.domain.model.entities
 {
     public class AnswerModel : IAnswerEntity
     {
