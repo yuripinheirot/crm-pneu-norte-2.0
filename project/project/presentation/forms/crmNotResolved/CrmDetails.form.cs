@@ -12,6 +12,7 @@ namespace project.presentation.forms.crmNotResolved
     {
         CrmNotResolvedFunctions functions = new CrmNotResolvedFunctions();
         AnswerDetails currentAnswer;
+        bool admin = Properties.Settings.Default.ADMIN;
         string idAnswer;
 
         void loadFields()
@@ -45,6 +46,10 @@ namespace project.presentation.forms.crmNotResolved
             try
             {
                 loadFields();
+                if (!admin)
+                {
+                    cbxStatus.Enabled = false;
+                }
             }
             catch (Exception error)
             {
