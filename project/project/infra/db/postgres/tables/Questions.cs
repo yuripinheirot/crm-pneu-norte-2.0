@@ -1,20 +1,16 @@
 ﻿using Newtonsoft.Json;
-using project.domain.interfaces;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.config
 {
     public partial class PgDbContext
     {
-        [Table("questions", Schema = "public")]
-        public class Questions 
+        [Table("crm.questions")]
+        public class Questions
         {
             [Key]
             public string id { get; set; }

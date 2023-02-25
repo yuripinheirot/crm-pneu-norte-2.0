@@ -1,19 +1,14 @@
-﻿using project.domain.interfaces;
-using project.domain.interfaces.entities;
+﻿using project.domain.interfaces.entities;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace project.infra.db.postgres.config
 {
     public partial class PgDbContext
     {
-        [Table("answers", Schema = "public")]
+        [Table("crm.answers")]
         public class Answers : IAnswerEntity
         {
             [Key, Column(Order = 0)]

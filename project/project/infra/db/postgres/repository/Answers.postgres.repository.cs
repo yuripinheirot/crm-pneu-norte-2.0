@@ -74,7 +74,7 @@ namespace project.infra.db.postgres.repository
         {
             string buildQuery()
             {
-                string _query = $"select * from answers a " +
+                string _query = $"select * from crm.answers a " +
                 $"where " +
                 $"a.id_company = '{filters.idCompany}'";
 

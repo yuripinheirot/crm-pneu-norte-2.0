@@ -36,5 +36,18 @@ namespace specs.Properties {
                 this["firebirdConnection"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost; port=5433; database=ecodados; user id=postgres; password=postgr" +
+            "es;")]
+        public string postgresConnection {
+            get {
+                return ((string)(this["postgresConnection"]));
+            }
+            set {
+                this["postgresConnection"] = value;
+            }
+        }
     }
 }

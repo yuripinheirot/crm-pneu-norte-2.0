@@ -12,7 +12,7 @@
       <Value Profile="(Default)">PROD</Value>
     </Setting>
     <Setting Name="postgresConnectionString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">server=localhost; port=5432; database=crm; user id=postgres; password=postgres;</Value>
+      <Value Profile="(Default)">server=localhost; port=5432; database=ecodados; user id=postgres; password=postgres;</Value>
     </Setting>
     <Setting Name="ADMIN" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

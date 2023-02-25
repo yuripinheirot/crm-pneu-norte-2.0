@@ -5,11 +5,6 @@ namespace project.infra.db.postgres.config
 {
     public partial class PgDbContext : DbContext
     {
-        public PgDbContext() : base(nameOrConnectionString: "postgres")
-        {
-
-        }
-
         public PgDbContext(string connection) : base(new NpgsqlConnection(connection), true)
         {
 

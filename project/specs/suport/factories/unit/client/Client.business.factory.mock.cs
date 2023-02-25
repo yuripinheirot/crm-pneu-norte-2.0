@@ -10,7 +10,7 @@ namespace specs.suport.factories.unit.business
 {
     public class ClientBusinessFactoryMock
     {
-        public static Mock<ClientFirebirdRepository> clientRepository = new Mock<ClientFirebirdRepository>(new FbDbContext(), new PgDbContext());
+        public static Mock<ClientFirebirdRepository> clientRepository = new Mock<ClientFirebirdRepository>(new FbDbContext(), new PgDbContext(Properties.Settings.Default.postgresConnection));
         public static Mock<ClientData<IClientRepository>> clientDataMock = new Mock<ClientData<IClientRepository>>(clientRepository.Object);
 
         public static ClientBusiness<IClientData> clientBusiness = new ClientBusiness<IClientData>(clientDataMock.Object);

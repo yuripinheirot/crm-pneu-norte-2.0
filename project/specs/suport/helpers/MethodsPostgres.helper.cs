@@ -93,7 +93,7 @@ namespace specs.suport.helpers
 
         public static void cleanQuestions()
         {
-            QuestionsRepositoryFactoryMock.postgresMock.Database.ExecuteSqlCommand("delete from questions;");
+            QuestionsRepositoryFactoryMock.postgresMock.Database.ExecuteSqlCommand("delete from crm.questions;");
         }
 
         public static void insertManyAnswers(List<AnswerModel> answers)
@@ -115,7 +115,7 @@ namespace specs.suport.helpers
 
         public static void cleanAnswers()
         {
-            QuestionsRepositoryFactoryMock.postgresMock.Database.ExecuteSqlCommand("delete from answers;");
+            QuestionsRepositoryFactoryMock.postgresMock.Database.ExecuteSqlCommand("delete from crm.answers;");
         }
     }
 }

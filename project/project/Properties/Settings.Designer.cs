@@ -63,7 +63,8 @@ namespace project.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost; port=5432; database=crm; user id=postgres; password=postgres;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost; port=5432; database=ecodados; user id=postgres; password=postgr" +
+            "es;")]
         public string postgresConnectionString {
             get {
                 return ((string)(this["postgresConnectionString"]));
