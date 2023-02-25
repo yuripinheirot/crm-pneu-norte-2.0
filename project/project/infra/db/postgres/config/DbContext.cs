@@ -17,7 +17,7 @@ namespace project.infra.db.postgres.config
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("public");
+            modelBuilder.HasDefaultSchema("crm");
             base.OnModelCreating(modelBuilder);
 
             setKeys_answers(modelBuilder);

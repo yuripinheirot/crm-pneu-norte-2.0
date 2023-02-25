@@ -10,16 +10,13 @@ services:
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_DB=crm
+      - POSTGRES_DB=ecodados
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_SCHEMA=public
+      - POSTGRES_SCHEMA=crm
 
   specs:
     <<: *db
     container_name: database-specs
-    environment:
-      - POSTGRES_DB=specs
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_SCHEMA=public
+    ports:
+      - '5433:5432'

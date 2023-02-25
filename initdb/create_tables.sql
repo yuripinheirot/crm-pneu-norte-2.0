@@ -1,9 +1,11 @@
+CREATE SCHEMA crm;
+
 CREATE TYPE pos_sale_type AS ENUM ('order', 'sale');
 
 CREATE TYPE status_type AS ENUM ('pending', 'done');
 
 CREATE TABLE
-    questions (
+    crm.questions (
         id UUID PRIMARY KEY,
         description TEXT NOT NULL,
         pos_Sale pos_sale_type NOT NULL,
@@ -13,7 +15,7 @@ CREATE TABLE
     );
 
 CREATE TABLE
-    answers (
+    crm.answers (
         id UUID PRIMARY KEY,
         id_Question UUID NOT NULL,
         id_Sale char(7) NOT NULL,
@@ -27,12 +29,12 @@ CREATE TABLE
         id_Company char(2) NOT NULL
     );
 
-ALTER TABLE public.answers
+ALTER TABLE crm.answers
 ADD
-    CONSTRAINT answers_fk FOREIGN KEY (id_Question) REFERENCES public.questions(id);
+    CONSTRAINT answers_fk FOREIGN KEY (id_Question) REFERENCES crm.questions(id);
 
 INSERT INTO
-    public.questions (
+    crm.questions (
         id,
         description,
         pos_sale,
@@ -50,7 +52,7 @@ VALUES (
     );
 
 INSERT INTO
-    public.questions (
+    crm.questions (
         id,
         description,
         pos_sale,
@@ -68,7 +70,7 @@ VALUES (
     );
 
 INSERT INTO
-    public.questions (
+    crm.questions (
         id,
         description,
         pos_sale,
@@ -86,7 +88,7 @@ VALUES (
     );
 
 INSERT INTO
-    public.questions (
+    crm.questions (
         id,
         description,
         pos_sale,
@@ -104,7 +106,7 @@ VALUES (
     );
 
 INSERT INTO
-    public.questions (
+    crm.questions (
         id,
         description,
         pos_sale,
