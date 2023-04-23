@@ -13,11 +13,11 @@ namespace project.presentation.forms.searchSale
         {
             foreach (DataRow row in sales.Rows)
             {
-                if (row["posSale"].ToString() == "order")
+                if (row["posSale"].ToString().Trim() == "order")
                 {
                     row["posSale"] = "SERVIÇOS";
                 }
-                else if (row["posSale"].ToString() == "sale")
+                else if (row["posSale"].ToString().Trim() == "sale")
                 {
                     row["posSale"] = "VENDAS";
                 }

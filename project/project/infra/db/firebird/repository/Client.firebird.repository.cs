@@ -15,8 +15,8 @@ namespace project.infra.db.firebird.repository
         FbDbContext fb;
         public ClientFirebirdRepository(FbDbContext firebird, PgDbContext postgres)
         {
-            pg = postgres;
             fb = firebird;
+            pg = postgres;
         }
         public ClientModel getClient(string id)
         {
@@ -69,6 +69,37 @@ namespace project.infra.db.firebird.repository
                 }).ToList();
         }
 
+        private List<ClientModel> getClientsByIds(List<string> clientIds)
+        {
+            var lengthSkip = 1000;
+            decimal times = Convert.ToDecimal((clientIds.Count / lengthSkip) + 1);
+            var remainsIdsCount = clientIds.Count % lengthSkip;
+            var clients = new List<ClientModel>();
+            void execute(List<string> ids)
+            {
+                var result = from client in fb.trecclientegeral
+                             where ids.Contains(client.CODIGO)
+                             select new ClientModel()
+                             {
+                                 id = client.CODIGO,
+                                 cpfCnpj = client.CPFCNPJ,
+                                 name = client.NOME,
+                                 nameFantasy = client.FANTASIA,
+                                 phone = client.FONE,
+                             };
+
+                clients.AddRange(result.ToList());
+            }
+
+            for (int i = 0; i < times; i++)
+            {
+                var ids = clientIds.Skip(i * lengthSkip).Take(lengthSkip).ToList();
+                execute(ids);
+            }
+
+            return clients;
+        }
+
         public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
         {
 
@@ -88,31 +119,23 @@ namespace project.infra.db.firebird.repository
                      observation = answer.observation,
                  }).Distinct().ToList();
 
-            List<string> clientsIds = answers.Select(a => a.idClient).ToList();
+            List<string> clientsIds = answers.Select(a => a.idClient).Distinct().ToList();
 
-            var clients =
-                (from client in fb.trecclientegeral
-                 where clientsIds.Contains(client.CODIGO)
-                 select new
-                 {
-                     idClient = client.CODIGO,
-                     clientName = client.NOME,
-                     clientNameFantasy = client.FANTASIA,
-                 }).ToList();
+            var clients = getClientsByIds(clientsIds);
 
             var result =
-                from a in answers
-                join c in clients on a.idClient equals c.idClient
-                select new AnalysisByQuestionDateView()
-                {
-                    idClient = a.idClient,
-                    clientName = c.clientName,
-                    clientNameFantasy = c.clientNameFantasy,
-                    idSale = a.idSale,
-                    observation = a.observation
-                };
+                (from a in answers
+                 join c in clients on a.idClient equals c.id
+                 select new AnalysisByQuestionDateView()
+                 {
+                     idClient = a.idClient,
+                     clientName = c.name,
+                     clientNameFantasy = c.nameFantasy,
+                     idSale = a.idSale,
+                     observation = a.observation
+                 }).ToList();
 
-            return result.ToList();
+            return result;
         }
     }
 }

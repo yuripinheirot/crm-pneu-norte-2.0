@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="09/22/2020 08:28:47" ReportInfo.Modified="02/22/2023 15:20:19" ReportInfo.CreatorVersion="2022.3.9.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/22/2020 08:28:47" ReportInfo.Modified="02/26/2023 11:55:52" ReportInfo.CreatorVersion="2021.2.8.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,8 +34,8 @@ namespace FastReport
         &quot;a.id_company ,                                 &quot;+
         &quot;q.description,                                 &quot;+
         &quot;q.pos_sale                                     &quot;+
-        &quot;from answers a                                 &quot;+
-        &quot;inner join questions q on a.id_question = q.id &quot;+
+        &quot;from crm.answers a                                 &quot;+
+        &quot;inner join crm.questions q on a.id_question = q.id &quot;+
         whereCondition;
 
     }
@@ -43,7 +43,7 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <OdbcDataConnection Name="ConnectionPG" ConnectionString="rijcmlqeSW1OOMEY3hN/tGxGKhhXNl//lQ46iwsLjRSpV3CmgU0mMUdyBdq/iJp3q7gRP5m">
+    <OdbcDataConnection Name="ConnectionPG" ConnectionString="rijcmlqeSW1OOMEY3hN/tGxGKhhXNl//lQ46iwsLjRSpV3CmgUUxvx9FEIyWUkkeEMguZli">
       <TableDataSource Name="Table" Alias="queryPG" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;a.id_sale ,&#13;&#10;a.id_client ,&#13;&#10;a.status ,&#13;&#10;a.answer ,&#13;&#10;a.observation ,&#13;&#10;a.resolution ,&#13;&#10;a.created_at ,&#13;&#10;a.id_company ,&#13;&#10;q.description,&#13;&#10;q.pos_sale&#13;&#10;from answers a &#13;&#10;inner join questions q on a.id_question = q.id">
         <Column Name="id_sale" DataType="System.String"/>
         <Column Name="id_client" DataType="System.String"/>
@@ -57,7 +57,7 @@ namespace FastReport
         <Column Name="pos_sale" DataType="System.String"/>
       </TableDataSource>
     </OdbcDataConnection>
-    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlq7Z0WqJbHLdo9GkKZ37ftwA==">
+    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlqmgWQpBfNfpvuISEsa8tgig==">
       <TableDataSource Name="Table1" Alias="queryFB" DataType="System.Int32" Enabled="true" SelectCommand="SELECT&#13;&#10;t.CODIGO ,&#13;&#10;t.NOME ,&#13;&#10;t.FANTASIA &#13;&#10;FROM &#13;&#10;TRECCLIENTEGERAL t ">
         <Column Name="CODIGO" DataType="System.String"/>
         <Column Name="NOME" DataType="System.String"/>
@@ -68,7 +68,7 @@ namespace FastReport
   </Dictionary>
   <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
     <ReportTitleBand Name="ReportTitle1" Width="718.2"/>
-    <PageHeaderBand Name="PageHeader1" Top="2.5" Width="718.2" Height="88.83" BeforePrintEvent="PageHeader1_BeforePrint">
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="718.2" Height="88.83" BeforePrintEvent="PageHeader1_BeforePrint">
       <TextObject Name="Text3" Top="49.25" Width="718.2" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Fill.Color="WhiteSmoke" Text="DESCRIÇÃO PERGUNTA" VertAlign="Bottom" Font="Cambria, 9pt, style=Bold"/>
       <TextObject Name="Text5" Left="37.8" Top="68.15" Width="66.15" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="PEDIDO" HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
       <TextObject Name="Text8" Top="68.15" Width="37.8" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="EMP." HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
@@ -82,12 +82,12 @@ namespace FastReport
       <TextObject Name="Text19" Left="0.45" Width="170.1" Height="28.35" Text="PNEUNORTE" Font="Calibri, 18pt, style=Bold"/>
       <TextObject Name="Text20" Left="623.7" Width="94.5" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Calibri, 10pt"/>
     </PageHeaderBand>
-    <GroupHeaderBand Name="GroupHeader1" Top="93.83" Width="718.2" Height="22.68" RepeatOnEveryPage="true" Condition="[queryPG.description]" KeepTogether="true">
+    <GroupHeaderBand Name="GroupHeader1" Top="96.83" Width="718.2" Height="22.68" RepeatOnEveryPage="true" Condition="[queryPG.description]" KeepTogether="true">
       <TextObject Name="Text4" Top="1.45" Width="718.2" Height="18.9" Fill.Color="WhiteSmoke" CanBreak="false" Text="[queryPG.description]" VertAlign="Bottom" Font="Calibri, 11pt, style=Bold"/>
-      <GroupHeaderBand Name="GroupHeader2" Top="119.01" Width="718.2" Height="18.9" Condition="[queryPG.answer]">
+      <GroupHeaderBand Name="GroupHeader2" Top="123.51" Width="718.2" Height="18.9" RepeatOnEveryPage="true" Condition="[queryPG.answer]">
         <TextObject Name="Text1" Left="66.15" Top="-2" Width="652.05" Height="18.9" CanGrow="true" CanShrink="true" Text="[queryPG.answer]" AutoWidth="true" VertAlign="Bottom" Font="Calibri, 11pt"/>
         <TextObject Name="Text11" Width="71.82" Height="18.9" Text="Resposta: " VertAlign="Bottom" Font="Calibri, 11pt, style=Bold"/>
-        <DataBand Name="Data1" Top="140.41" Width="718.2" Height="18.9" DataSource="Table">
+        <DataBand Name="Data1" Top="146.41" Width="718.2" Height="18.9" DataSource="Table">
           <TextObject Name="Text6" Left="160.65" Width="56.7" Height="18.9" Text="[queryPG.id_client]" VertAlign="Bottom" Font="Calibri, 10pt"/>
           <TextObject Name="Text7" Width="37.8" Height="18.9" Text="[queryPG.id_company]" VertAlign="Bottom" Font="Calibri, 10pt"/>
           <TextObject Name="Text10" Left="37.8" Width="66.15" Height="18.9" Text="[queryPG.id_sale]" VertAlign="Bottom" Font="Calibri, 10pt"/>
@@ -96,11 +96,11 @@ namespace FastReport
           <TextObject Name="Text24" Left="103.95" Width="56.7" Height="18.9" Text="[[queryPG.pos_sale] == &quot;order&quot; ? &quot;SERVIÇO&quot; : &quot;VENDA&quot;]" VertAlign="Bottom" Font="Calibri, 10pt"/>
           <TextObject Name="Text26" Left="378" Width="340.2" Height="18.9" Text="[queryPG.observation]" VertAlign="Bottom" Font="Calibri, 10pt"/>
         </DataBand>
-        <GroupFooterBand Name="GroupFooter2" Top="161.81" Width="718.2" Height="9.45"/>
+        <GroupFooterBand Name="GroupFooter2" Top="169.31" Width="718.2" Height="9.45"/>
       </GroupHeaderBand>
-      <GroupFooterBand Name="GroupFooter1" Top="173.76" Width="718.2"/>
+      <GroupFooterBand Name="GroupFooter1" Top="182.76" Width="718.2"/>
     </GroupHeaderBand>
-    <PageFooterBand Name="PageFooter1" Top="176.26" Width="718.2" Height="37.8">
+    <PageFooterBand Name="PageFooter1" Top="186.76" Width="718.2" Height="37.8">
       <LineObject Name="Line1" Top="9.45" Width="718.2"/>
       <TextObject Name="Text27" Left="557.55" Top="9.45" Width="160.65" Height="18.9" Text="CRM PNEUNORTE" HorzAlign="Right" VertAlign="Center" Font="Cambria, 7pt"/>
     </PageFooterBand>

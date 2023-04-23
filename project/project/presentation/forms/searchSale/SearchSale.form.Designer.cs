@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,13 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvSales = new System.Windows.Forms.DataGridView();
-            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.liquidValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.posSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbxTypeCrm = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,6 +49,14 @@
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.tbxIdCompany = new System.Windows.Forms.TextBox();
+            this.idCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.liquidValue = new FastReport.DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn();
+            this.dateSale = new FastReport.DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn();
+            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.posSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seller = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,15 +156,16 @@
             this.liquidValue,
             this.dateSale,
             this.clientCpfCnpj,
-            this.posSale});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSales.DefaultCellStyle = dataGridViewCellStyle4;
+            this.posSale,
+            this.seller});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSales.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSales.Location = new System.Drawing.Point(16, 84);
             this.dgvSales.MultiSelect = false;
             this.dgvSales.Name = "dgvSales";
@@ -173,73 +176,6 @@
             this.dgvSales.StandardTab = true;
             this.dgvSales.TabIndex = 7;
             this.dgvSales.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPedidos_KeyDown);
-            // 
-            // idCompany
-            // 
-            this.idCompany.DataPropertyName = "idCompany";
-            this.idCompany.HeaderText = "EMPRESA";
-            this.idCompany.MinimumWidth = 6;
-            this.idCompany.Name = "idCompany";
-            this.idCompany.ReadOnly = true;
-            this.idCompany.Width = 65;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "PEDIDO";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 65;
-            // 
-            // client
-            // 
-            this.client.DataPropertyName = "client";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.client.DefaultCellStyle = dataGridViewCellStyle2;
-            this.client.HeaderText = "CLIENTE";
-            this.client.MinimumWidth = 6;
-            this.client.Name = "client";
-            this.client.ReadOnly = true;
-            this.client.Width = 415;
-            // 
-            // liquidValue
-            // 
-            this.liquidValue.DataPropertyName = "liquidValue";
-            dataGridViewCellStyle3.Format = "N2";
-            this.liquidValue.DefaultCellStyle = dataGridViewCellStyle3;
-            this.liquidValue.HeaderText = "VALOR LIQ.";
-            this.liquidValue.MinimumWidth = 6;
-            this.liquidValue.Name = "liquidValue";
-            this.liquidValue.ReadOnly = true;
-            this.liquidValue.Width = 125;
-            // 
-            // dateSale
-            // 
-            this.dateSale.DataPropertyName = "dateSale";
-            this.dateSale.HeaderText = "DATA PED.";
-            this.dateSale.MinimumWidth = 6;
-            this.dateSale.Name = "dateSale";
-            this.dateSale.ReadOnly = true;
-            this.dateSale.Width = 125;
-            // 
-            // clientCpfCnpj
-            // 
-            this.clientCpfCnpj.DataPropertyName = "clientCpfCnpj";
-            this.clientCpfCnpj.HeaderText = "CPF/CNPJ";
-            this.clientCpfCnpj.MinimumWidth = 6;
-            this.clientCpfCnpj.Name = "clientCpfCnpj";
-            this.clientCpfCnpj.ReadOnly = true;
-            this.clientCpfCnpj.Width = 125;
-            // 
-            // posSale
-            // 
-            this.posSale.DataPropertyName = "posSale";
-            this.posSale.HeaderText = "PÓS VENDA";
-            this.posSale.MinimumWidth = 6;
-            this.posSale.Name = "posSale";
-            this.posSale.ReadOnly = true;
-            this.posSale.Width = 125;
             // 
             // btnSearch
             // 
@@ -325,6 +261,118 @@
             this.tbxIdCompany.TabIndex = 0;
             this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // idCompany
+            // 
+            this.idCompany.DataPropertyName = "idCompany";
+            this.idCompany.HeaderText = "EMPRESA";
+            this.idCompany.MinimumWidth = 6;
+            this.idCompany.Name = "idCompany";
+            this.idCompany.ReadOnly = true;
+            this.idCompany.Width = 65;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "PEDIDO";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 65;
+            // 
+            // client
+            // 
+            this.client.DataPropertyName = "client";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.client.DefaultCellStyle = dataGridViewCellStyle2;
+            this.client.HeaderText = "CLIENTE";
+            this.client.MinimumWidth = 6;
+            this.client.Name = "client";
+            this.client.ReadOnly = true;
+            this.client.Width = 415;
+            // 
+            // liquidValue
+            // 
+            // 
+            // 
+            // 
+            this.liquidValue.BackgroundStyle.Class = "DataGridViewNumericBorder";
+            this.liquidValue.BackgroundStyle.CornerType = FastReport.DevComponents.DotNetBar.eCornerType.Square;
+            this.liquidValue.DataPropertyName = "liquidValue";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.liquidValue.DefaultCellStyle = dataGridViewCellStyle3;
+            this.liquidValue.DisplayFormat = "N2";
+            this.liquidValue.HeaderText = "VALOR LIQ.";
+            this.liquidValue.Increment = 1D;
+            this.liquidValue.MinimumWidth = 6;
+            this.liquidValue.Name = "liquidValue";
+            this.liquidValue.ReadOnly = true;
+            this.liquidValue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.liquidValue.Width = 125;
+            // 
+            // dateSale
+            // 
+            // 
+            // 
+            // 
+            this.dateSale.BackgroundStyle.Class = "DataGridViewDateTimeBorder";
+            this.dateSale.BackgroundStyle.CornerType = FastReport.DevComponents.DotNetBar.eCornerType.Square;
+            this.dateSale.DataPropertyName = "dateSale";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dateSale.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dateSale.HeaderText = "DATA";
+            this.dateSale.InputHorizontalAlignment = FastReport.DevComponents.Editors.eHorizontalAlignment.Left;
+            // 
+            // 
+            // 
+            this.dateSale.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateSale.MonthCalendar.BackgroundStyle.CornerType = FastReport.DevComponents.DotNetBar.eCornerType.Square;
+            this.dateSale.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            // 
+            // 
+            // 
+            this.dateSale.MonthCalendar.CommandsBackgroundStyle.CornerType = FastReport.DevComponents.DotNetBar.eCornerType.Square;
+            this.dateSale.MonthCalendar.DisplayMonth = new System.DateTime(2023, 2, 1, 0, 0, 0, 0);
+            this.dateSale.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.dateSale.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateSale.MonthCalendar.NavigationBackgroundStyle.CornerType = FastReport.DevComponents.DotNetBar.eCornerType.Square;
+            this.dateSale.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.dateSale.Name = "dateSale";
+            this.dateSale.ReadOnly = true;
+            this.dateSale.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // clientCpfCnpj
+            // 
+            this.clientCpfCnpj.DataPropertyName = "clientCpfCnpj";
+            this.clientCpfCnpj.HeaderText = "CPF/CNPJ";
+            this.clientCpfCnpj.MinimumWidth = 6;
+            this.clientCpfCnpj.Name = "clientCpfCnpj";
+            this.clientCpfCnpj.ReadOnly = true;
+            this.clientCpfCnpj.Width = 125;
+            // 
+            // posSale
+            // 
+            this.posSale.DataPropertyName = "posSale";
+            this.posSale.HeaderText = "PÓS VENDA";
+            this.posSale.MinimumWidth = 6;
+            this.posSale.Name = "posSale";
+            this.posSale.ReadOnly = true;
+            this.posSale.Width = 125;
+            // 
+            // seller
+            // 
+            this.seller.DataPropertyName = "seller";
+            this.seller.HeaderText = "VENDEDOR";
+            this.seller.Name = "seller";
+            this.seller.ReadOnly = true;
+            // 
             // SearchSaleForm
             // 
             this.AcceptButton = this.btnInsert;
@@ -386,9 +434,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn liquidValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateSale;
+        private FastReport.DevComponents.DotNetBar.Controls.DataGridViewDoubleInputColumn liquidValue;
+        private FastReport.DevComponents.DotNetBar.Controls.DataGridViewDateTimeInputColumn dateSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn clientCpfCnpj;
         private System.Windows.Forms.DataGridViewTextBoxColumn posSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seller;
     }
 }

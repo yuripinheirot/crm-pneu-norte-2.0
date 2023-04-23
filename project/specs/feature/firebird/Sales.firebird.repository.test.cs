@@ -1,11 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using project.domain.model;
-using project.infra.db.postgres.repository;
 using project.presentation.protocols;
 using specs.suport.factories.feature;
-using specs.suport.helpers;
 using System;
-using System.Collections.Generic;
 
 namespace specs.feature.firebird
 {
@@ -43,7 +39,7 @@ namespace specs.feature.firebird
             };
             var sales = SalesRepositoryFactoryMock.salesRepository.getSales(filters);
 
-            Assert.AreEqual(3, sales.Count);
+            Assert.AreEqual(4, sales.Count);
             Assert.AreEqual("0000200", sales[0].id);
             Assert.AreEqual((decimal)399.01, sales[0].liquidValue);
             Assert.AreEqual(new DateTime(2022, 03, 12), sales[0].dateSale);
