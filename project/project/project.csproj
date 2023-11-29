@@ -60,7 +60,7 @@
     </Reference>
     <Reference Include="FastReport, Version=2022.3.9.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lua\Lua\bin\Debug\FastReport.dll</HintPath>
+      <HintPath>..\..\util\FastReport\FastReport.Net_v2021.2.8\Crack\FastReport.dll</HintPath>
     </Reference>
     <Reference Include="FastReport.Bars, Version=2022.3.9.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -169,6 +169,7 @@
     <Compile Include="business\usecases\client\Client.business.cs" />
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="data\usecases\doblist\Doblist.data.cs" />
     <Compile Include="data\utils\DateTime.utils.cs" />
     <Compile Include="domain\interfaces\entities\IAnswer.entity.cs" />
     <Compile Include="domain\interfaces\struct\IAnswers.business.struct.cs" />
@@ -195,10 +196,13 @@
     <Compile Include="domain\interfaces\usecases\IGetSales.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPostAnswersRepository.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPostAnswerAlreadyExists.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IPostDob.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPutAnswer.usecase.cs" />
+    <Compile Include="domain\model\entities\DobList.model.cs" />
     <Compile Include="infra\db\firebird\config\DbContext.cs" />
     <Compile Include="infra\db\firebird\repository\Client.firebird.repository.cs" />
     <Compile Include="infra\db\firebird\repository\Sales.firebird.repository.cs" />
+    <Compile Include="infra\db\firebird\tables\TRECPFISICA.cs" />
     <Compile Include="infra\db\firebird\tables\TRECCLIENTEGERAL.cs" />
     <Compile Include="infra\db\firebird\tables\TVENVENDEDOR.cs" />
     <Compile Include="infra\db\firebird\tables\TVENPEDIDO.cs" />
@@ -235,6 +239,19 @@
     <Compile Include="presentation\forms\crmPending\CrmPending.form.Designer.cs">
       <DependentUpon>CrmPending.form.cs</DependentUpon>
     </Compile>
+    <Compile Include="presentation\forms\dobList\DobListDetails.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\dobList\DobListDetails.form.Designer.cs">
+      <DependentUpon>DobListDetails.form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="presentation\forms\dobList\DobList.form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="presentation\forms\dobList\DobList.form.Designer.cs">
+      <DependentUpon>DobList.form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="presentation\forms\dobList\DobList.functions.cs" />
     <Compile Include="presentation\forms\main\ObservationAnswer.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +260,7 @@
     </Compile>
     <Compile Include="presentation\protocols\AnswerDetails.dataview.cs" />
     <Compile Include="presentation\protocols\AnswerNotResolved.dataview.cs" />
+    <Compile Include="presentation\protocols\DobListDTO.dto.cs" />
     <Compile Include="presentation\reports\questionnaireAnalysisGraphic\QuestionnaireAnalysisGraphic.report.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +342,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\crmNotResolved\CrmNotResolved.form.resx">
       <DependentUpon>CrmNotResolved.form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="presentation\forms\dobList\DobListDetails.form.resx">
+      <DependentUpon>DobListDetails.form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="presentation\forms\dobList\DobList.form.resx">
+      <DependentUpon>DobList.form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\main\Main.form.resx">
       <DependentUpon>Main.form.cs</DependentUpon>

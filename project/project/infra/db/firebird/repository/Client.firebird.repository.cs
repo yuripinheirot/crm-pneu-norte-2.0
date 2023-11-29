@@ -1,11 +1,18 @@
-﻿using project.domain.interfaces.Struct;
+﻿using FastReport.Utils;
+using project.domain.interfaces.entities;
+using project.domain.interfaces.Struct;
 using project.domain.model.entities;
 using project.infra.db.firebird.config;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using static project.infra.db.firebird.config.FbDbContext;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace project.infra.db.firebird.repository
 {
@@ -21,7 +28,7 @@ namespace project.infra.db.firebird.repository
         public ClientModel getClient(string id)
         {
             var clientDb = fb.trecclientegeral.Where(client => client.CODIGO == id).FirstOrDefault();
-            return new ClientModel()
+            var clientModel = new ClientModel()
             {
                 cpfCnpj = clientDb.CPFCNPJ,
                 id = clientDb.CODIGO,
@@ -29,6 +36,8 @@ namespace project.infra.db.firebird.repository
                 nameFantasy = clientDb.FANTASIA,
                 phone = clientDb.FONE
             };
+
+            return clientModel;
         }
 
         public List<ClientModel> getClients(string fieldFilter, string valueFilter)
@@ -45,28 +54,39 @@ namespace project.infra.db.firebird.repository
                         return "cpfCnpj";
                     case "phone":
                         return "FONE";
+                    case "dob":
+                        return "";
                     default:
                         throw new Exception("Invalid field filter");
                 }
             }
 
-            return fb.Database.SqlQuery<FbDbContext.TRECCLIENTEGERAL>(
-                "select                                     " +
-                "cpfcnpj,                                   " +
-                "codigo,                                    " +
-                "nome,                                      " +
-                "fantasia,                                  " +
-                "fone                                       " +
-                "from trecclientegeral                      " +
-                $"where {translatedFieldFilter()} like '%{valueFilter}%'"
-                ).Select(x => new ClientModel()
-                {
-                    cpfCnpj = x.CPFCNPJ,
-                    id = x.CODIGO,
-                    name = x.NOME,
-                    nameFantasy = x.FANTASIA,
-                    phone = x.FONE
-                }).ToList();
+            string query =
+                 "select                                                " +
+                 "clg.cpfcnpj AS cpfCnpj,                               " +
+                 "clg.codigo AS id,                                     " +
+                 "clg.nome AS name,                                     " +
+                 "clg.fantasia AS nameFantasy,                          " +
+                 "clg.fone AS phone,                                    " +
+                 "cpf.DATANASC AS dob                                   " +
+                 "from trecclientegeral clg                             " +
+                 "LEFT JOIN TRECPFISICA cpf ON(clg.CODIGO = cpf.CODIGO) ";
+
+            string whereFilter = $"where {translatedFieldFilter()} like '%{valueFilter}%'";
+
+            if (fieldFilter == "dob")
+            {
+                string[] dob = valueFilter.Split('/');
+
+                whereFilter =
+                     "WHERE                                          " +
+                    $"EXTRACT(MONTH FROM cpf.DATANASC) = {dob[1]}    " +
+                    $"AND EXTRACT(DAY FROM cpf.DATANASC) = {dob[0]}; ";
+            }
+
+            query += whereFilter;
+
+            return fb.Database.SqlQuery<ClientModel>(query).ToList();
         }
 
         private List<ClientModel> getClientsByIds(List<string> clientIds)

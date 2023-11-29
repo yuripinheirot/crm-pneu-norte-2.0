@@ -2,6 +2,7 @@
 using project.main.factories.validations;
 using project.presentation.errors;
 using project.presentation.forms.crmNotResolved;
+using project.presentation.forms.dobList;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
 using project.presentation.protocols;
@@ -192,6 +193,18 @@ namespace project.presentation.forms.main
             try
             {
                 new QuestionnaireAnalysisGraphicReportForm().ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
+        }
+
+        private void aniversariantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new DobList().ShowDialog();
             }
             catch (Exception err)
             {

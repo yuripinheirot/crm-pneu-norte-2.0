@@ -13,6 +13,7 @@ namespace project.domain.interfaces.entities
         string nameFantasy { get; set; }
         string cpfCnpj { get; set; }
         string phone { get; set; }
+        DateTime? dob { get; set; }
         object acessByProp(string propertyName);
     }
 }

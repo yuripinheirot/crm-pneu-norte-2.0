@@ -12,7 +12,7 @@ namespace project.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -37,9 +37,10 @@ namespace project.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("User=SYSDBA;Password=masterkey;Database=C:\\Users\\yurii\\Downloads\\ECODADOS.ECO;Dat" +
-            "aSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;" +
-            "Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;ServerType=0;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("User=SYSDBA;Password=masterkey;Database=C:\\Users\\yuripinheirot\\Documents\\database" +
+            "\\ecodados.eco;DataSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connec" +
+            "tion lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;Serv" +
+            "erType=0;")]
         public string firebirdConnectionString {
             get {
                 return ((string)(this["firebirdConnectionString"]));

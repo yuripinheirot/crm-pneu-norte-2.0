@@ -11,6 +11,7 @@ namespace project.domain.model.entities
         public string nameFantasy { get; set; }
         public string cpfCnpj { get; set; }
         public string phone { get; set; }
+        public DateTime? dob { get; set; }
 
         public object acessByProp(string propertyName)
         {

@@ -22,6 +22,7 @@ namespace project.infra.db.firebird.config
             setKeys_TVENPEDIDO(modelBuilder);
             setKeys_TRECCLIENTEGERAL(modelBuilder);
             setKeys_TVENVENDEDOR(modelBuilder);
+            setKeys_TRECPFISICA(modelBuilder);
         }
 
     }

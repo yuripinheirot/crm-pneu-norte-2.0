@@ -19,7 +19,7 @@ namespace project.business.usecases.client
             return clientData.getClient(id);
         }
 
-        public List<ClientModel> getClients(string fieldFilter, string valueFilter)
+        public List<ClientModel> getClients(string fieldFilter = null, string valueFilter = null)
         {
             return clientData.getClients(fieldFilter, valueFilter);
         }

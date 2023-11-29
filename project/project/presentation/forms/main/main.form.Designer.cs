@@ -45,10 +45,11 @@ namespace project.presentation.forms.main
             this.análiseDeQuestionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analiseDeRespostasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.análiseDeQuestionáriográficoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TbxIdCompany = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.flpQuestions = new System.Windows.Forms.FlowLayoutPanel();
-            this.análiseDeQuestionáriográficoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aniversariantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,7 +157,8 @@ namespace project.presentation.forms.main
             this.pesquisasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crmNotResolvedToolStripMenuItem,
             this.cRMsNãoFeitosToolStripMenuItem,
-            this.análiseDeQuestionárioToolStripMenuItem});
+            this.análiseDeQuestionárioToolStripMenuItem,
+            this.aniversariantesToolStripMenuItem});
             this.pesquisasToolStripMenuItem.Name = "pesquisasToolStripMenuItem";
             this.pesquisasToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.pesquisasToolStripMenuItem.Text = "Pesquisas";
@@ -197,6 +199,13 @@ namespace project.presentation.forms.main
             this.analiseDeRespostasToolStripMenuItem.Text = "Análise de questionário";
             this.analiseDeRespostasToolStripMenuItem.Click += new System.EventHandler(this.analiseDeRespostasToolStripMenuItem_Click);
             // 
+            // análiseDeQuestionáriográficoToolStripMenuItem
+            // 
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Name = "análiseDeQuestionáriográficoToolStripMenuItem";
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Text = "Análise de questionário (gráfico)";
+            this.análiseDeQuestionáriográficoToolStripMenuItem.Click += new System.EventHandler(this.análiseDeQuestionáriográficoToolStripMenuItem_Click);
+            // 
             // TbxIdCompany
             // 
             this.TbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -226,12 +235,12 @@ namespace project.presentation.forms.main
             this.flpQuestions.Size = new System.Drawing.Size(813, 427);
             this.flpQuestions.TabIndex = 4;
             // 
-            // análiseDeQuestionáriográficoToolStripMenuItem
+            // aniversariantesToolStripMenuItem
             // 
-            this.análiseDeQuestionáriográficoToolStripMenuItem.Name = "análiseDeQuestionáriográficoToolStripMenuItem";
-            this.análiseDeQuestionáriográficoToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.análiseDeQuestionáriográficoToolStripMenuItem.Text = "Análise de questionário (gráfico)";
-            this.análiseDeQuestionáriográficoToolStripMenuItem.Click += new System.EventHandler(this.análiseDeQuestionáriográficoToolStripMenuItem_Click);
+            this.aniversariantesToolStripMenuItem.Name = "aniversariantesToolStripMenuItem";
+            this.aniversariantesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.aniversariantesToolStripMenuItem.Text = "Aniversariantes";
+            this.aniversariantesToolStripMenuItem.Click += new System.EventHandler(this.aniversariantesToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -289,6 +298,7 @@ namespace project.presentation.forms.main
         private System.Windows.Forms.FlowLayoutPanel flpQuestions;
         private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionáriográficoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aniversariantesToolStripMenuItem;
     }
 }
 
