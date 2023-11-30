@@ -2,13 +2,13 @@
 using project.domain.model.entities;
 using project.presentation.protocols;
 using System.Collections.Generic;
+using project.data.usecases.answers;
+using project.data.usecases.questions;
 
 
 namespace project.business.usecases.answers
 {
-    public class AnswersBusiness<AnswersData, QuestionsData> : IAnswersBusiness
-        where AnswersData : IAnswersData
-        where QuestionsData : IQuestionsData
+    public class AnswersBusiness : IAnswersBusiness
     {
         AnswersData answersData;
         QuestionsData questionData;

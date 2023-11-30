@@ -1,4 +1,6 @@
-﻿using System;
+﻿using project.presentation.errors;
+using project.presentation.protocols;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +29,7 @@ namespace project.presentation.forms.dobList
         private void DobList_Load(object sender, EventArgs e)
         {
             tbxClientName.Text = props.client;
-            tbxDob.Text = props.dob;
+            dtpDob.Value = props.dob;
             cbxDone.Checked = props.done;
             tbxObservations.Text = props.observations;
         }
@@ -44,6 +46,24 @@ namespace project.presentation.forms.dobList
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            var dto = new DobListDTO()
+            {
+                dob = dtpDob.Value,
+                done = cbxDone.Checked,
+                observations = tbxObservations.Text,
+                idClient = tbxClientName.Text.Split('-')[0],
+            };
+
+            try
+            {
+                DobListFunctions.saveDob(dto);
+                MessageBox.Show("Alterações salvas com sucesso!", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            catch (Exception error)
+            {
+                ThrowCustomException.Throw(error);
+            }
 
         }
     }
@@ -51,7 +71,7 @@ namespace project.presentation.forms.dobList
     public class DobListDetailsProps
     {
         public string client { get; set; }
-        public string dob { get; set; }
+        public DateTime dob { get; set; }
         public bool done { get; set; }
         public string observations { get; set; }
     }

@@ -17,6 +17,7 @@ namespace project.infra.db.postgres.config
 
             setKeys_answers(modelBuilder);
             setKeys_questions(modelBuilder);
+            setKeys_doblist(modelBuilder);
         }
 
     }

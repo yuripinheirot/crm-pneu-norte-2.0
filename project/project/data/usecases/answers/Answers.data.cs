@@ -6,14 +6,14 @@ using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using project.infra.db.postgres.repository;
 
 namespace project.data.usecases.answers
 {
-    public class AnswersData<AnswersRepository> : IAnswersData
-        where AnswersRepository : IAnswersRepository
+    public class AnswersData : IAnswersData
     {
-        private AnswersRepository answersRepository;
-        public AnswersData(AnswersRepository answersRepository)
+        private AnswersPostgresRepository answersRepository;
+        public AnswersData(AnswersPostgresRepository answersRepository)
         {
             this.answersRepository = answersRepository;
         }

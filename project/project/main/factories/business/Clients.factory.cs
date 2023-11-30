@@ -11,11 +11,11 @@ namespace project.main.factories.business
         static PgDbContext postgres = new PgDbContext(Properties.Settings.Default.postgresConnectionString);
         static FbDbContext firebird = new FbDbContext();
         private static ClientFirebirdRepository clientsRepository = new ClientFirebirdRepository(firebird, postgres);
-        private static ClientData<ClientFirebirdRepository> ClientsData =
-            new ClientData<ClientFirebirdRepository>(clientsRepository);
+        private static ClientData ClientsData =
+            new ClientData(clientsRepository);
 
 
-        public static ClientBusiness<ClientData<ClientFirebirdRepository>> handle =
-            new ClientBusiness<ClientData<ClientFirebirdRepository>>(ClientsData);
+        public static ClientBusiness handle =
+            new ClientBusiness(ClientsData);
     }
 }

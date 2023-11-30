@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 namespace project.validations.crm
 {
     public delegate void clearScreen();
-    public class VerifyIfExistsCurrentCrmValidation<AnswersData> 
-        where AnswersData : IAnswersData
+    public class VerifyIfExistsCurrentCrmValidation
     {
         AnswersData answersData;
         public VerifyIfExistsCurrentCrmValidation(AnswersData answersData)

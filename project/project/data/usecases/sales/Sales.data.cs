@@ -4,15 +4,15 @@ using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
+using project.infra.db.firebird.repository;
 
 namespace project.data.usecases.sales
 {
-    public class SalesData<SalesRepository> : ISalesData
-        where SalesRepository : ISalesRepository
+    public class SalesData : ISalesData
     {
-        private SalesRepository salesRepository;
+        private SalesFirebirdRepository salesRepository;
 
-        public SalesData(SalesRepository salesRepository)
+        public SalesData(SalesFirebirdRepository salesRepository)
         {
             this.salesRepository = salesRepository;
         }

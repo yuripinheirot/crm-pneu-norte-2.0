@@ -9,11 +9,11 @@ namespace project.main.factories.business
     {
         static PgDbContext postgres = new PgDbContext(Properties.Settings.Default.postgresConnectionString);
         private static QuestionsPostgresRepository questionsRepository = new QuestionsPostgresRepository(postgres);
-        private static QuestionsData<QuestionsPostgresRepository> questionsData =
-            new QuestionsData<QuestionsPostgresRepository>(questionsRepository);
+        private static QuestionsData questionsData =
+            new QuestionsData(questionsRepository);
 
 
-        public static QuestionsBusiness<QuestionsData<QuestionsPostgresRepository>> handle =
-            new QuestionsBusiness<QuestionsData<QuestionsPostgresRepository>>(questionsData);
+        public static QuestionsBusiness handle =
+            new QuestionsBusiness(questionsData);
     }
 }

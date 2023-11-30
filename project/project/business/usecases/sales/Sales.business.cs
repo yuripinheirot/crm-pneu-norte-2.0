@@ -1,12 +1,12 @@
 ﻿using project.domain.interfaces.Struct;
 using project.domain.model.entities;
+using project.data.usecases.sales;
 using project.presentation.protocols;
 using System.Collections.Generic;
 
 namespace project.business.usecases.sales
 {
-    public class SalesBusiness<SalesData> : ISalesBusiness
-        where SalesData : ISalesData
+    public class SalesBusiness : ISalesBusiness
     {
         SalesData salesData;
         public SalesBusiness(SalesData salesData)

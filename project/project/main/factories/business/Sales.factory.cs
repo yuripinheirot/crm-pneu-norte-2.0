@@ -7,9 +7,9 @@ namespace project.main.factories.business
     public class SalesFactory
     {
         private static SalesFirebirdRepository salesFirebirdRepository = new SalesFirebirdRepository();
-        private static SalesData<SalesFirebirdRepository> salesData = new SalesData<SalesFirebirdRepository>(salesFirebirdRepository);
+        private static SalesData salesData = new SalesData(salesFirebirdRepository);
 
-        public static SalesBusiness<SalesData<SalesFirebirdRepository>> handle = new SalesBusiness<SalesData<SalesFirebirdRepository>>(salesData);
+        public static SalesBusiness handle = new SalesBusiness(salesData);
 
     }
 }

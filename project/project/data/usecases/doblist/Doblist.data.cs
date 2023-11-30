@@ -5,27 +5,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using project.infra.db.postgres.repository;
+using project.presentation.protocols;
 
 namespace project.data.usecases.doblist
 {
 
-    public class DobList<QuestionsRepository> : IQuestionsData
-where QuestionsRepository : IQuestionsRepository
+    public class DobListData : IDobListData
     {
-        QuestionsRepository questionRepository;
-        public DobList(QuestionsRepository questionRepository)
+        DobListRepository dobListRepository;
+
+        public DobListData(DobListRepository dobListRepository)
         {
-            this.questionRepository = questionRepository;
+            this.dobListRepository = dobListRepository;
         }
 
-        public virtual List<QuestionModel> getQuestions()
+        public void insertDob(DobListDTO dto)
         {
-            return questionRepository.getQuestions();
-        }
+            var dobListItem = new DobListModel()
+            {
+                id = Guid.NewGuid().ToString(),
+                dob = dto.dob,
+                done = dto.done,
+                idClient = dto.idClient,
+                observations = dto.observations,
+                createdAt = DateTime.Now,
+                updatedAt = DateTime.Now
+            };
 
-        public virtual QuestionModel getQuestion(string idQuestion)
-        {
-            return questionRepository.getQuestion(idQuestion);
+            dobListRepository.insertDob(dobListItem);
         }
     }
 

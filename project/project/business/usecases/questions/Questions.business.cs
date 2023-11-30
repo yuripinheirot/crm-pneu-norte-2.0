@@ -2,11 +2,11 @@
 using project.domain.model.entities;
 using System.Collections.Generic;
 using System.Linq;
+using project.data.usecases.questions;
 
 namespace project.business.usecases.questions
 {
-    public class QuestionsBusiness<QuestionsData> : IQuestionsBusiness
-        where QuestionsData : IQuestionsData
+    public class QuestionsBusiness : IQuestionsBusiness
     {
         QuestionsData questionsData;
         public QuestionsBusiness(QuestionsData questionsData)

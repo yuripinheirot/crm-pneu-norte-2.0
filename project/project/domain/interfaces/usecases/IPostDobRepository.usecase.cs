@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace project.domain.interfaces.usecases
 {
 
-    public interface IPostDob
+    public interface IPostDobRepository
     {
-        void insertDob(DobListDTO dto);
+        void insertDob(DobListModel doblistModel);
     }
 
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project.domain.model.entities
 {
-    internal class DobListModel
+    public class DobListModel
     {
         public string id { get; set; }
         public string idClient { get; set; }

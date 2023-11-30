@@ -4,15 +4,15 @@ using project.domain.model.entities;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
+using project.infra.db.firebird.repository;
 
 namespace project.data.usecases.client
 {
-    public class ClientData<ClientRepository> : IClientData
-        where ClientRepository : IClientRepository
+    public class ClientData : IClientData
     {
-        ClientRepository clientRepository;
+        ClientFirebirdRepository clientRepository;
 
-        public ClientData(ClientRepository clientRepository)
+        public ClientData(ClientFirebirdRepository clientRepository)
         {
             this.clientRepository = clientRepository;
         }

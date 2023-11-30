@@ -16,8 +16,8 @@ namespace project.presentation.forms.dobList
         {
             var props = new DobListDetailsProps()
             {
-                client = $"{dgvClients.CurrentRow.Cells["id"].Value.ToString()} - {dgvClients.CurrentRow.Cells["name"].Value.ToString()}",
-                dob = dtpDob.Value.ToString(),
+                client = $"{dgvClients.CurrentRow.Cells["id"].Value.ToString()}-{dgvClients.CurrentRow.Cells["name"].Value.ToString()}",
+                dob = Convert.ToDateTime(dgvClients.CurrentRow.Cells["dob"].Value),
                 done = Convert.ToBoolean(dgvClients.CurrentRow.Cells["isDone"].Value),
                 observations = ""
             };

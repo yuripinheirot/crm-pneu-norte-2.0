@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using project.presentation.protocols;
+using project.business.usecases.doblist;
 
 namespace project.presentation.forms.dobList
 {
@@ -22,7 +23,7 @@ namespace project.presentation.forms.dobList
 
         static public void saveDob(DobListDTO dto)
         {
-
+            DobListFactory.handle.insertDob(dto);
         }
     }
 }

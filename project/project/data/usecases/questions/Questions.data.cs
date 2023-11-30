@@ -1,14 +1,14 @@
 ﻿using project.domain.interfaces.Struct;
 using project.domain.model.entities;
 using System.Collections.Generic;
+using project.infra.db.postgres.repository;
 
 namespace project.data.usecases.questions
 {
-    public class QuestionsData<QuestionsRepository> : IQuestionsData
-        where QuestionsRepository : IQuestionsRepository
+    public class QuestionsData : IQuestionsData
     {
-        QuestionsRepository questionRepository;
-        public QuestionsData(QuestionsRepository questionRepository)
+        QuestionsPostgresRepository questionRepository;
+        public QuestionsData(QuestionsPostgresRepository questionRepository)
         {
             this.questionRepository = questionRepository;
         }

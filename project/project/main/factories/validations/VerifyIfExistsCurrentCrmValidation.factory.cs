@@ -11,9 +11,9 @@ namespace project.main.factories.validations
         static PgDbContext postgres = new PgDbContext(Properties.Settings.Default.postgresConnectionString);
         static FbDbContext firebird = new FbDbContext();
         private static AnswersPostgresRepository answersRepository = new AnswersPostgresRepository(postgres, firebird);
-        private static AnswersData<AnswersPostgresRepository> answersData = new AnswersData<AnswersPostgresRepository>(answersRepository);
+        private static AnswersData answersData = new AnswersData(answersRepository);
 
-        public static VerifyIfExistsCurrentCrmValidation<AnswersData<AnswersPostgresRepository>>
-            handle = new VerifyIfExistsCurrentCrmValidation<AnswersData<AnswersPostgresRepository>>(answersData);
+        public static VerifyIfExistsCurrentCrmValidation
+            handle = new VerifyIfExistsCurrentCrmValidation(answersData);
     }
 }
