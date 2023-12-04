@@ -1,6 +1,6 @@
 ﻿namespace project.presentation.forms.dobList
 {
-    partial class DobList
+    partial class DobListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClients = new System.Windows.Forms.DataGridView();
+            this.dtpDob = new System.Windows.Forms.DateTimePicker();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnQuit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,10 +43,7 @@
             this.isDone = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CPFCNPJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameFantasy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtpDob = new System.Windows.Forms.DateTimePicker();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnQuit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.observations = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,8 @@
             this.dob,
             this.isDone,
             this.CPFCNPJ,
-            this.nameFantasy});
+            this.nameFantasy,
+            this.observations});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,6 +89,49 @@
             this.dgvClients.StandardTab = true;
             this.dgvClients.TabIndex = 3;
             this.dgvClients.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvClients_KeyDown);
+            // 
+            // dtpDob
+            // 
+            this.dtpDob.CustomFormat = "dd/MM";
+            this.dtpDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDob.Location = new System.Drawing.Point(12, 35);
+            this.dtpDob.Name = "dtpDob";
+            this.dtpDob.Size = new System.Drawing.Size(92, 26);
+            this.dtpDob.TabIndex = 4;
+            this.dtpDob.ValueChanged += new System.EventHandler(this.dtpDob_ValueChanged);
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsert.Location = new System.Drawing.Point(461, 408);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(83, 30);
+            this.btnInsert.TabIndex = 17;
+            this.btnInsert.Text = "&Editar";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnQuit
+            // 
+            this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.Location = new System.Drawing.Point(550, 408);
+            this.btnQuit.Name = "btnQuit";
+            this.btnQuit.Size = new System.Drawing.Size(83, 30);
+            this.btnQuit.TabIndex = 18;
+            this.btnQuit.Text = "Sai&r";
+            this.btnQuit.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 20);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Data";
             // 
             // id
             // 
@@ -176,48 +221,12 @@
             this.nameFantasy.Visible = false;
             this.nameFantasy.Width = 250;
             // 
-            // dtpDob
+            // observations
             // 
-            this.dtpDob.CustomFormat = "dd/MM";
-            this.dtpDob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDob.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDob.Location = new System.Drawing.Point(12, 35);
-            this.dtpDob.Name = "dtpDob";
-            this.dtpDob.Size = new System.Drawing.Size(92, 26);
-            this.dtpDob.TabIndex = 4;
-            this.dtpDob.ValueChanged += new System.EventHandler(this.dtpDob_ValueChanged);
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(461, 408);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(83, 30);
-            this.btnInsert.TabIndex = 17;
-            this.btnInsert.Text = "&Editar";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnQuit
-            // 
-            this.btnQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuit.Location = new System.Drawing.Point(550, 408);
-            this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(83, 30);
-            this.btnQuit.TabIndex = 18;
-            this.btnQuit.Text = "Sai&r";
-            this.btnQuit.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Data";
+            this.observations.HeaderText = "observations";
+            this.observations.Name = "observations";
+            this.observations.ReadOnly = true;
+            this.observations.Visible = false;
             // 
             // DobList
             // 
@@ -248,6 +257,9 @@
 
         private System.Windows.Forms.DataGridView dgvClients;
         private System.Windows.Forms.DateTimePicker dtpDob;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnQuit;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
@@ -255,8 +267,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn isDone;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPFCNPJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameFantasy;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnQuit;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observations;
     }
 }

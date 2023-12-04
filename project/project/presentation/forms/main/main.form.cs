@@ -204,7 +204,7 @@ namespace project.presentation.forms.main
         {
             try
             {
-                new DobList().ShowDialog();
+                new DobListForm().ShowDialog();
             }
             catch (Exception err)
             {

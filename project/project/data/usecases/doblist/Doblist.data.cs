@@ -20,13 +20,19 @@ namespace project.data.usecases.doblist
             this.dobListRepository = dobListRepository;
         }
 
+        public List<DobListModel> getDobs(string dobDayMonth, int year)
+        {
+            return dobListRepository.getDobs(dobDayMonth, year);
+        }
+
         public void insertDob(DobListDTO dto)
         {
             var dobListItem = new DobListModel()
             {
                 id = Guid.NewGuid().ToString(),
-                dob = dto.dob,
+                year = DateTime.Now.Year,
                 done = dto.done,
+                dob = dto.dob.Trim(),
                 idClient = dto.idClient,
                 observations = dto.observations,
                 createdAt = DateTime.Now,

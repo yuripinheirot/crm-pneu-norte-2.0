@@ -19,10 +19,12 @@ namespace project.infra.db.postgres.config
 
             [MaxLength(255)]
             public string observations { get; set; }
+            [MaxLength(5)]
+            public string dob { get; set; }
 
             public bool done { get; set; }
 
-            public DateTime dob { get; set; }
+            public int year { get; set; }
             
             [Column(name: "updated_at")]
             public DateTime updatedAt { get; set; }

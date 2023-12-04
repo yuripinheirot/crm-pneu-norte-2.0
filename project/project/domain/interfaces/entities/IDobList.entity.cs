@@ -12,7 +12,8 @@ namespace project.domain.interfaces.entities
         string idClient { get; set; }
         string observations { get; set; }
         bool done { get; set; }
-        DateTime dob { get; set; }
+        string dob { get; set; }
+        int year { get; set; }
         DateTime updatedAt { get; set; }
         DateTime createdAt { get; set; }
     }

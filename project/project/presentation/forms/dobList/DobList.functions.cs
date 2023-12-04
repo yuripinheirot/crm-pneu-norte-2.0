@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using project.presentation.protocols;
 using project.business.usecases.doblist;
+using project.domain.model.entities;
 
 namespace project.presentation.forms.dobList
 {
@@ -24,6 +25,11 @@ namespace project.presentation.forms.dobList
         static public void saveDob(DobListDTO dto)
         {
             DobListFactory.handle.insertDob(dto);
+        }
+
+        static public List<DobListModel> getDoblist(string dayAndMonth, int year)
+        {
+            return DobListFactory.handle.getDobs(dayAndMonth, year);
         }
     }
 }

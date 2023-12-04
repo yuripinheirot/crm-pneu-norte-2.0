@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.domain.model.entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,20 +11,24 @@ using System.Windows.Forms;
 
 namespace project.presentation.forms.dobList
 {
-    public partial class DobList : Form
+    public partial class DobListForm : Form
     {
         void openDobDetails()
         {
+
+            var observationsValue = dgvClients.CurrentRow.Cells["observations"].Value;
+            string observations = observationsValue != null ? observationsValue.ToString() : string.Empty;
+
             var props = new DobListDetailsProps()
             {
-                client = $"{dgvClients.CurrentRow.Cells["id"].Value.ToString()}-{dgvClients.CurrentRow.Cells["name"].Value.ToString()}",
+                client = $"{dgvClients.CurrentRow.Cells["id"].Value}-{dgvClients.CurrentRow.Cells["name"].Value}",
                 dob = Convert.ToDateTime(dgvClients.CurrentRow.Cells["dob"].Value),
                 done = Convert.ToBoolean(dgvClients.CurrentRow.Cells["isDone"].Value),
-                observations = ""
+                observations = observations
             };
 
 
-            new DobListDetails(props).ShowDialog();
+            new DobListDetails(props, this).ShowDialog();
         }
 
         string getDob()
@@ -31,12 +36,30 @@ namespace project.presentation.forms.dobList
             return dtpDob.Value.ToString("dd/MM");
         }
 
-        void loadGrid()
+        public void loadGrid()
         {
+            string dob = $"{dtpDob.Value.Day}/{dtpDob.Value.Month}";
+            int currentYear = DateTime.Now.Year;
+
             DobListFunctions.renderClientsOnGrid(dgvClients, getDob());
+            var doblist = DobListFunctions.getDoblist(dob, currentYear);
+
+            var doblistDict = doblist.ToDictionary(dobModel => dobModel.idClient, dobModel => dobModel);
+
+            if (dgvClients.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgvClients.Rows)
+                {
+                    if (row.Cells["id"].Value is string idClient && doblistDict.TryGetValue(idClient, out DobListModel doblistModel))
+                    {
+                        row.Cells["isDone"].Value = doblistModel.done;
+                        row.Cells["observations"].Value = doblistModel.observations;
+                    }
+                }
+            }
         }
 
-        public DobList()
+        public DobListForm()
         {
             InitializeComponent();
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace project.domain.interfaces.Struct
 {
-    public interface IDobListData : IPostDob
+    public interface IDobListData : IPostDob, IGetDobs
     {
     }
 }

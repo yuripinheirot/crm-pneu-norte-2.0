@@ -15,11 +15,13 @@ namespace project.presentation.forms.dobList
     public partial class DobListDetails : Form
     {
         DobListDetailsProps props;
+        DobListForm form;
 
-        public DobListDetails(DobListDetailsProps props)
+        public DobListDetails(DobListDetailsProps props, DobListForm form)
         {
             InitializeComponent();
             this.props = props;
+            this.form = form;
         }
 
         private void dtpDob_ValueChanged(object sender, EventArgs e)
@@ -48,16 +50,17 @@ namespace project.presentation.forms.dobList
         {
             var dto = new DobListDTO()
             {
-                dob = dtpDob.Value,
                 done = cbxDone.Checked,
                 observations = tbxObservations.Text,
                 idClient = tbxClientName.Text.Split('-')[0],
+                dob = $"{props.dob.Day}/{props.dob.Month}"
             };
 
             try
             {
                 DobListFunctions.saveDob(dto);
                 MessageBox.Show("Alterações salvas com sucesso!", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                form.loadGrid();
                 Close();
             }
             catch (Exception error)

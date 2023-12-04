@@ -201,6 +201,7 @@
     <Compile Include="domain\interfaces\usecases\IGetSales.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPostAnswersRepository.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPostAnswerAlreadyExists.usecase.cs" />
+    <Compile Include="domain\interfaces\usecases\IGetDobs.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPostDobRepository.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPostDob.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IPutAnswer.usecase.cs" />

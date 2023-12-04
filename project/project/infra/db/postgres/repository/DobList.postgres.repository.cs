@@ -19,19 +19,37 @@ namespace project.infra.db.postgres.repository
             pg = postgres;
         }
 
+        public List<DobListModel> getDobs(string dob, int year)
+        {
+            return 
+                pg.doblist
+                .Where((doblist) => doblist.year == year && doblist.dob == dob)
+                .Select(n => new DobListModel()
+                {
+                    createdAt = n.createdAt,
+                    dob = n.dob,
+                    year = n.year,  
+                    done = n.done,
+                    id = n.id,
+                    idClient = n.idClient,
+                    observations = n.observations,
+                    updatedAt = n.updatedAt 
+                })
+                .ToList();
+        }
+
         public void insertDob(DobListModel doblistModel)
         {
-            Console.WriteLine(doblistModel);
-
             pg.doblist.Add(new PgDbContext.DobList()
             {
                 id = doblistModel.id,
                 updatedAt = DateTime.Now,
                 observations = doblistModel.observations,
                 idClient = doblistModel.idClient,
+                dob = doblistModel.dob,
                 done = doblistModel.done,
                 createdAt = doblistModel.createdAt,
-                dob = doblistModel.dob,
+                year = doblistModel.year,
             });
 
             pg.SaveChanges();

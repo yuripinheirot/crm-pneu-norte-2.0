@@ -11,6 +11,6 @@ namespace project.presentation.protocols
         public string idClient { get; set; }
         public string observations { get; set; }
         public bool done { get; set; }
-        public DateTime dob { get; set; }
+        public string dob { get; set; } 
     }
 }
