@@ -56,7 +56,7 @@
             this.tbxClientName.Name = "tbxClientName";
             this.tbxClientName.ReadOnly = true;
             this.tbxClientName.Size = new System.Drawing.Size(341, 26);
-            this.tbxClientName.TabIndex = 11;
+            this.tbxClientName.TabIndex = 0;
             this.tbxClientName.TabStop = false;
             // 
             // label1
@@ -78,7 +78,7 @@
             this.cbxDone.Location = new System.Drawing.Point(506, 34);
             this.cbxDone.Name = "cbxDone";
             this.cbxDone.Size = new System.Drawing.Size(64, 24);
-            this.cbxDone.TabIndex = 12;
+            this.cbxDone.TabIndex = 2;
             this.cbxDone.Text = "Feito";
             this.cbxDone.UseVisualStyleBackColor = true;
             // 
@@ -89,7 +89,7 @@
             this.tbxObservations.Location = new System.Drawing.Point(12, 99);
             this.tbxObservations.Name = "tbxObservations";
             this.tbxObservations.Size = new System.Drawing.Size(558, 161);
-            this.tbxObservations.TabIndex = 13;
+            this.tbxObservations.TabIndex = 3;
             this.tbxObservations.Text = "";
             // 
             // label3
@@ -104,11 +104,12 @@
             // 
             // btnSave
             // 
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(398, 295);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 30);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "&Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -120,7 +121,7 @@
             this.btnQuit.Location = new System.Drawing.Point(487, 295);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(83, 30);
-            this.btnQuit.TabIndex = 16;
+            this.btnQuit.TabIndex = 5;
             this.btnQuit.Text = "Sai&r";
             this.btnQuit.UseVisualStyleBackColor = true;
             this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
@@ -133,13 +134,15 @@
             this.dtpDob.Location = new System.Drawing.Point(359, 32);
             this.dtpDob.Name = "dtpDob";
             this.dtpDob.Size = new System.Drawing.Size(132, 26);
-            this.dtpDob.TabIndex = 17;
+            this.dtpDob.TabIndex = 1;
             // 
             // DobListDetails
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.CancelButton = this.btnQuit;
             this.ClientSize = new System.Drawing.Size(583, 331);
             this.Controls.Add(this.dtpDob);
             this.Controls.Add(this.btnSave);

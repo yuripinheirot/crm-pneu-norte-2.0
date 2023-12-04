@@ -29,6 +29,19 @@ CREATE TABLE
         id_Company char(2) NOT NULL
     );
 
+
+CREATE TABLE crm.doblist (
+    id UUID PRIMARY KEY,
+    id_client CHAR(5) NOT NULL,
+    observations TEXT,
+    done BOOLEAN NOT NULL,
+    dob varchar(5) NOT NULL,
+    year int not null,
+    updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(),
+    created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(),
+    UNIQUE (id_client, dob)
+);
+
 ALTER TABLE crm.answers
 ADD
     CONSTRAINT answers_fk FOREIGN KEY (id_Question) REFERENCES crm.questions(id);
