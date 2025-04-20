@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/22/2020 08:28:47" ReportInfo.Modified="04/13/2025 18:57:15" ReportInfo.CreatorVersion="2021.2.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void PageHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      TableDataSource dts = Report.GetDataSource(&quot;queryPG&quot;) as TableDataSource;
+      string whereCondition = ((String)Report.GetParameterValue(&quot;whereCondition&quot;));
+      dts.SelectCommand =
+        &quot;select                                         &quot;+
+        &quot;a.id_sale ,                                    &quot;+
+        &quot;a.id_client ,                                  &quot;+
+        &quot;a.status ,                                     &quot;+
+        &quot;a.answer ,                                     &quot;+
+        &quot;a.observation ,                                &quot;+
+        &quot;a.resolution ,                                 &quot;+
+        &quot;a.created_at ,                                 &quot;+
+        &quot;a.id_company ,                                 &quot;+
+        &quot;q.description,                                 &quot;+
+        &quot;q.pos_sale                                     &quot;+
+        &quot;from crm.answers a                                 &quot;+
+        &quot;inner join crm.questions q on a.id_question = q.id &quot;+
+        whereCondition;
+
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlqm818uhQywhUqIku43AdihQ==">
+      <TableDataSource Name="Table1" Alias="queryFB" DataType="System.Int32" Enabled="true" SelectCommand="SELECT&#13;&#10;t.CODIGO ,&#13;&#10;t.NOME ,&#13;&#10;t.FANTASIA &#13;&#10;FROM &#13;&#10;TRECCLIENTEGERAL t ">
+        <Column Name="CODIGO" DataType="System.String"/>
+        <Column Name="NOME" DataType="System.String"/>
+        <Column Name="FANTASIA" DataType="System.String"/>
+      </TableDataSource>
+    </OdbcDataConnection>
+    <OdbcDataConnection Name="ConnectionPG" ConnectionString="rijcmlqyNB2tKYS/zU2144VOB6jfP0/sNHbmKdHYnlg4NpTTQbGgiYKklVLG/4nTOCtj+dG">
+      <TableDataSource Name="Table" Alias="queryPG" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;a.id_sale ,&#13;&#10;a.id_client ,&#13;&#10;a.status ,&#13;&#10;a.answer ,&#13;&#10;a.observation ,&#13;&#10;a.resolution ,&#13;&#10;a.created_at ,&#13;&#10;a.id_company ,&#13;&#10;q.description,&#13;&#10;q.pos_sale&#13;&#10;from answers a &#13;&#10;inner join questions q on a.id_question = q.id">
+        <Column Name="id_sale" DataType="System.String"/>
+        <Column Name="id_client" DataType="System.String"/>
+        <Column Name="status" DataType="System.String"/>
+        <Column Name="answer" DataType="System.String"/>
+        <Column Name="observation" DataType="System.String"/>
+        <Column Name="resolution" DataType="System.String"/>
+        <Column Name="created_at" DataType="System.DateTime"/>
+        <Column Name="id_company" DataType="System.String"/>
+        <Column Name="description" DataType="System.String"/>
+        <Column Name="pos_sale" DataType="System.String"/>
+      </TableDataSource>
+    </OdbcDataConnection>
+    <Parameter Name="whereCondition" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="2.67" Width="718.2" Height="88.83" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="Text3" Top="49.25" Width="718.2" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Fill.Color="WhiteSmoke" Text="DESCRIÇÃO PERGUNTA" VertAlign="Bottom" Font="Cambria, 9pt, style=Bold"/>
+      <TextObject Name="Text5" Left="37.8" Top="68.15" Width="66.15" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="PEDIDO" HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text8" Top="68.15" Width="37.8" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="EMP." HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text9" Left="160.65" Top="68.15" Width="56.7" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="CLIENTE" HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text14" Left="217.35" Top="68.15" Width="75.6" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="DATA" HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text17" Left="292.95" Top="68.15" Width="85.05" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="STATUS" HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text23" Left="103.95" Top="68.15" Width="56.7" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="TIPO" HorzAlign="Center" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text25" Left="378" Top="68.15" Width="340.2" Height="18.9" Border.Lines="Top, Bottom" Border.Width="0.25" Text="OBSERVAÇÕES" VertAlign="Bottom" Font="Cambria, 9pt"/>
+      <TextObject Name="Text21" Left="0.45" Top="30.35" Width="302.4" Height="18.9" Text="RELATÓRIO ANÁLISE DE QUESTIONÁRIOS" Font="Calibri, 12pt"/>
+      <TextObject Name="Text22" Left="623.7" Top="28.35" Width="94.5" Height="18.9" Text="[Page]/[TotalPages#]" HorzAlign="Right" Font="Calibri, 10pt"/>
+      <TextObject Name="Text19" Left="0.45" Width="170.1" Height="28.35" Text="PNEUNORTE" Font="Calibri, 18pt, style=Bold"/>
+      <TextObject Name="Text20" Left="623.7" Width="94.5" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Calibri, 10pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="94.16" Width="718.2" Height="22.68" RepeatOnEveryPage="true" Condition="[queryPG.description]" KeepTogether="true">
+      <TextObject Name="Text4" Top="1.45" Width="718.2" Height="18.9" Fill.Color="WhiteSmoke" CanBreak="false" Text="[queryPG.description]" VertAlign="Bottom" Font="Calibri, 11pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="119.51" Width="718.2" Height="18.9" RepeatOnEveryPage="true" Condition="[queryPG.answer]">
+        <TextObject Name="Text1" Left="66.15" Top="-2" Width="652.05" Height="18.9" CanGrow="true" CanShrink="true" Text="[queryPG.answer]" AutoWidth="true" VertAlign="Bottom" Font="Calibri, 11pt"/>
+        <TextObject Name="Text11" Width="71.82" Height="18.9" Text="Resposta: " VertAlign="Bottom" Font="Calibri, 11pt, style=Bold"/>
+        <DataBand Name="Data1" Top="141.08" Width="718.2" Height="18.9" DataSource="Table">
+          <TextObject Name="Text6" Left="160.65" Width="56.7" Height="18.9" Text="[queryPG.id_client]" VertAlign="Bottom" Font="Calibri, 10pt"/>
+          <TextObject Name="Text7" Width="37.8" Height="18.9" Text="[queryPG.id_company]" VertAlign="Bottom" Font="Calibri, 10pt"/>
+          <TextObject Name="Text10" Left="37.8" Width="66.15" Height="18.9" Text="[queryPG.id_sale]" VertAlign="Bottom" Font="Calibri, 10pt"/>
+          <TextObject Name="Text15" Left="217.35" Width="75.6" Height="18.9" Text="[queryPG.created_at]" Format="Date" Format.Format="dd/MM/yyyy" VertAlign="Bottom" Font="Calibri, 10pt"/>
+          <TextObject Name="Text18" Left="292.95" Width="85.05" Height="18.9" Text="[[queryPG.status] == &quot;done&quot; ? &quot;CONCLUÍDO&quot; : &quot;PENDENTE&quot;]" HorzAlign="Center" VertAlign="Bottom" Font="Calibri, 10pt"/>
+          <TextObject Name="Text24" Left="103.95" Width="56.7" Height="18.9" Text="[[queryPG.pos_sale] == &quot;order&quot; ? &quot;SERVIÇO&quot; : &quot;VENDA&quot;]" VertAlign="Bottom" Font="Calibri, 10pt"/>
+          <TextObject Name="Text26" Left="378" Width="340.2" Height="18.9" Text="[queryPG.observation]" VertAlign="Bottom" Font="Calibri, 10pt"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="162.64" Width="718.2" Height="9.45"/>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="174.76" Width="718.2"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="177.43" Width="718.2" Height="37.8">
+      <LineObject Name="Line1" Top="9.45" Width="718.2"/>
+      <TextObject Name="Text27" Left="557.55" Top="9.45" Width="160.65" Height="18.9" Text="CRM PNEUNORTE" HorzAlign="Right" VertAlign="Center" Font="Cambria, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
