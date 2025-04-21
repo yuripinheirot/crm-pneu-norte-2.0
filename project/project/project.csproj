@@ -167,6 +167,8 @@
     <Compile Include="business\usecases\doblist\Doblist.business.cs" />
     <Compile Include="business\usecases\questions\Questions.business.cs" />
     <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="data\usecases\answers\createAnswer.cs" />
+    <Compile Include="data\usecases\answers\getAnswersNotResolved.cs" />
     <Compile Include="data\usecases\doblist\Doblist.data.cs" />
     <Compile Include="data\utils\DateTime.utils.cs" />
     <Compile Include="domain\interfaces\entities\IAnswer.entity.cs" />
@@ -227,6 +229,7 @@
     <Compile Include="presentation\errors\Error.form.Designer.cs">
       <DependentUpon>Error.form.cs</DependentUpon>
     </Compile>
+    <Compile Include="data\usecases\answers\getAnswerDetailsDataView.usecase.cs" />
     <Compile Include="presentation\forms\crmNotResolved\CrmDetails.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,7 +242,7 @@
     <Compile Include="presentation\forms\crmNotResolved\CrmNotResolved.form.Designer.cs">
       <DependentUpon>CrmNotResolved.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="presentation\forms\crmNotResolved\CrmNotResolved.functions.cs" />
+    <Compile Include="presentation\forms\crmNotResolved\useCases\CrmNotResolved.functions.cs" />
     <Compile Include="presentation\forms\crmPending\CrmPending.form.cs">
       <SubType>Form</SubType>
     </Compile>

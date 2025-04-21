@@ -1,6 +1,8 @@
 ﻿using project.domain.model.entities;
+using project.main.factories.business;
 using project.presentation.errors;
 using project.presentation.errors.exceptions;
+using project.data.usecases.answers;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
@@ -10,8 +12,10 @@ namespace project.presentation.forms.crmNotResolved
 {
     public partial class CrmDetails : Form
     {
-        CrmNotResolvedFunctions functions = new CrmNotResolvedFunctions();
-        AnswerDetails currentAnswer;
+        CreateAnswer createAnswer = new CreateAnswer();
+        GetAnswerDetailsDataView getAnswerDetailsDataView = new GetAnswerDetailsDataView();
+        readonly AnswerDetails currentAnswer;
+
         bool admin = Properties.Settings.Default.ADMIN;
         string idAnswer;
 
@@ -37,7 +41,7 @@ namespace project.presentation.forms.crmNotResolved
         public CrmDetails(string idAnswer)
         {
             InitializeComponent();
-            currentAnswer = functions.getAnswerDetailsDataView(idAnswer);
+            currentAnswer = getAnswerDetailsDataView.execute(idAnswer);
             this.idAnswer = idAnswer;
         }
 
@@ -68,7 +72,7 @@ namespace project.presentation.forms.crmNotResolved
                     resolution = tbxResolution.Text
                 };
 
-                functions.putAnswer(answer);
+                createAnswer.execute(answer);
                 Close();
             }
             catch (Exception err)

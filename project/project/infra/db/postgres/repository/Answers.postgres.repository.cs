@@ -113,47 +113,7 @@ namespace project.infra.db.postgres.repository
             return result.ToList();
         }
 
-        public virtual List<AnswerNotResolvedDataView> getAnswersNotResolved()
-        {
-            var query =
-                from answer in pg.answers
-                join question in pg.questions on answer.idQuestion equals question.id
-                where answer.status == "pending"
-                select new AnswerNotResolvedDataView()
-                {
-                    idAnswer = answer.id,
-                    idCompany = answer.idCompany,
-                    idSale = answer.idSale,
-                    idClient = answer.idClient,
-                    answer = answer.answer,
-                    descriptionQuestion = question.description,
-                    observation = answer.observation,
-                    resolution = answer.resolution,
-                };
 
-            return query.ToList();
-        }
 
-        public virtual void putAnswer(AnswerModel answerUpdated)
-        {
-            var answer = pg.answers.Where(a => a.id == answerUpdated.id).First();
-
-            if (answer == null)
-            {
-                throw new Exception("Answer not found");
-            }
-
-            if (answerUpdated.idQuestion != null) answer.idQuestion = answerUpdated.idQuestion;
-            if (answerUpdated.idSale != null) answer.idSale = answerUpdated.idSale;
-            if (answerUpdated.idClient != null) answer.idClient = answerUpdated.idClient;
-            if (answerUpdated.status != null) answer.status = answerUpdated.status;
-            if (answerUpdated.answer != null) answer.answer = answerUpdated.answer;
-            if (answerUpdated.observation != null) answer.observation = answerUpdated.observation;
-            if (answerUpdated.resolution != null) answer.resolution = answerUpdated.resolution;
-            if (answerUpdated.idCompany != null) answer.idCompany = answerUpdated.idCompany;
-            if (answerUpdated.createdAt.Ticks > 0) answer.createdAt = answerUpdated.createdAt;
-
-            pg.SaveChanges();
-        }
     }
 }

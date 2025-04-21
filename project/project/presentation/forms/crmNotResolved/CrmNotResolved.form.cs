@@ -1,4 +1,7 @@
-﻿using project.presentation.errors;
+﻿using project.data.usecases.answers;
+using project.main.factories.business;
+using project.presentation.errors;
+using project.presentation.utils;
 using System;
 using System.Windows.Forms;
 
@@ -6,22 +9,31 @@ namespace project.presentation.forms.crmNotResolved
 {
     public partial class CrmNotResolved : Form
     {
-        CrmNotResolvedFunctions functions = new CrmNotResolvedFunctions();
+        GetAnswersNotResolved getAnswersNotResolved = new GetAnswersNotResolved();
+
         public CrmNotResolved()
         {
             InitializeComponent();
         }
 
-        private void CrmNotResolved_Load(object sender, EventArgs e)
+        private void LoadCrmNotResolved()
         {
             try
             {
-                functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
+                var answersNotResolved = getAnswersNotResolved.execute();
+                var dataSource = GridUtils.ToDataTable(answersNotResolved);
+
+                dgvNotResolved.DataSource = dataSource;
             }
             catch (Exception err)
             {
                 ThrowCustomException.Throw(err);
             }
+        }
+
+        private void CrmNotResolved_Load(object sender, EventArgs e)
+        {
+            LoadCrmNotResolved();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -42,14 +54,7 @@ namespace project.presentation.forms.crmNotResolved
 
         private void CrmNotResolved_Activated(object sender, EventArgs e)
         {
-            try
-            {
-                functions.loadAnswersNotResolvedOnDataGrid(dgvNotResolved);
-            }
-            catch (Exception err)
-            {
-                ThrowCustomException.Throw(err);
-            }
+            LoadCrmNotResolved();
         }
     }
 }

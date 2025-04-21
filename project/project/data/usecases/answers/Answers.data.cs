@@ -64,11 +64,6 @@ namespace project.data.usecases.answers
             return answersRepository.getAnswersNotResolved();
         }
 
-        public virtual void putAnswer(AnswerModel answer)
-        {
-            answer.updatedAt = DateTime.Now;
-            if (!string.IsNullOrWhiteSpace(answer.status)) answer.status = TextUtils.translateStatusAnswerData(answer.status);
-            answersRepository.putAnswer(answer);
-        }
+
     }
 }
