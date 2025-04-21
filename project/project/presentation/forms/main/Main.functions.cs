@@ -1,20 +1,29 @@
 ﻿using project.domain.model.entities;
-using project.main.factories.business;
 using project.presentation.protocols;
 using project.presentation.utils;
-using project.main.factories.validations;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using project.data.usecases.questions;
+using project.data.usecases.answers;
+using project.validations.crm;
+using project.data.usecases.sales;
 
 namespace project.presentation.forms.main
 {
     internal class MainFunctions
     {
+        static GetQuestions getQuestionsData = new GetQuestions();
+        static GetSale getSaleData = new GetSale();
+        static AddAnswerDto addAnswerDto = new AddAnswerDto();
+        static AnswerAlreadyExists answerAlreadyExists = new AnswerAlreadyExists();
+        static VerifyEmptyAnswersValidation verifyEmptyAnswersValidation = new VerifyEmptyAnswersValidation();
+
         Dictionary<string, string> observationsAnswers = new Dictionary<string, string>();
+
         private List<PostAnswerDTO> getAnswersFromForm(MainForm mainForm)
         {
             List<PostAnswerDTO> answersList = new List<PostAnswerDTO>();
@@ -52,7 +61,7 @@ namespace project.presentation.forms.main
         private List<QuestionModel> getQuestions(string module)
         {
             module = TextUtils.translatePosSaleData(module);
-            return QuestionsFactory.handle.getQuestions().Where(p => p.posSale == module).ToList();
+            return getQuestionsData.execute().Where(p => p.posSale == module).ToList();
         }
 
         private void addBlankAnswerOnQuestion(QuestionModel question)
@@ -65,7 +74,7 @@ namespace project.presentation.forms.main
 
         public SaleModel getSale(string idCompany, string idSale)
         {
-            return SalesFactory.handle.getSale(idCompany, idSale);
+            return getSaleData.execute(idCompany, idSale);
         }
 
         Button observationButton(string idQuestion)
@@ -126,15 +135,15 @@ namespace project.presentation.forms.main
         public void saveCrm(MainForm mainForm)
         {
             var answers = getAnswersFromForm(mainForm);
-            VerifyEmptyAnswersValidationFactory.handle.validate(answers);
-            AnswersFactory.handle.addAnswersDTO(answers);
+            verifyEmptyAnswersValidation.execute(answers);
+            addAnswerDto.execute(answers);
 
             observationsAnswers.Clear();
         }
 
         public bool crmAlreadyExists(string idCompany, string idSale)
         {
-            return AnswersFactory.handle.postAnswerAlreadyExists(idCompany, idSale);
+            return answerAlreadyExists.execute(idCompany, idSale);
         }
 
     }

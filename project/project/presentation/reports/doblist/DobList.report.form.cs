@@ -11,13 +11,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using project.business.usecases.client;
-using project.main.factories.business;
+using project.data.usecases.client;
 
 namespace project.presentation.reports.doblist
 {
     public partial class DobListReportForm : Form
     {
+        GetClientsByDob getClientsByDob = new GetClientsByDob();
+
         public DobListReportForm()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace project.presentation.reports.doblist
                 var dti = tbxDti.Value.ToString("yyyy-MM-dd");
                 var dtf = tbxDtf.Value.ToString("yyyy-MM-dd");
 
-                var clients = ClientFactory.handle.getClientsByDob(dti, dtf);
+                var clients = getClientsByDob.execute(dti, dtf);
 
                 DataTable dt = new DataTable();
                 dt.TableName = "MainReport";

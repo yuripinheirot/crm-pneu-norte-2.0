@@ -1,46 +1,20 @@
-﻿using Npgsql;
-using project.domain.interfaces.Struct;
-using project.domain.model.entities;
-using project.infra.db.firebird.config;
+﻿using project.domain.model.entities;
 using project.infra.db.postgres.config;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace project.infra.db.postgres.repository
+namespace project.data.usecases.doblist
 {
-    public class DobListRepository : IDobListRepository
+    internal class CreateDob
     {
-        readonly PgDbContext pg;
-        public DobListRepository(PgDbContext postgres)
-        {
-            pg = postgres;
-        }
+        PgDbContext pg = new PgDbContext(Properties.Settings.Default.postgresConnectionString);
 
-        public List<DobListModel> getDobs(string dob, int year)
+        private void insertDob(DobListModel doblistModel)
         {
-            return
-                pg.doblist
-                .Where((doblist) => doblist.year == year && doblist.dob == dob)
-                .Select(n => new DobListModel()
-                {
-                    createdAt = n.createdAt,
-                    dob = n.dob,
-                    year = n.year,
-                    done = n.done,
-                    id = n.id,
-                    idClient = n.idClient,
-                    observations = n.observations,
-                    updatedAt = n.updatedAt
-                })
-                .ToList();
-        }
-
-        public void insertDob(DobListModel doblistModel)
-        {
-            // TODO: move this for DATA layer
             var existingItem = pg.doblist.FirstOrDefault(d =>
             d.dob == doblistModel.dob &&
             d.year == doblistModel.year &&
@@ -70,6 +44,23 @@ namespace project.infra.db.postgres.repository
             }
 
             pg.SaveChanges();
+        }
+
+        public void execute(DobListDTO dto)
+        {
+            var dobListItem = new DobListModel()
+            {
+                id = Guid.NewGuid().ToString(),
+                year = DateTime.Now.Year,
+                done = dto.done,
+                dob = dto.dob.Trim(),
+                idClient = dto.idClient,
+                observations = dto.observations,
+                createdAt = DateTime.Now,
+                updatedAt = DateTime.Now
+            };
+
+            insertDob(dobListItem);
         }
     }
 }

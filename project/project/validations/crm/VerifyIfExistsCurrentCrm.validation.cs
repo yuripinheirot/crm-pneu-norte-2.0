@@ -11,18 +11,20 @@ using System.Threading.Tasks;
 namespace project.validations.crm
 {
     public delegate void clearScreen();
+
     public class VerifyIfExistsCurrentCrmValidation
     {
-        AnswersData answersData;
-        public VerifyIfExistsCurrentCrmValidation(AnswersData answersData)
+        GetAnswers getAnswers;
+
+        public VerifyIfExistsCurrentCrmValidation(GetAnswers getAnswers)
         {
-            this.answersData = answersData;
+            this.getAnswers = getAnswers;
         }
 
 
         public void validate(AnswersFilters filters, clearScreen clear)
         {
-            var crm = answersData.getAnswers(filters);
+            var crm = getAnswers.execute(filters);
 
             if (crm.Count > 0)
             {

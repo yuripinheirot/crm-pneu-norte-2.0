@@ -1,4 +1,5 @@
-﻿using project.presentation.errors;
+﻿using project.data.usecases.doblist;
+using project.presentation.errors;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace project.presentation.forms.dobList
     {
         DobListDetailsProps props;
         DobListForm form;
+        CreateDob createDob = new CreateDob();
 
         public DobListDetails(DobListDetailsProps props, DobListForm form)
         {
@@ -24,9 +26,6 @@ namespace project.presentation.forms.dobList
             this.form = form;
         }
 
-        private void dtpDob_ValueChanged(object sender, EventArgs e)
-        {
-        }
 
         private void DobList_Load(object sender, EventArgs e)
         {
@@ -36,10 +35,6 @@ namespace project.presentation.forms.dobList
             tbxObservations.Text = props.observations;
         }
 
-        private void dgvClients_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
@@ -58,7 +53,7 @@ namespace project.presentation.forms.dobList
 
             try
             {
-                DobListFunctions.saveDob(dto);
+                createDob.execute(dto);
                 MessageBox.Show("Alterações salvas com sucesso!", "Info!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 form.loadGrid();
                 Close();
@@ -78,4 +73,5 @@ namespace project.presentation.forms.dobList
         public bool done { get; set; }
         public string observations { get; set; }
     }
+
 }

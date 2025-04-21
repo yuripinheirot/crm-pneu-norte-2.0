@@ -1,5 +1,7 @@
-﻿using project.presentation.errors;
+﻿using project.data.usecases.client;
+using project.presentation.errors;
 using project.presentation.forms.searchSale;
+using project.presentation.utils;
 using System;
 using System.Windows.Forms;
 
@@ -8,17 +10,44 @@ namespace project.presentation.forms.searchClient
     public partial class SearchClientForm : Form
     {
         SearchSaleForm searchSaleForm;
-        SearchClientFunctions functions = new SearchClientFunctions();
+        GetClients getClients = new GetClients();
+
+        string convertClientSearchBy(string searchBy)
+        {
+            switch (searchBy)
+            {
+                case "RAZÃO":
+                    return "name";
+                case "FANTASIA":
+                    return "nameFantasy";
+                case "CPF/CNPJ":
+                    return "cpfCnpj";
+                case "FONE":
+                    return "phone";
+                default:
+                    throw new Exception("Unexpected searchBy client");
+            }
+        }
+
+        public void renderClientsOnGrid(DataGridView dgv, string fieldFilter, string filterValue)
+        {
+            var clients = getClients.execute(convertClientSearchBy(fieldFilter), filterValue);
+            var dataSource = GridUtils.ToDataTable(clients);
+
+            dgv.DataSource = dataSource;
+        }
 
         void loadGrid()
         {
-            functions.renderClientsOnGrid(dgvClients, cbxSearchBy.Text, tbxValueFilter.Text);
+            renderClientsOnGrid(dgvClients, cbxSearchBy.Text, tbxValueFilter.Text);
         }
         public SearchClientForm(SearchSaleForm searchSaleForm)
         {
             InitializeComponent();
             this.searchSaleForm = searchSaleForm;
         }
+
+
 
         private void SearchClientForm_Load(object sender, EventArgs e)
         {

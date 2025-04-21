@@ -162,14 +162,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="business\usecases\answers\Answers.business.cs" />
-    <Compile Include="business\usecases\client\Client.business.cs" />
-    <Compile Include="business\usecases\doblist\Doblist.business.cs" />
-    <Compile Include="business\usecases\questions\Questions.business.cs" />
-    <Compile Include="business\usecases\sales\Sales.business.cs" />
+    <Compile Include="data\usecases\answers\addAnswerDto.cs" />
+    <Compile Include="data\usecases\answers\answerAlreadyExists.cs" />
     <Compile Include="data\usecases\answers\createAnswer.cs" />
+    <Compile Include="data\usecases\answers\getAnswer.cs" />
     <Compile Include="data\usecases\answers\getAnswersNotResolved.cs" />
-    <Compile Include="data\usecases\doblist\Doblist.data.cs" />
+    <Compile Include="data\usecases\client\getClient.cs" />
+    <Compile Include="data\usecases\client\getClientsByDob.cs" />
+    <Compile Include="data\usecases\client\getClients.cs" />
+    <Compile Include="data\usecases\client\getClientsAndSalesByAnswerAndQuestion.cs" />
+    <Compile Include="data\usecases\doblist\createDob.cs" />
+    <Compile Include="data\usecases\doblist\getDobList.cs" />
+    <Compile Include="data\usecases\questions\getQuestion.cs" />
+    <Compile Include="data\usecases\questions\getQuestions.cs" />
+    <Compile Include="data\usecases\sales\getSale.cs" />
+    <Compile Include="data\usecases\sales\getSales.cs" />
+    <Compile Include="data\usecases\sales\SaleQueryConstant.cs" />
     <Compile Include="data\utils\DateTime.utils.cs" />
     <Compile Include="domain\interfaces\entities\IAnswer.entity.cs" />
     <Compile Include="domain\interfaces\entities\IDobList.entity.cs" />
@@ -206,30 +214,22 @@
     <Compile Include="domain\interfaces\usecases\IPutAnswer.usecase.cs" />
     <Compile Include="domain\model\entities\DobList.model.cs" />
     <Compile Include="infra\db\firebird\config\DbContext.cs" />
-    <Compile Include="infra\db\firebird\repository\Client.firebird.repository.cs" />
-    <Compile Include="infra\db\firebird\repository\Sales.firebird.repository.cs" />
     <Compile Include="infra\db\firebird\tables\TRECPFISICA.cs" />
     <Compile Include="infra\db\firebird\tables\TRECCLIENTEGERAL.cs" />
     <Compile Include="infra\db\firebird\tables\TVENVENDEDOR.cs" />
     <Compile Include="infra\db\firebird\tables\TVENPEDIDO.cs" />
     <Compile Include="infra\db\postgres\config\DbContext.cs" />
-    <Compile Include="infra\db\postgres\repository\DobList.postgres.repository.cs" />
-    <Compile Include="infra\db\postgres\repository\Questions.postgres.repository.cs" />
-    <Compile Include="infra\db\postgres\repository\Answers.postgres.repository.cs" />
     <Compile Include="infra\db\postgres\tables\DobList.cs" />
     <Compile Include="infra\db\postgres\tables\Questions.cs" />
     <Compile Include="infra\db\postgres\tables\Answers.cs" />
     <Compile Include="infra\db\postgres\utils\ArrayListStringConverter.cs" />
-    <Compile Include="main\factories\business\DobList.factory.cs" />
-    <Compile Include="main\factories\validations\VerifyEmptyAnswersValidation.factory.cs" />
-    <Compile Include="main\factories\validations\VerifyIfExistsCurrentCrmValidation.factory.cs" />
     <Compile Include="presentation\errors\Error.form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="presentation\errors\Error.form.Designer.cs">
       <DependentUpon>Error.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="data\usecases\answers\getAnswerDetailsDataView.usecase.cs" />
+    <Compile Include="data\usecases\answers\getAnswerDetailsDataView.cs" />
     <Compile Include="presentation\forms\crmNotResolved\CrmDetails.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,7 +242,6 @@
     <Compile Include="presentation\forms\crmNotResolved\CrmNotResolved.form.Designer.cs">
       <DependentUpon>CrmNotResolved.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="presentation\forms\crmNotResolved\useCases\CrmNotResolved.functions.cs" />
     <Compile Include="presentation\forms\crmPending\CrmPending.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,7 +260,6 @@
     <Compile Include="presentation\forms\dobList\DobList.form.Designer.cs">
       <DependentUpon>DobList.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="presentation\forms\dobList\DobList.functions.cs" />
     <Compile Include="presentation\forms\main\ObservationAnswer.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,10 +292,6 @@
     </Compile>
     <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
     <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
-    <Compile Include="data\usecases\answers\Answers.data.cs" />
-    <Compile Include="data\usecases\client\Client.data.cs" />
-    <Compile Include="data\usecases\questions\Questions.data.cs" />
-    <Compile Include="data\usecases\sales\Sales.data.cs" />
     <Compile Include="domain\model\entities\Client.model.cs" />
     <Compile Include="domain\model\entities\Question.model.cs" />
     <Compile Include="domain\model\entities\Sale.model.cs" />
@@ -305,10 +299,6 @@
     <Compile Include="domain\interfaces\usecases\IGetClient.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IGetQuestion.usecase.cs" />
     <Compile Include="domain\interfaces\usecases\IGetSale.usecase.cs" />
-    <Compile Include="main\factories\business\Clients.factory.cs" />
-    <Compile Include="main\factories\business\Sales.factory.cs" />
-    <Compile Include="main\factories\business\Answers.factory.cs" />
-    <Compile Include="main\factories\business\Questions.factory.cs" />
     <Compile Include="presentation\errors\exceptions\PresentationException.cs" />
     <Compile Include="presentation\errors\ThrowCustomException.cs" />
     <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.cs">
@@ -317,15 +307,12 @@
     <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.Designer.cs">
       <DependentUpon>QuestionnaireAnalysis.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.functions.cs" />
     <Compile Include="presentation\forms\searchClient\SearchClient.form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="presentation\forms\searchClient\SearchClient.form.Designer.cs">
       <DependentUpon>SearchClient.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="presentation\forms\searchClient\SearchClient.functions.cs" />
-    <Compile Include="presentation\forms\searchSale\SearchSales.functions.cs" />
     <Compile Include="presentation\protocols\AnalysisByQuestion.dataview.cs" />
     <Compile Include="presentation\protocols\Answers.filters.cs" />
     <Compile Include="presentation\protocols\PostAnswer.dto.cs" />
@@ -361,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\crmNotResolved\CrmNotResolved.form.resx">
       <DependentUpon>CrmNotResolved.form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="presentation\forms\crmPending\CrmPending.form.resx">
+      <DependentUpon>CrmPending.form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="presentation\forms\dobList\DobListDetails.form.resx">
       <DependentUpon>DobListDetails.form.cs</DependentUpon>

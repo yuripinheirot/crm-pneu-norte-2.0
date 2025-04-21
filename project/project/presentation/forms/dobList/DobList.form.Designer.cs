@@ -88,7 +88,6 @@
             this.dgvClients.Size = new System.Drawing.Size(621, 294);
             this.dgvClients.StandardTab = true;
             this.dgvClients.TabIndex = 3;
-            this.dgvClients.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvClients_KeyDown);
             // 
             // id
             // 

@@ -1,17 +1,60 @@
-﻿using project.presentation.errors;
+﻿using project.data.usecases.client;
+using project.data.usecases.sales;
+using project.domain.model.entities;
+using project.presentation.errors;
 using project.presentation.forms.main;
 using project.presentation.forms.searchClient;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace project.presentation.forms.searchSale
 {
     public partial class SearchSaleForm : Form
     {
-        SearchSalesFunctions functions = new SearchSalesFunctions();
+        static GetSales getSales = new GetSales();
+        static GetClient getClients = new GetClient();
         MainForm mainForm;
+
+
+        private void convertNamePosSale(DataTable sales)
+        {
+            foreach (DataRow row in sales.Rows)
+            {
+                if (row["posSale"].ToString().Trim() == "order")
+                {
+                    row["posSale"] = "SERVIÇOS";
+                }
+                else if (row["posSale"].ToString().Trim() == "sale")
+                {
+                    row["posSale"] = "VENDAS";
+                }
+            }
+        }
+        public void renderSalesOnGrid(DataGridView grid, SalesFilters filters)
+        {
+            var sales = getSales.execute(filters);
+            var dataSource = GridUtils.ToDataTable(sales);
+            convertNamePosSale(dataSource);
+
+            if (!string.IsNullOrWhiteSpace(filters.posSale))
+            {
+                dataSource.DefaultView.RowFilter = $"posSale = '{TextUtils.translatePosSalePresentation(filters.posSale)}'";
+            }
+            else
+            {
+                dataSource.DefaultView.RowFilter = null;
+            }
+
+            grid.DataSource = dataSource;
+        }
+
+        public ClientModel getClient(string id)
+        {
+            return new GetClient().execute(id);
+        }
         void loadGrid()
         {
             try
@@ -25,7 +68,7 @@ namespace project.presentation.forms.searchSale
                     posSale = cbxTypeCrm.Text
                 };
 
-                functions.renderSalesOnGrid(dgvSales, filters);
+                renderSalesOnGrid(dgvSales, filters);
                 lblNumberSales.Text = "Pedidos encontrados: " + dgvSales.RowCount;
             }
             catch (Exception error)
@@ -109,7 +152,7 @@ namespace project.presentation.forms.searchSale
                 };
 
                 formatClientId();
-                var client = functions.getClient(tbxClientId.Text);
+                var client = getClient(tbxClientId.Text);
 
                 if (client == null)
                 {

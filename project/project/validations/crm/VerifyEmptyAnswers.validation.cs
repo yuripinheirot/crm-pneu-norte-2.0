@@ -11,7 +11,7 @@ namespace project.validations.crm
 {
     public class VerifyEmptyAnswersValidation 
     {
-        public void validate(List<PostAnswerDTO> answers)
+        public void execute(List<PostAnswerDTO> answers)
         {
             foreach (PostAnswerDTO answer in answers)
             {

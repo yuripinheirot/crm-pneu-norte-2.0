@@ -1,5 +1,5 @@
-﻿using project.domain.model.entities;
-using project.main.factories.validations;
+﻿using project.data.usecases.answers;
+using project.domain.model.entities;
 using project.presentation.errors;
 using project.presentation.forms.crmNotResolved;
 using project.presentation.forms.dobList;
@@ -10,6 +10,7 @@ using project.presentation.reports.doblist;
 using project.presentation.reports.questionnaireAnalysis;
 using project.presentation.reports.questionnaireAnalysisGraphic;
 using project.presentation.utils;
+using project.validations.crm;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,6 +21,8 @@ namespace project.presentation.forms.main
     {
         readonly MainFunctions functions = new MainFunctions();
         readonly string defaultCompany = Properties.Settings.Default.defaultCompany;
+        
+        VerifyIfExistsCurrentCrmValidation verifyIfExistsCurrentCrmValidation = new VerifyIfExistsCurrentCrmValidation(new GetAnswers());
 
         public MainForm()
         {
@@ -140,7 +143,7 @@ namespace project.presentation.forms.main
                 }
 
                 var filters = new AnswersFilters() { idCompany = TbxIdCompany.Text, idSale = TbxIdSale.Text };
-                VerifyIfExistsCurrentCrmValidationFactory.handle.validate(filters, clearScreen);
+                verifyIfExistsCurrentCrmValidation.validate(filters, clearScreen);
 
                 LoadInfoSalesOnFields(sale);
                 functions.renderQuestions(flpQuestions, tbxPosSale.Text);

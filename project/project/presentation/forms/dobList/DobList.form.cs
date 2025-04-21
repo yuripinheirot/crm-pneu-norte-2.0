@@ -1,4 +1,7 @@
-﻿using project.domain.model.entities;
+﻿using project.data.usecases.client;
+using project.data.usecases.doblist;
+using project.domain.model.entities;
+using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +16,9 @@ namespace project.presentation.forms.dobList
 {
     public partial class DobListForm : Form
     {
+        static GetClients getClients = new GetClients();
+        static GetDobList getDobList = new GetDobList();
+
         void openDobDetails()
         {
 
@@ -36,13 +42,22 @@ namespace project.presentation.forms.dobList
             return dtpDob.Value.ToString("dd/MM");
         }
 
+        public void renderClientsOnGrid(DataGridView dgv, string filterValue)
+        {
+            var clients = getClients.execute("dob", filterValue);
+            var dataSource = GridUtils.ToDataTable(clients);
+
+            dgv.DataSource = dataSource;
+        }
+
         public void loadGrid()
         {
             string dob = $"{dtpDob.Value.Day}/{dtpDob.Value.Month}";
             int currentYear = DateTime.Now.Year;
 
-            DobListFunctions.renderClientsOnGrid(dgvClients, getDob());
-            var doblist = DobListFunctions.getDoblist(dob, currentYear);
+            renderClientsOnGrid(dgvClients, getDob());
+
+            var doblist = getDobList.execute(dob, currentYear);
 
             var doblistDict = doblist.ToDictionary(dobModel => dobModel.idClient, dobModel => dobModel);
 
@@ -72,13 +87,6 @@ namespace project.presentation.forms.dobList
         private void DobList_Load(object sender, EventArgs e)
         {
             loadGrid();
-        }
-
-        private void dgvClients_KeyDown(object sender, KeyEventArgs e)
-        {
-
-
-
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
