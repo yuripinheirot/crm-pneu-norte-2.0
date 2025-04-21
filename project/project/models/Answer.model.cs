@@ -1,9 +1,8 @@
-﻿using project.domain.interfaces.entities;
-using System;
+﻿using System;
 
-namespace project.domain.model.entities
+namespace project.models
 {
-    public class AnswerModel : IAnswerEntity
+    public class AnswerModel
     {
         public string id { get; set; }
         public string idQuestion { get; set; }

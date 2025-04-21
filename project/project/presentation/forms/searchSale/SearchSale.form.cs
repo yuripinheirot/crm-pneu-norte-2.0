@@ -1,6 +1,6 @@
 ﻿using project.data.usecases.client;
 using project.data.usecases.sales;
-using project.domain.model.entities;
+using project.models;
 using project.presentation.errors;
 using project.presentation.forms.main;
 using project.presentation.forms.searchClient;

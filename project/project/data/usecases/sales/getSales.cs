@@ -1,7 +1,6 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
-using project.domain.interfaces.Struct;
-using project.domain.model.entities;
 using project.infra.db.firebird.config;
+using project.models;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;

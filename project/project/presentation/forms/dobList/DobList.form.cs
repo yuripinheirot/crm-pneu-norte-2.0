@@ -1,6 +1,6 @@
 ﻿using project.data.usecases.client;
 using project.data.usecases.doblist;
-using project.domain.model.entities;
+using project.models;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;

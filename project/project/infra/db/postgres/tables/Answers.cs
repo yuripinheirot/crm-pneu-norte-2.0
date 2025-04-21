@@ -1,5 +1,4 @@
-﻿using project.domain.interfaces.entities;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -9,7 +8,7 @@ namespace project.infra.db.postgres.config
     public partial class PgDbContext
     {
         [Table("crm.answers")]
-        public class Answers : IAnswerEntity
+        public class Answers 
         {
             [Key, Column(Order = 0)]
             public string id { get; set; }

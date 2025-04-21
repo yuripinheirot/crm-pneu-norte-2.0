@@ -1,5 +1,4 @@
-﻿using project.domain.model.entities;
-using project.presentation.protocols;
+﻿using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ using project.data.usecases.questions;
 using project.data.usecases.answers;
 using project.validations.crm;
 using project.data.usecases.sales;
+using project.models;
 
 namespace project.presentation.forms.main
 {

@@ -1,5 +1,5 @@
-﻿using project.domain.model.entities;
-using project.infra.db.firebird.config;
+﻿using project.infra.db.firebird.config;
+using project.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

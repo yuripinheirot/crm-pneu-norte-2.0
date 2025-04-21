@@ -1,13 +1,12 @@
-﻿using project.domain.interfaces.entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project.domain.model.entities
+namespace project.models
 {
-    public class DobListModel : IDobListEntity
+    public class DobListModel 
     {
         public string id { get; set; }
         public string idClient { get; set; }

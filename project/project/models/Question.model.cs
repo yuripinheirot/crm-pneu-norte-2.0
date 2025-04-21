@@ -1,9 +1,8 @@
-﻿using project.domain.interfaces.entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace project.domain.model.entities
+namespace project.models
 {
-    public class QuestionModel : IQuestionEntity
+    public class QuestionModel 
     {
         public string id { get; set; }
         public string description { get; set; }

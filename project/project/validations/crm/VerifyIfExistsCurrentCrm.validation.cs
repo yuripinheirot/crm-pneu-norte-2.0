@@ -1,5 +1,5 @@
 ﻿using project.data.usecases.answers;
-using project.domain.interfaces.Struct;
+using project.models;
 using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 using System;

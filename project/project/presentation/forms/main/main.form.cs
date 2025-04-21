@@ -1,5 +1,5 @@
 ﻿using project.data.usecases.answers;
-using project.domain.model.entities;
+using project.models;
 using project.presentation.errors;
 using project.presentation.forms.crmNotResolved;
 using project.presentation.forms.dobList;

@@ -1,10 +1,9 @@
-﻿using project.domain.interfaces.entities;
-using System;
+﻿using System;
 using System.Reflection;
 
-namespace project.domain.model.entities
+namespace project.models
 {
-    public class ClientModel : IClientEntity
+    public class ClientModel 
     {
         public string id { get; set; }
         public string name { get; set; }

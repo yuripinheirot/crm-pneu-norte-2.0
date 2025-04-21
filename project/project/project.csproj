@@ -179,40 +179,7 @@
     <Compile Include="data\usecases\sales\getSales.cs" />
     <Compile Include="data\usecases\sales\SaleQueryConstant.cs" />
     <Compile Include="data\utils\DateTime.utils.cs" />
-    <Compile Include="domain\interfaces\entities\IAnswer.entity.cs" />
-    <Compile Include="domain\interfaces\entities\IDobList.entity.cs" />
-    <Compile Include="domain\interfaces\struct\IAnswers.business.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IAnswers.data.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IAnswers.repository.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IClient.repository.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IClient.data.struct.cs" />
-    <Compile Include="domain\interfaces\entities\IClient.entity.cs" />
-    <Compile Include="domain\interfaces\struct\IDobList.data.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IDobList.repository.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IQuestions.repository.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IQuestions.data.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IQuestions.business.struct.cs" />
-    <Compile Include="domain\interfaces\entities\ISale.entity.cs" />
-    <Compile Include="domain\interfaces\entities\IQuestion.entity.cs" />
-    <Compile Include="domain\interfaces\struct\ISales.data.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IClient.business.struct.cs" />
-    <Compile Include="domain\interfaces\struct\IDobList.business.struct.cs" />
-    <Compile Include="domain\interfaces\struct\ISales.repository.struct.cs" />
-    <Compile Include="domain\interfaces\struct\ISales.business.struct.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetAnswers.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetAnswersNotResolved.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetAnswerDetails.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetClientsAndSalesByAnswerAndQuestion.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetClients.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetQuestions.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetSales.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IPostAnswersRepository.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IPostAnswerAlreadyExists.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetDobs.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IPostDobRepository.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IPostDob.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IPutAnswer.usecase.cs" />
-    <Compile Include="domain\model\entities\DobList.model.cs" />
+    <Compile Include="models\DobList.model.cs" />
     <Compile Include="infra\db\firebird\config\DbContext.cs" />
     <Compile Include="infra\db\firebird\tables\TRECPFISICA.cs" />
     <Compile Include="infra\db\firebird\tables\TRECCLIENTEGERAL.cs" />
@@ -292,13 +259,9 @@
     </Compile>
     <Compile Include="validations\crm\VerifyEmptyAnswers.validation.cs" />
     <Compile Include="validations\crm\VerifyIfExistsCurrentCrm.validation.cs" />
-    <Compile Include="domain\model\entities\Client.model.cs" />
-    <Compile Include="domain\model\entities\Question.model.cs" />
-    <Compile Include="domain\model\entities\Sale.model.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetAnswerDataView.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetClient.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetQuestion.usecase.cs" />
-    <Compile Include="domain\interfaces\usecases\IGetSale.usecase.cs" />
+    <Compile Include="models\Client.model.cs" />
+    <Compile Include="models\Question.model.cs" />
+    <Compile Include="models\Sale.model.cs" />
     <Compile Include="presentation\errors\exceptions\PresentationException.cs" />
     <Compile Include="presentation\errors\ThrowCustomException.cs" />
     <Compile Include="presentation\forms\questionnaireAnalysis\QuestionnaireAnalysis.form.cs">
@@ -329,7 +292,7 @@
     <Compile Include="presentation\forms\main\Main.form.Designer.cs">
       <DependentUpon>Main.form.cs</DependentUpon>
     </Compile>
-    <Compile Include="domain\model\entities\Answer.model.cs" />
+    <Compile Include="models\Answer.model.cs" />
     <Compile Include="presentation\forms\main\Main.functions.cs" />
     <Compile Include="presentation\forms\searchSale\SearchSale.form.cs">
       <SubType>Form</SubType>
@@ -393,7 +356,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="domain\interfaces\usecases\IPostAnswers.usecase.cs" />
     <None Include="packages.config" />
     <None Include="presentation\reports\doblist\dobList.report.frx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

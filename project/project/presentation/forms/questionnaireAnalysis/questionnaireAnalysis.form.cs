@@ -1,7 +1,7 @@
 ﻿using project.data.usecases.answers;
 using project.data.usecases.client;
 using project.data.usecases.questions;
-using project.domain.model.entities;
+using project.models;
 using project.presentation.errors;
 using project.presentation.protocols;
 using project.presentation.utils;

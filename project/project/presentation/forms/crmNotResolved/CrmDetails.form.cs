@@ -1,11 +1,11 @@
-﻿using project.domain.model.entities;
-using project.presentation.errors;
+﻿using project.presentation.errors;
 using project.presentation.errors.exceptions;
 using project.data.usecases.answers;
 using project.presentation.protocols;
 using project.presentation.utils;
 using System;
 using System.Windows.Forms;
+using project.models;
 
 namespace project.presentation.forms.crmNotResolved
 {

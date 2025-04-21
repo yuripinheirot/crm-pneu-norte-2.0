@@ -1,8 +1,7 @@
 ﻿using Npgsql;
 using project.data.utils;
-using project.domain.interfaces.Struct;
-using project.domain.model.entities;
 using project.infra.db.postgres.config;
+using project.models;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;

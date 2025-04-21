@@ -1,5 +1,4 @@
-﻿using project.domain.model;
-using project.presentation.errors.exceptions;
+﻿using project.presentation.errors.exceptions;
 using project.presentation.protocols;
 using System;
 using System.Collections.Generic;

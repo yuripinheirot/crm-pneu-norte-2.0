@@ -1,9 +1,8 @@
-﻿using project.domain.interfaces.entities;
-using System;
+﻿using System;
 
-namespace project.domain.model.entities
+namespace project.models
 {
-    public class SaleModel : ISaleEntity
+    public class SaleModel
     {
         public string id { get; set; }
         public string idCompany { get; set; }

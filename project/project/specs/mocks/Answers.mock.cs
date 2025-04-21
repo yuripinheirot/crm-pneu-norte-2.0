@@ -1,4 +1,4 @@
-﻿using project.domain.model.entities;
+﻿using project.models;
 using System;
 using System.Collections.Generic;
 
