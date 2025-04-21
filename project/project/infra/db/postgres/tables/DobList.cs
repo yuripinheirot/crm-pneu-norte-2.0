@@ -25,7 +25,7 @@ namespace project.infra.db.postgres.config
             public bool done { get; set; }
 
             public int year { get; set; }
-            
+
             [Column(name: "updated_at")]
             public DateTime updatedAt { get; set; }
 

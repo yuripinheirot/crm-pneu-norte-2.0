@@ -5,6 +5,7 @@ using project.presentation.protocols;
 using System;
 using System.Collections.Generic;
 using project.infra.db.firebird.repository;
+using project.infra.db.postgres.repository;
 
 namespace project.data.usecases.client
 {
@@ -25,6 +26,11 @@ namespace project.data.usecases.client
         public virtual List<ClientModel> getClients(string fieldFilter = null, string valueFilter = null)
         {
             return clientRepository.getClients(fieldFilter, valueFilter);
+        }
+
+        public List<DobListReport> getClientsByDob(string startDate, string endDate)
+        {
+            return clientRepository.getClientsByDob(startDate, endDate);
         }
 
         public virtual List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)

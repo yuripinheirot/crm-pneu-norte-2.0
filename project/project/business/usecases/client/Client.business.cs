@@ -9,6 +9,7 @@ namespace project.business.usecases.client
     public class ClientBusiness : IClientBusiness
     {
         ClientData clientData;
+
         public ClientBusiness(ClientData clientData)
         {
             this.clientData = clientData;
@@ -27,6 +28,11 @@ namespace project.business.usecases.client
         public List<AnalysisByQuestionDateView> getClientsAndSalesByAnswerAndQuestion(AnswersFilters filters)
         {
             return clientData.getClientsAndSalesByAnswerAndQuestion(filters);
+        }
+
+        public List<DobListReport> getClientsByDob(string startDate, string endDate)
+        {
+            return clientData.getClientsByDob(startDate, endDate);
         }
     }
 }

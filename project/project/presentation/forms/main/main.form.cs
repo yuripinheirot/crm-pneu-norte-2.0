@@ -6,6 +6,7 @@ using project.presentation.forms.dobList;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
 using project.presentation.protocols;
+using project.presentation.reports.doblist;
 using project.presentation.reports.questionnaireAnalysis;
 using project.presentation.reports.questionnaireAnalysisGraphic;
 using project.presentation.utils;
@@ -205,6 +206,18 @@ namespace project.presentation.forms.main
             try
             {
                 new DobListForm().ShowDialog();
+            }
+            catch (Exception err)
+            {
+                ThrowCustomException.Throw(err);
+            }
+        }
+
+        private void listaDeAniversariantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new DobListReportForm().ShowDialog();
             }
             catch (Exception err)
             {

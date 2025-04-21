@@ -41,15 +41,15 @@ namespace project.presentation.forms.main
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pesquisasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crmNotResolvedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cRMsNãoFeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.análiseDeQuestionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aniversariantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analiseDeRespostasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.análiseDeQuestionáriográficoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeAniversariantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TbxIdCompany = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.flpQuestions = new System.Windows.Forms.FlowLayoutPanel();
-            this.aniversariantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -156,7 +156,6 @@ namespace project.presentation.forms.main
             // 
             this.pesquisasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crmNotResolvedToolStripMenuItem,
-            this.cRMsNãoFeitosToolStripMenuItem,
             this.análiseDeQuestionárioToolStripMenuItem,
             this.aniversariantesToolStripMenuItem});
             this.pesquisasToolStripMenuItem.Name = "pesquisasToolStripMenuItem";
@@ -170,12 +169,6 @@ namespace project.presentation.forms.main
             this.crmNotResolvedToolStripMenuItem.Text = "Questionários não resolvidos";
             this.crmNotResolvedToolStripMenuItem.Click += new System.EventHandler(this.crmNotResolvedToolStripMenuItem_Click);
             // 
-            // cRMsNãoFeitosToolStripMenuItem
-            // 
-            this.cRMsNãoFeitosToolStripMenuItem.Name = "cRMsNãoFeitosToolStripMenuItem";
-            this.cRMsNãoFeitosToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.cRMsNãoFeitosToolStripMenuItem.Text = "CRM\'s pendentes";
-            // 
             // análiseDeQuestionárioToolStripMenuItem
             // 
             this.análiseDeQuestionárioToolStripMenuItem.Name = "análiseDeQuestionárioToolStripMenuItem";
@@ -183,11 +176,19 @@ namespace project.presentation.forms.main
             this.análiseDeQuestionárioToolStripMenuItem.Text = "Análise de questionário";
             this.análiseDeQuestionárioToolStripMenuItem.Click += new System.EventHandler(this.analiseDeQuestionarioToolStripMenuItem_Click);
             // 
+            // aniversariantesToolStripMenuItem
+            // 
+            this.aniversariantesToolStripMenuItem.Name = "aniversariantesToolStripMenuItem";
+            this.aniversariantesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.aniversariantesToolStripMenuItem.Text = "Aniversariantes";
+            this.aniversariantesToolStripMenuItem.Click += new System.EventHandler(this.aniversariantesToolStripMenuItem_Click);
+            // 
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.analiseDeRespostasToolStripMenuItem,
-            this.análiseDeQuestionáriográficoToolStripMenuItem});
+            this.análiseDeQuestionáriográficoToolStripMenuItem,
+            this.listaDeAniversariantesToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
@@ -205,6 +206,13 @@ namespace project.presentation.forms.main
             this.análiseDeQuestionáriográficoToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.análiseDeQuestionáriográficoToolStripMenuItem.Text = "Análise de questionário (gráfico)";
             this.análiseDeQuestionáriográficoToolStripMenuItem.Click += new System.EventHandler(this.análiseDeQuestionáriográficoToolStripMenuItem_Click);
+            // 
+            // listaDeAniversariantesToolStripMenuItem
+            // 
+            this.listaDeAniversariantesToolStripMenuItem.Name = "listaDeAniversariantesToolStripMenuItem";
+            this.listaDeAniversariantesToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.listaDeAniversariantesToolStripMenuItem.Text = "Lista de aniversariantes";
+            this.listaDeAniversariantesToolStripMenuItem.Click += new System.EventHandler(this.listaDeAniversariantesToolStripMenuItem_Click);
             // 
             // TbxIdCompany
             // 
@@ -234,13 +242,6 @@ namespace project.presentation.forms.main
             this.flpQuestions.Name = "flpQuestions";
             this.flpQuestions.Size = new System.Drawing.Size(813, 427);
             this.flpQuestions.TabIndex = 4;
-            // 
-            // aniversariantesToolStripMenuItem
-            // 
-            this.aniversariantesToolStripMenuItem.Name = "aniversariantesToolStripMenuItem";
-            this.aniversariantesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.aniversariantesToolStripMenuItem.Text = "Aniversariantes";
-            this.aniversariantesToolStripMenuItem.Click += new System.EventHandler(this.aniversariantesToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -290,7 +291,6 @@ namespace project.presentation.forms.main
         public System.Windows.Forms.TextBox TbxIdSale;
         public System.Windows.Forms.TextBox TbxClientName;
         public System.Windows.Forms.TextBox tbxPosSale;
-        private System.Windows.Forms.ToolStripMenuItem cRMsNãoFeitosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem analiseDeRespostasToolStripMenuItem;
         public System.Windows.Forms.TextBox TbxIdCompany;
@@ -299,6 +299,7 @@ namespace project.presentation.forms.main
         private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionárioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionáriográficoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aniversariantesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDeAniversariantesToolStripMenuItem;
     }
 }
 

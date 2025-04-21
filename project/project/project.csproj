@@ -70,9 +70,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lua\Lua\bin\Debug\FastReport.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="FastReport.Service">
-      <HintPath>..\..\..\lua\Lua\bin\Debug\FastReport.Service.dll</HintPath>
-    </Reference>
     <Reference Include="FastReport.VSDesign, Version=1.0.0.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\lua\Lua\bin\Debug\FastReport.VSDesign.dll</HintPath>
@@ -268,9 +265,18 @@
     <Compile Include="presentation\forms\main\ObservationAnswer.form.Designer.cs">
       <DependentUpon>ObservationAnswer.form.cs</DependentUpon>
     </Compile>
+    <Compile Include="presentation\protocols\DobListReport.dataview.cs" />
     <Compile Include="presentation\protocols\AnswerDetails.dataview.cs" />
     <Compile Include="presentation\protocols\AnswerNotResolved.dataview.cs" />
     <Compile Include="presentation\protocols\DobListDTO.dto.cs" />
+    <Compile Include="presentation\reports\doblist\DobList.report.form.cs">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="presentation\reports\doblist\DobList.report.form.Designer.cs">
+      <DependentUpon>DobList.report.form.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="presentation\reports\questionnaireAnalysisGraphic\QuestionnaireAnalysisGraphic.report.form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,10 @@
     <EmbeddedResource Include="presentation\forms\searchSale\SearchSale.form.resx">
       <DependentUpon>SearchSale.form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="presentation\reports\doblist\DobList.report.form.resx">
+      <DependentUpon>DobList.report.form.cs</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="presentation\reports\questionnaireAnalysisGraphic\QuestionnaireAnalysisGraphic.report.form.resx">
       <DependentUpon>QuestionnaireAnalysisGraphic.report.form.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +402,9 @@
     </Compile>
     <Compile Include="domain\interfaces\usecases\IPostAnswers.usecase.cs" />
     <None Include="packages.config" />
+    <None Include="presentation\reports\doblist\dobList.report.frx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="presentation\reports\questionnaireAnalysisGraphic\questionnaireAnalysisGraphic.report.frx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
