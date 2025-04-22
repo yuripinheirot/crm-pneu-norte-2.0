@@ -1,5 +1,9 @@
 version: '3'
 
+volumes:
+  postgres_data:
+    driver: local
+
 services:
   crm: &db
     container_name: database-crm
@@ -7,6 +11,7 @@ services:
     restart: always
     volumes:
       - ./initdb:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - '5432:5432'
     environment:
