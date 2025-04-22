@@ -27,7 +27,7 @@ namespace project.presentation.forms.questionnaireAnalysis
         {
             cbx.Items.Clear();
             cbx.DisplayMember = "description";
-            var questions = getQuestions.execute().Where(q => q.posSale == posSale);
+            var questions = getQuestions.execute();
 
             foreach (QuestionModel question in questions)
             {

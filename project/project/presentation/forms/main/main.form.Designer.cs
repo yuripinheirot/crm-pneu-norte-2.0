@@ -211,7 +211,7 @@ namespace project.presentation.forms.main
             // 
             this.listaDeAniversariantesToolStripMenuItem.Name = "listaDeAniversariantesToolStripMenuItem";
             this.listaDeAniversariantesToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.listaDeAniversariantesToolStripMenuItem.Text = "Lista de aniversariantes";
+            this.listaDeAniversariantesToolStripMenuItem.Text = "CRM\'s feitos por aniversariantes";
             this.listaDeAniversariantesToolStripMenuItem.Click += new System.EventHandler(this.listaDeAniversariantesToolStripMenuItem_Click);
             // 
             // TbxIdCompany
