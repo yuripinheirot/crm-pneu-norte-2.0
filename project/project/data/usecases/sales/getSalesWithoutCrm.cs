@@ -1,6 +1,7 @@
 ﻿using project.data.usecases.answers;
 using project.models;
 using project.presentation.protocols;
+using project.presentation.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,12 @@ namespace project.data.usecases.sales
                 var hasCrm = answers.Any(a => a.idSale == sale.id);
                 if (!hasCrm)
                 {
-                    salesWithoutCrm.Add(sale);
+                    salesWithoutCrm.Add(
+                        new SaleModel(sale)
+                        {
+                            posSale = TextUtils.translatePosSalePresentation(sale.posSale),
+                        }
+                        );
                 }
             }
 

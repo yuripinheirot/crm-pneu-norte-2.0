@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dgvCrmsPendentes = new System.Windows.Forms.DataGridView();
@@ -42,6 +43,8 @@
             this.POSVENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DATAPEDIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VALORLIQUIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientCpfCnpj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seller = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -74,6 +77,7 @@
             this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "&Inserir";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dgvCrmsPendentes
             // 
@@ -84,14 +88,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCrmsPendentes.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCrmsPendentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCrmsPendentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCrmsPendentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCrmsPendentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EMPRESA,
@@ -99,28 +103,30 @@
             this.CLIENTE,
             this.POSVENDA,
             this.DATAPEDIDO,
-            this.VALORLIQUIDO});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCrmsPendentes.DefaultCellStyle = dataGridViewCellStyle14;
+            this.VALORLIQUIDO,
+            this.clientCpfCnpj,
+            this.seller});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCrmsPendentes.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCrmsPendentes.Location = new System.Drawing.Point(13, 88);
             this.dgvCrmsPendentes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCrmsPendentes.MultiSelect = false;
             this.dgvCrmsPendentes.Name = "dgvCrmsPendentes";
             this.dgvCrmsPendentes.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCrmsPendentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCrmsPendentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCrmsPendentes.RowHeadersWidth = 24;
             this.dgvCrmsPendentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCrmsPendentes.Size = new System.Drawing.Size(907, 343);
@@ -129,7 +135,7 @@
             // 
             // EMPRESA
             // 
-            this.EMPRESA.DataPropertyName = "EMPRESA";
+            this.EMPRESA.DataPropertyName = "idCompany";
             this.EMPRESA.HeaderText = "EMPRESA";
             this.EMPRESA.Name = "EMPRESA";
             this.EMPRESA.ReadOnly = true;
@@ -137,7 +143,7 @@
             // 
             // PEDIDO
             // 
-            this.PEDIDO.DataPropertyName = "PEDIDO";
+            this.PEDIDO.DataPropertyName = "id";
             this.PEDIDO.HeaderText = "PEDIDO";
             this.PEDIDO.Name = "PEDIDO";
             this.PEDIDO.ReadOnly = true;
@@ -145,9 +151,9 @@
             // 
             // CLIENTE
             // 
-            this.CLIENTE.DataPropertyName = "CLIENTE";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.CLIENTE.DefaultCellStyle = dataGridViewCellStyle12;
+            this.CLIENTE.DataPropertyName = "client";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.CLIENTE.DefaultCellStyle = dataGridViewCellStyle2;
             this.CLIENTE.HeaderText = "CLIENTE";
             this.CLIENTE.Name = "CLIENTE";
             this.CLIENTE.ReadOnly = true;
@@ -155,7 +161,7 @@
             // 
             // POSVENDA
             // 
-            this.POSVENDA.DataPropertyName = "POSVENDA";
+            this.POSVENDA.DataPropertyName = "posSale";
             this.POSVENDA.HeaderText = "PÓS VENDA";
             this.POSVENDA.Name = "POSVENDA";
             this.POSVENDA.ReadOnly = true;
@@ -163,19 +169,39 @@
             // 
             // DATAPEDIDO
             // 
-            this.DATAPEDIDO.DataPropertyName = "DATAPEDIDO";
+            this.DATAPEDIDO.DataPropertyName = "dateSale";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.DATAPEDIDO.DefaultCellStyle = dataGridViewCellStyle3;
             this.DATAPEDIDO.HeaderText = "DATA PED.";
             this.DATAPEDIDO.Name = "DATAPEDIDO";
             this.DATAPEDIDO.ReadOnly = true;
             // 
             // VALORLIQUIDO
             // 
-            this.VALORLIQUIDO.DataPropertyName = "VALORLIQUIDO";
-            dataGridViewCellStyle13.Format = "N2";
-            this.VALORLIQUIDO.DefaultCellStyle = dataGridViewCellStyle13;
+            this.VALORLIQUIDO.DataPropertyName = "liquidValue";
+            dataGridViewCellStyle4.Format = "N2";
+            this.VALORLIQUIDO.DefaultCellStyle = dataGridViewCellStyle4;
             this.VALORLIQUIDO.HeaderText = "VALOR LIQ.";
             this.VALORLIQUIDO.Name = "VALORLIQUIDO";
             this.VALORLIQUIDO.ReadOnly = true;
+            // 
+            // clientCpfCnpj
+            // 
+            this.clientCpfCnpj.DataPropertyName = "clientCpfCnpj";
+            this.clientCpfCnpj.HeaderText = "clientCpfCnpj";
+            this.clientCpfCnpj.Name = "clientCpfCnpj";
+            this.clientCpfCnpj.ReadOnly = true;
+            this.clientCpfCnpj.Visible = false;
+            this.clientCpfCnpj.Width = 5;
+            // 
+            // seller
+            // 
+            this.seller.DataPropertyName = "seller";
+            this.seller.HeaderText = "seller";
+            this.seller.Name = "seller";
+            this.seller.ReadOnly = true;
+            this.seller.Visible = false;
             // 
             // label3
             // 
@@ -301,13 +327,15 @@
         private System.Windows.Forms.Label lblCrmsPendentes;
         private System.Windows.Forms.DateTimePicker tbxDti;
         private System.Windows.Forms.DateTimePicker tbxDtf;
+        public System.Windows.Forms.TextBox tbxIdCompany;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn EMPRESA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PEDIDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLIENTE;
         private System.Windows.Forms.DataGridViewTextBoxColumn POSVENDA;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATAPEDIDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn VALORLIQUIDO;
-        public System.Windows.Forms.TextBox tbxIdCompany;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clientCpfCnpj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seller;
     }
 }

@@ -113,7 +113,7 @@ namespace project.presentation.forms.main
             tbx.Text = tbx.Text.PadLeft(length, '0');
         }
 
-        private void TbxIdSale_Leave(object sender, EventArgs e)
+        public void TbxIdSale_Leave(object sender, EventArgs e)
         {
             try
             {
@@ -231,7 +231,7 @@ namespace project.presentation.forms.main
 
         private void cRMsPendentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new CrmPending().ShowDialog();
+            new CrmPending(this).ShowDialog();
         }
     }
 }
