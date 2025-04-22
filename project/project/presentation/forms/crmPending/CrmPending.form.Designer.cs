@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dgvCrmsPendentes = new System.Windows.Forms.DataGridView();
@@ -48,6 +48,8 @@
             this.lblCrmsPendentes = new System.Windows.Forms.Label();
             this.tbxDti = new System.Windows.Forms.DateTimePicker();
             this.tbxDtf = new System.Windows.Forms.DateTimePicker();
+            this.tbxIdCompany = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCrmsPendentes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,9 +60,10 @@
             this.btnSair.Location = new System.Drawing.Point(837, 450);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(83, 30);
-            this.btnSair.TabIndex = 5;
+            this.btnSair.TabIndex = 6;
             this.btnSair.Text = "Sai&r";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnSalvar
             // 
@@ -68,7 +71,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(748, 450);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(83, 30);
-            this.btnSalvar.TabIndex = 4;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "&Inserir";
             this.btnSalvar.UseVisualStyleBackColor = true;
             // 
@@ -81,14 +84,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCrmsPendentes.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCrmsPendentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCrmsPendentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCrmsPendentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCrmsPendentes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EMPRESA,
@@ -97,32 +100,32 @@
             this.POSVENDA,
             this.DATAPEDIDO,
             this.VALORLIQUIDO});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCrmsPendentes.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCrmsPendentes.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCrmsPendentes.Location = new System.Drawing.Point(13, 88);
             this.dgvCrmsPendentes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCrmsPendentes.MultiSelect = false;
             this.dgvCrmsPendentes.Name = "dgvCrmsPendentes";
             this.dgvCrmsPendentes.ReadOnly = true;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCrmsPendentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCrmsPendentes.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvCrmsPendentes.RowHeadersWidth = 24;
             this.dgvCrmsPendentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCrmsPendentes.Size = new System.Drawing.Size(907, 343);
             this.dgvCrmsPendentes.StandardTab = true;
-            this.dgvCrmsPendentes.TabIndex = 3;
+            this.dgvCrmsPendentes.TabIndex = 4;
             // 
             // EMPRESA
             // 
@@ -143,8 +146,8 @@
             // CLIENTE
             // 
             this.CLIENTE.DataPropertyName = "CLIENTE";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.CLIENTE.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.CLIENTE.DefaultCellStyle = dataGridViewCellStyle12;
             this.CLIENTE.HeaderText = "CLIENTE";
             this.CLIENTE.Name = "CLIENTE";
             this.CLIENTE.ReadOnly = true;
@@ -168,8 +171,8 @@
             // VALORLIQUIDO
             // 
             this.VALORLIQUIDO.DataPropertyName = "VALORLIQUIDO";
-            dataGridViewCellStyle8.Format = "N2";
-            this.VALORLIQUIDO.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle13.Format = "N2";
+            this.VALORLIQUIDO.DefaultCellStyle = dataGridViewCellStyle13;
             this.VALORLIQUIDO.HeaderText = "VALOR LIQ.";
             this.VALORLIQUIDO.Name = "VALORLIQUIDO";
             this.VALORLIQUIDO.ReadOnly = true;
@@ -198,12 +201,13 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(260, 26);
+            this.btnSearch.Location = new System.Drawing.Point(395, 24);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(89, 28);
-            this.btnSearch.TabIndex = 2;
+            this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "&Pesquisar";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblCrmsPendentes
             // 
@@ -233,6 +237,27 @@
             this.tbxDtf.Size = new System.Drawing.Size(118, 26);
             this.tbxDtf.TabIndex = 1;
             // 
+            // tbxIdCompany
+            // 
+            this.tbxIdCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxIdCompany.Location = new System.Drawing.Point(260, 26);
+            this.tbxIdCompany.MaxLength = 2;
+            this.tbxIdCompany.Name = "tbxIdCompany";
+            this.tbxIdCompany.Size = new System.Drawing.Size(129, 26);
+            this.tbxIdCompany.TabIndex = 2;
+            this.tbxIdCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbxIdCompany.Leave += new System.EventHandler(this.tbxIdCompany_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(256, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(73, 20);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Empresa";
+            // 
             // CrmPending
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +265,8 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.CancelButton = this.btnSair;
             this.ClientSize = new System.Drawing.Size(933, 492);
+            this.Controls.Add(this.tbxIdCompany);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.tbxDtf);
             this.Controls.Add(this.tbxDti);
             this.Controls.Add(this.lblCrmsPendentes);
@@ -280,5 +307,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn POSVENDA;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATAPEDIDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn VALORLIQUIDO;
+        public System.Windows.Forms.TextBox tbxIdCompany;
+        private System.Windows.Forms.Label label7;
     }
 }

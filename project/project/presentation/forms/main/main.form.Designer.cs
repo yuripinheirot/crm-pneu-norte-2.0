@@ -50,6 +50,7 @@ namespace project.presentation.forms.main
             this.TbxIdCompany = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.flpQuestions = new System.Windows.Forms.FlowLayoutPanel();
+            this.cRMsPendentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +158,8 @@ namespace project.presentation.forms.main
             this.pesquisasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.crmNotResolvedToolStripMenuItem,
             this.análiseDeQuestionárioToolStripMenuItem,
-            this.aniversariantesToolStripMenuItem});
+            this.aniversariantesToolStripMenuItem,
+            this.cRMsPendentesToolStripMenuItem});
             this.pesquisasToolStripMenuItem.Name = "pesquisasToolStripMenuItem";
             this.pesquisasToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.pesquisasToolStripMenuItem.Text = "Pesquisas";
@@ -243,6 +245,13 @@ namespace project.presentation.forms.main
             this.flpQuestions.Size = new System.Drawing.Size(813, 427);
             this.flpQuestions.TabIndex = 4;
             // 
+            // cRMsPendentesToolStripMenuItem
+            // 
+            this.cRMsPendentesToolStripMenuItem.Name = "cRMsPendentesToolStripMenuItem";
+            this.cRMsPendentesToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.cRMsPendentesToolStripMenuItem.Text = "CRM\'s pendentes";
+            this.cRMsPendentesToolStripMenuItem.Click += new System.EventHandler(this.cRMsPendentesToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +309,7 @@ namespace project.presentation.forms.main
         private System.Windows.Forms.ToolStripMenuItem análiseDeQuestionáriográficoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aniversariantesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeAniversariantesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cRMsPendentesToolStripMenuItem;
     }
 }
 

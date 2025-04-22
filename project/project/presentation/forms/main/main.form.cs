@@ -2,6 +2,7 @@
 using project.models;
 using project.presentation.errors;
 using project.presentation.forms.crmNotResolved;
+using project.presentation.forms.crmPending;
 using project.presentation.forms.dobList;
 using project.presentation.forms.questionnaireAnalysis;
 using project.presentation.forms.searchSale;
@@ -226,6 +227,11 @@ namespace project.presentation.forms.main
             {
                 ThrowCustomException.Throw(err);
             }
+        }
+
+        private void cRMsPendentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new CrmPending().ShowDialog();
         }
     }
 }

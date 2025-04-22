@@ -18,24 +18,31 @@ namespace project.data.usecases.answers
 
         private string buildQuery(AnswersFilters filters)
         {
-            string _query = $"select * from crm.answers a " +
-            $"where " +
-            $"a.id_company = '{filters.idCompany}'";
+            var conditions = new List<string>();
+
+            if (!string.IsNullOrEmpty(filters.idCompany))
+                conditions.Add($"a.id_company = '{filters.idCompany}'");
 
             if (filters.initialDate != null && filters.finalDate != null)
-            {
-                _query += $"and a.created_at between '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' and '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}' ";
-            }
-            if (!string.IsNullOrEmpty(filters.idQuestion)) _query += $" and a.id_Question = '{filters.idQuestion}'";
-            if (!string.IsNullOrEmpty(filters.idSale)) _query += $" and a.id_Sale = '{filters.idSale}'";
+                conditions.Add($"a.created_at BETWEEN '{filters.initialDate.Value:yyyy-MM-dd HH:mm:ss}' AND '{filters.finalDate.Value:yyyy-MM-dd HH:mm:ss}'");
 
-            return _query;
+            if (!string.IsNullOrEmpty(filters.idQuestion))
+                conditions.Add($"a.id_Question = '{filters.idQuestion}'");
+
+            if (!string.IsNullOrEmpty(filters.idSale))
+                conditions.Add($"a.id_Sale = '{filters.idSale}'");
+
+            string whereClause = conditions.Count > 0 ? "WHERE " + string.Join(" AND ", conditions) : "";
+
+            string query = $"SELECT * FROM crm.answers a {whereClause}";
+
+            return query;
         }
 
         private List<AnswerModel> getAnswers(AnswersFilters filters)
         {
-
-            var command = new NpgsqlCommand(buildQuery(filters), pg.Database.Connection as NpgsqlConnection);
+            var query = buildQuery(filters);
+            var command = new NpgsqlCommand(query, pg.Database.Connection as NpgsqlConnection);
 
             NpgsqlDataAdapter adapter = new NpgsqlDataAdapter();
             DataTable table = new DataTable();

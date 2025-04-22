@@ -14,29 +14,35 @@ namespace project.data.usecases.sales
 {
     internal class GetSales
     {
+        string buildMoreConditionalWhere(SalesFilters filters)
+        {
+            string _query = "";
+
+            if (!string.IsNullOrWhiteSpace(filters.idClient))
+            {
+                _query += $" and ped.cliente = '{filters.idClient}'";
+            };
+            if(!string.IsNullOrEmpty(filters.idCompany))
+            {
+                _query += $"and ped.empresa = '{filters.idCompany}' ";
+            }
+
+            return _query;
+        }
+
         private List<SaleModel> getSales(SalesFilters filters)
         {
             using (var db = new FbDbContext())
             {
-                string buildMoreConditionalWhere()
-                {
-                    string _query = "";
-                    if (!string.IsNullOrWhiteSpace(filters.idClient))
-                    {
-                        _query += $" and ped.cliente = '{filters.idClient}'";
-                    };
 
-                    return _query;
-                };
 
                 var whereClause =
                     $"                                                                                             " +
                     $"where                                                                                        " +
                     $"ped.dataefe between '{filters.initialDate:dd.MM.yyyy}' and '{filters.finalDate:dd.MM.yyyy}'  " +
-                    $"and ped.empresa = '{filters.idCompany}'                                                      " +
                     $"and ped.tipopedido <> 'O'                                                                    " +
                     $"and ped.dataefe is not null                                                                  " +
-                    $"{buildMoreConditionalWhere()}                                                                " +
+                    $"{buildMoreConditionalWhere(filters)}                                                         " +
                     $"order by                                                                                     " +
                     $"ped.codigo ASC                                                                               ";
 

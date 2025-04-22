@@ -165,7 +165,7 @@
     <Compile Include="data\usecases\answers\addAnswerDto.cs" />
     <Compile Include="data\usecases\answers\answerAlreadyExists.cs" />
     <Compile Include="data\usecases\answers\createAnswer.cs" />
-    <Compile Include="data\usecases\answers\getAnswer.cs" />
+    <Compile Include="data\usecases\answers\getAnswers.cs" />
     <Compile Include="data\usecases\answers\getAnswersNotResolved.cs" />
     <Compile Include="data\usecases\client\getClient.cs" />
     <Compile Include="data\usecases\client\getClientsByDob.cs" />
@@ -177,6 +177,7 @@
     <Compile Include="data\usecases\questions\getQuestions.cs" />
     <Compile Include="data\usecases\sales\getSale.cs" />
     <Compile Include="data\usecases\sales\getSales.cs" />
+    <Compile Include="data\usecases\sales\getSalesWithoutCrm.cs" />
     <Compile Include="data\usecases\sales\SaleQueryConstant.cs" />
     <Compile Include="data\utils\DateTime.utils.cs" />
     <Compile Include="models\DobList.model.cs" />
